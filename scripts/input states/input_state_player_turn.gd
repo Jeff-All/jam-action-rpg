@@ -13,7 +13,8 @@ func begin():
 		push_error("character is null")
 	if cur_character_ui == null:
 		push_error("character %s is not present in PCs" % character.name)
-	battle_board.pcs.get_character_ui(character).active = true
+	character.active = true
+	#battle_board.pcs.get_character_ui(character).active = true
 	battle_board.bind_actions(character.base_character.actions)
 
 func end():

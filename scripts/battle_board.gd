@@ -9,6 +9,7 @@ signal on_enemy_pressed(character: CharacterUI, row: int, index: int)
 signal on_enemy_hover(character: CharacterUI)
 signal on_enemy_leave(character: CharacterUI)
 signal on_action_pressed(action_button: ActionButton, index: int)
+signal on_start_pressed()
 
 @export var ecounter: Encounter
 var _pcs: Array[Character]
@@ -20,6 +21,7 @@ var pcs: CharacterRow
 var buttons: ButtonRow
 var mid_text: MidText
 var turn_order: TurnOrder
+var start: Button
 
 func _ready():
 	enemies = $VBoxContainer/Top/EncounterUI
@@ -27,6 +29,7 @@ func _ready():
 	buttons = $VBoxContainer/Bottom/ButtonRow
 	mid_text= $VBoxContainer/PanelContainer/MidText
 	turn_order = $VBoxContainer/Top/TurnOrder
+	start = $VBoxContainer/PanelContainer/Start
 	reset()
 
 func _on_pc_pressed(character: CharacterUI, index: int):
@@ -70,6 +73,7 @@ func reset():
 	pcs.reset()
 	buttons.clear()
 	mid_text.visible = false
+	start.visible = false
 
 func roll_initiative() -> TurnOrderCharacter:
 	_characters = []
@@ -86,3 +90,6 @@ func _on_turn_order_mouse_enter(turn_order_character: TurnOrderCharacter):
 
 func _on_turn_order_mouse_exit(turn_order_character: TurnOrderCharacter):
 	turn_order_character._character.turn_order_mouse_exit(turn_order_character)
+
+func _on_start_pressed():
+	on_start_pressed.emit()

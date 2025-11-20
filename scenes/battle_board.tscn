@@ -37,6 +37,11 @@ size_flags_vertical = 3
 [node name="MidText" parent="VBoxContainer/PanelContainer" instance=ExtResource("3_1t7ev")]
 layout_mode = 2
 
+[node name="Start" type="Button" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Start"
+
 [node name="Bottom" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
@@ -61,6 +66,7 @@ script = ExtResource("7_i27x3")
 [connection signal="on_enemy_hover" from="VBoxContainer/Top/EncounterUI" to="." method="_on_enemy_hover"]
 [connection signal="on_enemy_leave" from="VBoxContainer/Top/EncounterUI" to="." method="_on_enemy_leave"]
 [connection signal="on_enemy_pressed" from="VBoxContainer/Top/EncounterUI" to="." method="_on_enemy_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="on_character_hover" from="VBoxContainer/Bottom/PCs" to="." method="_on_pc_hover"]
 [connection signal="on_character_leave" from="VBoxContainer/Bottom/PCs" to="." method="_on_pc_leave"]
 [connection signal="on_character_ui_pressed" from="VBoxContainer/Bottom/PCs" to="." method="_on_pc_pressed"]

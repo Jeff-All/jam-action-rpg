@@ -16,6 +16,7 @@ var character: Character:
 		_character = value
 		if _character != null:
 			$MarginContainer/TextureRect.texture = _character.textures.small
+			_character.on_set_active.connect(_on_set_active)
 		else:
 			$MarginContainer/TextureRect.texture = null
 
@@ -51,3 +52,6 @@ func _on_mouse_exited():
 	else:
 		add_theme_stylebox_override("panel", default_color)
 	on_mouse_exit.emit(self)
+
+func _on_set_active(_c: Character, value: bool):
+	selected = value

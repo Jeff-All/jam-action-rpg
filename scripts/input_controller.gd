@@ -3,6 +3,7 @@ class_name InputController
 extends Node
 
 signal on_end_turn()
+signal on_start_pressed()
 
 var cur_state: InputState:
 	set(value):
@@ -64,3 +65,6 @@ func to_player_turn(character: Character):
 func to_enemy_turn(character: Character):
 	enemy_turn_input_state.character = character
 	cur_state = enemy_turn_input_state
+
+func _on_start_pressed():
+	on_start_pressed.emit()

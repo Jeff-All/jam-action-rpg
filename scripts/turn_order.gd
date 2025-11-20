@@ -25,13 +25,15 @@ func add_character(character: Character):
 	turn_order.push_back(cur_ui)
 	$HBoxContainer.move_child(cur_ui, $HBoxContainer.get_child_count() - 1)
 
+func cur_turn() -> Character:
+	return turn_order[0]._character
+
 func next_turn() -> Character:
 	var _first = turn_order.pop_front()
 	_first.selected = false
 	turn_order.push_back(_first)
 	$HBoxContainer.move_child(_first, $HBoxContainer.get_child_count() - 1)
 	var new_first = turn_order[0]
-	new_first.selected = true
 	return new_first._character
 
 func roll_initiative(characters: Array[Character]) -> TurnOrderCharacter:
@@ -51,7 +53,6 @@ func roll_initiative(characters: Array[Character]) -> TurnOrderCharacter:
 	for cur_tuple in initiative_rolls:
 		add_character(cur_tuple[0])
 	
-	turn_order[0].selected = true
 	return turn_order[0]
 
 func clear():

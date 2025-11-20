@@ -18,7 +18,9 @@ func start_turn(character: Character):
 func set_up(pcs: Array[BaseCharacter], encounter: Encounter):
 	$InputController/BattleBoard.set_pcs(pcs)
 	$InputController/BattleBoard.set_encounter(encounter)
-	var first = $InputController/BattleBoard.roll_initiative()
-	if first._character == null:
-		print("NULL!")
-	start_turn(first._character)
+	$InputController/BattleBoard.roll_initiative()
+	$InputController/BattleBoard/VBoxContainer/PanelContainer/Start.visible = true
+
+func _on_start_pressed():
+	$InputController/BattleBoard/VBoxContainer/PanelContainer/Start.visible = false
+	start_turn($InputController/BattleBoard/VBoxContainer/Top/TurnOrder.cur_turn())

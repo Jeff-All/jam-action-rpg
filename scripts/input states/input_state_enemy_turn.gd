@@ -16,6 +16,8 @@ func begin():
 	print("enemy_turn.begin")
 	battle_board.reset()
 	
+	character.active = true
+	
 	_timer.start()
 
 func end():
