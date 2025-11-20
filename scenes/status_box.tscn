@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlfdoyrt3lkqk"]
+
+[ext_resource type="Script" uid="uid://dt3ointgjg63w" path="res://scripts/status_box.gd" id="1_vjyqx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uchyk"]
+bg_color = Color(0.27022192, 0.27022192, 0.2702219, 1)
+
+[node name="StatusBox" type="PanelContainer"]
+custom_minimum_size = Vector2(35, 35)
+theme_override_styles/panel = SubResource("StyleBoxFlat_uchyk")
+script = ExtResource("1_vjyqx")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 1
+text = "30"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgu16vo8lp5rv"]
+
+[ext_resource type="Script" uid="uid://22ul5q31gg2l" path="res://scripts/test_turn_order.gd" id="1_froe4"]
+[ext_resource type="PackedScene" uid="uid://by20vf2n6f0lc" path="res://scenes/turn_order.tscn" id="2_4s2lm"]
+[ext_resource type="Resource" uid="uid://dkqr86nx8p1g8" path="res://base_characters/base_character_a.tres" id="2_smt2f"]
+[ext_resource type="Script" uid="uid://dhjt1uq1fdxqk" path="res://scripts/character_controller.gd" id="3_smt2f"]
+
+[node name="TestTurnOrder" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_froe4")
+character_a = ExtResource("2_smt2f")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="TurnOrder" parent="CenterContainer" instance=ExtResource("2_4s2lm")]
+layout_mode = 2
+
+[node name="CharacterController" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("3_smt2f")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Character A" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Character A"
+
+[node name="NextTurn" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Nexxt Turn"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Character A" to="." method="_on_character_a_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/NextTurn" to="." method="_on_next_turn_pressed"]

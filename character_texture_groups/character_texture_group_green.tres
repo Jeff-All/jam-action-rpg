@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CharacterTextureGroup" load_steps=4 format=3 uid="uid://bc0623d6ficf5"]
+
+[ext_resource type="Texture2D" uid="uid://opyhqojlgufq" path="res://art/characters/character_large_green.png" id="1_e47dn"]
+[ext_resource type="Script" uid="uid://cqe2ckls66hax" path="res://scripts/resources/character_texture_group.gd" id="1_n21r6"]
+[ext_resource type="Texture2D" uid="uid://bomq5nds1n4ng" path="res://art/characters/character_small_green.png" id="3_vfs2s"]
+
+[resource]
+script = ExtResource("1_n21r6")
+big = ExtResource("1_e47dn")
+small = ExtResource("3_vfs2s")
+metadata/_custom_type_script = "uid://cqe2ckls66hax"

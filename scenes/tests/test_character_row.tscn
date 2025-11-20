@@ -1,0 +1,128 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvfnc4u50yx8h"]
+
+[ext_resource type="PackedScene" uid="uid://bjkx8xp44kj1" path="res://scenes/character_row.tscn" id="1_8wuly"]
+[ext_resource type="Script" uid="uid://dcj7x31dk2nta" path="res://scripts/tests/test_character_row.gd" id="1_am4cq"]
+[ext_resource type="Script" uid="uid://2cik4khk1jg" path="res://scripts/resources/character.gd" id="2_pvynq"]
+
+[sub_resource type="Resource" id="Resource_pvynq"]
+script = ExtResource("2_pvynq")
+name = "Character A"
+metadata/_custom_type_script = "uid://2cik4khk1jg"
+
+[sub_resource type="Resource" id="Resource_f2wx6"]
+script = ExtResource("2_pvynq")
+name = "Character B"
+cur_armor = 1
+cur_health = 1
+cur_stamina = 1
+cur_mana = 1
+metadata/_custom_type_script = "uid://2cik4khk1jg"
+
+[sub_resource type="Resource" id="Resource_t3lp5"]
+script = ExtResource("2_pvynq")
+name = "Character C"
+cur_armor = 2
+cur_health = 2
+cur_stamina = 2
+cur_mana = 2
+metadata/_custom_type_script = "uid://2cik4khk1jg"
+
+[sub_resource type="Resource" id="Resource_fpvg7"]
+script = ExtResource("2_pvynq")
+name = "Character D"
+cur_armor = 3
+cur_health = 3
+cur_stamina = 3
+cur_mana = 3
+metadata/_custom_type_script = "uid://2cik4khk1jg"
+
+[sub_resource type="Resource" id="Resource_getf1"]
+script = ExtResource("2_pvynq")
+name = "Character E"
+cur_armor = 4
+cur_health = 4
+cur_stamina = 4
+cur_mana = 4
+metadata/_custom_type_script = "uid://2cik4khk1jg"
+
+[node name="TestCharacterRow" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_am4cq")
+character_a = SubResource("Resource_pvynq")
+character_b = SubResource("Resource_f2wx6")
+character_c = SubResource("Resource_t3lp5")
+character_d = SubResource("Resource_fpvg7")
+character_e = SubResource("Resource_getf1")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="Character Row" parent="CenterContainer" instance=ExtResource("1_8wuly")]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Index" type="OptionButton" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+selected = 0
+item_count = 5
+popup/item_0/text = "0"
+popup/item_0/id = 0
+popup/item_1/text = "1"
+popup/item_1/id = 1
+popup/item_2/text = "2"
+popup/item_2/id = 2
+popup/item_3/text = "3"
+popup/item_3/id = 3
+popup/item_4/text = "4"
+popup/item_4/id = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Add Character A" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Character A
+"
+
+[node name="Add Character B" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Character B
+"
+
+[node name="Add Character C" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Character C
+"
+
+[node name="Add Character D" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Character D
+"
+
+[node name="Add Character E" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Character E
+"
+
+[node name="Output" type="RichTextLabel" parent="."]
+layout_mode = 2
+mouse_filter = 2
+
+[connection signal="on_character_ui_pressed" from="CenterContainer/Character Row" to="." method="_on_character_row_on_character_ui_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Add Character A" to="." method="_on_add_character_a_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Add Character B" to="." method="_on_add_character_b_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Add Character C" to="." method="_on_add_character_c_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Add Character D" to="." method="_on_add_character_d_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Add Character E" to="." method="_on_add_character_e_pressed"]

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="AlliesTargeting" load_steps=2 format=3 uid="uid://83vx50hj6mda"]
+
+[ext_resource type="Script" uid="uid://cinbdeflxbhm0" path="res://scripts/resources/actions/targeting/targeting_allies.gd" id="1_3c4if"]
+
+[resource]
+script = ExtResource("1_3c4if")
+metadata/_custom_type_script = "uid://cinbdeflxbhm0"

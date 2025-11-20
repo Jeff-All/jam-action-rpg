@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dydflwao15d13"]
+
+[ext_resource type="Script" uid="uid://dlmx8snvcyb2h" path="res://scripts/encounter_UI.gd" id="1_eu4s7"]
+[ext_resource type="PackedScene" uid="uid://bjkx8xp44kj1" path="res://scenes/character_row.tscn" id="1_lp88p"]
+
+[node name="EncounterUI" type="VBoxContainer"]
+script = ExtResource("1_eu4s7")
+
+[node name="Top Row" parent="." instance=ExtResource("1_lp88p")]
+layout_mode = 2
+
+[node name="Bottom Row" parent="." instance=ExtResource("1_lp88p")]
+layout_mode = 2
+
+[connection signal="on_character_hover" from="Top Row" to="." method="_on_character_hover"]
+[connection signal="on_character_leave" from="Top Row" to="." method="_on_character_leave"]
+[connection signal="on_character_ui_pressed" from="Top Row" to="." method="_on_character_ui_pressed"]
+[connection signal="on_character_hover" from="Bottom Row" to="." method="_on_character_hover"]
+[connection signal="on_character_leave" from="Bottom Row" to="." method="_on_character_leave"]
+[connection signal="on_character_ui_pressed" from="Bottom Row" to="." method="_on_character_ui_pressed"]

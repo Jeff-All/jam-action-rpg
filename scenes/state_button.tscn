@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://gyyulhl3litf"]
+
+[ext_resource type="Script" uid="uid://ca7fmt2iuhil5" path="res://scripts/state_button.gd" id="1_bijpe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bijpe"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vs0hn"]
+bg_color = Color(0.035353962, 0.36602974, 0.99999994, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xmwn"]
+bg_color = Color(0.99215686, 0.9098039, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ay2gh"]
+bg_color = Color(0.583324, 0.53521496, 7.70092e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dw2rk"]
+bg_color = Color(0.8629745, 0.4974109, 7.70092e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sj3tg"]
+bg_color = Color(0.21960784, 0.8, 0, 1)
+
+[node name="StateButton" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_bijpe")
+default_color = SubResource("StyleBoxFlat_bijpe")
+available_color = SubResource("StyleBoxFlat_vs0hn")
+hover_color = SubResource("StyleBoxFlat_5xmwn")
+down_color = SubResource("StyleBoxFlat_ay2gh")
+active_color = SubResource("StyleBoxFlat_dw2rk")
+highlight_color = SubResource("StyleBoxFlat_sj3tg")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 2
+
+[connection signal="gui_input" from="Background" to="." method="_on_background_gui_input"]
+[connection signal="mouse_entered" from="Background" to="." method="_on_background_mouse_entered"]
+[connection signal="mouse_exited" from="Background" to="." method="_on_background_mouse_exited"]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0iyiq0lwfjo8"]
+
+[ext_resource type="Script" uid="uid://b4j3aq284or8r" path="res://scripts/input_controller.gd" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://oxrb7uyl20u7" path="res://scenes/battle_board.tscn" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://bgdwq4wwsoyds" path="res://scripts/input states/input_state.gd" id="3_lnu2h"]
+
+[node name="InputController" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uwrxv")
+
+[node name="BattleBoard" parent="." instance=ExtResource("2_yqjtg")]
+layout_mode = 2
+
+[node name="InputStates" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="Default InputState" type="Control" parent="InputStates"]
+layout_mode = 2
+script = ExtResource("3_lnu2h")
+
+[connection signal="on_action_pressed" from="BattleBoard" to="." method="_on_action_button_pressed"]
+[connection signal="on_enemy_hover" from="BattleBoard" to="." method="_on_enemy_hover"]
+[connection signal="on_enemy_leave" from="BattleBoard" to="." method="_on_enemy_leave"]
+[connection signal="on_enemy_pressed" from="BattleBoard" to="." method="_on_enemy_pressed"]
+[connection signal="on_pc_hover" from="BattleBoard" to="." method="_on_pc_hover"]
+[connection signal="on_pc_leave" from="BattleBoard" to="." method="_on_pc_leave"]
+[connection signal="on_pc_pressed" from="BattleBoard" to="." method="_on_pc_pressed"]

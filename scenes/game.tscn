@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b30ck1paoprwm"]
+
+[ext_resource type="PackedScene" uid="uid://d0iyiq0lwfjo8" path="res://scenes/input_controller.tscn" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://c1g5plrsl6xr4" path="res://scripts/game.gd" id="1_yqjtg"]
+
+[node name="Game" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yqjtg")
+
+[node name="InputController" parent="." instance=ExtResource("1_uwrxv")]
+layout_mode = 2
+
+[connection signal="on_end_turn" from="InputController" to="." method="_on_end_turn"]

@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://cfmy1d81ni7iq"]
+
+[ext_resource type="Script" uid="uid://b0wgmvgcgjhwe" path="res://scripts/tests/test_battle_board.gd" id="1_mhqo8"]
+[ext_resource type="Resource" uid="uid://b6a8gqos1bud4" path="res://encounters/encounter_a.tres" id="2_pjebr"]
+[ext_resource type="PackedScene" uid="uid://oxrb7uyl20u7" path="res://scenes/battle_board.tscn" id="2_rmj80"]
+[ext_resource type="Resource" uid="uid://dkqr86nx8p1g8" path="res://base_characters/base_character_a.tres" id="3_pjebr"]
+[ext_resource type="Script" uid="uid://crortnmsfrs3" path="res://scripts/resources/base_character.gd" id="3_sso8t"]
+[ext_resource type="Script" uid="uid://yndi76amfml" path="res://scripts/resources/actions/action.gd" id="4_eea76"]
+[ext_resource type="Resource" uid="uid://7td1anjb4ewp" path="res://actions/action_b.tres" id="5_sso8t"]
+[ext_resource type="Resource" uid="uid://0838ll6ej331" path="res://actions/action_a.tres" id="6_lygol"]
+
+[node name="TestBattleBoard" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_mhqo8")
+encounter_a = ExtResource("2_pjebr")
+pc_set_a = Array[ExtResource("3_sso8t")]([ExtResource("3_pjebr"), ExtResource("3_pjebr")])
+action_set_a = Array[ExtResource("4_eea76")]([ExtResource("5_sso8t"), ExtResource("5_sso8t"), ExtResource("6_lygol")])
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="BattleBoard" parent="MarginContainer" instance=ExtResource("2_rmj80")]
+layout_mode = 2
+
+[node name="Expand" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "+/-"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+alignment = 1
+
+[node name="EncounterA" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Encounter A"
+
+[node name="CharacterA" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Character A"
+
+[node name="ButtonsA" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Buttons A"
+
+[node name="RollInitiative" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Roll Initiative"
+
+[connection signal="on_action_pressed" from="MarginContainer/BattleBoard" to="." method="_on_action_pressed"]
+[connection signal="on_enemy_pressed" from="MarginContainer/BattleBoard" to="." method="_on_enemy_pressed"]
+[connection signal="on_pc_pressed" from="MarginContainer/BattleBoard" to="." method="_on_pc_pressed"]
+[connection signal="pressed" from="Expand" to="." method="_on_expand_pressed"]
+[connection signal="pressed" from="HBoxContainer/EncounterA" to="." method="_on_encounter_a_pressed"]
+[connection signal="pressed" from="HBoxContainer/CharacterA" to="." method="_on_characters_a_pressed"]
+[connection signal="pressed" from="HBoxContainer/ButtonsA" to="." method="_on_buttons_a_pressed"]
+[connection signal="pressed" from="HBoxContainer/RollInitiative" to="." method="_on_roll_initiative_pressed"]

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="AttackAction" load_steps=4 format=3 uid="uid://0838ll6ej331"]
+
+[ext_resource type="Script" uid="uid://dagyfml15dkmy" path="res://scripts/resources/actions/action_attack.gd" id="1_dijde"]
+[ext_resource type="Texture2D" uid="uid://col5x3q4g616c" path="res://art/icons/buttons/button_100_100_A.png" id="2_5ipsr"]
+[ext_resource type="Resource" uid="uid://dl6nwkc86sckq" path="res://actions/targeting/ranged_targeting.tres" id="2_dijde"]
+
+[resource]
+script = ExtResource("1_dijde")
+min_damage = 1
+max_damage = 3
+name = "Action A"
+texture = ExtResource("2_5ipsr")
+targeting = ExtResource("2_dijde")
+metadata/_custom_type_script = "uid://yndi76amfml"

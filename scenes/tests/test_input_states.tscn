@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvkffcx6ma268"]
+
+[ext_resource type="Script" uid="uid://dhbf0rwg2hkjt" path="res://scripts/tests/test_input_states.gd" id="1_7utbr"]
+[ext_resource type="PackedScene" uid="uid://d0iyiq0lwfjo8" path="res://scenes/input_controller.tscn" id="2_7utbr"]
+[ext_resource type="Resource" uid="uid://b6a8gqos1bud4" path="res://encounters/encounter_a.tres" id="2_62qjg"]
+[ext_resource type="Script" uid="uid://crortnmsfrs3" path="res://scripts/resources/base_character.gd" id="3_dcxxg"]
+[ext_resource type="Resource" uid="uid://dkqr86nx8p1g8" path="res://base_characters/base_character_a.tres" id="4_iwo5n"]
+
+[node name="TestInputStates" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7utbr")
+encounter = ExtResource("2_62qjg")
+pcs = Array[ExtResource("3_dcxxg")]([ExtResource("4_iwo5n"), null, ExtResource("4_iwo5n"), null, ExtResource("4_iwo5n")])
+
+[node name="Game" parent="." instance=ExtResource("2_7utbr")]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Set State" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Set State"
+
+[node name="State" type="OptionButton" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+selected = 0
+item_count = 1
+popup/item_0/text = "Player Turn"
+popup/item_0/id = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Player Turn" type="HBoxContainer" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Character" type="OptionButton" parent="VBoxContainer/VBoxContainer/Player Turn"]
+layout_mode = 2
+
+[node name="Expand" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "+/-"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Set State" to="." method="_on_set_state_pressed"]
+[connection signal="item_selected" from="VBoxContainer/HBoxContainer2/State" to="." method="_on_state_item_selected"]
+[connection signal="pressed" from="Expand" to="." method="_on_expand_pressed"]

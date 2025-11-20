@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://t8x8apayplg7"]
+
+[ext_resource type="Script" uid="uid://c2youtxstyge8" path="res://scripts/tests/test_turn_order_character.gd" id="1_r2jxh"]
+[ext_resource type="PackedScene" uid="uid://cn4rwyenhvon0" path="res://scenes/turn_order_character.tscn" id="2_l4tjg"]
+
+[node name="TestTurnOrderCharacter" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r2jxh")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="TurnOrderCharacter" parent="CenterContainer" instance=ExtResource("2_l4tjg")]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Selected" type="CheckBox" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Selected"
+
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/Selected" to="." method="_on_selected_toggled"]
