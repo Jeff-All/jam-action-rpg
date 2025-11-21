@@ -10,6 +10,7 @@ signal on_turn_order_mouse_enter(character)
 signal on_turn_order_mouse_exit(character)
 
 signal on_set_active(character, value: bool)
+signal on_set_highlight(character, value: bool)
 
 enum Attribute { STRENGTH, AGILITY, MAGIC }
 
@@ -99,6 +100,13 @@ var active: bool:
 		on_set_active.emit(self, _active)
 
 var _active: bool = false
+
+var highlight: bool:
+	set(value):
+		_highlight = value
+		on_set_highlight.emit(self, value)
+
+var _highlight: bool = false
 
 func turn_order_mouse_enter(_ui: TurnOrderCharacter):
 	on_turn_order_mouse_enter.emit(self)

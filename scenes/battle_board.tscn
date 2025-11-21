@@ -51,7 +51,6 @@ alignment = 2
 layout_mode = 2
 
 [node name="ButtonRow" parent="VBoxContainer/Bottom" instance=ExtResource("4_p2r5k")]
-custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 10
 

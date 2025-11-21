@@ -13,6 +13,10 @@ signal on_leave(character: CharacterUI)
 	set(value):
 		$StateButton.available = value
 
+@export var highlight: bool:
+	set(value):
+		$StateButton.highlight = value
+
 @export var character: Character:
 	set = _set_character
 
@@ -43,6 +47,7 @@ func _unbind_character():
 		character.on_cur_mana_change.disconnect(_mana_change)
 		
 		character.on_set_active.disconnect(_on_set_active)
+		character.on_set_highlight.disconnect(_on_set_highlight)
 		
 		character.on_turn_order_mouse_enter.disconnect(_on_turn_order_mouse_enter)
 		character.on_turn_order_mouse_exit.disconnect(_on_turn_order_mouse_enter)
@@ -54,6 +59,7 @@ func _bind_character():
 	character.on_cur_mana_change.connect(_mana_change)
 	
 	character.on_set_active.connect(_on_set_active)
+	character.on_set_highlight.connect(_on_set_highlight)
 	
 	character.on_turn_order_mouse_enter.connect(_on_turn_order_mouse_enter)
 	character.on_turn_order_mouse_exit.connect(_on_turn_order_mouse_exit)
@@ -92,3 +98,6 @@ func _on_turn_order_mouse_exit(_ui: Character):
 
 func _on_set_active(_character: Character, value: bool):
 	active = value
+
+func _on_set_highlight(_c: Character, value: bool):
+	highlight = value
