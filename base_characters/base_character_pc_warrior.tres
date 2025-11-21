@@ -1,9 +1,27 @@
-[gd_resource type="Resource" script_class="BaseCharacter" load_steps=4 format=3 uid="uid://bc64f7fw6h1t3"]
+[gd_resource type="Resource" script_class="BaseCharacter" load_steps=5 format=3 uid="uid://bc64f7fw6h1t3"]
 
 [ext_resource type="Script" uid="uid://yndi76amfml" path="res://scripts/resources/actions/action.gd" id="1_qwfvf"]
 [ext_resource type="Script" uid="uid://crortnmsfrs3" path="res://scripts/resources/base_character.gd" id="2_g0ooj"]
 [ext_resource type="Script" uid="uid://cqe2ckls66hax" path="res://scripts/resources/character_texture_group.gd" id="3_apc2e"]
+[ext_resource type="Resource" uid="uid://7la4g0oax8e6" path="res://character_texture_groups/character_texture_group_red.tres" id="4_g0ooj"]
 
 [resource]
 script = ExtResource("2_g0ooj")
+name = "Warrior"
+texture_groups = Array[ExtResource("3_apc2e")]([ExtResource("4_g0ooj")])
+max_armor = 3
+max_health = 20
+max_stamina = 5
+cur_armor = 3
+cur_health = 15
+cur_stamina = 5
+regeneration = 1
+recovery = 1
+attributes = Dictionary[int, int]({
+0: 5,
+1: 3,
+2: 0
+})
+attack = 10
+defense = 15
 metadata/_custom_type_script = "uid://crortnmsfrs3"
