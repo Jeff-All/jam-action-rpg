@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="BaseCharacter" load_steps=5 format=3 uid="uid://dckuph0mkiu1x"]
+
+[ext_resource type="Script" uid="uid://yndi76amfml" path="res://scripts/resources/actions/action.gd" id="1_7r75n"]
+[ext_resource type="Script" uid="uid://crortnmsfrs3" path="res://scripts/resources/base_character.gd" id="2_ybj7c"]
+[ext_resource type="Script" uid="uid://cqe2ckls66hax" path="res://scripts/resources/character_texture_group.gd" id="3_umwo6"]
+[ext_resource type="Resource" uid="uid://uwbfcwoi50d6" path="res://resources/character_texture_groups/character_texture_group_white.tres" id="4_pk1pk"]
+
+[resource]
+script = ExtResource("2_ybj7c")
+name = "Monk"
+texture_groups = Array[ExtResource("3_umwo6")]([ExtResource("4_pk1pk")])
+max_armor = 1
+max_health = 10
+max_stamina = 5
+max_mana = 5
+cur_armor = 1
+cur_health = 10
+cur_stamina = 5
+cur_mana = 5
+regeneration = 3
+recovery = 1
+revival = 1
+attributes = Dictionary[int, int]({
+0: 3,
+1: 1,
+2: 3
+})
+attack = 10
+defense = 5
+metadata/_custom_type_script = "uid://crortnmsfrs3"

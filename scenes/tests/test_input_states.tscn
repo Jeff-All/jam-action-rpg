@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dhbf0rwg2hkjt" path="res://scripts/tests/test_input_states.gd" id="1_7utbr"]
 [ext_resource type="PackedScene" uid="uid://d0iyiq0lwfjo8" path="res://scenes/input_controller.tscn" id="2_7utbr"]
-[ext_resource type="Resource" uid="uid://b6a8gqos1bud4" path="res://encounters/encounter_a.tres" id="2_62qjg"]
+[ext_resource type="Resource" uid="uid://b6a8gqos1bud4" path="res://resources/encounters/encounter_a.tres" id="2_62qjg"]
 [ext_resource type="Script" uid="uid://crortnmsfrs3" path="res://scripts/resources/base_character.gd" id="3_dcxxg"]
-[ext_resource type="Resource" uid="uid://dkqr86nx8p1g8" path="res://base_characters/base_character_a.tres" id="4_iwo5n"]
+[ext_resource type="Resource" uid="uid://dkqr86nx8p1g8" path="res://resources/base_characters/base_character_a.tres" id="4_iwo5n"]
 
 [node name="TestInputStates" type="MarginContainer"]
 anchors_preset = 15

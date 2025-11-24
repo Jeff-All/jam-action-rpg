@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="BaseCharacter" load_steps=5 format=3 uid="uid://ch3esr5wkyysj"]
+
+[ext_resource type="Script" uid="uid://yndi76amfml" path="res://scripts/resources/actions/action.gd" id="1_6n0hb"]
+[ext_resource type="Script" uid="uid://crortnmsfrs3" path="res://scripts/resources/base_character.gd" id="2_f7thv"]
+[ext_resource type="Script" uid="uid://cqe2ckls66hax" path="res://scripts/resources/character_texture_group.gd" id="3_ukfgy"]
+[ext_resource type="Resource" uid="uid://dt67n6bnaip15" path="res://resources/character_texture_groups/character_texture_group_black.tres" id="4_f7thv"]
+
+[resource]
+script = ExtResource("2_f7thv")
+name = "Rogue"
+texture_groups = Array[ExtResource("3_ukfgy")]([ExtResource("4_f7thv")])
+max_health = 10
+max_stamina = 15
+cur_health = 10
+cur_stamina = 15
+recovery = 3
+attributes = Dictionary[int, int]({
+0: 2,
+1: 5,
+2: 0
+})
+attack = 15
+defense = 10
+metadata/_custom_type_script = "uid://crortnmsfrs3"

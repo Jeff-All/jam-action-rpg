@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Class" load_steps=2 format=3 uid="uid://cd52scvecilnt"]
+
+[ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/class.gd" id="1_hbnra"]
+
+[resource]
+script = ExtResource("1_hbnra")
+name = "Warrior"
+threat = 5
+attack = 3
+defense = 5
+strength = 5
+agility = 3
+armor = 2
+durability = 5
+health = 10
+stamina = 5
+health_recovery = 1
+stamina_recovery = 1
+metadata/_custom_type_script = "uid://7im2jq7xrwm1"

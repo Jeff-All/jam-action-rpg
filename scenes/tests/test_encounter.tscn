@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://chf6ow8tw60j6"]
 
 [ext_resource type="Script" uid="uid://v8ewwbbrr3qn" path="res://scripts/tests/test_encounter.gd" id="1_vj6pm"]
-[ext_resource type="Resource" uid="uid://b6a8gqos1bud4" path="res://encounters/encounter_a.tres" id="2_k4qe1"]
+[ext_resource type="Resource" uid="uid://b6a8gqos1bud4" path="res://resources/encounters/encounter_a.tres" id="2_k4qe1"]
 [ext_resource type="PackedScene" uid="uid://dydflwao15d13" path="res://scenes/encounter_ui.tscn" id="2_x0bhj"]
-[ext_resource type="Resource" uid="uid://bklcr2lv7do3a" path="res://encounters/encounter_b.tres" id="3_k4qe1"]
+[ext_resource type="Resource" uid="uid://bklcr2lv7do3a" path="res://resources/encounters/encounter_b.tres" id="3_k4qe1"]
 
 [node name="TestEncounter" type="MarginContainer"]
 anchors_preset = 15

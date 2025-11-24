@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://cqlltxry5lkg" path="res://scripts/tests/test_button_row.gd" id="1_kgyt2"]
 [ext_resource type="Script" uid="uid://yndi76amfml" path="res://scripts/resources/actions/action.gd" id="2_l8gyh"]
 [ext_resource type="PackedScene" uid="uid://dw2qfxfk13lti" path="res://scenes/button_row.tscn" id="2_rcwc3"]
-[ext_resource type="Resource" uid="uid://0838ll6ej331" path="res://actions/action_a.tres" id="3_pbyuw"]
-[ext_resource type="Resource" uid="uid://7td1anjb4ewp" path="res://actions/action_b.tres" id="4_pbyuw"]
+[ext_resource type="Resource" uid="uid://0838ll6ej331" path="res://resources/actions/action_a.tres" id="3_pbyuw"]
+[ext_resource type="Resource" uid="uid://7td1anjb4ewp" path="res://resources/actions/action_b.tres" id="4_pbyuw"]
 
 [node name="TestButtonRow" type="MarginContainer"]
 anchors_preset = 15

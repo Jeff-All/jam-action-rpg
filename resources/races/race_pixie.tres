@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Race" load_steps=2 format=3 uid="uid://m4doyb4kcxlp"]
+
+[ext_resource type="Script" uid="uid://bkijfvdnaky5k" path="res://scripts/resources/race.gd" id="1_6jho8"]
+
+[resource]
+script = ExtResource("1_6jho8")
+name = "Pixie"
+strength = 1
+agility = 3
+magic = 5
+health = 10
+stamina = 5
+mana = 10
+stamina_recovery = 2
+mana_recovery = 1
+metadata/_custom_type_script = "uid://bkijfvdnaky5k"

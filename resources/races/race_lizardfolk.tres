@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Race" load_steps=2 format=3 uid="uid://bcadhmd54aq7u"]
+
+[ext_resource type="Script" uid="uid://bkijfvdnaky5k" path="res://scripts/resources/race.gd" id="1_arykm"]
+
+[resource]
+script = ExtResource("1_arykm")
+name = "Lizardfolk"
+strength = 3
+agility = 5
+magic = 1
+health = 15
+stamina = 10
+stamina_recovery = 3
+metadata/_custom_type_script = "uid://bkijfvdnaky5k"

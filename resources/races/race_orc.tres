@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Race" load_steps=2 format=3 uid="uid://dxt4dciegeqdg"]
+
+[ext_resource type="Script" uid="uid://bkijfvdnaky5k" path="res://scripts/resources/race.gd" id="1_pvaeq"]
+
+[resource]
+script = ExtResource("1_pvaeq")
+name = "Orc"
+strength = 5
+agility = 3
+magic = 1
+health = 20
+stamina = 5
+health_recovery = 1
+stamina_recovery = 2
+metadata/_custom_type_script = "uid://bkijfvdnaky5k"

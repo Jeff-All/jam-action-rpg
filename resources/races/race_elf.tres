@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Race" load_steps=2 format=3 uid="uid://dvlqijcfj3j2s"]
+
+[ext_resource type="Script" uid="uid://bkijfvdnaky5k" path="res://scripts/resources/race.gd" id="1_o2s4k"]
+
+[resource]
+script = ExtResource("1_o2s4k")
+name = "Elf"
+strength = 1
+agility = 5
+magic = 3
+health = 10
+stamina = 10
+mana = 5
+stamina_recovery = 3
+metadata/_custom_type_script = "uid://bkijfvdnaky5k"

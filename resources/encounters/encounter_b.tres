@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Encounter" load_steps=4 format=3 uid="uid://bklcr2lv7do3a"]
+
+[ext_resource type="Script" uid="uid://crortnmsfrs3" path="res://scripts/resources/base_character.gd" id="1_a4xhg"]
+[ext_resource type="Resource" uid="uid://dkqr86nx8p1g8" path="res://resources/base_characters/base_character_a.tres" id="2_5iqq3"]
+[ext_resource type="Script" uid="uid://b286ao0pehvai" path="res://scripts/resources/encounter.gd" id="3_h34yl"]
+
+[resource]
+script = ExtResource("3_h34yl")
+back_row = Array[ExtResource("1_a4xhg")]([ExtResource("2_5iqq3"), ExtResource("2_5iqq3"), ExtResource("2_5iqq3")])
+front_row = Array[ExtResource("1_a4xhg")]([ExtResource("2_5iqq3")])
+metadata/_custom_type_script = "uid://b286ao0pehvai"

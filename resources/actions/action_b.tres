@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Action" load_steps=4 format=3 uid="uid://7td1anjb4ewp"]
+
+[ext_resource type="Script" uid="uid://yndi76amfml" path="res://scripts/resources/actions/action.gd" id="1_ugp15"]
+[ext_resource type="Resource" uid="uid://83vx50hj6mda" path="res://resources/actions/targeting/allies_targeting.tres" id="2_k0yb4"]
+[ext_resource type="Texture2D" uid="uid://dvdxn6y8pug30" path="res://resources/art/icons/buttons/button_100_100_b.png" id="2_ugp15"]
+
+[resource]
+script = ExtResource("1_ugp15")
+name = "Action B"
+texture = ExtResource("2_ugp15")
+targeting = ExtResource("2_k0yb4")
+metadata/_custom_type_script = "uid://yndi76amfml"

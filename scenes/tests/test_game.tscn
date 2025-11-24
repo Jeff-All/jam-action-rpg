@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://b30ck1paoprwm" path="res://scenes/game.tscn" id="1_7y5nv"]
 [ext_resource type="Script" uid="uid://d1yrg0gsp4fth" path="res://scripts/tests/test_game.gd" id="1_k7kw7"]
-[ext_resource type="Resource" uid="uid://b6a8gqos1bud4" path="res://encounters/encounter_a.tres" id="2_rtal0"]
+[ext_resource type="Resource" uid="uid://b6a8gqos1bud4" path="res://resources/encounters/encounter_a.tres" id="2_rtal0"]
 [ext_resource type="Script" uid="uid://crortnmsfrs3" path="res://scripts/resources/base_character.gd" id="3_h7q5i"]
-[ext_resource type="Resource" uid="uid://dkqr86nx8p1g8" path="res://base_characters/base_character_a.tres" id="4_p55ff"]
+[ext_resource type="Resource" uid="uid://dkqr86nx8p1g8" path="res://resources/base_characters/base_character_a.tres" id="4_p55ff"]
 
 [node name="TestGame" type="MarginContainer"]
 anchors_preset = 15

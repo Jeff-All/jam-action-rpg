@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Race" load_steps=2 format=3 uid="uid://mdah4yhpnsiw"]
+
+[ext_resource type="Script" uid="uid://bkijfvdnaky5k" path="res://scripts/resources/race.gd" id="1_flbbn"]
+
+[resource]
+script = ExtResource("1_flbbn")
+name = "Dwarf"
+strength = 5
+agility = 1
+magic = 3
+health = 20
+stamina = 3
+mana = 5
+health_recovery = 1
+stamina_recovery = 1
+metadata/_custom_type_script = "uid://bkijfvdnaky5k"
