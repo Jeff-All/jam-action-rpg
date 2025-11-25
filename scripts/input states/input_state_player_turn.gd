@@ -15,7 +15,7 @@ func begin():
 		push_error("character %s is not present in PCs" % character.name)
 	character.active = true
 	#battle_board.pcs.get_character_ui(character).active = true
-	battle_board.bind_actions(character.base_character.actions)
+	battle_board.bind_actions(character.actions)
 
 func end():
 	print("player_turn.end")

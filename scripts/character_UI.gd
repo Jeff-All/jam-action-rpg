@@ -32,7 +32,7 @@ func _set_character(new_character: Character):
 	if character == null:
 		return
 	
-	$Status/Armor.set_value(character.cur_armor)
+	$Status/Armor.set_value(character.cur_durability)
 	$Status/Health.set_value(character.cur_health)
 	$Status/Stamina.set_value(character.cur_stamina)
 	$Status/Mana.set_value(character.cur_mana)
@@ -41,7 +41,7 @@ func _set_character(new_character: Character):
 
 func _unbind_character():
 	if character != null:
-		character.on_cur_armor_change.disconnect(_armor_change)
+		character.on_cur_durability_change.disconnect(_armor_change)
 		character.on_cur_health_change.disconnect(_health_change)
 		character.on_cur_stamina_change.disconnect(_stamina_change)
 		character.on_cur_mana_change.disconnect(_mana_change)
@@ -53,7 +53,7 @@ func _unbind_character():
 		character.on_turn_order_mouse_exit.disconnect(_on_turn_order_mouse_enter)
 
 func _bind_character():
-	character.on_cur_armor_change.connect(_armor_change)
+	character.on_cur_durability_change.connect(_armor_change)
 	character.on_cur_health_change.connect(_health_change)
 	character.on_cur_stamina_change.connect(_stamina_change)
 	character.on_cur_mana_change.connect(_mana_change)
@@ -70,7 +70,7 @@ func _on_button_pressed():
 	on_pressed.emit(self)
 
 func _armor_change(_character):
-	$Status/Armor.set_value(character.cur_armor)
+	$Status/Armor.set_value(character.cur_durability)
 
 func _health_change(_character):
 	$Status/Health.set_value(character.cur_health)

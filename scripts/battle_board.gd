@@ -12,9 +12,8 @@ signal on_action_pressed(action_button: ActionButton, index: int)
 signal on_start_pressed()
 
 @export var ecounter: Encounter
-var _pcs: Array[Character]
-var _enemies: Array[Character]
-var _characters: Array[Character]
+var _pcs: PlayerCharacters
+var _enemies: Enemies
 
 var enemies: EncounterUI
 var pcs: CharacterRow
@@ -53,17 +52,13 @@ func _on_enemy_leave(enemy: CharacterUI):
 func _on_action_button_pressed(action_button: ActionButton, index: int):
 	on_action_pressed.emit(action_button, index)
 
-func set_encounter(encounter: Encounter):
-	enemies.set_encounter(encounter, $CharacterController)
-	
-	_enemies = enemies.get_enemies()
+func set_enemies(e: Enemies):
+	enemies.set_encounter(e)
+	_enemies = e
 
-func set_pcs(pc_array: Array[BaseCharacter]):
-	_pcs.clear()
-	for index in pc_array.size():
-		var cur_pc = pc_array[index]
-		_pcs.append(null if cur_pc == null else $CharacterController.build_character(cur_pc))
-	pcs.set_characters(_pcs)
+func set_pcs(player_characters: PlayerCharacters):
+	_pcs = player_characters
+	pcs.set_characters(_pcs.characters)
 
 func bind_actions(actions: Array[Action]):
 	buttons.bind_actions(actions)
@@ -76,14 +71,7 @@ func reset():
 	start.visible = false
 
 func roll_initiative() -> TurnOrderCharacter:
-	_characters = []
-	for cur_enemy in _enemies:
-		_characters.append(cur_enemy)
-	for cur_pc in _pcs:
-		if cur_pc != null:
-			_characters.append(cur_pc)
-	
-	return turn_order.roll_initiative(_characters)
+	return turn_order.roll_initiative(_enemies.all + _pcs.characters)
 
 func _on_turn_order_mouse_enter(turn_order_character: TurnOrderCharacter):
 	turn_order_character._character.turn_order_mouse_enter(turn_order_character)

@@ -15,9 +15,11 @@ func start_turn(character: Character):
 	else:
 		$InputController.to_enemy_turn(character)
 
-func set_up(pcs: Array[BaseCharacter], encounter: Encounter):
+func set_up(pcs: PlayerCharacters, encounter: Encounter):
+	var enemies = encounter.build_enemies()
+	
 	$InputController/BattleBoard.set_pcs(pcs)
-	$InputController/BattleBoard.set_encounter(encounter)
+	$InputController/BattleBoard.set_enemies(enemies)
 	$InputController/BattleBoard.roll_initiative()
 	$InputController/BattleBoard/VBoxContainer/PanelContainer/Start.visible = true
 

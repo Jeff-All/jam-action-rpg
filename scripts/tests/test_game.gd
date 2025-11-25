@@ -1,7 +1,7 @@
 extends MarginContainer
 
 @export var encounter: Encounter
-@export var pcs: Array[BaseCharacter]
+@export var pcs: PlayerCharacters
 
 func _ready():
 	$Game/InputController.enemy_turn_input_state.timer = $Timer

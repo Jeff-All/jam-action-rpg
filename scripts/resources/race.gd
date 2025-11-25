@@ -17,3 +17,5 @@ extends Resource
 @export var health_recovery: int
 @export var stamina_recovery: int
 @export var mana_recovery: int
+
+@export var actions: Array[Action]

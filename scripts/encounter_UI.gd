@@ -5,30 +5,26 @@ signal on_enemy_pressed(enemy: CharacterUI, row: int, column: int)
 signal on_enemy_hover(enemy: CharacterUI)
 signal on_enemy_leave(enemy: CharacterUI)
 
-var row_map: Dictionary[Character, int] = {}
+var row_map: Dictionary[Enemy, int] = {}
+var enemies: Enemies
 
-func set_encounter(encounter: Encounter, character_controller: CharacterController):
+func set_encounter(_enemies: Enemies):
+	enemies = _enemies
 	$"Bottom Row".clear()
 	$"Top Row".clear()
 	
-	for index in encounter.front_row.size():
-		var new_character = character_controller.build_character(encounter.front_row[index])
-		row_map[new_character] = 0
-		$"Bottom Row".set_character(index, new_character)
-
-	for index in encounter.back_row.size():
-		var new_character = character_controller.build_character(encounter.front_row[index])
-		row_map[new_character] = 1
-		$"Top Row".set_character(index, new_character)
-
-func get_enemies() -> Array[Character]:
-	var arr: Array[Character]
-	for cur in row_map:
-		arr.append(cur)
-	return arr
+	for index in enemies.front_row.size():
+		var cur_character = enemies.front_row[index]
+		row_map[cur_character] = 0
+		$"Bottom Row".set_character(index, cur_character)
+	
+	for index in enemies.back_row.size():
+		var cur_character = enemies.back_row[index]
+		row_map[cur_character] = 1
+		$"Top Row".set_character(index, cur_character)
 
 func _on_character_ui_pressed(character: CharacterUI, index):
-	on_enemy_pressed.emit(character, row_map[character.character], index)
+	on_enemy_pressed.emit(character, row_map[character.character as Enemy], index)
 
 func _on_character_hover(character: CharacterUI):
 	on_enemy_hover.emit(character)

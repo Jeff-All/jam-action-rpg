@@ -13,4 +13,4 @@ func build_character(base_character: BaseCharacter) -> Character:
 	if base_character == null:
 		print("NULL!!")
 	
-	return Character.new(base_character, cur_count)
+	return Character.new()

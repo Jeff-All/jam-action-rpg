@@ -43,7 +43,7 @@ func set_character(index: int, character: Character):
 			character_uis[index].character = null
 			character_uis[index].visible = false
 
-func set_characters(characters: Array[Character]):
+func set_characters(characters: Array):
 	clear()
 	for index in characters.size():
 		set_character(index, characters[index])

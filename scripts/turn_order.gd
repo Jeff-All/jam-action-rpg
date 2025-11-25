@@ -36,13 +36,14 @@ func next_turn() -> Character:
 	var new_first = turn_order[0]
 	return new_first._character
 
-func roll_initiative(characters: Array[Character]) -> TurnOrderCharacter:
+func roll_initiative(characters: Array) -> TurnOrderCharacter:
 	clear()
 	
 	var initiative_rolls = []
 	
 	for cur_character in characters:
-		initiative_rolls.append([cur_character, randi_range(0, 100)])
+		if cur_character != null:
+			initiative_rolls.append([cur_character, randi_range(0, 100)])
 	
 	initiative_rolls.sort_custom(func(a,b):
 		if a[1] == b[1]:

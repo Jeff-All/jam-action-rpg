@@ -36,12 +36,12 @@ func _on_timer():
 	print("no next")
 
 func _target():
-	var size = battle_board._pcs.size()
+	var size = battle_board._pcs.characters.size()
 	var start_index = randi_range(0, size - 1)
 	var index = 0
-	while index < battle_board._pcs.size():
-		if battle_board._pcs[(index + start_index) % size] != null:
-			target = battle_board._pcs[index + start_index]
+	while index < battle_board._pcs.characters.size():
+		if battle_board._pcs.characters[(index + start_index) % size] != null:
+			target = battle_board._pcs.characters[(index + start_index) % size]
 			break
 		index += 1
 	
