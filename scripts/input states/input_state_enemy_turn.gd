@@ -40,7 +40,7 @@ func _target():
 	var start_index = randi_range(0, size - 1)
 	var index = 0
 	while index < battle_board._pcs.characters.size():
-		if battle_board._pcs.characters[(index + start_index) % size] != null:
+		if battle_board._pcs.characters[(index + start_index) % size] != null && !battle_board._pcs.characters[(index + start_index) % size].dead:
 			target = battle_board._pcs.characters[(index + start_index) % size]
 			break
 		index += 1
