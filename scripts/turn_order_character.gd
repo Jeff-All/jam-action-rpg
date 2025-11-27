@@ -15,8 +15,9 @@ var character: Character:
 	set(value):
 		_character = value
 		if _character != null:
-			$MarginContainer/TextureRect.texture = _character.textures.small
+			$MarginContainer/TextureRect.texture = _character.texture
 			_character.on_set_active.connect(_on_set_active)
+			_character.on_death.connect(_on_death)
 		else:
 			$MarginContainer/TextureRect.texture = null
 
@@ -55,3 +56,6 @@ func _on_mouse_exited():
 
 func _on_set_active(_c: Character, value: bool):
 	selected = value
+
+func _on_death(_c: Character):
+	$MarginContainer/DeathPanel.visible = true

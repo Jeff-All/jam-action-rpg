@@ -27,17 +27,22 @@ extends Resource
 
 func apply(character: Character):
 	character.strength += strength
-	character.agilty += agility
+	character.agility += agility
 	character.magic += magic
 	
 	character.attack += attack
 	character.defense += defense
 	
-	character.max_armor += armor
+	character.armor += armor
 	character.max_durability += durability
 	character.max_health += health
 	character.max_stamina += stamina
 	character.max_mana += mana
+	
+	character.cur_durability += durability
+	character.cur_health += health
+	character.cur_stamina += stamina
+	character.cur_mana += mana
 
 func remove(character: Character):
 	character.strength -= strength

@@ -1,6 +1,8 @@
 class_name Character
 extends Resource
 
+signal on_death(character)
+
 signal on_cur_durability_change(character)
 signal on_cur_health_change(character)
 signal on_cur_stamina_change(character)
@@ -14,10 +16,16 @@ signal on_set_highlight(character, value: bool)
 
 enum Attribute { STRENGTH, AGILITY, MAGIC }
 
-@export var name: String
+@export var name: String:
+	get():
+		return _get_name()
+
+func _get_name() -> String:
+	return ""
+
 @export var count: int
 
-@export var textures: CharacterTextureGroup
+@export var texture: Texture2D
 
 @export var strength: int
 @export var agility: int
@@ -45,6 +53,10 @@ enum Attribute { STRENGTH, AGILITY, MAGIC }
 @export var attack: int
 @export var defense: int
 
+var dead: bool:
+	get():
+		return cur_health <= 0
+
 var actions: Array[Action]:
 	get = _get_actions
 
@@ -63,9 +75,13 @@ func _set_cur_durability(new_durability: int):
 	on_cur_durability_change.emit(self)
 
 func _set_cur_health(new_health: int):
-	if cur_health != new_health:
-		cur_health = new_health
+	var bound_health = max(0, new_health)
+	if cur_health != bound_health:
+		cur_health = bound_health
 		on_cur_health_change.emit(self)
+	if cur_health <= 0:
+		print("character %s death" % name)
+		on_death.emit(self)
 
 func _set_cur_stamina(new_stamina: int):
 	if cur_stamina != new_stamina:

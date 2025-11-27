@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cn4rwyenhvon0"]
+[gd_scene load_steps=8 format=3 uid="uid://cn4rwyenhvon0"]
 
 [ext_resource type="Script" uid="uid://b7c0wmloiwqdv" path="res://scripts/turn_order_character.gd" id="1_5rp5d"]
-[ext_resource type="Texture2D" uid="uid://btrefuu1ojufb" path="res://resources/art/characters/character_small_white.png" id="2_5rp5d"]
+[ext_resource type="Texture2D" uid="uid://c5r6olphw08s4" path="res://resources/art/characters/character_1024_dwarf_monk.png" id="2_5rp5d"]
+[ext_resource type="Texture2D" uid="uid://woeiamm4rlfr" path="res://resources/art/icons/skull_1024.png" id="3_v6acy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5rp5d"]
 bg_color = Color(0, 0, 0, 1)
@@ -11,6 +12,9 @@ bg_color = Color(0.8627451, 0.49803922, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kk1sw"]
 bg_color = Color(0.21800837, 0.7990187, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytb5w"]
+bg_color = Color(0.3529412, 0, 0, 0.63529414)
 
 [node name="TurnOrderCharacter" type="PanelContainer"]
 mouse_filter = 2
@@ -28,8 +32,20 @@ theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 texture = ExtResource("2_5rp5d")
+expand_mode = 1
+
+[node name="DeathPanel" type="PanelContainer" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ytb5w")
+
+[node name="Skull" type="TextureRect" parent="MarginContainer/DeathPanel"]
+layout_mode = 2
+texture = ExtResource("3_v6acy")
+expand_mode = 1
 
 [connection signal="mouse_entered" from="MarginContainer/TextureRect" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="MarginContainer/TextureRect" to="." method="_on_mouse_exited"]

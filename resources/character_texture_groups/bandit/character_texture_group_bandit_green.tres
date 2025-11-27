@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CharacterTextureGroup" load_steps=4 format=3 uid="uid://cypbdvd4wuylx"]
+
+[ext_resource type="Texture2D" uid="uid://ccmu5syq2ybx2" path="res://resources/art/characters/character_large_bandit_green.png" id="1_337si"]
+[ext_resource type="Script" uid="uid://cqe2ckls66hax" path="res://scripts/resources/character_texture_group.gd" id="2_pcqjh"]
+[ext_resource type="Texture2D" uid="uid://bomq5nds1n4ng" path="res://resources/art/characters/character_small_green.png" id="3_pcqjh"]
+
+[resource]
+script = ExtResource("2_pcqjh")
+big = ExtResource("1_337si")
+small = ExtResource("3_pcqjh")
+metadata/_custom_type_script = "uid://cqe2ckls66hax"

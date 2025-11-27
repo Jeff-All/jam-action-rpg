@@ -17,6 +17,10 @@ signal on_leave(character: CharacterUI)
 	set(value):
 		$StateButton.highlight = value
 
+@export var dead: bool:
+	set(value):
+		$ImageContainer/DeathOverlay.visible = true
+
 @export var character: Character:
 	set = _set_character
 
@@ -51,6 +55,8 @@ func _unbind_character():
 		
 		character.on_turn_order_mouse_enter.disconnect(_on_turn_order_mouse_enter)
 		character.on_turn_order_mouse_exit.disconnect(_on_turn_order_mouse_enter)
+		
+		character.on_death.disconnect(_on_death)
 
 func _bind_character():
 	character.on_cur_durability_change.connect(_armor_change)
@@ -64,7 +70,9 @@ func _bind_character():
 	character.on_turn_order_mouse_enter.connect(_on_turn_order_mouse_enter)
 	character.on_turn_order_mouse_exit.connect(_on_turn_order_mouse_exit)
 	
-	$ImageContainer/Image.texture = character.textures.big
+	character.on_death.connect(_on_death)
+	
+	$ImageContainer/Image.texture = character.texture
 
 func _on_button_pressed():
 	on_pressed.emit(self)
@@ -101,3 +109,6 @@ func _on_set_active(_character: Character, value: bool):
 
 func _on_set_highlight(_c: Character, value: bool):
 	highlight = value
+
+func _on_death(_c: Character):
+	dead = true

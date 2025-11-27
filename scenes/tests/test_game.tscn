@@ -1,45 +1,19 @@
-[gd_scene load_steps=19 format=3 uid="uid://cnjbv1d8ra6nv"]
+[gd_scene load_steps=11 format=3 uid="uid://cnjbv1d8ra6nv"]
 
 [ext_resource type="PackedScene" uid="uid://b30ck1paoprwm" path="res://scenes/game.tscn" id="1_7y5nv"]
 [ext_resource type="Script" uid="uid://d1yrg0gsp4fth" path="res://scripts/tests/test_game.gd" id="1_k7kw7"]
 [ext_resource type="Resource" uid="uid://b6a8gqos1bud4" path="res://resources/encounters/encounter_a.tres" id="2_rtal0"]
-[ext_resource type="Script" uid="uid://dpct44mnn0vkn" path="res://scripts/resources/player_character.gd" id="3_rtal0"]
-[ext_resource type="Resource" uid="uid://7la4g0oax8e6" path="res://resources/character_texture_groups/character_texture_group_red.tres" id="4_4q85w"]
-[ext_resource type="Script" uid="uid://bqdng8dy7l33t" path="res://scripts/resources/player_characters.gd" id="4_h7q5i"]
-[ext_resource type="Resource" uid="uid://cd52scvecilnt" path="res://resources/classes/class_warrior.tres" id="4_jp3ih"]
-[ext_resource type="Resource" uid="uid://bu0ex5cl7j4ii" path="res://resources/character_texture_groups/character_texture_group_blue.tres" id="5_cmuvu"]
-[ext_resource type="Resource" uid="uid://bcadhmd54aq7u" path="res://resources/races/race_lizardfolk.tres" id="5_dblaw"]
-[ext_resource type="Resource" uid="uid://bc0623d6ficf5" path="res://resources/character_texture_groups/character_texture_group_green.tres" id="6_k12re"]
-[ext_resource type="Resource" uid="uid://uie5ceorji42" path="res://resources/classes/class_wizard.tres" id="7_ooedf"]
-[ext_resource type="Resource" uid="uid://m4doyb4kcxlp" path="res://resources/races/race_pixie.tres" id="8_vnoeb"]
-[ext_resource type="Resource" uid="uid://cxppii7vomqji" path="res://resources/classes/class_rogue.tres" id="10_2hh6n"]
-[ext_resource type="Resource" uid="uid://gy5es324hwyb" path="res://resources/races/race_gnome.tres" id="11_e1kvy"]
+[ext_resource type="Script" uid="uid://cyidot871bswm" path="res://scripts/resources/base_player_character.gd" id="3_cmuvu"]
+[ext_resource type="Resource" uid="uid://246qda132ksl" path="res://resources/base_player_characters/orc_rogue.tres" id="4_k12re"]
+[ext_resource type="Resource" uid="uid://cdnmupr5lqg34" path="res://resources/base_player_characters/dwarf_monk.tres" id="5_f3v7c"]
+[ext_resource type="Resource" uid="uid://krxgxu8ru0rv" path="res://resources/base_player_characters/pixie_wizard.tres" id="6_gn2ph"]
+[ext_resource type="Resource" uid="uid://epckau7fvoev" path="res://resources/base_player_characters/human_warrior.tres" id="7_n1oed"]
+[ext_resource type="Script" uid="uid://cyya1r1nhujk2" path="res://scripts/resources/base_player_characters.gd" id="8_jp3ih"]
 
-[sub_resource type="Resource" id="Resource_p55ff"]
-script = ExtResource("3_rtal0")
-character_class = ExtResource("4_jp3ih")
-race = ExtResource("5_dblaw")
-textures = ExtResource("4_4q85w")
-metadata/_custom_type_script = "uid://dpct44mnn0vkn"
-
-[sub_resource type="Resource" id="Resource_4q85w"]
-script = ExtResource("3_rtal0")
-character_class = ExtResource("7_ooedf")
-race = ExtResource("8_vnoeb")
-textures = ExtResource("5_cmuvu")
-metadata/_custom_type_script = "uid://dpct44mnn0vkn"
-
-[sub_resource type="Resource" id="Resource_cmuvu"]
-script = ExtResource("3_rtal0")
-character_class = ExtResource("10_2hh6n")
-race = ExtResource("11_e1kvy")
-textures = ExtResource("6_k12re")
-metadata/_custom_type_script = "uid://dpct44mnn0vkn"
-
-[sub_resource type="Resource" id="Resource_k12re"]
-script = ExtResource("4_h7q5i")
-characters = Array[ExtResource("3_rtal0")]([SubResource("Resource_p55ff"), SubResource("Resource_4q85w"), SubResource("Resource_cmuvu")])
-metadata/_custom_type_script = "uid://bqdng8dy7l33t"
+[sub_resource type="Resource" id="Resource_dblaw"]
+script = ExtResource("8_jp3ih")
+base_player_characters = Array[ExtResource("3_cmuvu")]([ExtResource("4_k12re"), ExtResource("5_f3v7c"), ExtResource("6_gn2ph"), ExtResource("7_n1oed")])
+metadata/_custom_type_script = "uid://cyya1r1nhujk2"
 
 [node name="TestGame" type="MarginContainer"]
 anchors_preset = 15
@@ -49,7 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k7kw7")
 encounter = ExtResource("2_rtal0")
-pcs = SubResource("Resource_k12re")
+pcs = SubResource("Resource_dblaw")
 
 [node name="Game" parent="." instance=ExtResource("1_7y5nv")]
 layout_mode = 2

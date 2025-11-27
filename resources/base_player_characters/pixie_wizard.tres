@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BasePlayerCharacter" load_steps=5 format=3 uid="uid://krxgxu8ru0rv"]
+
+[ext_resource type="Resource" uid="uid://uie5ceorji42" path="res://resources/classes/class_wizard.tres" id="1_djg8h"]
+[ext_resource type="Script" uid="uid://cyidot871bswm" path="res://scripts/resources/base_player_character.gd" id="1_n5802"]
+[ext_resource type="Resource" uid="uid://m4doyb4kcxlp" path="res://resources/races/race_pixie.tres" id="2_suixp"]
+[ext_resource type="Texture2D" uid="uid://gtmthc16peu6" path="res://resources/art/characters/character_1024_pixie_wizard.png" id="4_suixp"]
+
+[resource]
+script = ExtResource("1_n5802")
+character_class = ExtResource("1_djg8h")
+race = ExtResource("2_suixp")
+texture = ExtResource("4_suixp")
+metadata/_custom_type_script = "uid://cyidot871bswm"

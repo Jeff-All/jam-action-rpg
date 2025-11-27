@@ -29,10 +29,20 @@ func cur_turn() -> Character:
 	return turn_order[0]._character
 
 func next_turn() -> Character:
-	var _first = turn_order.pop_front()
-	_first.selected = false
-	turn_order.push_back(_first)
-	$HBoxContainer.move_child(_first, $HBoxContainer.get_child_count() - 1)
+	var breaker = 0
+	
+	while true:
+		var _first = turn_order.pop_front()
+		turn_order.push_back(_first)
+		_first.selected = false
+		$HBoxContainer.move_child(_first, $HBoxContainer.get_child_count() - 1)
+		if !turn_order[0]._character.dead:
+			print("character %s is not dead" % _first._character.name)
+			break
+		breaker += 1
+		if breaker > turn_order.size():
+			push_error("EVERYONE is DEAD!!!")
+			return null
 	var new_first = turn_order[0]
 	return new_first._character
 
