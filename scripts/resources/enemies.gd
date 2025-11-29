@@ -15,6 +15,11 @@ func bind_enemies():
 func bind_enemy(enemy: Enemy) :
 	enemy.on_death.connect(_on_enemy_death)
 
+func build_threat_tables(pcs: PlayerCharacters):
+	for cur_enemy in front_row + back_row:
+		if cur_enemy != null:
+			cur_enemy.threat_table.set_table(pcs)
+
 func _on_enemy_death(_enemy: Enemy):
 	print("_on_enemy_death: %s" % _enemy.name)
 	for cur_enemy in all:

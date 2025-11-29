@@ -42,6 +42,11 @@ func _set_character(new_character: Character):
 	$VBoxContainer/Status/Stamina.set_value(character.cur_stamina)
 	$VBoxContainer/Status/Mana.set_value(character.cur_mana)
 	
+	if new_character is Enemy:
+		$ImageContainer/VBoxContainer2/ThreatTable.bind_table(new_character.threat_table)
+	else:
+		$ImageContainer/VBoxContainer2/ThreatTable.visible = false
+	
 	_bind_character()
 
 func _unbind_character():

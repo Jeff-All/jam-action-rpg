@@ -7,7 +7,7 @@ class ThreatTuple:
 	var threat: int
 
 var table: Array[ThreatTuple]
-var character_map: Dictionary[Character, ThreatTuple]
+var character_map: Dictionary[PlayerCharacter, ThreatTuple]
 
 var sort_function: Callable = _default_sort
 var base_threat_function: Callable = _default_base_threat
@@ -28,7 +28,7 @@ func set_table(player_characters: PlayerCharacters):
 		table.append(tuple)
 	sort_table()
 
-func set_threat(character: Character, threat: int):
+func set_threat(character: PlayerCharacter, threat: int):
 	var tuple = character_map[character]
 	tuple.threat = threat
 	

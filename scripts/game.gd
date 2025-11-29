@@ -28,6 +28,8 @@ func set_up(pcs: PlayerCharacters, encounter: Encounter):
 	enemies.bind_enemies()
 	pcs.bind_player_characters()
 	
+	enemies.build_threat_tables(pcs)
+	
 	enemies.on_enemies_dead.connect(_on_enemies_dead)
 	pcs.on_characters_dead.connect(_on_player_characters_dead)
 	
