@@ -2,16 +2,10 @@
 
 [ext_resource type="Script" uid="uid://b7c0wmloiwqdv" path="res://scripts/turn_order_character.gd" id="1_5rp5d"]
 [ext_resource type="Texture2D" uid="uid://c5r6olphw08s4" path="res://resources/art/characters/character_1024_dwarf_monk.png" id="2_5rp5d"]
+[ext_resource type="StyleBox" uid="uid://bgosnheawb5l3" path="res://styles/hover_green.tres" id="2_kk1sw"]
+[ext_resource type="StyleBox" uid="uid://cr2t3b55t18qe" path="res://styles/default_button_border.tres" id="2_u4i3y"]
 [ext_resource type="Texture2D" uid="uid://woeiamm4rlfr" path="res://resources/art/icons/skull_1024.png" id="3_v6acy"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5rp5d"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v6acy"]
-bg_color = Color(0.8627451, 0.49803922, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kk1sw"]
-bg_color = Color(0.21800837, 0.7990187, 0, 1)
+[ext_resource type="StyleBox" uid="uid://fykmjdbx4d5f" path="res://styles/selected_orange.tres" id="3_y3x4w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytb5w"]
 bg_color = Color(0.3529412, 0, 0, 0.63529414)
@@ -20,9 +14,9 @@ bg_color = Color(0.3529412, 0, 0, 0.63529414)
 custom_minimum_size = Vector2(50, 50)
 mouse_filter = 2
 script = ExtResource("1_5rp5d")
-default_color = SubResource("StyleBoxFlat_5rp5d")
-selected_color = SubResource("StyleBoxFlat_v6acy")
-hover_color = SubResource("StyleBoxFlat_kk1sw")
+default_color = ExtResource("2_u4i3y")
+selected_color = ExtResource("3_y3x4w")
+hover_color = ExtResource("2_kk1sw")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

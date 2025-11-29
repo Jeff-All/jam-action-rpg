@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://eng2yk380xfk"]
+
+[ext_resource type="Texture2D" uid="uid://c5r6olphw08s4" path="res://resources/art/characters/character_1024_dwarf_monk.png" id="1_rux3b"]
+[ext_resource type="Script" uid="uid://c48x8dod6h4n5" path="res://scripts/threat_table_character.gd" id="1_uds1v"]
+[ext_resource type="StyleBox" uid="uid://cr2t3b55t18qe" path="res://styles/default_button_border.tres" id="2_i68bw"]
+[ext_resource type="StyleBox" uid="uid://fykmjdbx4d5f" path="res://styles/selected_orange.tres" id="3_b52qb"]
+[ext_resource type="StyleBox" uid="uid://bgosnheawb5l3" path="res://styles/hover_green.tres" id="4_m3gv2"]
+
+[node name="ThreatTableCharacter" type="PanelContainer"]
+custom_minimum_size = Vector2(30, 30)
+offset_right = 30.0
+offset_bottom = 30.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+script = ExtResource("1_uds1v")
+default_color = ExtResource("2_i68bw")
+selected_color = ExtResource("3_b52qb")
+hover_color = ExtResource("4_m3gv2")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Image" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_rux3b")
+expand_mode = 1
+
+[connection signal="mouse_entered" from="MarginContainer/Image" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/Image" to="." method="_on_mouse_exited"]

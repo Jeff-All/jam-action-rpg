@@ -9,6 +9,7 @@ script = ExtResource("1_jag1r")
 name = "Wizard"
 threat = -5
 magic = 3
+health = 100
 mana = 10
 mana_recovery = 1
 actions = Array[ExtResource("1_q3yh8")]([ExtResource("2_dpvng")])
