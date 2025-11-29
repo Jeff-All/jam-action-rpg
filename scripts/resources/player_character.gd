@@ -20,5 +20,10 @@ var _class: Class
 
 var _race: Race
 
+func _get_name() -> String:
+	if _race == null or _class == null:
+		return "tmp name"
+	return "%s.%s" % [_race.name, _class.name]
+
 func _get_actions() -> Array[Action]:
 	return _race.actions + _class.actions

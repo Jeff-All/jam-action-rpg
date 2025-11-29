@@ -21,7 +21,7 @@ enum Attribute { STRENGTH, AGILITY, MAGIC }
 		return _get_name()
 
 func _get_name() -> String:
-	return ""
+	return "default name"
 
 @export var count: int
 

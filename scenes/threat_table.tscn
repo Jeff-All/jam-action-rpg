@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcqxacd07ol44"]
+
+[ext_resource type="Script" uid="uid://bbckhjavkmh3q" path="res://scripts/threat_table_ui.gd" id="1_58yni"]
+[ext_resource type="PackedScene" uid="uid://cn4rwyenhvon0" path="res://scenes/turn_order_character.tscn" id="1_61eda"]
+
+[node name="ThreatTable" type="HBoxContainer"]
+theme_override_constants/separation = 1
+script = ExtResource("1_58yni")
+
+[node name="TurnOrderCharacter" parent="." instance=ExtResource("1_61eda")]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+
+[node name="TurnOrderCharacter2" parent="." instance=ExtResource("1_61eda")]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+
+[node name="TurnOrderCharacter3" parent="." instance=ExtResource("1_61eda")]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+
+[node name="TurnOrderCharacter4" parent="." instance=ExtResource("1_61eda")]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+
+[node name="TurnOrderCharacter5" parent="." instance=ExtResource("1_61eda")]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

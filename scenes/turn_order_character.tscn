@@ -17,6 +17,7 @@ bg_color = Color(0.21800837, 0.7990187, 0, 1)
 bg_color = Color(0.3529412, 0, 0, 0.63529414)
 
 [node name="TurnOrderCharacter" type="PanelContainer"]
+custom_minimum_size = Vector2(50, 50)
 mouse_filter = 2
 script = ExtResource("1_5rp5d")
 default_color = SubResource("StyleBoxFlat_5rp5d")
@@ -32,7 +33,6 @@ theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
-custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 texture = ExtResource("2_5rp5d")
 expand_mode = 1
