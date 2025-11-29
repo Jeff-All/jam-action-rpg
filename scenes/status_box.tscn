@@ -6,7 +6,7 @@
 bg_color = Color(0.27022192, 0.27022192, 0.2702219, 1)
 
 [node name="StatusBox" type="PanelContainer"]
-custom_minimum_size = Vector2(35, 35)
+custom_minimum_size = Vector2(35, 22)
 theme_override_styles/panel = SubResource("StyleBoxFlat_uchyk")
 script = ExtResource("1_vjyqx")
 

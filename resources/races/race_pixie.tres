@@ -8,8 +8,8 @@
 script = ExtResource("1_6jho8")
 name = "Pixie"
 strength = 1
-agility = 3
-magic = 5
+agility = 2
+magic = 3
 health = 5
 stamina = 5
 mana = 10

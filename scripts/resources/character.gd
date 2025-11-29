@@ -69,6 +69,15 @@ func get_attribute(attribute: Attribute):
 		Attribute.AGILITY: return agility
 		Attribute.MAGIC: return magic
 
+func take_damage(damage: int):
+	var actual_damage = damage
+	if cur_durability > 0:
+		actual_damage -= armor
+		if damage > armor:
+			cur_durability -= 1
+	
+	cur_health -= actual_damage
+
 func _set_cur_durability(new_durability: int):
 	if cur_durability != new_durability:
 		cur_durability = new_durability

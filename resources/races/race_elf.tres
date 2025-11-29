@@ -8,8 +8,8 @@
 script = ExtResource("1_o2s4k")
 name = "Elf"
 strength = 1
-agility = 5
-magic = 3
+agility = 3
+magic = 2
 health = 5
 stamina = 10
 mana = 5

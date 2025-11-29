@@ -7,9 +7,9 @@
 [resource]
 script = ExtResource("1_yfqbp")
 name = "Gnome"
-strength = 3
+strength = 2
 agility = 1
-magic = 5
+magic = 3
 health = 7
 stamina = 3
 mana = 10

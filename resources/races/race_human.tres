@@ -7,9 +7,9 @@
 [resource]
 script = ExtResource("1_84d1b")
 name = "Human"
-strength = 3
-agility = 3
-magic = 3
+strength = 2
+agility = 2
+magic = 2
 health = 7
 stamina = 5
 mana = 5

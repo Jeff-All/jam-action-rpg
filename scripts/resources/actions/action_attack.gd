@@ -15,6 +15,6 @@ func on_hover_target(attacker: Character, target: CharacterUI, battle_board: Bat
 
 func on_pressed_target(attacker: Character, target: CharacterUI, _battle_board: BattleBoard) -> bool:
 	var _attribute_damage = attacker.get_attribute(attribute)
-	var damage = randi_range(min_damage + _attribute_damage, max_damage + _attribute_damage)
-	target.character.cur_health -= damage
+	var damage = randi_range(min_damage, max_damage) + _attribute_damage
+	target.character.take_damage(damage)
 	return true

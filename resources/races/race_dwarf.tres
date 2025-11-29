@@ -7,9 +7,9 @@
 [resource]
 script = ExtResource("1_flbbn")
 name = "Dwarf"
-strength = 5
+strength = 3
 agility = 1
-magic = 3
+magic = 2
 health = 10
 stamina = 3
 mana = 5

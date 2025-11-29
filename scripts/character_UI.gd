@@ -36,16 +36,17 @@ func _set_character(new_character: Character):
 	if character == null:
 		return
 	
-	$Status/Armor.set_value(character.cur_durability)
-	$Status/Health.set_value(character.cur_health)
-	$Status/Stamina.set_value(character.cur_stamina)
-	$Status/Mana.set_value(character.cur_mana)
+	$VBoxContainer/HBoxContainer/CenterCotnainer/Armor.text = "%s" % character.armor
+	$VBoxContainer/Status/Durability.set_value(character.cur_durability)
+	$VBoxContainer/Status/Health.set_value(character.cur_health)
+	$VBoxContainer/Status/Stamina.set_value(character.cur_stamina)
+	$VBoxContainer/Status/Mana.set_value(character.cur_mana)
 	
 	_bind_character()
 
 func _unbind_character():
 	if character != null:
-		character.on_cur_durability_change.disconnect(_armor_change)
+		character.on_cur_durability_change.disconnect(_durability_change)
 		character.on_cur_health_change.disconnect(_health_change)
 		character.on_cur_stamina_change.disconnect(_stamina_change)
 		character.on_cur_mana_change.disconnect(_mana_change)
@@ -59,7 +60,7 @@ func _unbind_character():
 		character.on_death.disconnect(_on_death)
 
 func _bind_character():
-	character.on_cur_durability_change.connect(_armor_change)
+	character.on_cur_durability_change.connect(_durability_change)
 	character.on_cur_health_change.connect(_health_change)
 	character.on_cur_stamina_change.connect(_stamina_change)
 	character.on_cur_mana_change.connect(_mana_change)
@@ -77,17 +78,17 @@ func _bind_character():
 func _on_button_pressed():
 	on_pressed.emit(self)
 
-func _armor_change(_character):
-	$Status/Armor.set_value(character.cur_durability)
+func _durability_change(_character):
+	$VBoxContainer/Status/Durability.set_value(character.cur_durability)
 
 func _health_change(_character):
-	$Status/Health.set_value(character.cur_health)
+	$VBoxContainer/Status/Health.set_value(character.cur_health)
 
 func _stamina_change(_character):
-	$Status/Stamina.set_value(character.cur_stamina)
+	$VBoxContainer/Status/Stamina.set_value(character.cur_stamina)
 
 func _mana_change(_character):
-	$Status/Mana.set_value(character.cur_mana)
+	$VBoxContainer/Status/Mana.set_value(character.cur_mana)
 
 func _on_hover():
 	print("hover %s.%s" % [character.name, character.count])

@@ -7,8 +7,8 @@
 [resource]
 script = ExtResource("1_arykm")
 name = "Lizardfolk"
-strength = 3
-agility = 5
+strength = 2
+agility = 3
 magic = 1
 health = 7
 stamina = 10

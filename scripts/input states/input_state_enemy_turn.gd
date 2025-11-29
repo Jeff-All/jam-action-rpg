@@ -57,7 +57,7 @@ func _target():
 func _damage():
 	print("damage")
 	
-	target.cur_health -= 3
+	target.take_damage(3)
 	
 	next = _end
 	_timer.start()
