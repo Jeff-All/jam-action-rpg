@@ -7,13 +7,14 @@
 [resource]
 script = ExtResource("1_sih4u")
 name = "Monk"
+threat = 1
 attack = 3
 defense = 3
 strength = 1
 magic = 2
 armor = 1
 durability = 3
-health = 102
+health = 2
 mana = 5
 health_recovery = 1
 actions = Array[ExtResource("1_w8qfh")]([ExtResource("2_5v3xf")])

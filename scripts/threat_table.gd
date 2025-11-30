@@ -5,21 +5,29 @@ extends Node
 signal on_sort()
 
 class ThreatTuple:
-	var character: Character
+	var character: PlayerCharacter
 	var threat: int
 
 var table: Array[ThreatTuple]
 var character_map: Dictionary[PlayerCharacter, ThreatTuple]
 
+var target: PlayerCharacter:
+	get():
+		return table[0].character
+
 var sort_function: Callable = _default_sort
 var base_threat_function: Callable = _default_base_threat
 
 func _default_sort(a,b) -> bool:
+	if a.threat == b.threat:
+		var a_threat = (a.character.armor * a.character.cur_durability) + a.character.cur_health + a.character.strength
+		var b_threat = (b.character.armor * b.character.cur_durability) + b.character.cur_health + b.character.strength
+		return a_threat > b_threat
 	return a.threat > b.threat
 
 func _default_base_threat(pc: PlayerCharacter) -> int:
-	print("%s threat %s" % [pc.name, pc.max_health + pc.armor + pc.max_durability + pc.strength])
-	return pc.max_health + pc.armor + pc.max_durability + pc.strength
+	print("%s threat %s" % [pc.name, pc.threat])
+	return pc.threat
 
 func set_table(player_characters: PlayerCharacters):
 	for cur_pc in player_characters.characters:

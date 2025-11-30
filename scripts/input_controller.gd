@@ -62,8 +62,8 @@ func to_player_turn(character: Character):
 	player_turn_input_state.character = character
 	cur_state = player_turn_input_state
 
-func to_enemy_turn(character: Character):
-	enemy_turn_input_state.character = character
+func to_enemy_turn(enemy: Enemy):
+	enemy_turn_input_state.enemy = enemy
 	cur_state = enemy_turn_input_state
 
 func _on_start_pressed():

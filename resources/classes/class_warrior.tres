@@ -7,13 +7,13 @@
 [resource]
 script = ExtResource("1_hbnra")
 name = "Warrior"
-threat = 5
+threat = 3
 attack = 3
 defense = 5
 strength = 3
 armor = 2
 durability = 5
-health = 105
+health = 5
 stamina = 5
 health_recovery = 1
 stamina_recovery = 1
