@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://b823jbj8fioij"]
+
+[ext_resource type="Script" uid="uid://b74dvcdugs2me" path="res://scripts/tests/test_cost_bar.gd" id="1_xgeyu"]
+[ext_resource type="Resource" uid="uid://cujlbu0bgcrx2" path="res://resources/classes/class_monk.tres" id="2_hym31"]
+[ext_resource type="PackedScene" uid="uid://hjh1ool8quxb" path="res://scenes/cost_bar.tscn" id="2_upfbb"]
+[ext_resource type="Resource" uid="uid://cchko18dgvfq7" path="res://resources/races/race_human.tres" id="3_bcxax"]
+[ext_resource type="Script" uid="uid://cyidot871bswm" path="res://scripts/resources/base_player_character.gd" id="4_54tnu"]
+[ext_resource type="Texture2D" uid="uid://djfwsqtggt8wu" path="res://icon.svg" id="5_224xu"]
+
+[sub_resource type="Resource" id="Resource_co4xc"]
+script = ExtResource("4_54tnu")
+character_class = ExtResource("2_hym31")
+race = ExtResource("3_bcxax")
+texture = ExtResource("5_224xu")
+metadata/_custom_type_script = "uid://cyidot871bswm"
+
+[node name="TestCostBar" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xgeyu")
+character_a = SubResource("Resource_co4xc")
+cost_a = Dictionary[int, int]({
+2: 15
+})
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="CostBar" parent="CenterContainer" instance=ExtResource("2_upfbb")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="Cost A" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Cost A"
+
+[connection signal="pressed" from="HBoxContainer/Cost A" to="." method="_on_cost_a_pressed"]

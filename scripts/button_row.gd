@@ -22,10 +22,11 @@ func clear():
 		cur.selected = false
 		cur.visible = false
 
-func bind_actions(actions: Array[Action]):
+func bind_actions(character: Character, actions: Array[Action]):
 	clear()
 	for index in actions.size():
 		if index >= _action_buttons.size(): 
 			break
-		_action_buttons[index].action = actions[index]
+		_action_buttons[index].set_action(character, actions[index])
 		_action_buttons[index].visible =  true
+		_action_buttons[index].can_afford = actions[index].can_afford(character)

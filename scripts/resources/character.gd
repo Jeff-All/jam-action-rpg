@@ -15,6 +15,7 @@ signal on_set_active(character, value: bool)
 signal on_set_highlight(character, value: bool)
 
 enum Attribute { STRENGTH, AGILITY, MAGIC }
+enum CharacterResource { DURABILITY, HEALTH, STAMINA, MANA}
 
 @export var name: String:
 	get():
@@ -68,6 +69,28 @@ func get_attribute(attribute: Attribute):
 		Attribute.STRENGTH: return strength
 		Attribute.AGILITY: return agility
 		Attribute.MAGIC: return magic
+
+func get_resource(resource: CharacterResource) -> int:
+	match resource:
+		CharacterResource.DURABILITY: return cur_durability
+		CharacterResource.HEALTH: return cur_health
+		CharacterResource.STAMINA: return cur_stamina
+		CharacterResource.MANA: return cur_mana
+	return 0
+
+func set_resource(resource: CharacterResource, value: int):
+	match resource:
+		CharacterResource.DURABILITY: cur_durability = value
+		CharacterResource.HEALTH: cur_health = value
+		CharacterResource.STAMINA: cur_stamina = value
+		CharacterResource.MANA: cur_mana = value
+
+func modify_resource(resource: CharacterResource, value: int):
+	match resource:
+		CharacterResource.DURABILITY: cur_durability += value
+		CharacterResource.HEALTH: cur_health += value
+		CharacterResource.STAMINA: cur_stamina += value
+		CharacterResource.MANA: cur_mana += value
 
 func take_damage(damage: int):
 	var actual_damage = damage

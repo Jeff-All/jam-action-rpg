@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvfbnvprqkpo2"]
+[gd_scene load_steps=10 format=3 uid="uid://cvfbnvprqkpo2"]
 
 [ext_resource type="Script" uid="uid://ccf5r01d7gx5s" path="res://scripts/action_button.gd" id="1_js6u8"]
-[ext_resource type="Texture2D" uid="uid://dkcpqf8muu5s5" path="res://resources/art/icons/swinging_sword.png" id="2_u7r83"]
+[ext_resource type="Texture2D" uid="uid://dvpbt0o67h1dl" path="res://resources/art/icons/sword_transparent.png" id="2_u7r83"]
+[ext_resource type="PackedScene" uid="uid://hjh1ool8quxb" path="res://scenes/cost_bar.tscn" id="3_ffiw1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7r83"]
 bg_color = Color(0, 0, 0, 1)
@@ -15,8 +16,13 @@ bg_color = Color(0.570213, 0.5755109, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_smqkt"]
 bg_color = Color(0.9265447, 0.44262242, 5.7756904e-07, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5myp6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sva6b"]
+bg_color = Color(0, 0, 0, 0.79607844)
+
 [node name="Action Button" type="MarginContainer"]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(125, 100)
 offset_right = 100.0
 offset_bottom = 100.0
 script = ExtResource("1_js6u8")
@@ -38,11 +44,25 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
+[node name="BG" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5myp6")
+
 [node name="Image" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
 texture = ExtResource("2_u7r83")
 expand_mode = 1
+stretch_mode = 5
+
+[node name="Overlay" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sva6b")
+
+[node name="CostBar" parent="MarginContainer" instance=ExtResource("3_ffiw1")]
+layout_mode = 2
 
 [connection signal="gui_input" from="Background" to="." method="_on_background_gui_input"]
 [connection signal="mouse_entered" from="Background" to="." method="_on_background_mouse_entered"]

@@ -60,8 +60,8 @@ func set_pcs(player_characters: PlayerCharacters):
 	_pcs = player_characters
 	pcs.set_characters(_pcs.characters)
 
-func bind_actions(actions: Array[Action]):
-	buttons.bind_actions(actions)
+func bind_actions(character: Character, actions: Array[Action]):
+	buttons.bind_actions(character, actions)
 
 func reset():
 	enemies.reset()

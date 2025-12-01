@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dagyfml15dkmy" path="res://scripts/resources/actions/action_attack.gd" id="1_dijde"]
 [ext_resource type="Resource" uid="uid://dl6nwkc86sckq" path="res://resources/actions/targeting/ranged_targeting.tres" id="2_dijde"]
-[ext_resource type="Texture2D" uid="uid://dkcpqf8muu5s5" path="res://resources/art/icons/swinging_sword.png" id="3_8i5kl"]
+[ext_resource type="Texture2D" uid="uid://dvpbt0o67h1dl" path="res://resources/art/icons/sword_transparent.png" id="3_8i5kl"]
 
 [resource]
 script = ExtResource("1_dijde")
@@ -11,4 +11,7 @@ max_damage = 3
 name = "Action A"
 texture = ExtResource("3_8i5kl")
 targeting = ExtResource("2_dijde")
+cost = Dictionary[int, int]({
+2: 3
+})
 metadata/_custom_type_script = "uid://yndi76amfml"

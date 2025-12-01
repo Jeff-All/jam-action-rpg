@@ -10,11 +10,13 @@ signal on_pressed(action_button: ActionButton)
 @export var selected_color: StyleBox
 
 @export var action: Action:
-	set(value):
-		_action = value
-		if _action != null:
-			$MarginContainer/Image.texture = _action.texture
 	get: return _action
+
+func set_action(character: Character, value: Action):
+	_action = value
+	if _action != null:
+		$MarginContainer/Image.texture = _action.texture
+		$MarginContainer/CostBar.set_cost(character, _action.cost)
 
 var selected: bool:
 	set(value):
@@ -25,6 +27,18 @@ var selected: bool:
 		else: 
 			$Background.add_theme_stylebox_override("panel", default_color)
 			$Background.mouse_default_cursor_shape = CursorShape.CURSOR_POINTING_HAND
+
+var can_afford: bool:
+	set(value):
+		_can_afford = value
+		print("can_afford %s so %s" % [value, !_can_afford])
+		$MarginContainer/Overlay.visible = !_can_afford
+		if _can_afford:
+			$Background.mouse_default_cursor_shape = CursorShape.CURSOR_POINTING_HAND
+		else:
+			$Background.mouse_default_cursor_shape = CursorShape.CURSOR_ARROW
+
+var _can_afford: bool = false
 
 var _action: Action
 
@@ -37,7 +51,7 @@ func _ready():
 
 func _on_background_mouse_entered():
 	_hover = true
-	if !_selected:
+	if !_selected && _can_afford:
 		if _left_down:
 			$Background.add_theme_stylebox_override("panel", down_color)
 		if !_left_down:
@@ -45,17 +59,18 @@ func _on_background_mouse_entered():
 
 func _on_background_mouse_exited():
 	_hover = false
-	if !_selected:
+	if !_selected && _can_afford:
 		$Background.add_theme_stylebox_override("panel", default_color)
 
 func _on_background_gui_input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			if event.is_pressed() and !_selected:
-				_left_down = true
-				$Background.add_theme_stylebox_override("panel", down_color)
-			else:
-				_left_down = false
-				if _hover and !_selected: 
-					$Background.add_theme_stylebox_override("panel", hover_color)
-					on_pressed.emit(self)
+	if _can_afford:
+		if event is InputEventMouseButton:
+			if event.button_index == MOUSE_BUTTON_LEFT:
+				if event.is_pressed() and !_selected:
+					_left_down = true
+					$Background.add_theme_stylebox_override("panel", down_color)
+				else:
+					_left_down = false
+					if _hover and !_selected: 
+						$Background.add_theme_stylebox_override("panel", hover_color)
+						on_pressed.emit(self)

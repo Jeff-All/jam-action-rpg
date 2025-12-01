@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4lkkb2e5hssu"]
+
+[ext_resource type="Script" uid="uid://dp43fjvkaemuh" path="res://scripts/cost.gd" id="1_0agb0"]
+[ext_resource type="StyleBox" uid="uid://mgmo4rmrgnx4" path="res://styles/armor.tres" id="1_fvi3t"]
+
+[node name="Cost" type="MarginContainer"]
+mouse_filter = 2
+script = ExtResource("1_0agb0")
+font_color_default = Color(1, 1, 1, 1)
+font_color_locked = Color(0.6431373, 0, 0, 1)
+
+[node name="Background" type="Panel" parent="."]
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("1_fvi3t")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "5"
+horizontal_alignment = 1
