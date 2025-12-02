@@ -4,6 +4,7 @@ extends PanelContainer
 
 signal on_mouse_enter(turn_order_character: TurnOrderCharacter)
 signal on_mouse_exit(turn_order_character: TurnOrderCharacter)
+signal on_death(character: ThreatTableCharacter)
 
 @export var default_color: StyleBox
 @export var selected_color: StyleBox
@@ -54,4 +55,5 @@ func _on_mouse_exited():
 	on_mouse_exit.emit(self)
 
 func _on_death(_c: Character):
-	$MarginContainer/DeathPanel.visible = true
+	visible = false
+	on_death.emit(self)

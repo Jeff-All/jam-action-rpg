@@ -2,8 +2,6 @@ class_name AttackAction
 
 extends Action
 
-
-
 @export var min_damage: int
 @export var max_damage: int
 

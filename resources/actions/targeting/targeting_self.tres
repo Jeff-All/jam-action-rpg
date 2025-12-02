@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="TargetingSelf" load_steps=2 format=3 uid="uid://bame7hfe1bt3k"]
+
+[ext_resource type="Script" uid="uid://dg2e68483c42k" path="res://scripts/resources/actions/targeting/targeting_self.gd" id="1_gwksq"]
+
+[resource]
+script = ExtResource("1_gwksq")
+metadata/_custom_type_script = "uid://dg2e68483c42k"

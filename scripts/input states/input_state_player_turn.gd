@@ -31,6 +31,8 @@ func on_character_leave(_character: CharacterUI):
 
 func _on_pc_pressed(pc: CharacterUI, index: int):
 	print("player_turn.on_pcs_character_ui_pressed(%s) at %s" % [pc.name, index])
+	if selected_action.action.on_pressed_target(character, pc, battle_board):
+		on_end_turn.emit()
 
 func on_enemy_pressed(enemy: CharacterUI, row: int, col: int):
 	print("player_turn.on_enemy_pressed(%s) at row %s and col %s" % [enemy.name, row, col])

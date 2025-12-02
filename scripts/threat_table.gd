@@ -19,6 +19,10 @@ var sort_function: Callable = _default_sort
 var base_threat_function: Callable = _default_base_threat
 
 func _default_sort(a,b) -> bool:
+	if a.character.cur_health <=0:
+		return false
+	if b.character.cur_health <= 0:
+		return true
 	if a.threat == b.threat:
 		var a_threat = (a.character.armor * a.character.cur_durability) + a.character.cur_health + a.character.strength
 		var b_threat = (b.character.armor * b.character.cur_durability) + b.character.cur_health + b.character.strength

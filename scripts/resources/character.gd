@@ -80,17 +80,17 @@ func get_resource(resource: CharacterResource) -> int:
 
 func set_resource(resource: CharacterResource, value: int):
 	match resource:
-		CharacterResource.DURABILITY: cur_durability = value
-		CharacterResource.HEALTH: cur_health = value
-		CharacterResource.STAMINA: cur_stamina = value
-		CharacterResource.MANA: cur_mana = value
+		CharacterResource.DURABILITY: cur_durability = min(max_durability, value)
+		CharacterResource.HEALTH: cur_health = min(max_health, value)
+		CharacterResource.STAMINA: cur_stamina = min(max_stamina, value)
+		CharacterResource.MANA: cur_mana = min(max_mana, value)
 
 func modify_resource(resource: CharacterResource, value: int):
 	match resource:
-		CharacterResource.DURABILITY: cur_durability += value
-		CharacterResource.HEALTH: cur_health += value
-		CharacterResource.STAMINA: cur_stamina += value
-		CharacterResource.MANA: cur_mana += value
+		CharacterResource.DURABILITY: cur_durability = min(max_durability, cur_durability + value)
+		CharacterResource.HEALTH: cur_health = min(max_health, cur_health + value)
+		CharacterResource.STAMINA: cur_stamina = min(max_stamina, cur_stamina + value)
+		CharacterResource.MANA: cur_mana = min(max_mana, cur_mana + value)
 
 func take_damage(damage: int):
 	var actual_damage = damage

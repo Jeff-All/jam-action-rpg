@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="Class" load_steps=4 format=3 uid="uid://cujlbu0bgcrx2"]
+[gd_resource type="Resource" script_class="Class" load_steps=5 format=3 uid="uid://cujlbu0bgcrx2"]
 
 [ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/class.gd" id="1_sih4u"]
 [ext_resource type="Script" uid="uid://yndi76amfml" path="res://scripts/resources/actions/action.gd" id="1_w8qfh"]
 [ext_resource type="Resource" uid="uid://7td1anjb4ewp" path="res://resources/actions/action_b.tres" id="2_5v3xf"]
+[ext_resource type="Resource" uid="uid://dflceqm3csuhd" path="res://resources/actions/action_rest.tres" id="3_5v3xf"]
 
 [resource]
 script = ExtResource("1_sih4u")
@@ -17,5 +18,5 @@ durability = 3
 health = 2
 mana = 5
 health_recovery = 1
-actions = Array[ExtResource("1_w8qfh")]([ExtResource("2_5v3xf")])
+actions = Array[ExtResource("1_w8qfh")]([ExtResource("2_5v3xf"), ExtResource("3_5v3xf")])
 metadata/_custom_type_script = "uid://7im2jq7xrwm1"

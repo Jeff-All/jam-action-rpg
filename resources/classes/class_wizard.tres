@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="Class" load_steps=4 format=3 uid="uid://uie5ceorji42"]
+[gd_resource type="Resource" script_class="Class" load_steps=5 format=3 uid="uid://uie5ceorji42"]
 
 [ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/class.gd" id="1_jag1r"]
 [ext_resource type="Script" uid="uid://yndi76amfml" path="res://scripts/resources/actions/action.gd" id="1_q3yh8"]
 [ext_resource type="Resource" uid="uid://7td1anjb4ewp" path="res://resources/actions/action_b.tres" id="2_dpvng"]
+[ext_resource type="Resource" uid="uid://dflceqm3csuhd" path="res://resources/actions/action_rest.tres" id="3_dpvng"]
 
 [resource]
 script = ExtResource("1_jag1r")
@@ -10,5 +11,5 @@ name = "Wizard"
 magic = 3
 mana = 10
 mana_recovery = 1
-actions = Array[ExtResource("1_q3yh8")]([ExtResource("2_dpvng")])
+actions = Array[ExtResource("1_q3yh8")]([ExtResource("2_dpvng"), ExtResource("3_dpvng")])
 metadata/_custom_type_script = "uid://7im2jq7xrwm1"

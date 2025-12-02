@@ -13,6 +13,7 @@ func _ready():
 	for cur_child in get_children():
 		print("_ready.add_child")
 		cur_child.visible = false
+		(cur_child as ThreatTableCharacter).on_death.connect(_on_death)
 		buttons.append(cur_child as ThreatTableCharacter)
 	print("_ready %s" % buttons.size())
 
@@ -70,3 +71,8 @@ func _on_mouse_entered() -> void:
 
 func _on_mouse_exited() -> void:
 	collapse()
+
+func _on_death(character: ThreatTableCharacter):
+	character.visible = false
+	
+	table.sort_table()

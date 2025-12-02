@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="Class" load_steps=4 format=3 uid="uid://cd52scvecilnt"]
+[gd_resource type="Resource" script_class="Class" load_steps=5 format=3 uid="uid://cd52scvecilnt"]
 
 [ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/class.gd" id="1_hbnra"]
 [ext_resource type="Script" uid="uid://yndi76amfml" path="res://scripts/resources/actions/action.gd" id="1_y64t6"]
 [ext_resource type="Resource" uid="uid://7td1anjb4ewp" path="res://resources/actions/action_b.tres" id="2_gdnjy"]
+[ext_resource type="Resource" uid="uid://dflceqm3csuhd" path="res://resources/actions/action_rest.tres" id="3_gdnjy"]
 
 [resource]
 script = ExtResource("1_hbnra")
@@ -17,5 +18,5 @@ health = 5
 stamina = 5
 health_recovery = 1
 stamina_recovery = 1
-actions = Array[ExtResource("1_y64t6")]([ExtResource("2_gdnjy")])
+actions = Array[ExtResource("1_y64t6")]([ExtResource("2_gdnjy"), ExtResource("3_gdnjy")])
 metadata/_custom_type_script = "uid://7im2jq7xrwm1"
