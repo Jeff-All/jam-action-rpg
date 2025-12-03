@@ -8,6 +8,8 @@ signal on_cur_health_change(character)
 signal on_cur_stamina_change(character)
 signal on_cur_mana_change(character)
 
+signal on_take_damage(damage: int)
+
 signal on_turn_order_mouse_enter(character)
 signal on_turn_order_mouse_exit(character)
 
@@ -100,6 +102,8 @@ func take_damage(damage: int):
 			cur_durability -= 1
 	
 	cur_health -= actual_damage
+	
+	on_take_damage.emit(actual_damage)
 
 func _set_cur_durability(new_durability: int):
 	if cur_durability != new_durability:

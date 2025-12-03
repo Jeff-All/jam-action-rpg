@@ -5,6 +5,8 @@ signal on_pressed(character: CharacterUI)
 signal on_hover(character: CharacterUI)
 signal on_leave(character: CharacterUI)
 
+var animation: AnimationPlayer
+
 var center: Vector2:
 	get():
 		return global_position + (size / 2)
@@ -27,6 +29,9 @@ var center: Vector2:
 
 @export var character: Character:
 	set = _set_character
+
+func _ready():
+	animation = $AnimationPlayer
 
 func reset():
 	active = false
@@ -60,6 +65,8 @@ func _unbind_character():
 		character.on_cur_stamina_change.disconnect(_stamina_change)
 		character.on_cur_mana_change.disconnect(_mana_change)
 		
+		character.on_take_damage.disconnect(_take_damage)
+		
 		character.on_set_active.disconnect(_on_set_active)
 		character.on_set_highlight.disconnect(_on_set_highlight)
 		
@@ -73,6 +80,8 @@ func _bind_character():
 	character.on_cur_health_change.connect(_health_change)
 	character.on_cur_stamina_change.connect(_stamina_change)
 	character.on_cur_mana_change.connect(_mana_change)
+	
+	character.on_take_damage.connect(_take_damage)
 	
 	character.on_set_active.connect(_on_set_active)
 	character.on_set_highlight.connect(_on_set_highlight)
@@ -98,6 +107,9 @@ func _stamina_change(_character):
 
 func _mana_change(_character):
 	$VBoxContainer/Status/Mana.set_value(character.cur_mana)
+
+func _take_damage(_damage: int):
+	animation.play("take_damage")
 
 func _on_hover():
 	print("hover %s.%s" % [character.name, character.count])

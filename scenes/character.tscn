@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://weekes3e3nni"]
+[gd_scene load_steps=18 format=3 uid="uid://weekes3e3nni"]
 
 [ext_resource type="Script" uid="uid://cwi1at6chh8by" path="res://scripts/character_UI.gd" id="1_7ig0a"]
 [ext_resource type="PackedScene" uid="uid://gyyulhl3litf" path="res://scenes/state_button.tscn" id="2_0dpix"]
@@ -13,8 +13,48 @@
 [ext_resource type="StyleBox" uid="uid://decedaj14g6nl" path="res://styles/mana.tres" id="7_2hyy3"]
 [ext_resource type="Texture2D" uid="uid://cn1va2qvkx1yu" path="res://1p_square.png" id="8_a5ia6"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7eonc"]
+bg_color = Color(0.39607844, 0, 0, 0.7176471)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_irmqu"]
 bg_color = Color(0.39607844, 0, 0, 0.7176471)
+
+[sub_resource type="Animation" id="Animation_50cep"]
+resource_name = "take_damage"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ImageContainer/DamageOverlay:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.06, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, true, false, false]
+}
+
+[sub_resource type="Animation" id="Animation_8yvht"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ImageContainer/DamageOverlay:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lagn4"]
+_data = {
+&"RESET": SubResource("Animation_8yvht"),
+&"take_damage": SubResource("Animation_50cep")
+}
 
 [node name="Character" type="MarginContainer"]
 custom_minimum_size = Vector2(165, 155)
@@ -36,6 +76,11 @@ layout_mode = 2
 mouse_filter = 2
 texture = ExtResource("3_7eonc")
 expand_mode = 1
+
+[node name="DamageOverlay" type="Panel" parent="ImageContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7eonc")
 
 [node name="DeathOverlay" type="PanelContainer" parent="ImageContainer"]
 visible = false
@@ -109,6 +154,11 @@ theme_override_styles/panel = ExtResource("7_2hyy3")
 visible = false
 layout_mode = 2
 texture = ExtResource("8_a5ia6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_lagn4")
+}
 
 [connection signal="on_hover" from="StateButton" to="." method="_on_hover"]
 [connection signal="on_leave" from="StateButton" to="." method="_on_leave"]
