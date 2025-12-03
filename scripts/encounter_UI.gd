@@ -8,6 +8,12 @@ signal on_enemy_leave(enemy: CharacterUI)
 var row_map: Dictionary[Enemy, int] = {}
 var enemies: Enemies
 
+func get_ui(enemy: Enemy):
+	var row = row_map[enemy]
+	match row:
+		0: return $"Bottom Row".get_character_ui(enemy)
+		1: return $"Top Row".get_character_ui(enemy)
+
 func set_encounter(_enemies: Enemies):
 	enemies = _enemies
 	$"Bottom Row".clear()

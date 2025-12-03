@@ -21,6 +21,7 @@ var buttons: ButtonRow
 var mid_text: MidText
 var turn_order: TurnOrder
 var start: Button
+var combat_text: CombatText
 
 func _ready():
 	enemies = $VBoxContainer/Top/EncounterUI
@@ -29,6 +30,7 @@ func _ready():
 	mid_text= $VBoxContainer/PanelContainer/MidText
 	turn_order = $VBoxContainer/Top/TurnOrder
 	start = $VBoxContainer/PanelContainer/Start
+	combat_text = $CombatText
 	reset()
 
 func _on_pc_pressed(character: CharacterUI, index: int):

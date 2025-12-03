@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4873r6mr2etc"]
+
+[ext_resource type="Script" uid="uid://crn28t4vwauh3" path="res://scripts/tests/test_combat_text.gd" id="1_rnh66"]
+[ext_resource type="PackedScene" uid="uid://bjhxljfbwnbup" path="res://scenes/combat_text.tscn" id="1_s5tvb"]
+
+[node name="TestCombatText" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rnh66")
+
+[node name="CombatText" parent="." instance=ExtResource("1_s5tvb")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 8
+mouse_filter = 2
+alignment = 1
+
+[node name="Miss" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Miss"
+
+[node name="Hit" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Hit"
+
+[node name="Text" type="LineEdit" parent="HBoxContainer"]
+layout_mode = 2
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

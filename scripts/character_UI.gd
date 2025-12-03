@@ -5,6 +5,10 @@ signal on_pressed(character: CharacterUI)
 signal on_hover(character: CharacterUI)
 signal on_leave(character: CharacterUI)
 
+var center: Vector2:
+	get():
+		return global_position + (size / 2)
+
 @export var active: bool:
 	set(value):
 		$StateButton.active = value

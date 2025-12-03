@@ -46,6 +46,8 @@ func _target():
 func _damage():
 	print("damage")
 	
+	
+	battle_board.combat_text.show_combat_text(battle_board.pcs.get_character_ui(target).center, "3")
 	target.take_damage(3)
 	
 	next = _end
