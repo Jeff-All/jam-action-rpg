@@ -41,11 +41,23 @@ func _target():
 	target.highlight = true
 	
 	next = _damage
+	
+	battle_board.defend_row.bind_actions(target, target.defenses)
+
+func on_defend_pressed(action_button: ActionButton, _index:int):
+	if action_button.action.defend(30, enemy, target):
+		battle_board.combat_text.show_combat_text(battle_board.pcs.get_character_ui(target).center, "3")
+		target.take_damage(3)
+	else:
+		battle_board.combat_text.show_combat_text(battle_board.pcs.get_character_ui(target).center, "MISS")
+	
+	battle_board.defend_row.clear()
+	
+	next = _end
 	_timer.start()
 
 func _damage():
 	print("damage")
-	
 	
 	battle_board.combat_text.show_combat_text(battle_board.pcs.get_character_ui(target).center, "3")
 	target.take_damage(3)
@@ -55,4 +67,5 @@ func _damage():
 
 func _end():
 	print("end enemy turn")
+	battle_board.reset()
 	on_end_turn.emit()

@@ -19,6 +19,7 @@ extends Resource
 @export var mana_recovery: int
 
 @export var actions: Array[Action]
+@export var defenses: Array[Action]
 
 func apply(character: Character):
 	character.strength += strength

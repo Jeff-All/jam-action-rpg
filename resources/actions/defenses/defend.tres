@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Defend" load_steps=3 format=3 uid="uid://beih07aolh4dc"]
+
+[ext_resource type="Script" uid="uid://ctppt4aqrq0r" path="res://scripts/resources/actions/defenses/defend.gd" id="1_0yrit"]
+[ext_resource type="Texture2D" uid="uid://fo4nutgjphqw" path="res://resources/art/icons/buttons/Defend.png" id="2_rsu6j"]
+
+[resource]
+script = ExtResource("1_0yrit")
+name = "Defend"
+texture = ExtResource("2_rsu6j")
+metadata/_custom_type_script = "uid://ctppt4aqrq0r"

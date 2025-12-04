@@ -66,3 +66,9 @@ func _get_name() -> String:
 
 func _get_actions() -> Array[Action]:
 	return _race.actions + _class.actions
+
+var defenses: Array[Action]:
+	get = _get_defenses
+
+func _get_defenses() -> Array[Action]:
+	return _race.defenses + _class.defenses

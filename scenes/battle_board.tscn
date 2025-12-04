@@ -43,6 +43,9 @@ layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "Start"
 
+[node name="DefendRow" parent="VBoxContainer/PanelContainer" instance=ExtResource("4_p2r5k")]
+layout_mode = 2
+
 [node name="Bottom" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
@@ -70,6 +73,7 @@ layout_mode = 2
 [connection signal="on_enemy_leave" from="VBoxContainer/Top/EncounterUI" to="." method="_on_enemy_leave"]
 [connection signal="on_enemy_pressed" from="VBoxContainer/Top/EncounterUI" to="." method="_on_enemy_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="on_action_button_pressed" from="VBoxContainer/PanelContainer/DefendRow" to="." method="_on_defend_button_pressed"]
 [connection signal="on_character_hover" from="VBoxContainer/Bottom/PCs" to="." method="_on_pc_hover"]
 [connection signal="on_character_leave" from="VBoxContainer/Bottom/PCs" to="." method="_on_pc_leave"]
 [connection signal="on_character_ui_pressed" from="VBoxContainer/Bottom/PCs" to="." method="_on_pc_pressed"]

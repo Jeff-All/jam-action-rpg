@@ -9,6 +9,7 @@ signal on_enemy_pressed(character: CharacterUI, row: int, index: int)
 signal on_enemy_hover(character: CharacterUI)
 signal on_enemy_leave(character: CharacterUI)
 signal on_action_pressed(action_button: ActionButton, index: int)
+signal on_defend_pressed(action_button: ActionButton, index: int)
 signal on_start_pressed()
 
 @export var ecounter: Encounter
@@ -22,6 +23,7 @@ var mid_text: MidText
 var turn_order: TurnOrder
 var start: Button
 var combat_text: CombatText
+var defend_row: ButtonRow
 
 func _ready():
 	enemies = $VBoxContainer/Top/EncounterUI
@@ -31,6 +33,7 @@ func _ready():
 	turn_order = $VBoxContainer/Top/TurnOrder
 	start = $VBoxContainer/PanelContainer/Start
 	combat_text = $CombatText
+	defend_row = $VBoxContainer/PanelContainer/DefendRow
 	reset()
 
 func _on_pc_pressed(character: CharacterUI, index: int):
@@ -54,6 +57,9 @@ func _on_enemy_leave(enemy: CharacterUI):
 func _on_action_button_pressed(action_button: ActionButton, index: int):
 	on_action_pressed.emit(action_button, index)
 
+func _on_defend_button_pressed(action_button: ActionButton, index: int):
+	on_defend_pressed.emit(action_button, index)
+
 func set_enemies(e: Enemies):
 	enemies.set_encounter(e)
 	_enemies = e
@@ -69,6 +75,7 @@ func reset():
 	enemies.reset()
 	pcs.reset()
 	buttons.clear()
+	defend_row.clear()
 	mid_text.visible = false
 	start.visible = false
 

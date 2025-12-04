@@ -48,6 +48,8 @@ var _selected: bool = false
 
 func _ready():
 	$Background.add_theme_stylebox_override("panel", default_color)
+	if _action != null:
+		$MarginContainer/Image.texture = _action.texture
 
 func _on_background_mouse_entered():
 	_hover = true

@@ -24,3 +24,4 @@ extends Resource
 @export var mana_recovery: int
 
 @export var actions: Array[Action]
+@export var defenses: Array[Action]

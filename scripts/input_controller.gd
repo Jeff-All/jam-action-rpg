@@ -55,6 +55,9 @@ func _on_enemy_leave(enemy: CharacterUI):
 func _on_action_button_pressed(action_button: ActionButton, index: int):
 	_cur_state.on_action_button_pressed(action_button, index)
 
+func _on_defend_pressed(action_button, index):
+	_cur_state.on_defend_pressed(action_button, index)
+
 func to_default():
 	cur_state = default_input_state
 
