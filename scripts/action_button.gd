@@ -3,6 +3,8 @@ class_name ActionButton
 extends Container
 
 signal on_pressed(action_button: ActionButton)
+signal on_enter(action_button: ActionButton)
+signal on_exit(action_button: ActionButton)
 
 @export var default_color: StyleBox
 @export var hover_color: StyleBox
@@ -52,6 +54,7 @@ func _ready():
 		$MarginContainer/Image.texture = _action.texture
 
 func _on_background_mouse_entered():
+	on_enter.emit(self)
 	_hover = true
 	if !_selected && _can_afford:
 		if _left_down:
@@ -60,6 +63,7 @@ func _on_background_mouse_entered():
 			$Background.add_theme_stylebox_override("panel", hover_color)
 
 func _on_background_mouse_exited():
+	on_exit.emit(self)
 	_hover = false
 	if !_selected && _can_afford:
 		$Background.add_theme_stylebox_override("panel", default_color)
@@ -76,3 +80,9 @@ func _on_background_gui_input(event):
 					if _hover and !_selected: 
 						$Background.add_theme_stylebox_override("panel", hover_color)
 						on_pressed.emit(self)
+
+func check_hover() -> bool:
+	if get_global_rect().has_point(get_global_mouse_position()):
+		_on_background_mouse_entered()
+		return true
+	return false

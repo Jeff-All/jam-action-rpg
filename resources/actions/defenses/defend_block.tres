@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DefendBlock" load_steps=3 format=3 uid="uid://dmp2u0e8w8rua"]
+
+[ext_resource type="Script" uid="uid://bafhs8m021y2l" path="res://scripts/resources/actions/defenses/defend_block.gd" id="1_7j1xw"]
+[ext_resource type="Texture2D" uid="uid://bjyek840w5vhl" path="res://resources/art/icons/shield.png" id="2_vmb5k"]
+
+[resource]
+script = ExtResource("1_7j1xw")
+name = "Block"
+texture = ExtResource("2_vmb5k")
+metadata/_custom_type_script = "uid://bafhs8m021y2l"

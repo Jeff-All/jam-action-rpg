@@ -47,3 +47,12 @@ func on_action_button_pressed(action_button: ActionButton, index:int):
 		selected_action = action_button
 		selected_action.selected = true
 		selected_action.action.targeting.target(character, battle_board)
+
+func on_action_button_entered(action_button: ActionButton):
+	print("player_turn.on_action_button_entered(%s)" % action_button.action.name)
+	action_button.action.render_tooltip(character, battle_board.tooltip)
+	battle_board._show_tooltip()
+
+func on_action_button_exited(action_button: ActionButton):
+	print("player_turn.on_action_button_exited(%s)" % action_button.action.name)
+	battle_board._hide_tooltip()

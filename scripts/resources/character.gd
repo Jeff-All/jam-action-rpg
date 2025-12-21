@@ -101,7 +101,7 @@ func take_damage(damage: int):
 		if damage > armor:
 			cur_durability -= 1
 	
-	cur_health -= actual_damage
+	cur_health -= max(0, actual_damage)
 	
 	on_take_damage.emit(actual_damage)
 

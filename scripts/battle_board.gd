@@ -9,7 +9,8 @@ signal on_enemy_pressed(character: CharacterUI, row: int, index: int)
 signal on_enemy_hover(character: CharacterUI)
 signal on_enemy_leave(character: CharacterUI)
 signal on_action_pressed(action_button: ActionButton, index: int)
-signal on_defend_pressed(action_button: ActionButton, index: int)
+signal on_action_entered(action_button: ActionButton)
+signal on_action_exited(action_button: ActionButton)
 signal on_start_pressed()
 
 @export var ecounter: Encounter
@@ -24,16 +25,17 @@ var turn_order: TurnOrder
 var start: Button
 var combat_text: CombatText
 var defend_row: ButtonRow
+var tooltip: PanelContainer
 
 func _ready():
 	enemies = $VBoxContainer/Top/EncounterUI
 	pcs = $VBoxContainer/Bottom/PCs
-	buttons = $VBoxContainer/Bottom/ButtonRow
+	buttons = $VBoxContainer/PanelContainer2/VBoxContainer/PCButtonRow
 	mid_text= $VBoxContainer/PanelContainer/MidText
 	turn_order = $VBoxContainer/Top/TurnOrder
-	start = $VBoxContainer/PanelContainer/Start
+	start = $VBoxContainer/PanelContainer2/Start
 	combat_text = $CombatText
-	defend_row = $VBoxContainer/PanelContainer/DefendRow
+	tooltip = $Tooltip
 	reset()
 
 func _on_pc_pressed(character: CharacterUI, index: int):
@@ -52,13 +54,18 @@ func _on_enemy_hover(enemy: CharacterUI):
 	on_enemy_hover.emit(enemy)
 
 func _on_enemy_leave(enemy: CharacterUI):
+	_hide_tooltip()
 	on_enemy_leave.emit(enemy)
 
 func _on_action_button_pressed(action_button: ActionButton, index: int):
 	on_action_pressed.emit(action_button, index)
 
-func _on_defend_button_pressed(action_button: ActionButton, index: int):
-	on_defend_pressed.emit(action_button, index)
+func _on_action_button_entered(action_button: ActionButton):
+	print("bb.action button entered")
+	on_action_entered.emit(action_button)
+
+func _on_action_button_exited(action_button: ActionButton):
+	on_action_exited.emit(action_button)
 
 func set_enemies(e: Enemies):
 	enemies.set_encounter(e)
@@ -75,7 +82,6 @@ func reset():
 	enemies.reset()
 	pcs.reset()
 	buttons.clear()
-	defend_row.clear()
 	mid_text.visible = false
 	start.visible = false
 
@@ -90,3 +96,9 @@ func _on_turn_order_mouse_exit(turn_order_character: TurnOrderCharacter):
 
 func _on_start_pressed():
 	on_start_pressed.emit()
+
+func _show_tooltip():
+	tooltip.visible = true
+
+func _hide_tooltip():
+	tooltip.visible = false

@@ -23,6 +23,7 @@ func start_turn(character: Character):
 		$InputController.to_enemy_turn(character)
 
 func set_up(pcs: PlayerCharacters, encounter: Encounter):
+	print("setup")
 	var enemies = encounter.build_enemies()
 	
 	enemies.bind_enemies()
@@ -36,10 +37,10 @@ func set_up(pcs: PlayerCharacters, encounter: Encounter):
 	$InputController/BattleBoard.set_pcs(pcs)
 	$InputController/BattleBoard.set_enemies(enemies)
 	$InputController/BattleBoard.roll_initiative()
-	$InputController/BattleBoard/VBoxContainer/PanelContainer/Start.visible = true
+	$InputController/BattleBoard.start.visible = true
 
 func _on_start_pressed():
-	$InputController/BattleBoard/VBoxContainer/PanelContainer/Start.visible = false
+	$InputController/BattleBoard.start.visible = false
 	start_turn($InputController/BattleBoard/VBoxContainer/Top/TurnOrder.cur_turn())
 
 func _on_enemies_dead():

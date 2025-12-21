@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://oxrb7uyl20u7"]
+[gd_scene load_steps=11 format=3 uid="uid://oxrb7uyl20u7"]
 
 [ext_resource type="Script" uid="uid://drwg8suqceqtv" path="res://scripts/battle_board.gd" id="1_t376k"]
 [ext_resource type="PackedScene" uid="uid://by20vf2n6f0lc" path="res://scenes/turn_order.tscn" id="2_1t7ev"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://bjkx8xp44kj1" path="res://scenes/character_row.tscn" id="3_72lmb"]
 [ext_resource type="PackedScene" uid="uid://dw2qfxfk13lti" path="res://scenes/button_row.tscn" id="4_p2r5k"]
 [ext_resource type="Script" uid="uid://dhjt1uq1fdxqk" path="res://scripts/character_controller.gd" id="7_i27x3"]
+[ext_resource type="PackedScene" uid="uid://b7txn8qdwu3ni" path="res://scenes/tooltip.tscn" id="9_ysv6f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3xe7w"]
 
 [node name="BattleBoard" type="PanelContainer"]
 anchors_preset = 15
@@ -31,19 +34,67 @@ layout_mode = 2
 [node name="EncounterUI" parent="VBoxContainer/Top" instance=ExtResource("2_p2r5k")]
 layout_mode = 2
 
-[node name="PanelContainer" type="CenterContainer" parent="VBoxContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3xe7w")
 
-[node name="MidText" parent="VBoxContainer/PanelContainer" instance=ExtResource("3_1t7ev")]
+[node name="Start" type="Button" parent="VBoxContainer/PanelContainer2"]
+visible = false
 layout_mode = 2
-
-[node name="Start" type="Button" parent="VBoxContainer/PanelContainer"]
-layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 text = "Start"
 
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer2"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/PanelContainer2/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer/PanelContainer2/VBoxContainer/PanelContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+text = "NPC is attacking PC with Attack
+80% chance to hit
+Deals 1-5 Damage
+Choose your defense"
+editable = false
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+virtual_keyboard_show_on_focus = false
+middle_mouse_paste_enabled = false
+empty_selection_clipboard_enabled = false
+scroll_fit_content_height = true
+scroll_fit_content_width = true
+
+[node name="PCButtonRow" parent="VBoxContainer/PanelContainer2/VBoxContainer" instance=ExtResource("4_p2r5k")]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="PanelContainer" type="CenterContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
 [node name="DefendRow" parent="VBoxContainer/PanelContainer" instance=ExtResource("4_p2r5k")]
+layout_mode = 2
+
+[node name="MidText" parent="VBoxContainer/PanelContainer" instance=ExtResource("3_1t7ev")]
+visible = false
 layout_mode = 2
 
 [node name="Bottom" type="VBoxContainer" parent="VBoxContainer"]
@@ -55,8 +106,13 @@ alignment = 2
 layout_mode = 2
 
 [node name="ButtonRow" parent="VBoxContainer/Bottom" instance=ExtResource("4_p2r5k")]
+visible = false
 layout_mode = 2
 size_flags_vertical = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/Bottom"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
 
 [node name="CharacterController" type="Control" parent="."]
 layout_mode = 2
@@ -67,12 +123,21 @@ script = ExtResource("7_i27x3")
 [node name="CombatText" parent="." instance=ExtResource("2_3xe7w")]
 layout_mode = 2
 
+[node name="Tooltip" parent="." instance=ExtResource("9_ysv6f")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
 [connection signal="on_mouse_enter" from="VBoxContainer/Top/TurnOrder" to="." method="_on_turn_order_mouse_enter"]
 [connection signal="on_mouse_exit" from="VBoxContainer/Top/TurnOrder" to="." method="_on_turn_order_mouse_exit"]
 [connection signal="on_enemy_hover" from="VBoxContainer/Top/EncounterUI" to="." method="_on_enemy_hover"]
 [connection signal="on_enemy_leave" from="VBoxContainer/Top/EncounterUI" to="." method="_on_enemy_leave"]
 [connection signal="on_enemy_pressed" from="VBoxContainer/Top/EncounterUI" to="." method="_on_enemy_pressed"]
-[connection signal="pressed" from="VBoxContainer/PanelContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/PanelContainer2/Start" to="." method="_on_start_pressed"]
+[connection signal="on_action_button_entered" from="VBoxContainer/PanelContainer2/VBoxContainer/PCButtonRow" to="." method="_on_action_button_entered"]
+[connection signal="on_action_button_exited" from="VBoxContainer/PanelContainer2/VBoxContainer/PCButtonRow" to="." method="_on_action_button_exited"]
+[connection signal="on_action_button_pressed" from="VBoxContainer/PanelContainer2/VBoxContainer/PCButtonRow" to="." method="_on_action_button_pressed"]
 [connection signal="on_action_button_pressed" from="VBoxContainer/PanelContainer/DefendRow" to="." method="_on_defend_button_pressed"]
 [connection signal="on_character_hover" from="VBoxContainer/Bottom/PCs" to="." method="_on_pc_hover"]
 [connection signal="on_character_leave" from="VBoxContainer/Bottom/PCs" to="." method="_on_pc_leave"]

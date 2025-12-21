@@ -28,5 +28,8 @@ func on_character_leave(character: CharacterUI):
 func on_action_button_pressed(action_button: ActionButton, index:int):
 	print("default.on_action_button_pressed(%s) at index %s" % [action_button.action.name, index])
 
-func on_defend_pressed(action_button: ActionButton, index:int):
-	print("default.on_defend_pressed(%s) at index %s" % [action_button.action.name, index])
+func on_action_button_entered(action_button: ActionButton):
+	print("default.on_action_button_entered(%s)" % [action_button.action.name])
+
+func on_action_button_exited(action_button: ActionButton):
+	print("default.on_action_button_entered(%s)" % [action_button.action.name])

@@ -14,7 +14,7 @@ func on_hover_target(_attacker: Character, _target: CharacterUI, _battle_board: 
 
 func on_leave_target(_attacker: Character, _target: CharacterUI, battle_board: BattleBoard):
 	print("action.on_leave_target")
-	battle_board.mid_text.visible = false
+	battle_board.tooltip.visible = false
 
 func on_pressed_target(_attacker: Character, _target: CharacterUI, _battle_board: BattleBoard) -> bool:
 	print("action.on_pressed_target")
@@ -31,3 +31,9 @@ func can_afford(character: Character) -> bool:
 func consume_resources(character: Character):
 	for cur in cost:
 		character.modify_resource(cur, cost[cur] * -1)
+
+func render_tooltip(_attacker: PlayerCharacter, tooltip:ToolTip):
+	tooltip.text = "default action tooltip"
+
+func render_tooltip_full(_pc: PlayerCharacter, _enemy: Enemy, tooltip: ToolTip):
+	tooltip.text = "default full action tooltip"

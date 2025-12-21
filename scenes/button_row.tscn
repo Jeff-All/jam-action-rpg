@@ -1,17 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://dw2qfxfk13lti"]
+[gd_scene load_steps=4 format=3 uid="uid://dw2qfxfk13lti"]
 
 [ext_resource type="Script" uid="uid://daylnuit5qi4d" path="res://scripts/button_row.gd" id="1_clhc7"]
 [ext_resource type="PackedScene" uid="uid://cvfbnvprqkpo2" path="res://scenes/action_button.tscn" id="1_hg4en"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_clhc7"]
+
 [node name="ButtonRow" type="PanelContainer"]
-custom_minimum_size = Vector2(0, 110)
+custom_minimum_size = Vector2(0, 50)
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -110.0
+offset_top = -50.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_clhc7")
 script = ExtResource("1_clhc7")
 
 [node name="Buttons" type="HBoxContainer" parent="."]
@@ -19,32 +23,48 @@ layout_mode = 2
 theme_override_constants/separation = 2
 alignment = 1
 
-[node name="Button 1" parent="Buttons" instance=ExtResource("1_hg4en")]
+[node name="Action Button" parent="Buttons" instance=ExtResource("1_hg4en")]
 layout_mode = 2
 
-[node name="Button 2" parent="Buttons" instance=ExtResource("1_hg4en")]
+[node name="Action Button2" parent="Buttons" instance=ExtResource("1_hg4en")]
 layout_mode = 2
 
-[node name="Button 3" parent="Buttons" instance=ExtResource("1_hg4en")]
+[node name="Action Button3" parent="Buttons" instance=ExtResource("1_hg4en")]
 layout_mode = 2
 
-[node name="Button 4" parent="Buttons" instance=ExtResource("1_hg4en")]
+[node name="Action Button4" parent="Buttons" instance=ExtResource("1_hg4en")]
 layout_mode = 2
 
-[node name="Button 5" parent="Buttons" instance=ExtResource("1_hg4en")]
+[node name="Action Button5" parent="Buttons" instance=ExtResource("1_hg4en")]
 layout_mode = 2
 
-[node name="Button 6" parent="Buttons" instance=ExtResource("1_hg4en")]
+[node name="Action Button6" parent="Buttons" instance=ExtResource("1_hg4en")]
 layout_mode = 2
 
-[node name="Button 7" parent="Buttons" instance=ExtResource("1_hg4en")]
+[node name="Action Button7" parent="Buttons" instance=ExtResource("1_hg4en")]
 layout_mode = 2
 
-[node name="Button 8" parent="Buttons" instance=ExtResource("1_hg4en")]
+[node name="Action Button8" parent="Buttons" instance=ExtResource("1_hg4en")]
 layout_mode = 2
 
-[node name="Button 9" parent="Buttons" instance=ExtResource("1_hg4en")]
+[node name="Action Button9" parent="Buttons" instance=ExtResource("1_hg4en")]
 layout_mode = 2
 
-[node name="Button 10" parent="Buttons" instance=ExtResource("1_hg4en")]
+[node name="Action Button10" parent="Buttons" instance=ExtResource("1_hg4en")]
 layout_mode = 2
+
+[node name="Action Button11" parent="Buttons" instance=ExtResource("1_hg4en")]
+layout_mode = 2
+
+[node name="Action Button12" parent="Buttons" instance=ExtResource("1_hg4en")]
+layout_mode = 2
+
+[node name="Action Button13" parent="Buttons" instance=ExtResource("1_hg4en")]
+layout_mode = 2
+
+[node name="Action Button14" parent="Buttons" instance=ExtResource("1_hg4en")]
+layout_mode = 2
+
+[node name="Action Button15" parent="Buttons" instance=ExtResource("1_hg4en")]
+layout_mode = 2
+mouse_filter = 2
