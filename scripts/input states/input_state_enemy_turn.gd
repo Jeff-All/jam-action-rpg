@@ -45,7 +45,6 @@ func _target():
 	battle_board.buttons.bind_actions(target, target.defenses)
 
 func on_action_button_pressed(action_button: ActionButton, _index:int):
-	print("enemy_turn.action_button_pressed")
 	if action_button.action.defend(30, enemy, target):
 		var dmg = action_button.action.reduce(randi_range(2,4))
 		battle_board.combat_text.show_combat_text(battle_board.pcs.get_character_ui(target).center, "%s" % dmg)
@@ -66,8 +65,6 @@ func on_action_button_exited(_action_button: ActionButton):
 	battle_board.tooltip.visible = false
 
 func _damage():
-	print("damage")
-	
 	battle_board.combat_text.show_combat_text(battle_board.pcs.get_character_ui(target).center, "3")
 	target.take_damage(3)
 	
@@ -75,6 +72,5 @@ func _damage():
 	_timer.start()
 
 func _end():
-	print("end enemy turn")
 	battle_board.reset()
 	on_end_turn.emit()

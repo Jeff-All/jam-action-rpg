@@ -1,38 +1,32 @@
-class_name AttackAction
+class_name ShankAction
 
 extends Action
 
-@export var min_damage: int
-@export var max_damage: int
+@export var damage: int
 @export var hit: int
 
 func on_hover_target(attacker: Character, target: CharacterUI, battle_board: BattleBoard):
 	var hit_chance = min(100, hit + ((attacker.attack - target.character.defense) * 5))
 	var _attribute_damage = attacker.get_attribute(attribute)
-	var _min_damage = min_damage + _attribute_damage
-	var _max_damage = max_damage + _attribute_damage
-	print("attack_action.on_hover_target() attacker %s attacking %s has a %s%% chance to hit for %s - %s damage" % [attacker.name, target.character.name, hit_chance, _min_damage, _max_damage])
-	battle_board.tooltip.text = "%s%% chance to hit\n%s - %s damage" %[ hit_chance, _min_damage, _max_damage]
+	battle_board.tooltip.text = "Attacks Agility(%s) times\n%s%% chance to hit\n%s damage" %[attacker.agility, hit_chance, damage]
 	battle_board.tooltip.visible = true
 
 func on_pressed_target(attacker: Character, target: CharacterUI, battle_board: BattleBoard) -> bool:
 	super(attacker, target, battle_board)
-	
+	for i in max(1, attacker.agility):
+		if i > 0:
+			await Global.get_tree().create_timer(0.2).timeout
+		_attack(attacker, target, battle_board)
+	return true
+
+func _attack(attacker: Character, target: CharacterUI, battle_board: BattleBoard):
 	var roll = randi_range(1,100)
 	if roll < hit + attacker.attack - target.character.defense:
-		var _attribute_damage = attacker.get_attribute(attribute)
-		var damage = randi_range(min_damage, max_damage) + _attribute_damage
-		
 		target.character.take_damage_from_player_character(attacker, damage)
 		battle_board.combat_text.show_combat_text(target.center, "%s" % damage)
 	else:
 		battle_board.combat_text.show_combat_text(target.center, "MISS")
-	
-	return true
 
 func render_tooltip(attacker: PlayerCharacter, tooltip:ToolTip):
 	var hit_chance = min(100, hit + (attacker.attack * 5))
-	var _attribute_damage = attacker.get_attribute(attribute)
-	var _min_damage = min_damage + _attribute_damage
-	var _max_damage = max_damage + _attribute_damage
-	tooltip.text = "%s%% chance to hit\n%s - %s damaage" % [hit_chance, _min_damage, _max_damage]
+	tooltip.text = "Attacks Agility(%s) times\n%s%% chance to hit\n%s damaage" % [attacker.agility, hit_chance, damage]

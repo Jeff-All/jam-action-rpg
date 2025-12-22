@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://crortnmsfrs3" path="res://scripts/resources/base_character.gd" id="3_sso8t"]
 [ext_resource type="Script" uid="uid://yndi76amfml" path="res://scripts/resources/actions/action.gd" id="4_eea76"]
 [ext_resource type="Resource" uid="uid://7td1anjb4ewp" path="res://resources/actions/action_b.tres" id="5_sso8t"]
-[ext_resource type="Resource" uid="uid://0838ll6ej331" path="res://resources/actions/action_attack.tres" id="6_lygol"]
+[ext_resource type="Resource" uid="uid://0838ll6ej331" path="res://resources/actions/attacks/action_attack.tres" id="6_lygol"]
 
 [node name="TestBattleBoard" type="MarginContainer"]
 anchors_preset = 15

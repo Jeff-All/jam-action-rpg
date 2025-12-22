@@ -36,7 +36,7 @@ func _on_pc_pressed(pc: CharacterUI, index: int):
 
 func on_enemy_pressed(enemy: CharacterUI, row: int, col: int):
 	print("player_turn.on_enemy_pressed(%s) at row %s and col %s" % [enemy.name, row, col])
-	if selected_action.action.on_pressed_target(character, enemy, battle_board):
+	if await selected_action.action.on_pressed_target(character, enemy, battle_board):
 		on_end_turn.emit()
 
 func on_action_button_pressed(action_button: ActionButton, index:int):

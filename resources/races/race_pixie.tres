@@ -1,8 +1,7 @@
-[gd_resource type="Resource" script_class="Race" load_steps=4 format=3 uid="uid://m4doyb4kcxlp"]
+[gd_resource type="Resource" script_class="Race" load_steps=3 format=3 uid="uid://m4doyb4kcxlp"]
 
 [ext_resource type="Script" uid="uid://bkijfvdnaky5k" path="res://scripts/resources/race.gd" id="1_6jho8"]
 [ext_resource type="Script" uid="uid://yndi76amfml" path="res://scripts/resources/actions/action.gd" id="1_14vas"]
-[ext_resource type="Resource" uid="uid://0838ll6ej331" path="res://resources/actions/action_attack.tres" id="2_8j1jl"]
 
 [resource]
 script = ExtResource("1_6jho8")
@@ -15,5 +14,4 @@ stamina = 5
 mana = 10
 stamina_recovery = 2
 mana_recovery = 1
-actions = Array[ExtResource("1_14vas")]([ExtResource("2_8j1jl")])
 metadata/_custom_type_script = "uid://bkijfvdnaky5k"
