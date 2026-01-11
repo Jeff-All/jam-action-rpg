@@ -12,4 +12,7 @@ name = "Shank"
 attribute = 1
 texture = ExtResource("3_2t7n0")
 targeting = ExtResource("2_riaqa")
+cost = Dictionary[int, int]({
+2: 3
+})
 metadata/_custom_type_script = "uid://1k0te0dc63nx"

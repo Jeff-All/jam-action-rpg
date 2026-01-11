@@ -19,6 +19,7 @@ func begin():
 
 func end():
 	print("player_turn.end")
+	character.end_turn()
 	battle_board.reset()
 
 func on_character_hover(_character: CharacterUI):

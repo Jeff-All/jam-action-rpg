@@ -107,7 +107,7 @@ func take_damage(damage: int):
 
 func _set_cur_durability(new_durability: int):
 	if cur_durability != new_durability:
-		cur_durability = new_durability
+		cur_durability = min(max_durability, max(0, new_durability))
 	on_cur_durability_change.emit(self)
 
 func _set_cur_health(new_health: int):
@@ -121,12 +121,12 @@ func _set_cur_health(new_health: int):
 
 func _set_cur_stamina(new_stamina: int):
 	if cur_stamina != new_stamina:
-		cur_stamina = new_stamina
+		cur_stamina = min(max_stamina, max(0, new_stamina))
 		on_cur_stamina_change.emit(self)
 
 func _set_cur_mana(new_mana: int):
 	if cur_mana != new_mana:
-		cur_mana = new_mana
+		cur_mana = min(max_mana, max(0, new_mana))
 		on_cur_mana_change.emit(self)
 
 var active: bool:
@@ -148,3 +148,8 @@ func turn_order_mouse_enter(_ui: TurnOrderCharacter):
 
 func turn_order_mouse_exit(_ui :TurnOrderCharacter):
 	on_turn_order_mouse_exit.emit(self)
+
+func end_turn():
+	cur_health = cur_health + health_recovery
+	cur_mana = cur_mana + mana_recovery
+	cur_stamina = cur_stamina + stamina_recovery

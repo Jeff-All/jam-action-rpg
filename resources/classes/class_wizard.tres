@@ -1,8 +1,7 @@
-[gd_resource type="Resource" script_class="Class" load_steps=7 format=3 uid="uid://uie5ceorji42"]
+[gd_resource type="Resource" script_class="Class" load_steps=6 format=3 uid="uid://uie5ceorji42"]
 
 [ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/class.gd" id="1_jag1r"]
 [ext_resource type="Script" uid="uid://yndi76amfml" path="res://scripts/resources/actions/action.gd" id="1_q3yh8"]
-[ext_resource type="Resource" uid="uid://dflceqm3csuhd" path="res://resources/actions/action_rest.tres" id="3_dpvng"]
 [ext_resource type="Resource" uid="uid://0838ll6ej331" path="res://resources/actions/attacks/action_attack.tres" id="3_mkdc8"]
 [ext_resource type="Resource" uid="uid://beih07aolh4dc" path="res://resources/actions/defenses/defend.tres" id="4_mkdc8"]
 [ext_resource type="Resource" uid="uid://b0d87hp7qlown" path="res://resources/actions/defenses/defend_dodge.tres" id="5_mekhl"]
@@ -13,6 +12,6 @@ name = "Wizard"
 magic = 1
 mana = 10
 mana_recovery = 1
-actions = Array[ExtResource("1_q3yh8")]([ExtResource("3_mkdc8"), ExtResource("3_dpvng")])
+actions = Array[ExtResource("1_q3yh8")]([ExtResource("3_mkdc8")])
 defenses = Array[ExtResource("1_q3yh8")]([ExtResource("4_mkdc8"), ExtResource("5_mekhl")])
 metadata/_custom_type_script = "uid://7im2jq7xrwm1"

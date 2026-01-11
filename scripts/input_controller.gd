@@ -65,10 +65,14 @@ func to_default():
 	cur_state = default_input_state
 
 func to_player_turn(character: Character):
+	if cur_state != null:
+		_cur_state.end()
 	player_turn_input_state.character = character
 	cur_state = player_turn_input_state
 
 func to_enemy_turn(enemy: Enemy):
+	if cur_state != null:
+		_cur_state.end()
 	enemy_turn_input_state.enemy = enemy
 	cur_state = enemy_turn_input_state
 

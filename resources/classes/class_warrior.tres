@@ -1,9 +1,8 @@
-[gd_resource type="Resource" script_class="Class" load_steps=8 format=3 uid="uid://cd52scvecilnt"]
+[gd_resource type="Resource" script_class="Class" load_steps=7 format=3 uid="uid://cd52scvecilnt"]
 
 [ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/class.gd" id="1_hbnra"]
 [ext_resource type="Script" uid="uid://yndi76amfml" path="res://scripts/resources/actions/action.gd" id="1_y64t6"]
 [ext_resource type="Resource" uid="uid://0838ll6ej331" path="res://resources/actions/attacks/action_attack.tres" id="2_clwi3"]
-[ext_resource type="Resource" uid="uid://dflceqm3csuhd" path="res://resources/actions/action_rest.tres" id="3_gdnjy"]
 [ext_resource type="Resource" uid="uid://beih07aolh4dc" path="res://resources/actions/defenses/defend.tres" id="4_tbhcj"]
 [ext_resource type="Resource" uid="uid://b0d87hp7qlown" path="res://resources/actions/defenses/defend_dodge.tres" id="5_clwi3"]
 [ext_resource type="Resource" uid="uid://dmp2u0e8w8rua" path="res://resources/actions/defenses/defend_block.tres" id="6_clwi3"]
@@ -21,6 +20,6 @@ health = 5
 stamina = 5
 health_recovery = 1
 stamina_recovery = 1
-actions = Array[ExtResource("1_y64t6")]([ExtResource("2_clwi3"), ExtResource("3_gdnjy")])
+actions = Array[ExtResource("1_y64t6")]([ExtResource("2_clwi3")])
 defenses = Array[ExtResource("1_y64t6")]([ExtResource("4_tbhcj"), ExtResource("5_clwi3"), ExtResource("6_clwi3")])
 metadata/_custom_type_script = "uid://7im2jq7xrwm1"
