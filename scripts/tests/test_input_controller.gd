@@ -14,7 +14,7 @@ func _on_encounter_a_pressed():
 	$Game/BattleBoard.enemies.set_encounter(encounter_a)
 
 func _on_character_a_pressed():
-	$Game/BattleBoard.pcs.set_character(2,  Character.new(character_a))
+	pass
 
 func _on_buttons_a_pressed():
-	$Game/BattleBoard.buttons.bind_actions(button_set_a)
+	pass

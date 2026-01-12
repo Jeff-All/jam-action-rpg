@@ -41,8 +41,6 @@ func _target():
 	target.highlight = true
 	
 	next = _damage
-	
-	battle_board.buttons.bind_actions(target, target.defenses)
 
 func on_action_button_pressed(action_button: ActionButton, _index:int):
 	if action_button.action.defend(30, enemy, target):
