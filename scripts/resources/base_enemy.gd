@@ -4,6 +4,8 @@ extends Resource
 
 @export var name: String
 
+@export var attack_speed: float
+
 @export var strength: int
 @export var agility: int
 @export var magic: int

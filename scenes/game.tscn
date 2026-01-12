@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b30ck1paoprwm"]
+[gd_scene load_steps=5 format=3 uid="uid://b30ck1paoprwm"]
 
 [ext_resource type="PackedScene" uid="uid://d0iyiq0lwfjo8" path="res://scenes/input_controller.tscn" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://c1g5plrsl6xr4" path="res://scripts/game.gd" id="1_yqjtg"]
+[ext_resource type="Script" uid="uid://d3y881ks80x2q" path="res://scripts/chrono_controller.gd" id="3_lnu2h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqjtg"]
 bg_color = Color(0, 0, 0, 0.6745098)
@@ -45,5 +46,10 @@ theme_override_font_sizes/font_size = 100
 text = "DEFEAT"
 horizontal_alignment = 1
 
-[connection signal="on_end_turn" from="InputController" to="." method="_on_end_turn"]
+[node name="ChronoController" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("3_lnu2h")
+
 [connection signal="on_start_pressed" from="InputController" to="." method="_on_start_pressed"]

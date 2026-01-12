@@ -2,7 +2,6 @@ class_name InputController
 
 extends Node
 
-signal on_end_turn()
 signal on_start_pressed()
 
 var cur_state: InputState:
@@ -24,15 +23,7 @@ func _ready():
 	player_turn_input_state.battle_board = $BattleBoard
 	enemy_turn_input_state.battle_board = $BattleBoard
 	
-	default_input_state.on_end_turn.connect(_on_end_turn)
-	player_turn_input_state.on_end_turn.connect(_on_end_turn)
-	enemy_turn_input_state.on_end_turn.connect(_on_end_turn)
-	
 	cur_state = default_input_state
-
-func _on_end_turn():
-	cur_state = null
-	on_end_turn.emit()
 
 func _on_pc_pressed(character: CharacterUI, index: int):
 	_cur_state._on_pc_pressed(character, index)

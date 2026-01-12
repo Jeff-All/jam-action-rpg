@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://oxrb7uyl20u7"]
+[gd_scene load_steps=10 format=3 uid="uid://oxrb7uyl20u7"]
 
 [ext_resource type="Script" uid="uid://drwg8suqceqtv" path="res://scripts/battle_board.gd" id="1_t376k"]
-[ext_resource type="PackedScene" uid="uid://by20vf2n6f0lc" path="res://scenes/turn_order.tscn" id="2_1t7ev"]
 [ext_resource type="PackedScene" uid="uid://bjhxljfbwnbup" path="res://scenes/combat_text.tscn" id="2_3xe7w"]
 [ext_resource type="PackedScene" uid="uid://dydflwao15d13" path="res://scenes/encounter_ui.tscn" id="2_p2r5k"]
 [ext_resource type="PackedScene" uid="uid://b0ochrebf5q2l" path="res://scenes/mid_text.tscn" id="3_1t7ev"]
@@ -27,9 +26,6 @@ alignment = 1
 [node name="Top" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
-
-[node name="TurnOrder" parent="VBoxContainer/Top" instance=ExtResource("2_1t7ev")]
-layout_mode = 2
 
 [node name="EncounterUI" parent="VBoxContainer/Top" instance=ExtResource("2_p2r5k")]
 layout_mode = 2
@@ -81,10 +77,6 @@ empty_selection_clipboard_enabled = false
 scroll_fit_content_height = true
 scroll_fit_content_width = true
 
-[node name="PCButtonRow" parent="VBoxContainer/PanelContainer2/VBoxContainer" instance=ExtResource("4_p2r5k")]
-layout_mode = 2
-size_flags_vertical = 8
-
 [node name="PanelContainer" type="CenterContainer" parent="VBoxContainer"]
 visible = false
 layout_mode = 2
@@ -129,15 +121,10 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[connection signal="on_mouse_enter" from="VBoxContainer/Top/TurnOrder" to="." method="_on_turn_order_mouse_enter"]
-[connection signal="on_mouse_exit" from="VBoxContainer/Top/TurnOrder" to="." method="_on_turn_order_mouse_exit"]
 [connection signal="on_enemy_hover" from="VBoxContainer/Top/EncounterUI" to="." method="_on_enemy_hover"]
 [connection signal="on_enemy_leave" from="VBoxContainer/Top/EncounterUI" to="." method="_on_enemy_leave"]
 [connection signal="on_enemy_pressed" from="VBoxContainer/Top/EncounterUI" to="." method="_on_enemy_pressed"]
 [connection signal="pressed" from="VBoxContainer/PanelContainer2/Start" to="." method="_on_start_pressed"]
-[connection signal="on_action_button_entered" from="VBoxContainer/PanelContainer2/VBoxContainer/PCButtonRow" to="." method="_on_action_button_entered"]
-[connection signal="on_action_button_exited" from="VBoxContainer/PanelContainer2/VBoxContainer/PCButtonRow" to="." method="_on_action_button_exited"]
-[connection signal="on_action_button_pressed" from="VBoxContainer/PanelContainer2/VBoxContainer/PCButtonRow" to="." method="_on_action_button_pressed"]
 [connection signal="on_action_button_pressed" from="VBoxContainer/PanelContainer/DefendRow" to="." method="_on_defend_button_pressed"]
 [connection signal="on_character_hover" from="VBoxContainer/Bottom/PCs" to="." method="_on_pc_hover"]
 [connection signal="on_character_leave" from="VBoxContainer/Bottom/PCs" to="." method="_on_pc_leave"]

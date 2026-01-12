@@ -31,3 +31,12 @@ func _on_enemy_death(_enemy: Enemy):
 var all: Array[Enemy]:
 	get():
 		return front_row + back_row
+
+var all_purged: Array[Enemy]:
+	get():
+		var _all = all
+		var to_return:Array[Enemy] = []
+		for cur in _all:
+			if cur != null:
+				to_return.append(cur)
+		return to_return

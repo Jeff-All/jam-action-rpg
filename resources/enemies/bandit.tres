@@ -11,6 +11,7 @@
 [resource]
 script = ExtResource("1_4gmrp")
 name = "Bandit"
+attack_speed = 3.0
 strength = 3
 agility = 3
 attack = 3

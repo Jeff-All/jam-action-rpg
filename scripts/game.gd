@@ -7,23 +7,12 @@ var end: bool = false
 signal on_victory()
 signal on_defeat()
 
-func _on_end_turn():
-	if end:
-		return
-	var next = $InputController/BattleBoard/VBoxContainer/Top/TurnOrder.next_turn()
-	if next == null:
-		print("NULL!")
-	start_turn(next)
-
-func start_turn(character: Character):
-	print("%s.%s" % [character.name, character.count])
-	if $InputController/BattleBoard/VBoxContainer/Bottom/PCs.character_map.has(character): 
-		$InputController.to_player_turn(character)
-	else:
-		$InputController.to_enemy_turn(character)
+var chrono_controller: ChronoController
 
 func set_up(pcs: PlayerCharacters, encounter: Encounter):
 	print("setup")
+	chrono_controller = $ChronoController
+	
 	var enemies = encounter.build_enemies()
 	
 	enemies.bind_enemies()
@@ -37,10 +26,12 @@ func set_up(pcs: PlayerCharacters, encounter: Encounter):
 	$InputController/BattleBoard.set_pcs(pcs)
 	$InputController/BattleBoard.set_enemies(enemies)
 	$InputController/BattleBoard.start.visible = true
+	
+	chrono_controller.set_enemies(enemies)
 
 func _on_start_pressed():
 	$InputController/BattleBoard.start.visible = false
-	start_turn($InputController/BattleBoard/VBoxContainer/Top/TurnOrder.cur_turn())
+	chrono_controller.start()
 
 func _on_enemies_dead():
 	end = true

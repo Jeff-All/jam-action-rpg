@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b30ck1paoprwm" path="res://scenes/game.tscn" id="1_7y5nv"]
 [ext_resource type="Script" uid="uid://d1yrg0gsp4fth" path="res://scripts/tests/test_game.gd" id="1_k7kw7"]
-[ext_resource type="Resource" uid="uid://b6a8gqos1bud4" path="res://resources/encounters/encounter_a.tres" id="2_rtal0"]
+[ext_resource type="Resource" uid="uid://bklcr2lv7do3a" path="res://resources/encounters/encounter_b.tres" id="2_cmuvu"]
 [ext_resource type="Script" uid="uid://cyidot871bswm" path="res://scripts/resources/base_player_character.gd" id="3_cmuvu"]
 [ext_resource type="Resource" uid="uid://246qda132ksl" path="res://resources/base_player_characters/orc_rogue.tres" id="4_k12re"]
 [ext_resource type="Resource" uid="uid://cdnmupr5lqg34" path="res://resources/base_player_characters/dwarf_monk.tres" id="5_f3v7c"]
@@ -22,7 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k7kw7")
-encounter = ExtResource("2_rtal0")
+encounter = ExtResource("2_cmuvu")
 pcs = SubResource("Resource_dblaw")
 
 [node name="Game" parent="." instance=ExtResource("1_7y5nv")]
