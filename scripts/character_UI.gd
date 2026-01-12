@@ -6,6 +6,7 @@ signal on_hover(character: CharacterUI)
 signal on_leave(character: CharacterUI)
 
 var animation: AnimationPlayer
+var combat_text: CombatText
 
 var center: Vector2:
 	get():
@@ -108,7 +109,8 @@ func _stamina_change(_character):
 func _mana_change(_character):
 	$VBoxContainer/Status/Mana.set_value(character.cur_mana)
 
-func _take_damage(_damage: int):
+func _take_damage(damage: int):
+	combat_text.show_combat_text(center, "%s" % damage)
 	animation.play("take_damage")
 
 func _on_hover():

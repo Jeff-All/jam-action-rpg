@@ -70,6 +70,7 @@ func set_enemies(e: Enemies):
 func set_pcs(player_characters: PlayerCharacters):
 	_pcs = player_characters
 	pcs.set_characters(_pcs.characters)
+	pcs.set_combat_text(combat_text)
 
 func reset():
 	enemies.reset()

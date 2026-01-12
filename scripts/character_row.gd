@@ -48,6 +48,10 @@ func set_characters(characters: Array):
 	for index in characters.size():
 		set_character(index, characters[index])
 
+func set_combat_text(combat_text: CombatText):
+	for cur in character_uis:
+		cur.combat_text = combat_text
+
 func clear():
 	character_map = {}
 	for cur_character_ui in character_uis:
