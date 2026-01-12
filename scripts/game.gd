@@ -36,7 +36,6 @@ func set_up(pcs: PlayerCharacters, encounter: Encounter):
 	
 	$InputController/BattleBoard.set_pcs(pcs)
 	$InputController/BattleBoard.set_enemies(enemies)
-	$InputController/BattleBoard.roll_initiative()
 	$InputController/BattleBoard.start.visible = true
 
 func _on_start_pressed():

@@ -20,7 +20,6 @@ var _enemies: Enemies
 var enemies: EncounterUI
 var pcs: CharacterRow
 var mid_text: MidText
-var turn_order: TurnOrder
 var start: Button
 var combat_text: CombatText
 var defend_row: ButtonRow
@@ -30,7 +29,6 @@ func _ready():
 	enemies = $VBoxContainer/Top/EncounterUI
 	pcs = $VBoxContainer/Bottom/PCs
 	mid_text= $VBoxContainer/PanelContainer/MidText
-	turn_order = $VBoxContainer/Top/TurnOrder
 	start = $VBoxContainer/PanelContainer2/Start
 	combat_text = $CombatText
 	tooltip = $Tooltip
@@ -78,15 +76,6 @@ func reset():
 	pcs.reset()
 	mid_text.visible = false
 	start.visible = false
-
-func roll_initiative() -> TurnOrderCharacter:
-	return turn_order.roll_initiative(_enemies.all + _pcs.characters)
-
-func _on_turn_order_mouse_enter(turn_order_character: TurnOrderCharacter):
-	turn_order_character._character.turn_order_mouse_enter(turn_order_character)
-
-func _on_turn_order_mouse_exit(turn_order_character: TurnOrderCharacter):
-	turn_order_character._character.turn_order_mouse_exit(turn_order_character)
 
 func _on_start_pressed():
 	on_start_pressed.emit()
