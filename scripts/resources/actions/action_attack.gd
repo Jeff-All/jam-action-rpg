@@ -36,3 +36,6 @@ func render_tooltip(attacker: PlayerCharacter, tooltip:ToolTip):
 	var _min_damage = min_damage + _attribute_damage
 	var _max_damage = max_damage + _attribute_damage
 	tooltip.text = "%s%% chance to hit\n%s - %s damaage" % [hit_chance, _min_damage, _max_damage]
+
+func apply(target: Character):
+	target.take_damage(randi_range(min_damage, max_damage))

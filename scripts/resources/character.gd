@@ -98,10 +98,12 @@ func take_damage(damage: int):
 	var actual_damage = damage
 	if cur_durability > 0:
 		actual_damage -= armor
-		if damage > armor:
+		if damage >= armor:
 			cur_durability -= 1
 	
-	cur_health -= max(0, actual_damage)
+	actual_damage = max(0, actual_damage)
+	
+	cur_health -= actual_damage
 	
 	on_take_damage.emit(actual_damage)
 
@@ -153,3 +155,32 @@ func end_turn():
 	cur_health = cur_health + health_recovery
 	cur_mana = cur_mana + mana_recovery
 	cur_stamina = cur_stamina + stamina_recovery
+
+
+signal on_start_cast(action: Action)
+signal on_update_cast(progress: float)
+signal on_finish_cast()
+
+var cur_cast: float = 0.0
+var action_being_cast: Action = null
+var target_of_cast: Character = null
+
+func start_cast(action: Action, target: Character):
+	cur_cast = 0.0
+	action_being_cast = action
+	target_of_cast = target
+	on_start_cast.emit(action)
+
+func update_cast(delta: float):
+	cur_cast += delta
+	if cur_cast > action_being_cast.cast_time:
+		finish_cast()
+	else:
+		on_update_cast.emit(cur_cast / action_being_cast.cast_time)
+
+func finish_cast():
+	cur_cast = 0.0
+	action_being_cast.apply(target_of_cast)
+	action_being_cast = null
+	target_of_cast = null
+	on_finish_cast.emit()

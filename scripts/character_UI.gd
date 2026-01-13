@@ -31,8 +31,12 @@ var center: Vector2:
 @export var character: Character:
 	set = _set_character
 
+var cast_bar: CastBar
+
 func _ready():
 	animation = $AnimationPlayer
+	
+	cast_bar = $VBoxContainer/CastBar
 
 func reset():
 	active = false
@@ -46,7 +50,7 @@ func _set_character(new_character: Character):
 	if character == null:
 		return
 	
-	$VBoxContainer/HBoxContainer/CenterCotnainer/Armor.text = "%s" % character.armor
+	$VBoxContainer/Status/CenterCotnainer/Armor.text = "%s" % character.armor
 	$VBoxContainer/Status/Durability.set_value(character.cur_durability)
 	$VBoxContainer/Status/Health.set_value(character.cur_health)
 	$VBoxContainer/Status/Stamina.set_value(character.cur_stamina)
@@ -75,6 +79,10 @@ func _unbind_character():
 		character.on_turn_order_mouse_exit.disconnect(_on_turn_order_mouse_enter)
 		
 		character.on_death.disconnect(_on_death)
+		
+		character.on_start_cast.disconnect(cast_bar.start_cast)
+		character.on_update_cast.disconnect(cast_bar.update_cast)
+		character.on_finish_cast.disconnect(cast_bar.finish_cast)
 
 func _bind_character():
 	character.on_cur_durability_change.connect(_durability_change)
@@ -91,6 +99,10 @@ func _bind_character():
 	character.on_turn_order_mouse_exit.connect(_on_turn_order_mouse_exit)
 	
 	character.on_death.connect(_on_death)
+	
+	character.on_start_cast.connect(cast_bar.start_cast)
+	character.on_update_cast.connect(cast_bar.update_cast)
+	character.on_finish_cast.connect(cast_bar.finish_cast)
 	
 	$ImageContainer/Image.texture = character.texture
 

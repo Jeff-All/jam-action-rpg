@@ -9,6 +9,8 @@ extends Resource
 
 @export var cost: Dictionary[Character.CharacterResource, int]
 
+@export var cast_time: float = 0.0
+
 func on_hover_target(_attacker: Character, _target: CharacterUI, _battle_board: BattleBoard):
 	print("action.on_hover_target")
 
@@ -37,3 +39,6 @@ func render_tooltip(_attacker: PlayerCharacter, tooltip:ToolTip):
 
 func render_tooltip_full(_pc: PlayerCharacter, _enemy: Enemy, tooltip: ToolTip):
 	tooltip.text = "default full action tooltip"
+
+func apply(target: Character):
+	pass

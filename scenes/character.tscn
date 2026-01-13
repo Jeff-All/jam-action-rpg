@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://weekes3e3nni"]
+[gd_scene load_steps=19 format=3 uid="uid://weekes3e3nni"]
 
 [ext_resource type="Script" uid="uid://cwi1at6chh8by" path="res://scripts/character_UI.gd" id="1_7ig0a"]
 [ext_resource type="PackedScene" uid="uid://gyyulhl3litf" path="res://scenes/state_button.tscn" id="2_0dpix"]
@@ -10,6 +10,7 @@
 [ext_resource type="StyleBox" uid="uid://ceq5cr2hywspw" path="res://styles/health.tres" id="5_a5ia6"]
 [ext_resource type="Texture2D" uid="uid://bjyek840w5vhl" path="res://resources/art/icons/shield.png" id="5_irmqu"]
 [ext_resource type="StyleBox" uid="uid://cso7tra6eskw" path="res://styles/stamina.tres" id="6_0dpix"]
+[ext_resource type="PackedScene" uid="uid://bf87mn7t3q6e3" path="res://scenes/cast_bar.tscn" id="6_50cep"]
 [ext_resource type="StyleBox" uid="uid://decedaj14g6nl" path="res://styles/mana.tres" id="7_2hyy3"]
 [ext_resource type="Texture2D" uid="uid://cn1va2qvkx1yu" path="res://1p_square.png" id="8_a5ia6"]
 
@@ -18,6 +19,21 @@ bg_color = Color(0.39607844, 0, 0, 0.7176471)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_irmqu"]
 bg_color = Color(0.39607844, 0, 0, 0.7176471)
+
+[sub_resource type="Animation" id="Animation_8yvht"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ImageContainer/DamageOverlay:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_50cep"]
 resource_name = "take_damage"
@@ -33,21 +49,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [true, true, false, false]
-}
-
-[sub_resource type="Animation" id="Animation_8yvht"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ImageContainer/DamageOverlay:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lagn4"]
@@ -104,35 +105,34 @@ size_flags_horizontal = 0
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/separation = 0
+theme_override_constants/separation = 2
 alignment = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="CastBar" parent="VBoxContainer" instance=ExtResource("6_50cep")]
 layout_mode = 2
-mouse_filter = 2
 
-[node name="CenterCotnainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="Status" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="CenterCotnainer" type="MarginContainer" parent="VBoxContainer/Status"]
 custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/CenterCotnainer"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Status/CenterCotnainer"]
 custom_minimum_size = Vector2(35, 35)
 layout_mode = 2
 texture = ExtResource("5_irmqu")
 expand_mode = 1
 
-[node name="Armor" type="Label" parent="VBoxContainer/HBoxContainer/CenterCotnainer"]
+[node name="Armor" type="Label" parent="VBoxContainer/Status/CenterCotnainer"]
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 11
 text = "99"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Status" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 8
-alignment = 1
 
 [node name="Durability" parent="VBoxContainer/Status" instance=ExtResource("3_lcuhw")]
 layout_mode = 2

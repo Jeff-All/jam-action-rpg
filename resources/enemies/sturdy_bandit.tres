@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="BaseEnemy" load_steps=8 format=3 uid="uid://x1nujtjylieh"]
+[gd_resource type="Resource" script_class="BaseEnemy" load_steps=9 format=3 uid="uid://x1nujtjylieh"]
 
 [ext_resource type="Script" uid="uid://cc15xa1u2yo1s" path="res://scripts/resources/base_enemy.gd" id="1_emj0v"]
+[ext_resource type="Resource" uid="uid://0838ll6ej331" path="res://resources/actions/attacks/action_attack.tres" id="1_fa3k2"]
 [ext_resource type="Texture2D" uid="uid://lhg8dmluih3e" path="res://resources/art/characters/character_1024_bandit_a.png" id="2_fa3k2"]
 [ext_resource type="Texture2D" uid="uid://cylm1h2ykhthq" path="res://resources/art/characters/character_1024_bandit_b.png" id="3_76w5f"]
 [ext_resource type="Texture2D" uid="uid://bh5b6vnvace7m" path="res://resources/art/characters/character_1024_bandit_c.png" id="4_b8n0x"]
@@ -22,4 +23,5 @@ health = 15
 stamina = 5
 stamina_recovery = 1
 textures = Array[Texture2D]([ExtResource("2_fa3k2"), ExtResource("3_76w5f"), ExtResource("4_b8n0x"), ExtResource("5_u2hra"), ExtResource("6_63asn"), ExtResource("7_6q5pe")])
+attack_action = ExtResource("1_fa3k2")
 metadata/_custom_type_script = "uid://cc15xa1u2yo1s"

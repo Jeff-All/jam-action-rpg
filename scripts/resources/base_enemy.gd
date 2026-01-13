@@ -25,6 +25,8 @@ extends Resource
 
 @export var textures: Array[Texture2D]
 
+@export var attack_action: Action
+
 static var count: int
 
 func build_enemy() -> Enemy:
