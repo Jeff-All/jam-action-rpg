@@ -5,6 +5,10 @@ signal on_enemy_pressed(enemy: CharacterUI, row: int, column: int)
 signal on_enemy_hover(enemy: CharacterUI)
 signal on_enemy_leave(enemy: CharacterUI)
 
+signal on_action_button_pressed(action_button: ActionButton)
+signal on_action_button_entered(action_button: ActionButton)
+signal on_action_button_exited(action_button: ActionButton)
+
 var row_map: Dictionary[Enemy, int] = {}
 var enemies: Enemies
 
@@ -57,3 +61,12 @@ func _iter_get(_iter):
 		return $"Bottom Row".character_uis[_iter_index]
 	else:
 		return $"Top Row".character_uis[_iter_index - $"Bottom Row".character_uis.size()]
+
+func _on_action_button_pressed(action_button: ActionButton):
+	on_action_button_pressed.emit(action_button)
+
+func _on_action_button_entered(action_button: ActionButton):
+	on_action_button_entered.emit(action_button)
+
+func _on_action_button_exited(action_button: ActionButton):
+	on_action_button_exited.emit(action_button)

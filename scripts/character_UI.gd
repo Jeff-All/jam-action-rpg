@@ -5,8 +5,13 @@ signal on_pressed(character: CharacterUI)
 signal on_hover(character: CharacterUI)
 signal on_leave(character: CharacterUI)
 
+signal on_action_button_pressed(action_button: ActionButton)
+signal on_action_button_entered(action_button: ActionButton)
+signal on_action_button_exited(action_button: ActionButton)
+
 var animation: AnimationPlayer
 var combat_text: CombatText
+var action_button_grid: ActionButtonGrid
 
 var center: Vector2:
 	get():
@@ -14,19 +19,19 @@ var center: Vector2:
 
 @export var active: bool:
 	set(value):
-		$StateButton.active = value
+		$VBoxContainer2/MarginContainer/StateButton.active = value
 
 @export var available: bool:
 	set(value):
-		$StateButton.available = value
+		$VBoxContainer2/MarginContainer/StateButton.available = value
 
 @export var highlight: bool:
 	set(value):
-		$StateButton.highlight = value
+		$VBoxContainer2/MarginContainer/StateButton.highlight = value
 
 @export var dead: bool:
 	set(value):
-		$ImageContainer/DeathOverlay.visible = true
+		$VBoxContainer2/MarginContainer/ImageContainer/DeathOverlay.visible = true
 
 @export var character: Character:
 	set = _set_character
@@ -36,7 +41,8 @@ var cast_bar: CastBar
 func _ready():
 	animation = $AnimationPlayer
 	
-	cast_bar = $VBoxContainer/CastBar
+	cast_bar = $VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer/CastBar
+	action_button_grid = $VBoxContainer2/ActionButtonGrid
 
 func reset():
 	active = false
@@ -50,16 +56,16 @@ func _set_character(new_character: Character):
 	if character == null:
 		return
 	
-	$VBoxContainer/Status/CenterCotnainer/Armor.text = "%s" % character.armor
-	$VBoxContainer/Status/Durability.set_value(character.cur_durability)
-	$VBoxContainer/Status/Health.set_value(character.cur_health)
-	$VBoxContainer/Status/Stamina.set_value(character.cur_stamina)
-	$VBoxContainer/Status/Mana.set_value(character.cur_mana)
+	$VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer/Status/CenterCotnainer/Armor.text = "%s" % character.armor
+	$VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer/Status/Durability.set_value(character.cur_durability)
+	$VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer/Status/Health.set_value(character.cur_health)
+	$VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer/Status/Stamina.set_value(character.cur_stamina)
+	$VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer/Status/Mana.set_value(character.cur_mana)
 	
 	if new_character is Enemy:
-		$ImageContainer/VBoxContainer2/ThreatTable.bind_table(new_character.threat_table)
+		$VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer2/ThreatTable.bind_table(new_character.threat_table)
 	else:
-		$ImageContainer/VBoxContainer2/ThreatTable.visible = false
+		$VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer2/ThreatTable.visible = false
 	
 	_bind_character()
 
@@ -104,22 +110,24 @@ func _bind_character():
 	character.on_update_cast.connect(cast_bar.update_cast)
 	character.on_finish_cast.connect(cast_bar.finish_cast)
 	
-	$ImageContainer/Image.texture = character.texture
+	action_button_grid.bind_actions(character)
+	
+	$VBoxContainer2/MarginContainer/ImageContainer/Image.texture = character.texture
 
 func _on_button_pressed():
 	on_pressed.emit(self)
 
 func _durability_change(_character):
-	$VBoxContainer/Status/Durability.set_value(character.cur_durability)
+	$VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer/Status/Durability.set_value(character.cur_durability)
 
 func _health_change(_character):
-	$VBoxContainer/Status/Health.set_value(character.cur_health)
+	$VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer/Status/Health.set_value(character.cur_health)
 
 func _stamina_change(_character):
-	$VBoxContainer/Status/Stamina.set_value(character.cur_stamina)
+	$VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer/Status/Stamina.set_value(character.cur_stamina)
 
 func _mana_change(_character):
-	$VBoxContainer/Status/Mana.set_value(character.cur_mana)
+	$VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer/Status/Mana.set_value(character.cur_mana)
 
 func _take_damage(damage: int):
 	combat_text.show_combat_text(center, "%s" % damage)
@@ -134,11 +142,11 @@ func _on_leave():
 
 func _on_turn_order_mouse_enter(_ui: Character):
 	print("character._on_turn_order_mouse_enter")
-	$StateButton.highlight = true
+	$VBoxContainer2/MarginContainer/StateButton.highlight = true
 
 func _on_turn_order_mouse_exit(_ui: Character):
 	print("character._on_turn_order_mouse_exit")
-	$StateButton.highlight = false
+	$VBoxContainer2/MarginContainer/StateButton.highlight = false
 
 func _on_set_active(_character: Character, value: bool):
 	active = value
@@ -148,3 +156,12 @@ func _on_set_highlight(_c: Character, value: bool):
 
 func _on_death(_c: Character):
 	dead = true
+
+func _on_action_button_pressed(action_button: ActionButton):
+	on_action_button_pressed.emit(action_button)
+
+func _on_action_button_entered(action_button: ActionButton):
+	on_action_button_entered.emit(action_button)
+
+func _on_action_button_exited(action_button: ActionButton):
+	on_action_button_exited.emit(action_button)

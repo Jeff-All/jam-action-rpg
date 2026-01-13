@@ -21,3 +21,6 @@ func process_tick(delta: float):
 	if action_being_cast == null:
 		start_cast(base.attack_action, threat_table.target) 
 	update_cast(delta)
+
+func _get_actions() -> Array[Action]:
+	return [base.attack_action]

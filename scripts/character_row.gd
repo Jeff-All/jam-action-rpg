@@ -6,6 +6,10 @@ signal on_character_ui_pressed(character: CharacterUI, index: int)
 signal on_character_hover(character: CharacterUI)
 signal on_character_leave(character: CharacterUI)
 
+signal on_action_button_pressed(action_button: ActionButton)
+signal on_action_button_entered(action_button: ActionButton)
+signal on_action_button_exited(action_button: ActionButton)
+
 var character_uis: Array[CharacterUI]
 var character_map: Dictionary[Character, int] = {}
 
@@ -13,9 +17,14 @@ func _ready():
 	for cur_character_ui: CharacterUI in get_children(false):
 		cur_character_ui.visible = false
 		character_uis.append(cur_character_ui)
+		
 		cur_character_ui.on_pressed.connect(_character_ui_pressed)
 		cur_character_ui.on_hover.connect(_character_hovered)
 		cur_character_ui.on_leave.connect(_character_leave)
+		
+		cur_character_ui.on_action_button_entered.connect(_on_action_button_entered)
+		cur_character_ui.on_action_button_exited.connect(_on_action_button_exited)
+		cur_character_ui.on_action_button_pressed.connect(_on_action_button_pressed)
 
 func _character_ui_pressed(character: CharacterUI):
 	on_character_ui_pressed.emit(character, character_map[character.character])
@@ -25,6 +34,16 @@ func _character_hovered(character: CharacterUI):
 
 func _character_leave(character: CharacterUI):
 	on_character_leave.emit(character)
+
+func _on_action_button_pressed(action_button: ActionButton):
+	on_action_button_pressed.emit(action_button)
+
+func _on_action_button_entered(action_button: ActionButton):
+	on_action_button_entered.emit(action_button)
+
+func _on_action_button_exited(action_button: ActionButton):
+	on_action_button_exited.emit(action_button)
+
 
 func set_character(index: int, character: Character):
 	if index < character_uis.size():

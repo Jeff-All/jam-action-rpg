@@ -30,7 +30,7 @@ func on_pressed_target(attacker: Character, target: CharacterUI, battle_board: B
 	
 	return true
 
-func render_tooltip(attacker: PlayerCharacter, tooltip:ToolTip):
+func render_tooltip(attacker: Character, tooltip:ToolTip):
 	var hit_chance = min(100, hit + (attacker.attack * 5))
 	var _attribute_damage = attacker.get_attribute(attribute)
 	var _min_damage = min_damage + _attribute_damage

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfyl8owhf2474"]
+
+[ext_resource type="PackedScene" uid="uid://dw2qfxfk13lti" path="res://scenes/button_row.tscn" id="1_go58l"]
+[ext_resource type="Script" uid="uid://jpeyeudib3bq" path="res://scripts/action_button_grid.gd" id="1_vnv86"]
+
+[node name="ActionButtonGrid" type="VBoxContainer"]
+theme_override_constants/separation = 1
+script = ExtResource("1_vnv86")
+
+[node name="TopRow" parent="." instance=ExtResource("1_go58l")]
+layout_mode = 2
+
+[node name="BottomRow" parent="." instance=ExtResource("1_go58l")]
+layout_mode = 2
+
+[connection signal="on_action_button_entered" from="TopRow" to="." method="_on_action_button_entered"]
+[connection signal="on_action_button_exited" from="TopRow" to="." method="_on_action_button_exited"]
+[connection signal="on_action_button_pressed" from="TopRow" to="." method="_on_action_button_pressed"]
+[connection signal="on_action_button_entered" from="BottomRow" to="." method="_on_action_button_entered"]
+[connection signal="on_action_button_exited" from="BottomRow" to="." method="_on_action_button_exited"]
+[connection signal="on_action_button_pressed" from="BottomRow" to="." method="_on_action_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://weekes3e3nni"]
+[gd_scene load_steps=20 format=3 uid="uid://weekes3e3nni"]
 
 [ext_resource type="Script" uid="uid://cwi1at6chh8by" path="res://scripts/character_UI.gd" id="1_7ig0a"]
 [ext_resource type="PackedScene" uid="uid://gyyulhl3litf" path="res://scenes/state_button.tscn" id="2_0dpix"]
@@ -13,19 +13,14 @@
 [ext_resource type="PackedScene" uid="uid://bf87mn7t3q6e3" path="res://scenes/cast_bar.tscn" id="6_50cep"]
 [ext_resource type="StyleBox" uid="uid://decedaj14g6nl" path="res://styles/mana.tres" id="7_2hyy3"]
 [ext_resource type="Texture2D" uid="uid://cn1va2qvkx1yu" path="res://1p_square.png" id="8_a5ia6"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7eonc"]
-bg_color = Color(0.39607844, 0, 0, 0.7176471)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_irmqu"]
-bg_color = Color(0.39607844, 0, 0, 0.7176471)
+[ext_resource type="PackedScene" uid="uid://cfyl8owhf2474" path="res://scenes/action_button_grid.tscn" id="14_8yvht"]
 
 [sub_resource type="Animation" id="Animation_8yvht"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ImageContainer/DamageOverlay:visible")
+tracks/0/path = NodePath("VBoxContainer2/MarginContainer/ImageContainer/DamageOverlay:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -41,7 +36,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ImageContainer/DamageOverlay:visible")
+tracks/0/path = NodePath("VBoxContainer2/MarginContainer/ImageContainer/DamageOverlay:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -57,98 +52,15 @@ _data = {
 &"take_damage": SubResource("Animation_50cep")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7eonc"]
+bg_color = Color(0.39607844, 0, 0, 0.7176471)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_irmqu"]
+bg_color = Color(0.39607844, 0, 0, 0.7176471)
+
 [node name="Character" type="MarginContainer"]
-custom_minimum_size = Vector2(165, 155)
+custom_minimum_size = Vector2(200, 250)
 script = ExtResource("1_7ig0a")
-
-[node name="StateButton" parent="." instance=ExtResource("2_0dpix")]
-layout_mode = 2
-
-[node name="ImageContainer" type="MarginContainer" parent="."]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="Image" type="TextureRect" parent="ImageContainer"]
-layout_mode = 2
-mouse_filter = 2
-texture = ExtResource("3_7eonc")
-expand_mode = 1
-
-[node name="DamageOverlay" type="Panel" parent="ImageContainer"]
-visible = false
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_7eonc")
-
-[node name="DeathOverlay" type="PanelContainer" parent="ImageContainer"]
-visible = false
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_irmqu")
-
-[node name="Skull" type="TextureRect" parent="ImageContainer/DeathOverlay"]
-layout_mode = 2
-texture = ExtResource("4_2hyy3")
-expand_mode = 1
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="ImageContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-
-[node name="ThreatTable" parent="ImageContainer/VBoxContainer2" instance=ExtResource("5_7eonc")]
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/separation = 2
-alignment = 2
-
-[node name="CastBar" parent="VBoxContainer" instance=ExtResource("6_50cep")]
-layout_mode = 2
-
-[node name="Status" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 8
-alignment = 1
-
-[node name="CenterCotnainer" type="MarginContainer" parent="VBoxContainer/Status"]
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Status/CenterCotnainer"]
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-texture = ExtResource("5_irmqu")
-expand_mode = 1
-
-[node name="Armor" type="Label" parent="VBoxContainer/Status/CenterCotnainer"]
-layout_mode = 2
-size_flags_vertical = 1
-theme_override_font_sizes/font_size = 11
-text = "99"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Durability" parent="VBoxContainer/Status" instance=ExtResource("3_lcuhw")]
-layout_mode = 2
-theme_override_styles/panel = ExtResource("4_2cgup")
-
-[node name="Health" parent="VBoxContainer/Status" instance=ExtResource("3_lcuhw")]
-layout_mode = 2
-theme_override_styles/panel = ExtResource("5_a5ia6")
-
-[node name="Stamina" parent="VBoxContainer/Status" instance=ExtResource("3_lcuhw")]
-layout_mode = 2
-theme_override_styles/panel = ExtResource("6_0dpix")
-
-[node name="Mana" parent="VBoxContainer/Status" instance=ExtResource("3_lcuhw")]
-layout_mode = 2
-theme_override_styles/panel = ExtResource("7_2hyy3")
 
 [node name="Highlight" type="TextureRect" parent="."]
 visible = false
@@ -160,6 +72,109 @@ libraries = {
 &"": SubResource("AnimationLibrary_lagn4")
 }
 
-[connection signal="on_hover" from="StateButton" to="." method="_on_hover"]
-[connection signal="on_leave" from="StateButton" to="." method="_on_leave"]
-[connection signal="on_pressed" from="StateButton" to="." method="_on_button_pressed"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StateButton" parent="VBoxContainer2/MarginContainer" instance=ExtResource("2_0dpix")]
+layout_mode = 2
+
+[node name="ImageContainer" type="MarginContainer" parent="VBoxContainer2/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Image" type="TextureRect" parent="VBoxContainer2/MarginContainer/ImageContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("3_7eonc")
+expand_mode = 1
+
+[node name="DamageOverlay" type="Panel" parent="VBoxContainer2/MarginContainer/ImageContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7eonc")
+
+[node name="DeathOverlay" type="PanelContainer" parent="VBoxContainer2/MarginContainer/ImageContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_irmqu")
+
+[node name="Skull" type="TextureRect" parent="VBoxContainer2/MarginContainer/ImageContainer/DeathOverlay"]
+layout_mode = 2
+texture = ExtResource("4_2hyy3")
+expand_mode = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer2/MarginContainer/ImageContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="ThreatTable" parent="VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer2" instance=ExtResource("5_7eonc")]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/MarginContainer/ImageContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 2
+alignment = 2
+
+[node name="CastBar" parent="VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer" instance=ExtResource("6_50cep")]
+layout_mode = 2
+
+[node name="Status" type="HBoxContainer" parent="VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="CenterCotnainer" type="MarginContainer" parent="VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer/Status"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer/Status/CenterCotnainer"]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+texture = ExtResource("5_irmqu")
+expand_mode = 1
+
+[node name="Armor" type="Label" parent="VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer/Status/CenterCotnainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 11
+text = "99"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Durability" parent="VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer/Status" instance=ExtResource("3_lcuhw")]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("4_2cgup")
+
+[node name="Health" parent="VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer/Status" instance=ExtResource("3_lcuhw")]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("5_a5ia6")
+
+[node name="Stamina" parent="VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer/Status" instance=ExtResource("3_lcuhw")]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_0dpix")
+
+[node name="Mana" parent="VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer/Status" instance=ExtResource("3_lcuhw")]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("7_2hyy3")
+
+[node name="ActionButtonGrid" parent="VBoxContainer2" instance=ExtResource("14_8yvht")]
+layout_mode = 2
+
+[connection signal="on_hover" from="VBoxContainer2/MarginContainer/StateButton" to="." method="_on_hover"]
+[connection signal="on_leave" from="VBoxContainer2/MarginContainer/StateButton" to="." method="_on_leave"]
+[connection signal="on_pressed" from="VBoxContainer2/MarginContainer/StateButton" to="." method="_on_button_pressed"]
+[connection signal="on_action_button_entered" from="VBoxContainer2/ActionButtonGrid" to="." method="_on_action_button_entered"]
+[connection signal="on_action_button_exited" from="VBoxContainer2/ActionButtonGrid" to="." method="_on_action_button_exited"]
+[connection signal="on_action_button_pressed" from="VBoxContainer2/ActionButtonGrid" to="." method="_on_action_button_pressed"]

@@ -14,7 +14,10 @@ signal on_exit(action_button: ActionButton)
 @export var action: Action:
 	get: return _action
 
-func set_action(character: Character, value: Action):
+var character: Character
+
+func set_action(_character: Character, value: Action):
+	character = _character
 	_action = value
 	if _action != null:
 		$MarginContainer/Image.texture = _action.texture

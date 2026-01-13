@@ -8,7 +8,7 @@ signal on_pc_leave(character: CharacterUI)
 signal on_enemy_pressed(character: CharacterUI, row: int, index: int)
 signal on_enemy_hover(character: CharacterUI)
 signal on_enemy_leave(character: CharacterUI)
-signal on_action_pressed(action_button: ActionButton, index: int)
+signal on_action_pressed(action_button: ActionButton)
 signal on_action_entered(action_button: ActionButton)
 signal on_action_exited(action_button: ActionButton)
 signal on_start_pressed()
@@ -53,11 +53,10 @@ func _on_enemy_leave(enemy: CharacterUI):
 	_hide_tooltip()
 	on_enemy_leave.emit(enemy)
 
-func _on_action_button_pressed(action_button: ActionButton, index: int):
-	on_action_pressed.emit(action_button, index)
+func _on_action_button_pressed(action_button: ActionButton):
+	on_action_pressed.emit(action_button)
 
 func _on_action_button_entered(action_button: ActionButton):
-	print("bb.action button entered")
 	on_action_entered.emit(action_button)
 
 func _on_action_button_exited(action_button: ActionButton):
