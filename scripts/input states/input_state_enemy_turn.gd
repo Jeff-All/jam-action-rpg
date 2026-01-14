@@ -42,7 +42,7 @@ func _target():
 	
 	next = _damage
 
-func on_action_button_pressed(action_button: ActionButton, _index:int):
+func on_action_button_pressed(action_button: ActionButton):
 	if action_button.action.defend(30, enemy, target):
 		var dmg = action_button.action.reduce(randi_range(2,4))
 		battle_board.combat_text.show_combat_text(battle_board.pcs.get_character_ui(target).center, "%s" % dmg)

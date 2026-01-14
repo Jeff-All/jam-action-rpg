@@ -65,7 +65,7 @@ func _get_name() -> String:
 	return "%s.%s" % [_race.name, _class.name]
 
 func _get_actions() -> Array[Action]:
-	return _race.actions + _class.actions + Global.default_actions
+	return _race.actions + _class.actions
 
 var defenses: Array[Action]:
 	get = _get_defenses

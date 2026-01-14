@@ -40,8 +40,8 @@ func on_enemy_pressed(enemy: CharacterUI, row: int, col: int):
 	if await selected_action.action.on_pressed_target(character, enemy, battle_board):
 		on_end_turn.emit()
 
-func on_action_button_pressed(action_button: ActionButton, index:int):
-	print("player_turn.on_action_button_pressed(%s) at index %s" % [action_button.action.name, index])
+func on_action_button_pressed(action_button: ActionButton):
+	print("player_turn.on_action_button_pressed(%s)" % [action_button.action.name])
 	if action_button.action != selected_action:
 		if selected_action != null:
 			selected_action.selected = false

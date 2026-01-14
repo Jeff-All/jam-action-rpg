@@ -25,8 +25,10 @@ func on_character_hover(character: CharacterUI):
 func on_character_leave(character: CharacterUI):
 	print("default.on_character_leave(%s)" % character.character.name)
 
-func on_action_button_pressed(action_button: ActionButton, index:int):
-	print("default.on_action_button_pressed(%s) at index %s" % [action_button.action.name, index])
+func on_action_button_pressed(action_button: ActionButton):
+	print("default.on_action_button_pressed(%s)" % [action_button.action.name])
+	if action_button.character is PlayerCharacter:
+		print("pressed PC action button")
 
 func on_action_button_entered(action_button: ActionButton):
 	print("default.on_action_button_entered(%s)" % action_button.action.name)

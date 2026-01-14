@@ -2,7 +2,7 @@ class_name ButtonRow
 
 extends Container
 
-signal on_action_button_pressed(action_button: ActionButton, index: int)
+signal on_action_button_pressed(action_button: ActionButton)
 signal on_action_button_entered(action_button: ActionButton)
 signal on_action_button_exited(action_button: ActionButton)
 
@@ -20,7 +20,7 @@ func _ready():
 		_action_buttons.append(cur)
 
 func _on_action_button_preseed(action_button: ActionButton):
-	on_action_button_pressed.emit(action_button, action_button.get_meta("index"))
+	on_action_button_pressed.emit(action_button)
 
 func _on_action_button_entered(action_button: ActionButton):
 	print("br.action button entered")
@@ -42,7 +42,4 @@ func bind_actions(character: Character, actions: Array[Action]):
 			break
 		_action_buttons[index].set_action(character, actions[index])
 		_action_buttons[index].visible =  true
-		if _action_buttons[index].check_hover():
-			mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-			mouse_default_cursor_shape = Control.CURSOR_ARROW
 		_action_buttons[index].can_afford = actions[index].can_afford(character)
