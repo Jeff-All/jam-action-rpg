@@ -14,14 +14,15 @@ var cur_state: InputState:
 
 var _cur_state: InputState
 
-var default_input_state: InputState = InputState.new()
-var player_turn_input_state: PlayerTurnInputState = PlayerTurnInputState.new()
-var enemy_turn_input_state: EnemyTurnInputState = EnemyTurnInputState.new()
+var default_input_state: DefaultInputState = DefaultInputState.new()
+var action_selected_input_state: ActionSelectedInputState = ActionSelectedInputState.new()
 
 func _ready():
 	default_input_state.battle_board = $BattleBoard
-	player_turn_input_state.battle_board = $BattleBoard
-	enemy_turn_input_state.battle_board = $BattleBoard
+	action_selected_input_state.battle_board = $BattleBoard
+	
+	default_input_state.to_action_selected.connect(_to_action_selected)
+	action_selected_input_state.on_target_selected.connect(to_default)
 	
 	cur_state = default_input_state
 
@@ -55,17 +56,12 @@ func _on_action_button_exited(action_button: ActionButton):
 func to_default():
 	cur_state = default_input_state
 
-func to_player_turn(character: Character):
-	if cur_state != null:
-		_cur_state.end()
-	player_turn_input_state.character = character
-	cur_state = player_turn_input_state
-
-func to_enemy_turn(enemy: Enemy):
-	if cur_state != null:
-		_cur_state.end()
-	enemy_turn_input_state.enemy = enemy
-	cur_state = enemy_turn_input_state
-
 func _on_start_pressed():
 	on_start_pressed.emit()
+
+func _to_action_selected(action_button: ActionButton):
+	action_selected_input_state.action = action_button.action
+	action_selected_input_state.character = action_button.character
+	action_selected_input_state.action_button = action_button
+	
+	cur_state = action_selected_input_state

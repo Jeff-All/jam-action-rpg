@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://yndi76amfml" path="res://scripts/resources/actions/action.gd" id="1_0k4ws"]
 [ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/class.gd" id="1_10cqk"]
-[ext_resource type="Resource" uid="uid://cja4jxbll4f42" path="res://resources/actions/attacks/attack_shank.tres" id="2_7pcqf"]
+[ext_resource type="Resource" uid="uid://0838ll6ej331" path="res://resources/actions/attacks/action_attack.tres" id="2_4p6lh"]
 [ext_resource type="Resource" uid="uid://beih07aolh4dc" path="res://resources/actions/defenses/defend.tres" id="4_7pcqf"]
 [ext_resource type="Resource" uid="uid://b0d87hp7qlown" path="res://resources/actions/defenses/defend_dodge.tres" id="5_b8cys"]
 
@@ -15,6 +15,6 @@ agility = 1
 health = 2
 stamina = 10
 stamina_recovery = 2
-actions = Array[ExtResource("1_0k4ws")]([ExtResource("2_7pcqf")])
+actions = Array[ExtResource("1_0k4ws")]([ExtResource("2_4p6lh")])
 defenses = Array[ExtResource("1_0k4ws")]([ExtResource("4_7pcqf"), ExtResource("5_b8cys")])
 metadata/_custom_type_script = "uid://7im2jq7xrwm1"

@@ -47,6 +47,7 @@ func _ready():
 func reset():
 	active = false
 	available = false
+	action_button_grid.reset()
 
 func _set_character(new_character: Character):
 	_unbind_character()

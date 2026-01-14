@@ -64,6 +64,7 @@ func _on_action_button_exited(action_button: ActionButton):
 
 func set_enemies(e: Enemies):
 	enemies.set_encounter(e)
+	enemies.set_combat_text(combat_text)
 	_enemies = e
 
 func set_pcs(player_characters: PlayerCharacters):
@@ -75,9 +76,9 @@ func reset():
 	enemies.reset()
 	pcs.reset()
 	mid_text.visible = false
-	start.visible = false
 
 func _on_start_pressed():
+	start.visible = false
 	on_start_pressed.emit()
 
 func _show_tooltip():

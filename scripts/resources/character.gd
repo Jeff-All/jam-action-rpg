@@ -184,3 +184,7 @@ func finish_cast():
 	action_being_cast = null
 	target_of_cast = null
 	on_finish_cast.emit()
+
+func process_tick(delta: float):
+	if action_being_cast != null:
+		update_cast(delta)

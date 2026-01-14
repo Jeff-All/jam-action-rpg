@@ -30,3 +30,7 @@ func _on_action_button_entered(action_button: ActionButton):
 
 func _on_action_button_exited(action_button: ActionButton):
 	on_action_button_exited.emit(action_button)
+
+func reset():
+	top_row.reset()
+	bottom_row.reset()

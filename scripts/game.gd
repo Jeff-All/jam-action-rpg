@@ -28,6 +28,7 @@ func set_up(pcs: PlayerCharacters, encounter: Encounter):
 	$InputController/BattleBoard.start.visible = true
 	
 	chrono_controller.set_enemies(enemies)
+	chrono_controller.set_pcs(pcs)
 
 func _on_start_pressed():
 	$InputController/BattleBoard.start.visible = false
