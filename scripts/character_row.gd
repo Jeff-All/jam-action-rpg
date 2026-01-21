@@ -13,6 +13,8 @@ signal on_action_button_exited(action_button: ActionButton)
 var character_uis: Array[CharacterUI]
 var character_map: Dictionary[Character, int] = {}
 
+@export var selectable: bool = true
+
 func _ready():
 	for cur_character_ui: CharacterUI in get_children(false):
 		cur_character_ui.visible = false
@@ -25,6 +27,8 @@ func _ready():
 		cur_character_ui.on_action_button_entered.connect(_on_action_button_entered)
 		cur_character_ui.on_action_button_exited.connect(_on_action_button_exited)
 		cur_character_ui.on_action_button_pressed.connect(_on_action_button_pressed)
+		
+		cur_character_ui.selectable = selectable
 
 func _character_ui_pressed(character: CharacterUI):
 	on_character_ui_pressed.emit(character, character_map[character.character])

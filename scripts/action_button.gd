@@ -5,6 +5,7 @@ extends Container
 signal on_pressed(action_button: ActionButton)
 signal on_enter(action_button: ActionButton)
 signal on_exit(action_button: ActionButton)
+signal on_lock(action_button: ActionButton)
 
 @export var default_color: StyleBox
 @export var hover_color: StyleBox
@@ -23,6 +24,8 @@ func set_action(_character: Character, value: Action):
 		$MarginContainer/Image.texture = _action.texture
 		$MarginContainer/CostBar.set_cost(character, _action.cost)
 
+var selectable: bool = true
+
 var selected: bool:
 	set(value):
 		_selected = value
@@ -31,19 +34,32 @@ var selected: bool:
 			$Background.mouse_default_cursor_shape = CursorShape.CURSOR_ARROW
 		else: 
 			$Background.add_theme_stylebox_override("panel", default_color)
-			$Background.mouse_default_cursor_shape = CursorShape.CURSOR_POINTING_HAND
+			if !_locked && selectable:
+				$Background.mouse_default_cursor_shape = CursorShape.CURSOR_POINTING_HAND
 
 var can_afford: bool:
 	set(value):
 		_can_afford = value
 		print("can_afford %s so %s" % [value, !_can_afford])
 		$MarginContainer/Overlay.visible = !_can_afford
-		if _can_afford:
+		if _can_afford && !locked && selectable:
 			$Background.mouse_default_cursor_shape = CursorShape.CURSOR_POINTING_HAND
 		else:
 			$Background.mouse_default_cursor_shape = CursorShape.CURSOR_ARROW
 
 var _can_afford: bool = false
+
+var locked: bool:
+	set(value):
+		_locked = value
+		$MarginContainer/Overlay.visible = _locked
+		if _locked:
+			$Background.mouse_default_cursor_shape = CursorShape.CURSOR_ARROW
+			on_lock.emit(self)
+		else: if selectable: 
+			$Background.mouse_default_cursor_shape = CursorShape.CURSOR_POINTING_HAND
+
+var _locked: bool
 
 var _action: Action
 
@@ -59,7 +75,7 @@ func _ready():
 func _on_background_mouse_entered():
 	on_enter.emit(self)
 	_hover = true
-	if !_selected && _can_afford:
+	if !_selected && !_locked && _can_afford:
 		if _left_down:
 			$Background.add_theme_stylebox_override("panel", down_color)
 		if !_left_down:
@@ -68,14 +84,14 @@ func _on_background_mouse_entered():
 func _on_background_mouse_exited():
 	on_exit.emit(self)
 	_hover = false
-	if !_selected && _can_afford:
+	if !_selected && !_locked && _can_afford:
 		$Background.add_theme_stylebox_override("panel", default_color)
 
 func _on_background_gui_input(event):
 	if _can_afford:
 		if event is InputEventMouseButton:
 			if event.button_index == MOUSE_BUTTON_LEFT:
-				if event.is_pressed() and !_selected:
+				if event.is_pressed() and !_selected and selectable:
 					_left_down = true
 					$Background.add_theme_stylebox_override("panel", down_color)
 				else:

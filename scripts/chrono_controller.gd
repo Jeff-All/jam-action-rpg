@@ -15,6 +15,9 @@ var _paused: bool = true
 func start():
 	_paused = false
 
+func stop():
+	_paused = true
+
 func set_enemies(_enemies: Enemies):
 	enemies = _enemies.all_purged
 	
@@ -37,6 +40,11 @@ func _process(delta):
 	
 	_cur_enemy_index += 1
 	_cur_pc_index += 1
+	
+	while _cur_enemy_index < enemies.size() && enemies[_cur_enemy_index].dead:
+		_cur_enemy_index += 1
+	while _cur_pc_index < pcs.size() && pcs[_cur_pc_index].dead:
+		_cur_pc_index += 1
 	
 	if _cur_enemy_index >= enemies.size() && _cur_pc_index >= pcs.size():
 		_cur_pc_index = 0

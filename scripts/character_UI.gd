@@ -29,9 +29,7 @@ var center: Vector2:
 	set(value):
 		$VBoxContainer2/MarginContainer/StateButton.highlight = value
 
-@export var dead: bool:
-	set(value):
-		$VBoxContainer2/MarginContainer/ImageContainer/DeathOverlay.visible = true
+var dead: bool
 
 @export var character: Character:
 	set = _set_character
@@ -43,6 +41,10 @@ func _ready():
 	
 	cast_bar = $VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer/CastBar
 	action_button_grid = $VBoxContainer2/ActionButtonGrid
+
+var selectable: bool:
+	set(value):
+		action_button_grid.selectable = value
 
 func reset():
 	active = false
@@ -157,6 +159,8 @@ func _on_set_highlight(_c: Character, value: bool):
 
 func _on_death(_c: Character):
 	dead = true
+	$VBoxContainer2/MarginContainer/ImageContainer/DeathOverlay.visible = true
+	action_button_grid.lock()
 
 func _on_action_button_pressed(action_button: ActionButton):
 	on_action_button_pressed.emit(action_button)

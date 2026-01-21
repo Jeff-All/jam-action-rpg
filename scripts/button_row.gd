@@ -18,6 +18,22 @@ func _ready():
 		
 		cur.set_meta("index", _action_buttons.size())
 		_action_buttons.append(cur)
+		
+		_is_ready = true
+		
+		selectable = _selectable
+
+var _is_ready: bool = false
+
+var _selectable: bool = true
+
+var selectable: bool:
+	set(value):
+		_selectable = value
+		if _is_ready:
+			for cur in _action_buttons:
+				cur.selectable = _selectable
+
 
 func _on_action_button_preseed(action_button: ActionButton):
 	on_action_button_pressed.emit(action_button)
@@ -47,3 +63,7 @@ func bind_actions(character: Character, actions: Array[Action]):
 		_action_buttons[index].set_action(character, actions[index])
 		_action_buttons[index].visible =  true
 		_action_buttons[index].can_afford = actions[index].can_afford(character)
+
+func lock():
+	for cur in _action_buttons:
+		cur.locked = true

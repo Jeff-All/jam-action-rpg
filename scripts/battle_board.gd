@@ -29,7 +29,7 @@ func _ready():
 	enemies = $VBoxContainer/Top/EncounterUI
 	pcs = $VBoxContainer/Bottom/PCs
 	mid_text= $VBoxContainer/PanelContainer/MidText
-	start = $VBoxContainer/PanelContainer2/Start
+	start = $VBoxContainer/Bottom/PanelContainer/Start
 	combat_text = $CombatText
 	tooltip = $Tooltip
 	reset()

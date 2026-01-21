@@ -8,9 +8,11 @@ script = ExtResource("1_eu4s7")
 
 [node name="Top Row" parent="." instance=ExtResource("1_lp88p")]
 layout_mode = 2
+selectable = false
 
 [node name="Bottom Row" parent="." instance=ExtResource("1_lp88p")]
 layout_mode = 2
+selectable = false
 
 [connection signal="on_action_button_entered" from="Top Row" to="." method="_on_action_button_entered"]
 [connection signal="on_action_button_exited" from="Top Row" to="." method="_on_action_button_exited"]

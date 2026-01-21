@@ -38,10 +38,12 @@ func _on_enemies_dead():
 	end = true
 	print("VICTORY")
 	$VictoryOverlay.visible = true
+	chrono_controller.stop()
 	on_victory.emit()
 
 func _on_player_characters_dead():
 	end = true
 	print("DEFEAT")
 	$DefeatOverlay.visible = true
+	chrono_controller.stop()
 	on_defeat.emit()
