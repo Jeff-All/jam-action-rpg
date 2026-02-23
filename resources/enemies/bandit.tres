@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BaseEnemy" load_steps=9 format=3 uid="uid://ctk36chpuix1m"]
+[gd_resource type="Resource" script_class="BaseEnemy" load_steps=10 format=3 uid="uid://ctk36chpuix1m"]
 
 [ext_resource type="Script" uid="uid://cc15xa1u2yo1s" path="res://scripts/resources/base_enemy.gd" id="1_4gmrp"]
 [ext_resource type="Resource" uid="uid://0838ll6ej331" path="res://resources/actions/attacks/action_attack.tres" id="1_o5ruv"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://lxbgh85qgjon" path="res://resources/art/characters/character_1024_bandit_d.png" id="5_q0v38"]
 [ext_resource type="Texture2D" uid="uid://o3va7owu3rxv" path="res://resources/art/characters/character_1024_bandit_e.png" id="6_0bay3"]
 [ext_resource type="Texture2D" uid="uid://bfcs7d11xdbqt" path="res://resources/art/characters/character_1024_bandit_f.png" id="7_68ha1"]
+[ext_resource type="Resource" uid="uid://dx0bfyr7vfgtv" path="res://resources/weapons/weapon_long_sword.tres" id="9_j16fm"]
 
 [resource]
 script = ExtResource("1_4gmrp")
@@ -22,4 +23,5 @@ stamina = 5
 stamina_recovery = 1
 textures = Array[Texture2D]([ExtResource("2_2urji"), ExtResource("3_o5ruv"), ExtResource("4_j16fm"), ExtResource("5_q0v38"), ExtResource("6_0bay3"), ExtResource("7_68ha1")])
 attack_action = ExtResource("1_o5ruv")
+weapon = ExtResource("9_j16fm")
 metadata/_custom_type_script = "uid://cc15xa1u2yo1s"

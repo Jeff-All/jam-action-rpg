@@ -11,8 +11,8 @@ extends Resource
 
 @export var base_cast_time: float = 0.0
 
-var cast_time: float: 
-	get(): return base_cast_time
+func get_cast_time(_caster: Character) -> float:
+	return base_cast_time
 
 func on_hover_target(_attacker: Character, _target: CharacterUI, _battle_board: BattleBoard):
 	print("action.on_hover_target")
@@ -43,5 +43,5 @@ func render_tooltip(_attacker: PlayerCharacter, tooltip:ToolTip):
 func render_tooltip_full(_pc: PlayerCharacter, _enemy: Enemy, tooltip: ToolTip):
 	tooltip.text = "default full action tooltip"
 
-func apply(target: Character):
+func apply(_attacker: Character, _target: Character):
 	pass

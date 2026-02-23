@@ -26,6 +26,7 @@ extends Resource
 @export var textures: Array[Texture2D]
 
 @export var attack_action: Action
+@export var weapon: Weapon
 
 static var count: int
 
@@ -55,6 +56,8 @@ func build_enemy() -> Enemy:
 	enemy.health_recovery = health_recovery
 	enemy.stamina_recovery = stamina_recovery
 	enemy.mana_recovery = mana_recovery
+	
+	enemy.weapon = weapon
 	
 	enemy.texture = textures[count % textures.size()]
 	

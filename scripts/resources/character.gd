@@ -175,14 +175,14 @@ func start_cast(action: Action, target: Character):
 
 func update_cast(delta: float):
 	cur_cast += delta
-	if cur_cast > action_being_cast.cast_time:
+	if cur_cast > action_being_cast.get_cast_time(self):
 		finish_cast()
 	else:
-		on_update_cast.emit(cur_cast / action_being_cast.cast_time)
+		on_update_cast.emit(cur_cast / action_being_cast.get_cast_time(self))
 
 func finish_cast():
 	cur_cast = 0.0
-	action_being_cast.apply(target_of_cast)
+	action_being_cast.apply(self, target_of_cast)
 	action_being_cast = null
 	target_of_cast = null
 	on_finish_cast.emit()
