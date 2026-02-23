@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="AttackMightyBlow" load_steps=2 format=3 uid="uid://bi4ok10r5gypa"]
+
+[ext_resource type="Script" uid="uid://c7o888rybu26n" path="res://scripts/resources/actions/attacks/attack_mighty_blow.gd" id="1_yalco"]
+
+[resource]
+script = ExtResource("1_yalco")
+metadata/_custom_type_script = "uid://c7o888rybu26n"
