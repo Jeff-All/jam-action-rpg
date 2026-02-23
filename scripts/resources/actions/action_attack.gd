@@ -20,15 +20,18 @@ func on_pressed_target(attacker: Character, target: CharacterUI, battle_board: B
 	
 	var roll = randi_range(1,100)
 	if roll < hit + attacker.attack - target.character.defense:
-		var _attribute_damage = attacker.get_attribute(attribute)
-		var damage = randi_range(min_damage, max_damage) + _attribute_damage
-		
-		target.character.take_damage_from_player_character(attacker, damage)
-		battle_board.combat_text.show_combat_text(target.center, "%s" % damage)
+		on_hit(attacker, target, battle_board)
 	else:
 		battle_board.combat_text.show_combat_text(target.center, "MISS")
 	
 	return true
+
+func on_hit(attacker: Character, target: CharacterUI, battle_board: BattleBoard):
+	var _attribute_damage = attacker.get_attribute(attribute)
+	var damage = randi_range(min_damage, max_damage) + _attribute_damage
+	
+	target.character.take_damage_from_player_character(attacker, damage)
+	battle_board.combat_text.show_combat_text(target.center, "%s" % damage)
 
 func render_tooltip(attacker: Character, tooltip:ToolTip):
 	var hit_chance = min(100, hit + (attacker.attack * 5))
