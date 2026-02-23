@@ -9,7 +9,10 @@ extends Resource
 
 @export var cost: Dictionary[Character.CharacterResource, int]
 
-@export var cast_time: float = 0.0
+@export var base_cast_time: float = 0.0
+
+var cast_time: float: 
+	get(): return base_cast_time
 
 func on_hover_target(_attacker: Character, _target: CharacterUI, _battle_board: BattleBoard):
 	print("action.on_hover_target")

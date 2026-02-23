@@ -4,6 +4,7 @@ extends Resource
 
 @export var character_class: Class
 @export var race: Race
+@export var weapon: Weapon
 @export var texture: Texture2D
 
 func build_player_character() -> PlayerCharacter:
@@ -11,6 +12,7 @@ func build_player_character() -> PlayerCharacter:
 	
 	player_character.character_class = character_class
 	player_character.race = race
+	player_character.weapon = weapon
 	player_character.texture = texture
 	
 	return player_character

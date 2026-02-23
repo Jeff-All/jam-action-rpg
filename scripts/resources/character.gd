@@ -56,6 +56,8 @@ func _get_name() -> String:
 @export var attack: int
 @export var defense: int
 
+@export var weapon: Weapon
+
 var dead: bool:
 	get():
 		return cur_health <= 0
