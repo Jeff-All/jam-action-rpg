@@ -38,6 +38,10 @@ func _on_action_button_entered(action_button: ActionButton):
 func _on_action_button_exited(action_button: ActionButton):
 	on_action_button_exited.emit(action_button)
 
+func update_can_afford():
+	top_row.update_can_afford()
+	bottom_row.update_can_afford()
+
 func reset():
 	top_row.reset()
 	bottom_row.reset()

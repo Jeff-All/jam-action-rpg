@@ -10,6 +10,6 @@ name = "Mighty Blow"
 texture = ExtResource("3_bcrhp")
 targeting = ExtResource("2_iiyvs")
 cost = Dictionary[int, int]({
-2: 3
+2: 6
 })
 metadata/_custom_type_script = "uid://c7o888rybu26n"

@@ -105,3 +105,6 @@ func check_hover() -> bool:
 		_on_background_mouse_entered()
 		return true
 	return false
+
+func update_can_afford():
+	can_afford = _action.can_afford(character)

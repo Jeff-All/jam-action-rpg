@@ -124,15 +124,19 @@ func _on_button_pressed():
 
 func _durability_change(_character):
 	$VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer/Status/Durability.set_value(character.cur_durability)
+	action_button_grid.update_can_afford()
 
 func _health_change(_character):
 	$VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer/Status/Health.set_value(character.cur_health)
+	action_button_grid.update_can_afford()
 
 func _stamina_change(_character):
 	$VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer/Status/Stamina.set_value(character.cur_stamina)
+	action_button_grid.update_can_afford()
 
 func _mana_change(_character):
 	$VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer/Status/Mana.set_value(character.cur_mana)
+	action_button_grid.update_can_afford()
 
 func defend_attack():
 	combat_text.show_combat_text(center, "MISS")

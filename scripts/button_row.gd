@@ -62,8 +62,13 @@ func bind_actions(character: Character, actions: Array[Action]):
 			break
 		_action_buttons[index].set_action(character, actions[index])
 		_action_buttons[index].visible =  true
-		_action_buttons[index].can_afford = actions[index].can_afford(character)
+		_action_buttons[index].update_can_afford()
 
 func lock():
 	for cur in _action_buttons:
 		cur.locked = true
+
+func update_can_afford():
+	for cur in _action_buttons:
+		if cur.visible:
+			cur.update_can_afford()
