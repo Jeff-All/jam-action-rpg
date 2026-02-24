@@ -23,6 +23,8 @@ func set_up(pcs: PlayerCharacters, encounter: Encounter):
 	enemies.on_enemies_dead.connect(_on_enemies_dead)
 	pcs.on_characters_dead.connect(_on_player_characters_dead)
 	
+	
+	
 	$InputController/BattleBoard.set_pcs(pcs)
 	$InputController/BattleBoard.set_enemies(enemies)
 	$InputController/BattleBoard.start.visible = true

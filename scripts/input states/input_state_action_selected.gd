@@ -39,3 +39,9 @@ func on_action_button_pressed(_action_button: ActionButton):
 func selected_action_button_locks(_action_button: ActionButton):
 	action_button.selected = false
 	on_target_selected.emit()
+
+func on_character_finished_cast(_character: Character):
+	print("ActionSelected.on_character_finished_cast(%s)" % character.name)
+	if _character == character && !action.can_afford(character):
+		action_button.selected = false
+		on_target_selected.emit()

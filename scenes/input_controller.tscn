@@ -26,6 +26,7 @@ script = ExtResource("3_lnu2h")
 [connection signal="on_action_entered" from="BattleBoard" to="." method="_on_action_button_entered"]
 [connection signal="on_action_exited" from="BattleBoard" to="." method="_on_action_button_exited"]
 [connection signal="on_action_pressed" from="BattleBoard" to="." method="_on_action_button_pressed"]
+[connection signal="on_character_finished_cast" from="BattleBoard" to="." method="_on_character_finished_cast"]
 [connection signal="on_enemy_hover" from="BattleBoard" to="." method="_on_enemy_hover"]
 [connection signal="on_enemy_leave" from="BattleBoard" to="." method="_on_enemy_leave"]
 [connection signal="on_enemy_pressed" from="BattleBoard" to="." method="_on_enemy_pressed"]

@@ -36,3 +36,6 @@ func on_action_button_entered(action_button: ActionButton):
 func on_action_button_exited(action_button: ActionButton):
 	print("default.on_action_button_exited(%s)" % action_button.action.name)
 	battle_board._hide_tooltip()
+
+func on_character_finished_cast(character: Character):
+	print("default.on_character_finished_cast(%s)" % character.name)

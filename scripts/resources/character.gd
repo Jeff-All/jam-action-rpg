@@ -165,7 +165,7 @@ func end_turn():
 
 signal on_start_cast(action: Action)
 signal on_update_cast(progress: float)
-signal on_finish_cast()
+signal on_finish_cast(character: Character)
 
 var cur_cast: float = 0.0
 var action_being_cast: Action = null
@@ -189,7 +189,7 @@ func finish_cast():
 	action_being_cast.apply(self, target_of_cast)
 	action_being_cast = null
 	target_of_cast = null
-	on_finish_cast.emit()
+	on_finish_cast.emit(self)
 
 func process_tick(delta: float):
 	if action_being_cast != null:

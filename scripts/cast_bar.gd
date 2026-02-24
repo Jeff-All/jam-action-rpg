@@ -21,7 +21,7 @@ func start_cast(action: Action):
 func update_cast(_progress: float):
 	_update_progress_bar(_progress)
 
-func finish_cast():
+func finish_cast(_character: Character):
 	visible = false
 
 func _update_progress_bar(_progress: float):

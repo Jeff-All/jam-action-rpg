@@ -65,3 +65,6 @@ func _to_action_selected(action_button: ActionButton):
 	action_selected_input_state.action_button = action_button
 	
 	cur_state = action_selected_input_state
+
+func _on_character_finished_cast(character: Character):
+	_cur_state.on_character_finished_cast(character)
