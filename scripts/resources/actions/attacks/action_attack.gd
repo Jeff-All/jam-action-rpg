@@ -19,18 +19,17 @@ func on_pressed_target(attacker: Character, target: CharacterUI, battle_board: B
 	
 	var roll = randi_range(1,100)
 	if roll < attacker.weapon.hit + attacker.attack - target.character.defense:
-		on_hit(attacker, target, battle_board)
+		pass
 	else:
 		battle_board.combat_text.show_combat_text(target.center, "MISS")
 	
 	return true
 
-func on_hit(attacker: Character, target: CharacterUI, battle_board: BattleBoard):
+func on_hit(attacker: Character, target: Character):
 	var _attribute_damage = attacker.get_attribute(attacker.weapon.attribute)
 	var damage = randi_range(attacker.weapon.min_damage, attacker.weapon.max_damage) + _attribute_damage
 	
-	target.character.take_damage_from_player_character(attacker, damage)
-	battle_board.combat_text.show_combat_text(target.center, "%s" % damage)
+	target.take_damage(damage)
 
 func render_tooltip(attacker: Character, tooltip:ToolTip):
 	var hit_chance = min(100, attacker.weapon.hit + (attacker.attack * 5))
@@ -40,4 +39,10 @@ func render_tooltip(attacker: Character, tooltip:ToolTip):
 	tooltip.text = "%s%% chance to hit\n%s - %s damaage" % [hit_chance, _min_damage, _max_damage]
 
 func apply(attacker: Character, target: Character):
-	target.take_damage(randi_range(attacker.weapon.min_damage, attacker.weapon.max_damage))
+	var roll = randi_range(1,100)
+	if roll < attacker.weapon.hit + attacker.attack - target.defense:
+		on_hit(attacker, target)
+	else:
+		target.defended_attack()
+	
+	consume_resources(attacker)

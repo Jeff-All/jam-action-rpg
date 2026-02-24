@@ -132,6 +132,9 @@ func _stamina_change(_character):
 func _mana_change(_character):
 	$VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer/Status/Mana.set_value(character.cur_mana)
 
+func defend_attack():
+	combat_text.show_combat_text(center, "MISS")
+
 func _take_damage(damage: int):
 	combat_text.show_combat_text(center, "%s" % damage)
 	animation.play("take_damage")

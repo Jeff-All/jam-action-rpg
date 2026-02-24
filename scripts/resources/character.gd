@@ -9,6 +9,7 @@ signal on_cur_stamina_change(character)
 signal on_cur_mana_change(character)
 
 signal on_take_damage(damage: int)
+signal on_defend_attack()
 
 signal on_turn_order_mouse_enter(character)
 signal on_turn_order_mouse_exit(character)
@@ -95,6 +96,9 @@ func modify_resource(resource: CharacterResource, value: int):
 		CharacterResource.HEALTH: cur_health = min(max_health, cur_health + value)
 		CharacterResource.STAMINA: cur_stamina = min(max_stamina, cur_stamina + value)
 		CharacterResource.MANA: cur_mana = min(max_mana, cur_mana + value)
+
+func defended_attack():
+	on_defend_attack.emit()
 
 func take_damage(damage: int):
 	var actual_damage = damage
