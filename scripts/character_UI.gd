@@ -80,6 +80,7 @@ func _unbind_character():
 		character.on_cur_mana_change.disconnect(_mana_change)
 		
 		character.on_take_damage.disconnect(_take_damage)
+		character.on_take_damage.disconnect(defend_attack)
 		
 		character.on_set_active.disconnect(_on_set_active)
 		character.on_set_highlight.disconnect(_on_set_highlight)
@@ -100,6 +101,7 @@ func _bind_character():
 	character.on_cur_mana_change.connect(_mana_change)
 	
 	character.on_take_damage.connect(_take_damage)
+	character.on_defend_attack.connect(defend_attack)
 	
 	character.on_set_active.connect(_on_set_active)
 	character.on_set_highlight.connect(_on_set_highlight)
