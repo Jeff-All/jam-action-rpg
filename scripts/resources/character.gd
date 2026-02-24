@@ -192,5 +192,17 @@ func finish_cast():
 	on_finish_cast.emit(self)
 
 func process_tick(delta: float):
+	update_recover(delta)
 	if action_being_cast != null:
 		update_cast(delta)
+
+var cur_recover: float = 0.0
+
+func update_recover(delta: float):
+	cur_recover += delta
+	if cur_recover > 3.0:
+		recover()
+
+func recover():
+	cur_recover = fmod(cur_recover, 3.0)
+	modify_resource(CharacterResource.STAMINA, stamina_recovery)

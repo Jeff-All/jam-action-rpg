@@ -6,7 +6,7 @@ func get_cast_time(caster: Character) -> float:
 	return caster.weapon.speed
 
 func on_hover_target(attacker: Character, target: CharacterUI, battle_board: BattleBoard):
-	var hit_chance = min(100, attacker.weapon.hit + ((attacker.attack - target.character.defense) * 5))
+	var hit_chance = min(100, attacker.weapon.hit + ((attacker.attack - target.character.defense) * 10))
 	var _attribute_damage = attacker.get_attribute(attacker.weapon.attribute)
 	var _min_damage = attacker.weapon.min_damage + _attribute_damage
 	var _max_damage = attacker.weapon.max_damage + _attribute_damage
@@ -32,17 +32,20 @@ func on_hit(attacker: Character, target: Character):
 	target.take_damage(damage)
 
 func render_tooltip(attacker: Character, tooltip:ToolTip):
-	var hit_chance = min(100, attacker.weapon.hit + (attacker.attack * 5))
+	var hit_chance = min(100, attacker.weapon.hit + (attacker.attack * 10))
 	var _attribute_damage = attacker.get_attribute(attacker.weapon.attribute)
 	var _min_damage = attacker.weapon.min_damage + _attribute_damage
 	var _max_damage = attacker.weapon.max_damage + _attribute_damage
 	tooltip.text = "%s%% chance to hit\n%s - %s damaage" % [hit_chance, _min_damage, _max_damage]
 
 func apply(attacker: Character, target: Character):
+	roll_attack(attacker, target)
+	
+	consume_resources(attacker)
+
+func roll_attack(attacker: Character, target: Character):
 	var roll = randi_range(1,100)
-	if roll < attacker.weapon.hit + attacker.attack - target.defense:
+	if roll < attacker.weapon.hit + ((attacker.attack - target.defense) * 10):
 		on_hit(attacker, target)
 	else:
 		target.defended_attack()
-	
-	consume_resources(attacker)
