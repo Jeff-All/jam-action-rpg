@@ -28,6 +28,10 @@ func _remove_class(c: Class):
 	max_health -= c.health
 	max_stamina -= c.stamina
 	max_mana -= c.mana
+	
+	health_recovery -= c.health_recovery
+	stamina_recovery -= c.stamina_recovery
+	mana_recovery -= c.mana_recovery
 
 func _apply_class(c: Class):
 	threat += c.threat
@@ -49,6 +53,10 @@ func _apply_class(c: Class):
 	cur_health += c.health
 	cur_stamina += c.stamina
 	cur_mana += c.mana
+	
+	health_recovery += c.health_recovery
+	stamina_recovery += c.stamina_recovery
+	mana_recovery += c.mana_recovery
 
 @export var race: Race:
 	set(value):

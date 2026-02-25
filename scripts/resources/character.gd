@@ -204,5 +204,7 @@ func update_recover(delta: float):
 		recover()
 
 func recover():
+	print("Recover: health = %s" % [health_recovery])
 	cur_recover = fmod(cur_recover, 3.0)
 	modify_resource(CharacterResource.STAMINA, stamina_recovery)
+	modify_resource(CharacterResource.HEALTH, health_recovery)
