@@ -125,7 +125,12 @@ func _set_cur_health(new_health: int):
 		on_cur_health_change.emit(self)
 	if cur_health <= 0:
 		print("character %s death" % name)
-		on_death.emit(self)
+		_on_death()
+
+func _on_death():
+	interrupt_cast()
+	
+	on_death.emit(self)
 
 func _set_cur_stamina(new_stamina: int):
 	if cur_stamina != new_stamina:
@@ -191,10 +196,17 @@ func finish_cast():
 	target_of_cast = null
 	on_finish_cast.emit(self)
 
+func interrupt_cast():
+	cur_cast = 0.0
+	action_being_cast = null
+	target_of_cast = null
+	on_finish_cast.emit(self)
+
 func process_tick(delta: float):
-	update_recover(delta)
-	if action_being_cast != null:
-		update_cast(delta)
+	if !dead:
+		update_recover(delta)
+		if action_being_cast != null:
+			update_cast(delta)
 
 var cur_recover: float = 0.0
 

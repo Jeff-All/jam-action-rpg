@@ -44,7 +44,6 @@ func _on_player_characters_dead():
 	chrono_controller.stop()
 	on_defeat.emit()
 
-
 func _on_play_pressed():
 	if chrono_controller._paused:
 		chrono_controller.start()

@@ -34,4 +34,3 @@ script = ExtResource("3_lnu2h")
 [connection signal="on_pc_leave" from="BattleBoard" to="." method="_on_pc_leave"]
 [connection signal="on_pc_pressed" from="BattleBoard" to="." method="_on_pc_pressed"]
 [connection signal="on_play_pressed" from="BattleBoard" to="." method="_on_play_pressed"]
-[connection signal="on_start_pressed" from="BattleBoard" to="." method="_on_start_pressed"]

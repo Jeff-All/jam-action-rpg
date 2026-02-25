@@ -53,4 +53,3 @@ size_flags_vertical = 0
 script = ExtResource("3_lnu2h")
 
 [connection signal="on_play_pressed" from="InputController" to="." method="_on_play_pressed"]
-[connection signal="on_start_pressed" from="InputController" to="." method="_on_start_pressed"]
