@@ -2,7 +2,7 @@ class_name InputController
 
 extends Node
 
-signal on_start_pressed()
+signal on_play_pressed()
 
 var cur_state: InputState:
 	set(value):
@@ -56,9 +56,6 @@ func _on_action_button_exited(action_button: ActionButton):
 func to_default():
 	cur_state = default_input_state
 
-func _on_start_pressed():
-	on_start_pressed.emit()
-
 func _to_action_selected(action_button: ActionButton):
 	action_selected_input_state.action = action_button.action
 	action_selected_input_state.character = action_button.character
@@ -68,3 +65,7 @@ func _to_action_selected(action_button: ActionButton):
 
 func _on_character_finished_cast(character: Character):
 	_cur_state.on_character_finished_cast(character)
+
+
+func _on_play_pressed():
+	on_play_pressed.emit()

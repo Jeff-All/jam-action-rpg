@@ -99,12 +99,11 @@ size_flags_vertical = 10
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
-[node name="Start" type="Button" parent="VBoxContainer/Bottom/PanelContainer"]
+[node name="Play" type="Button" parent="VBoxContainer/Bottom/PanelContainer"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-mouse_default_cursor_shape = 2
 text = "Start"
 
 [node name="CharacterController" type="Control" parent="."]
@@ -136,4 +135,4 @@ size_flags_vertical = 4
 [connection signal="on_character_leave" from="VBoxContainer/Bottom/PCs" to="." method="_on_pc_leave"]
 [connection signal="on_character_ui_pressed" from="VBoxContainer/Bottom/PCs" to="." method="_on_pc_pressed"]
 [connection signal="on_action_button_pressed" from="VBoxContainer/Bottom/ButtonRow" to="." method="_on_action_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Bottom/PanelContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Bottom/PanelContainer/Play" to="." method="_on_play_pressed"]

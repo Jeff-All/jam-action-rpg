@@ -11,7 +11,7 @@ signal on_enemy_leave(character: CharacterUI)
 signal on_action_pressed(action_button: ActionButton)
 signal on_action_entered(action_button: ActionButton)
 signal on_action_exited(action_button: ActionButton)
-signal on_start_pressed()
+signal on_play_pressed()
 signal on_character_finished_cast(character: Character)
 
 @export var ecounter: Encounter
@@ -21,7 +21,7 @@ var _enemies: Enemies
 var enemies: EncounterUI
 var pcs: CharacterRow
 var mid_text: MidText
-var start: Button
+var play_button: Button
 var combat_text: CombatText
 var defend_row: ButtonRow
 var tooltip: PanelContainer
@@ -30,7 +30,7 @@ func _ready():
 	enemies = $VBoxContainer/Top/EncounterUI
 	pcs = $VBoxContainer/Bottom/PCs
 	mid_text= $VBoxContainer/PanelContainer/MidText
-	start = $VBoxContainer/Bottom/PanelContainer/Start
+	play_button = $VBoxContainer/Bottom/PanelContainer/Play
 	combat_text = $CombatText
 	tooltip = $Tooltip
 	reset()
@@ -87,10 +87,6 @@ func reset():
 	pcs.reset()
 	mid_text.visible = false
 
-func _on_start_pressed():
-	start.visible = false
-	on_start_pressed.emit()
-
 func _show_tooltip():
 	tooltip.visible = true
 
@@ -99,3 +95,6 @@ func _hide_tooltip():
 
 func _on_character_finished_cast(character: Character):
 	on_character_finished_cast.emit(character)
+
+func _on_play_pressed():
+	on_play_pressed.emit()

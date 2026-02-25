@@ -23,18 +23,12 @@ func set_up(pcs: PlayerCharacters, encounter: Encounter):
 	enemies.on_enemies_dead.connect(_on_enemies_dead)
 	pcs.on_characters_dead.connect(_on_player_characters_dead)
 	
-	
-	
 	$InputController/BattleBoard.set_pcs(pcs)
 	$InputController/BattleBoard.set_enemies(enemies)
-	$InputController/BattleBoard.start.visible = true
+	$InputController/BattleBoard.play_button.visible = true
 	
 	chrono_controller.set_enemies(enemies)
 	chrono_controller.set_pcs(pcs)
-
-func _on_start_pressed():
-	$InputController/BattleBoard.start.visible = false
-	chrono_controller.start()
 
 func _on_enemies_dead():
 	end = true
@@ -49,3 +43,12 @@ func _on_player_characters_dead():
 	$DefeatOverlay.visible = true
 	chrono_controller.stop()
 	on_defeat.emit()
+
+
+func _on_play_pressed():
+	if chrono_controller._paused:
+		chrono_controller.start()
+		$InputController/BattleBoard.play_button.text = "Pause"
+	else :
+		chrono_controller.stop()
+		$InputController/BattleBoard.play_button.text = "Play"
