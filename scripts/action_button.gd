@@ -12,17 +12,17 @@ signal on_lock(action_button: ActionButton)
 @export var down_color: StyleBox
 @export var selected_color: StyleBox
 
-@export var action: Action:
+@export var action: ActionState:
 	get: return _action
 
 var character: Character
 
-func set_action(_character: Character, value: Action):
+func set_action(_character: Character, value: ActionState):
 	character = _character
 	_action = value
 	if _action != null:
-		$MarginContainer/Image.texture = _action.texture
-		$MarginContainer/CostBar.set_cost(character, _action.cost)
+		$MarginContainer/Image.texture = _action.base.texture
+		$MarginContainer/CostBar.set_cost(character, _action.base.cost)
 
 var selectable: bool = true
 
@@ -61,7 +61,7 @@ var locked: bool:
 
 var _locked: bool
 
-var _action: Action
+var _action: ActionState
 
 var _hover: bool = false
 var _left_down: bool = false
@@ -70,7 +70,7 @@ var _selected: bool = false
 func _ready():
 	$Background.add_theme_stylebox_override("panel", default_color)
 	if _action != null:
-		$MarginContainer/Image.texture = _action.texture
+		$MarginContainer/Image.texture = _action.base.texture
 
 func _on_background_mouse_entered():
 	on_enter.emit(self)
@@ -107,4 +107,4 @@ func check_hover() -> bool:
 	return false
 
 func update_can_afford():
-	can_afford = _action.can_afford(character)
+	can_afford = _action.base.can_afford(character)

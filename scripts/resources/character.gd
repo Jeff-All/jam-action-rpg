@@ -63,10 +63,10 @@ var dead: bool:
 	get():
 		return cur_health <= 0
 
-var actions: Array[Action]:
+var actions: Array[ActionState]:
 	get = _get_actions
 
-func _get_actions() -> Array[Action]:
+func _get_actions() -> Array[ActionState]:
 	return []
 
 func get_attribute(attribute: Attribute):
@@ -127,6 +127,9 @@ func _set_cur_health(new_health: int):
 		print("character %s death" % name)
 		_on_death()
 
+func prepare_for_battle():
+	pass
+
 func _on_death():
 	interrupt_cast()
 	
@@ -173,10 +176,10 @@ signal on_update_cast(progress: float)
 signal on_finish_cast(character: Character)
 
 var cur_cast: float = 0.0
-var action_being_cast: Action = null
+var action_being_cast: ActionState = null
 var target_of_cast: Character = null
 
-func start_cast(action: Action, target: Character):
+func start_cast(action: ActionState, target: Character):
 	cur_cast = 0.0
 	action_being_cast = action
 	target_of_cast = target
@@ -184,14 +187,14 @@ func start_cast(action: Action, target: Character):
 
 func update_cast(delta: float):
 	cur_cast += delta
-	if cur_cast > action_being_cast.get_cast_time(self):
+	if cur_cast > action_being_cast.base.get_cast_time(self):
 		finish_cast()
 	else:
-		on_update_cast.emit(cur_cast / action_being_cast.get_cast_time(self))
+		on_update_cast.emit(cur_cast / action_being_cast.base.get_cast_time(self))
 
 func finish_cast():
 	cur_cast = 0.0
-	action_being_cast.apply(self, target_of_cast)
+	action_being_cast.base.apply(self, target_of_cast)
 	action_being_cast = null
 	target_of_cast = null
 	on_finish_cast.emit(self)

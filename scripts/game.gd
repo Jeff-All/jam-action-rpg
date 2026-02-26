@@ -17,8 +17,10 @@ func set_up(pcs: PlayerCharacters, encounter: Encounter):
 	
 	enemies.bind_enemies()
 	pcs.bind_player_characters()
+	pcs.prepare_for_battle()
 	
 	enemies.build_threat_tables(pcs)
+	enemies.prepare_for_battle()
 	
 	enemies.on_enemies_dead.connect(_on_enemies_dead)
 	pcs.on_characters_dead.connect(_on_player_characters_dead)

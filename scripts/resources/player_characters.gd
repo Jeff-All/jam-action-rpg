@@ -24,3 +24,7 @@ func _on_character_death(_character: Character):
 
 func _on_character_finish_cast(character: Character):
 	on_character_finished_cast.emit(character)
+
+func prepare_for_battle():
+	for cur_character in characters:
+		cur_character.prepare_for_battle()

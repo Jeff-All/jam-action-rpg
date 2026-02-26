@@ -23,18 +23,18 @@ func on_character_leave(character: CharacterUI):
 	print("default.on_character_leave(%s)" % character.character.name)
 
 func on_action_button_pressed(action_button: ActionButton):
-	print("default.on_action_button_pressed(%s)" % [action_button.action.name])
+	print("default.on_action_button_pressed(%s)" % [action_button.action.base.name])
 	if action_button.character is PlayerCharacter:
 		print("pressed PC action button")
 		to_action_selected.emit(action_button)
 
 func on_action_button_entered(action_button: ActionButton):
-	print("default.on_action_button_entered(%s)" % action_button.action.name)
-	action_button.action.render_tooltip(action_button.character, battle_board.tooltip)
+	print("default.on_action_button_entered(%s)" % action_button.action.base.name)
+	action_button.action.base.render_tooltip(action_button.character, battle_board.tooltip)
 	battle_board._show_tooltip()
 
 func on_action_button_exited(action_button: ActionButton):
-	print("default.on_action_button_exited(%s)" % action_button.action.name)
+	print("default.on_action_button_exited(%s)" % action_button.action.base.name)
 	battle_board._hide_tooltip()
 
 func on_character_finished_cast(character: Character):

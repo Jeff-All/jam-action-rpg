@@ -40,3 +40,8 @@ var all_purged: Array[Enemy]:
 			if cur != null:
 				to_return.append(cur)
 		return to_return
+
+func prepare_for_battle():
+	for cur_enemy in front_row + back_row:
+		if cur_enemy != null:
+			cur_enemy.prepare_for_battle()

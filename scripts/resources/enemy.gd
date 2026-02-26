@@ -6,6 +6,14 @@ extends Character
 
 var threat_table: ThreatTable = ThreatTable.new()
 
+var _actions: Array[ActionState]
+var _attack_action: ActionState
+
+func prepare_for_battle():
+	super()
+	_attack_action = ActionState.new(base.attack_action, self)
+	_actions.append(_attack_action)
+
 func take_damage_from_player_character(pc: PlayerCharacter, damage: int):
 	take_damage(damage)
 	
@@ -19,8 +27,8 @@ func setup_first_tick():
 
 func process_tick(delta: float):
 	if !dead && action_being_cast == null:
-		start_cast(base.attack_action, threat_table.target) 
+		start_cast(_attack_action, threat_table.target) 
 	super(delta)
 
-func _get_actions() -> Array[Action]:
-	return [base.attack_action]
+func _get_actions() -> Array[ActionState]:
+	return _actions

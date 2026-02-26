@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://cnjbv1d8ra6nv"]
+
+[ext_resource type="PackedScene" uid="uid://b30ck1paoprwm" path="res://scenes/game.tscn" id="1_7y5nv"]
+[ext_resource type="Script" uid="uid://d1yrg0gsp4fth" path="res://scripts/tests/test_game.gd" id="1_k7kw7"]
+[ext_resource type="Resource" uid="uid://bklcr2lv7do3a" path="res://resources/encounters/encounter_b.tres" id="2_cmuvu"]
+[ext_resource type="Script" uid="uid://cyidot871bswm" path="res://scripts/resources/base_player_character.gd" id="3_cmuvu"]
+[ext_resource type="Resource" uid="uid://epckau7fvoev" path="res://resources/base_player_characters/human_warrior.tres" id="7_n1oed"]
+[ext_resource type="Script" uid="uid://cyya1r1nhujk2" path="res://scripts/resources/base_player_characters.gd" id="8_jp3ih"]
+
+[sub_resource type="Resource" id="Resource_dblaw"]
+script = ExtResource("8_jp3ih")
+base_player_characters = Array[ExtResource("3_cmuvu")]([ExtResource("7_n1oed")])
+metadata/_custom_type_script = "uid://cyya1r1nhujk2"
+
+[node name="TestGame" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k7kw7")
+encounter = ExtResource("2_cmuvu")
+pcs = SubResource("Resource_dblaw")
+
+[node name="Game" parent="." instance=ExtResource("1_7y5nv")]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Setup" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Setup"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Setup" to="." method="_on_setup_pressed"]

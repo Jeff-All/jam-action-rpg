@@ -13,8 +13,8 @@ func _ready():
 	
 	visible = false
 
-func start_cast(action: Action):
-	icon.texture = action.texture
+func start_cast(action: ActionState):
+	icon.texture = action.base.texture
 	_update_progress_bar(0.0)
 	visible = true
 

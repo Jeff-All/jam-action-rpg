@@ -72,8 +72,18 @@ func _get_name() -> String:
 		return "tmp name"
 	return "%s.%s" % [_race.name, _class.name]
 
-func _get_actions() -> Array[Action]:
-	return _race.actions + _class.actions
+var _actions: Array[ActionState]
+
+func prepare_for_battle():
+	super()
+	
+	_actions = []
+	
+	for cur_action in _class.actions + _race.actions:
+		_actions.append(ActionState.new(cur_action, self))
+
+func _get_actions() -> Array[ActionState]:
+	return _actions
 
 var defenses: Array[Action]:
 	get = _get_defenses

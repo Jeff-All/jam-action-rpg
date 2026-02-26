@@ -55,7 +55,7 @@ func clear():
 		cur.selected = false
 		cur.visible = false
 
-func bind_actions(character: Character, actions: Array[Action]):
+func bind_actions(character: Character, actions: Array[ActionState]):
 	clear()
 	for index in actions.size():
 		if index >= _action_buttons.size(): 

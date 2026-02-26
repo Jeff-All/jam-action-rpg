@@ -4,7 +4,7 @@ extends DefaultInputState
 
 signal on_target_selected()
 
-var action: Action
+var action: ActionState
 var character: PlayerCharacter
 var action_button: ActionButton
 
@@ -12,7 +12,7 @@ func begin():
 	print("ActionSelected.begin")
 	action_button.selected = true
 	action_button.on_lock.connect(selected_action_button_locks)
-	action.targeting.target(character, battle_board)
+	action.base.targeting.target(character, battle_board)
 
 func end():
 	print("ActionSelected.end")
@@ -21,7 +21,7 @@ func end():
 	
 func on_enemy_pressed(enemy: CharacterUI, row: int, col: int):
 	print("ActionSelected.on_enemy_pressed(%s) at row %s and col %s" % [enemy.name, row, col])
-	if action.can_afford(character):
+	if action.base.can_afford(character):
 		character.start_cast(action, enemy.character) 
 		on_target_selected.emit()
 
@@ -42,6 +42,6 @@ func selected_action_button_locks(_action_button: ActionButton):
 
 func on_character_finished_cast(_character: Character):
 	print("ActionSelected.on_character_finished_cast(%s)" % character.name)
-	if _character == character && !action.can_afford(character):
+	if _character == character && !action.base.can_afford(character):
 		action_button.selected = false
 		on_target_selected.emit()
