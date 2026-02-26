@@ -21,8 +21,9 @@ func end():
 	
 func on_enemy_pressed(enemy: CharacterUI, row: int, col: int):
 	print("ActionSelected.on_enemy_pressed(%s) at row %s and col %s" % [enemy.name, row, col])
+	var auto = Input.is_action_pressed("auto_cast")
 	if action.base.can_afford(character):
-		character.start_cast(action, enemy.character) 
+		character.start_cast(action, enemy.character, auto) 
 		on_target_selected.emit()
 
 func on_action_button_pressed(_action_button: ActionButton):
