@@ -27,7 +27,7 @@ func on_enemy_pressed(enemy: CharacterUI, row: int, col: int):
 		on_target_selected.emit()
 
 func on_action_button_pressed(_action_button: ActionButton):
-	print("default.on_action_button_pressed(%s)" % [action_button.action.name])
+	print("default.on_action_button_pressed(%s)" % [action_button.action.base.name])
 	if _action_button.character is PlayerCharacter:
 		print("pressed PC action button")
 		action = _action_button.action
