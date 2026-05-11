@@ -11,6 +11,7 @@ script = ExtResource("1_vnv86")
 layout_mode = 2
 
 [node name="BottomRow" parent="." instance=ExtResource("1_go58l")]
+visible = false
 layout_mode = 2
 
 [connection signal="on_action_button_entered" from="TopRow" to="." method="_on_action_button_entered"]

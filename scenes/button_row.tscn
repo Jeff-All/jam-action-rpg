@@ -24,18 +24,24 @@ theme_override_constants/separation = 1
 alignment = 1
 
 [node name="Action Button" parent="Buttons" instance=ExtResource("1_hg4en")]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 
 [node name="Action Button2" parent="Buttons" instance=ExtResource("1_hg4en")]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 
 [node name="Action Button3" parent="Buttons" instance=ExtResource("1_hg4en")]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 
 [node name="Action Button4" parent="Buttons" instance=ExtResource("1_hg4en")]
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 
 [node name="Action Button5" parent="Buttons" instance=ExtResource("1_hg4en")]
+visible = false
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 
 [node name="Action Button6" parent="Buttons" instance=ExtResource("1_hg4en")]
