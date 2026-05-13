@@ -9,5 +9,6 @@ script = ExtResource("1_73ld0")
 name = "Attack"
 texture = ExtResource("3_t0wks")
 targeting = ExtResource("2_m6vku")
+instant = true
 base_cast_time = 3.0
 metadata/_custom_type_script = "uid://yndi76amfml"

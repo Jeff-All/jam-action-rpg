@@ -9,6 +9,7 @@ extends Resource
 
 @export var cost: Dictionary[Character.CharacterResource, int]
 
+@export var instant: bool = false
 @export var base_cast_time: float = 0.0
 
 func get_cast_time(_caster: Character) -> float:

@@ -179,6 +179,8 @@ var cur_cast: float = 0.0
 var action_being_cast: ActionState = null
 var target_of_cast: Character = null
 
+func instant_cast(action: ActionState, target: Character):
+	action.base.apply(self, target)
 
 func start_cast(action: ActionState, target: Character):
 	cur_cast = 0.0
@@ -202,7 +204,6 @@ func finish_cast():
 	action_being_cast = null
 	target_of_cast = null
 	on_finish_cast.emit(self)
-
 
 func interrupt_cast():
 	cur_cast = 0.0
