@@ -38,6 +38,7 @@ func set_action(_character: Character, character_index: int, ability_index: int,
 			$MarginContainer/Keybind.visible = true
 			keybind = Global.action_button_map[character_index][ability_index]
 			$MarginContainer/Keybind.texture = Global.action_button_art_map[keybind]
+			_action.on_update_cooldown.connect(update_cooldown)
 		$MarginContainer/Image.texture = _action.base.texture
 		$MarginContainer/CostBar.set_cost(character, _action.base.cost)
 
@@ -84,10 +85,13 @@ var _hover: bool = false
 var _left_down: bool = false
 var _selected: bool = false
 
+var _cooldown_max_height: float = 54.0
+
 func _ready():
 	$Background.add_theme_stylebox_override("panel", default_color)
 	if _action != null:
 		$MarginContainer/Image.texture = _action.base.texture
+	$MarginContainer/Cooldown.custom_minimum_size = Vector2(0.0,0.0)
 
 func _on_keybind_pressed():
 	pass
@@ -131,3 +135,7 @@ func check_hover() -> bool:
 
 func update_can_afford():
 	can_afford = _action.base.can_afford(character)
+
+func update_cooldown(val: float):
+	print("update_cooldown %s | %s" % [$MarginContainer/BG.size.y, val])
+	$MarginContainer/Cooldown.custom_minimum_size = Vector2(0.0, $MarginContainer/BG.size.y * val)

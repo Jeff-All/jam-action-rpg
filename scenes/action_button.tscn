@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvfbnvprqkpo2"]
+[gd_scene load_steps=12 format=3 uid="uid://cvfbnvprqkpo2"]
 
 [ext_resource type="Script" uid="uid://ccf5r01d7gx5s" path="res://scripts/action_button.gd" id="1_js6u8"]
 [ext_resource type="Texture2D" uid="uid://dvpbt0o67h1dl" path="res://resources/art/icons/sword_transparent.png" id="2_u7r83"]
@@ -18,6 +18,9 @@ bg_color = Color(0.570213, 0.5755109, 0, 1)
 bg_color = Color(0.9265447, 0.44262242, 5.7756904e-07, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5myp6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ae0p"]
+bg_color = Color(0, 0, 0, 0.8235294)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sva6b"]
 bg_color = Color(0, 0, 0, 0.79607844)
@@ -58,6 +61,12 @@ mouse_filter = 2
 texture = ExtResource("2_u7r83")
 expand_mode = 2
 stretch_mode = 5
+
+[node name="Cooldown" type="Panel" parent="MarginContainer"]
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_7ae0p")
 
 [node name="Overlay" type="Panel" parent="MarginContainer"]
 visible = false

@@ -180,6 +180,9 @@ var action_being_cast: ActionState = null
 var target_of_cast: Character = null
 
 func instant_cast(action: ActionState, target: Character):
+	cur_cooldown = cur_cooldown_max
+	print("instant_cast %s" % cur_cooldown)
+	action.update_cooldowns(0.0, 1.0, cur_cooldown)
 	action.base.apply(self, target)
 
 func start_cast(action: ActionState, target: Character):
@@ -216,6 +219,8 @@ func process_tick(delta: float):
 		update_recover(delta)
 		if action_being_cast != null:
 			update_cast(delta)
+		if cur_cooldown > 0.0:
+			update_cooldowns(delta)
 
 var cur_recover: float = 0.0
 
@@ -229,3 +234,11 @@ func recover():
 	cur_recover = fmod(cur_recover, 3.0)
 	modify_resource(CharacterResource.STAMINA, stamina_recovery)
 	modify_resource(CharacterResource.HEALTH, health_recovery)
+
+var cur_cooldown_max: float = 1.0
+var cur_cooldown: float = 0.0
+
+func update_cooldowns(delta: float):
+	cur_cooldown = maxf(0.0, cur_cooldown - delta)
+	for cur_action in actions:
+		cur_action.update_cooldowns(delta, cur_cooldown/cur_cooldown_max, cur_cooldown)
