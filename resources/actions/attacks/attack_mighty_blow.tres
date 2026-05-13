@@ -7,9 +7,12 @@
 [resource]
 script = ExtResource("1_yalco")
 name = "Mighty Blow"
+attribute = null
 texture = ExtResource("3_bcrhp")
 targeting = ExtResource("2_iiyvs")
 cost = Dictionary[int, int]({
 2: 6
 })
+instant = true
+base_cast_time = null
 metadata/_custom_type_script = "uid://c7o888rybu26n"

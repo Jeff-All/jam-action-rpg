@@ -46,3 +46,6 @@ func render_tooltip_full(_pc: PlayerCharacter, _enemy: Enemy, tooltip: ToolTip):
 
 func apply(_attacker: Character, _target: Character):
 	pass
+
+func get_cooldown(character: Character) -> float:
+	return 0.0

@@ -141,5 +141,4 @@ func _on_cooldown()->bool:
 
 func update_cooldown(val: float):
 	_cooldown = val
-	print("update_cooldown %s | %s" % [$MarginContainer/BG.size.y, val])
 	$MarginContainer/Cooldown.custom_minimum_size = Vector2(0.0, $MarginContainer/BG.size.y * val)

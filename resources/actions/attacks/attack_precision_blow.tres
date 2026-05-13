@@ -13,4 +13,6 @@ targeting = ExtResource("2_of7mw")
 cost = Dictionary[int, int]({
 2: 6
 })
+instant = true
+base_cast_time = null
 metadata/_custom_type_script = "uid://c7a605q407srf"

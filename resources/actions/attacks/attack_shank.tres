@@ -15,4 +15,5 @@ targeting = ExtResource("2_riaqa")
 cost = Dictionary[int, int]({
 2: 3
 })
+instant = true
 metadata/_custom_type_script = "uid://1k0te0dc63nx"
