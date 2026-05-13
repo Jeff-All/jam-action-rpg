@@ -21,7 +21,7 @@ var character: Character
 var keybind: String = ""
 
 func _input(event):
-	if _can_afford and keybind != "":
+	if _can_afford && !_on_cooldown() && keybind != "":
 		if event.is_action_pressed(keybind):
 			print("keybind %s pressed" % keybind)
 			if _hover and !_selected: 
@@ -85,8 +85,6 @@ var _hover: bool = false
 var _left_down: bool = false
 var _selected: bool = false
 
-var _cooldown_max_height: float = 54.0
-
 func _ready():
 	$Background.add_theme_stylebox_override("panel", default_color)
 	if _action != null:
@@ -115,7 +113,7 @@ func _on_background_mouse_exited():
 		$Background.add_theme_stylebox_override("panel", default_color)
 
 func _on_background_gui_input(event):
-	if _can_afford:
+	if _can_afford && !_on_cooldown():
 		if event is InputEventMouseButton:
 			if event.button_index == MOUSE_BUTTON_LEFT:
 				if event.is_pressed() and !_selected and selectable:
@@ -136,6 +134,12 @@ func check_hover() -> bool:
 func update_can_afford():
 	can_afford = _action.base.can_afford(character)
 
+var _cooldown: float = 0.0
+
+func _on_cooldown()->bool:
+	return _cooldown > 0
+
 func update_cooldown(val: float):
+	_cooldown = val
 	print("update_cooldown %s | %s" % [$MarginContainer/BG.size.y, val])
 	$MarginContainer/Cooldown.custom_minimum_size = Vector2(0.0, $MarginContainer/BG.size.y * val)
