@@ -2,6 +2,8 @@ class_name ActionButton
 
 extends Container
 
+var key: String
+
 signal on_pressed(action_button: ActionButton)
 signal on_enter(action_button: ActionButton)
 signal on_exit(action_button: ActionButton)
@@ -16,11 +18,26 @@ signal on_lock(action_button: ActionButton)
 	get: return _action
 
 var character: Character
+var keybind: String = ""
 
-func set_action(_character: Character, value: ActionState):
+func _input(event):
+	if _can_afford and keybind != "":
+		if event.is_action_pressed(keybind):
+			print("keybind %s pressed" % keybind)
+			if _hover and !_selected: 
+					$Background.add_theme_stylebox_override("panel", hover_color)
+			on_pressed.emit(self)
+
+func set_action(_character: Character, character_index: int, ability_index: int, value: ActionState):
 	character = _character
 	_action = value
 	if _action != null:
+		if _character is Enemy:
+			$MarginContainer/Keybind.visible = false
+		else:
+			$MarginContainer/Keybind.visible = true
+			keybind = Global.action_button_map[character_index][ability_index]
+			$MarginContainer/Keybind.texture = Global.action_button_art_map[keybind]
 		$MarginContainer/Image.texture = _action.base.texture
 		$MarginContainer/CostBar.set_cost(character, _action.base.cost)
 
@@ -71,6 +88,12 @@ func _ready():
 	$Background.add_theme_stylebox_override("panel", default_color)
 	if _action != null:
 		$MarginContainer/Image.texture = _action.base.texture
+
+func _on_keybind_pressed():
+	pass
+
+func _on_keybind_released():
+	pass
 
 func _on_background_mouse_entered():
 	on_enter.emit(self)

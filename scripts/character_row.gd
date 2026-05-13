@@ -60,7 +60,7 @@ func set_character(index: int, character: Character):
 			character_map[character] = index
 			if character_uis[index].character != null:
 				character_map.erase(character_uis[index].character)
-			character_uis[index].character = character
+			character_uis[index].set_character(character, index)
 			character_uis[index].visible = true
 		else:
 			character_uis[index].character = null

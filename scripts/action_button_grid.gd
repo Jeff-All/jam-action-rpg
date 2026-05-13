@@ -9,7 +9,7 @@ signal on_action_button_exited(action_button: ActionButton)
 var top_row: ButtonRow
 var bottom_row: ButtonRow
 
-@export var row_count = 5
+@export var row_count = 4
 
 var _is_ready: bool = false
 
@@ -22,12 +22,9 @@ var selectable: bool:
 		$TopRow.selectable = value
 		$BottomRow.selectable = value
 
-func bind_actions(character: Character):
+func bind_actions(character: Character, character_index: int):
 	if character.actions.size() <= 0: return
-	top_row.bind_actions(character, character.actions.slice(0, min(row_count, character.actions.size())))
-	
-	if character.actions.size() > row_count:
-		bottom_row.bind_actions(character, character.actions.slice(row_count, min(row_count * 2, character.actions.size())))
+	top_row.bind_actions(character, character_index, character.actions.slice(0, min(row_count, character.actions.size())))
 
 func _on_action_button_pressed(action_button: ActionButton):
 	on_action_button_pressed.emit(action_button)

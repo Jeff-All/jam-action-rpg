@@ -1,3 +1,32 @@
 extends Node
 
 @export var default_actions: Array[Action]
+
+@export var action_button_map: Array = [
+	["action_button_1_1", "action_button_1_2", "action_button_1_3", "action_button_1_4"],
+	["action_button_2_1", "action_button_2_2", "action_button_2_3", "action_button_2_4"],
+	["action_button_3_1", "action_button_3_2", "action_button_3_3", "action_button_3_4"],
+	["action_button_4_1", "action_button_4_2", "action_button_4_3", "action_button_4_4"]
+]
+
+@export var action_button_art_map: Dictionary[String, Resource] = {
+	"action_button_1_1": preload("res://resources/art/icons/1.png"),
+	"action_button_1_2": preload("res://resources/art/icons/2.png"),
+	"action_button_1_3": preload("res://resources/art/icons/3.png"),
+	"action_button_1_4": preload("res://resources/art/icons/4.png"),
+	
+	"action_button_2_1": preload("res://resources/art/icons/1.png"),
+	"action_button_2_2": preload("res://resources/art/icons/2.png"),
+	"action_button_2_3": preload("res://resources/art/icons/3.png"),
+	"action_button_2_4": preload("res://resources/art/icons/4.png"),
+	
+	"action_button_3_1": preload("res://resources/art/icons/1.png"),
+	"action_button_3_2": preload("res://resources/art/icons/2.png"),
+	"action_button_3_3": preload("res://resources/art/icons/3.png"),
+	"action_button_3_4": preload("res://resources/art/icons/4.png"),
+	
+	"action_button_4_1": preload("res://resources/art/icons/1.png"),
+	"action_button_4_2": preload("res://resources/art/icons/2.png"),
+	"action_button_4_3": preload("res://resources/art/icons/3.png"),
+	"action_button_4_4": preload("res://resources/art/icons/4.png")
+}

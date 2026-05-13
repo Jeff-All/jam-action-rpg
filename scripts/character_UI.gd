@@ -31,8 +31,7 @@ var center: Vector2:
 
 var dead: bool
 
-@export var character: Character:
-	set = _set_character
+@export var character: Character
 
 var cast_bar: CastBar
 
@@ -51,7 +50,7 @@ func reset():
 	available = false
 	action_button_grid.reset()
 
-func _set_character(new_character: Character):
+func set_character(new_character: Character, character_index: int):
 	_unbind_character()
 	
 	character = new_character
@@ -70,7 +69,7 @@ func _set_character(new_character: Character):
 	else:
 		$VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer2/ThreatTable.visible = false
 	
-	_bind_character()
+	_bind_character(character_index)
 
 func _unbind_character():
 	if character != null:
@@ -94,7 +93,7 @@ func _unbind_character():
 		character.on_update_cast.disconnect(cast_bar.update_cast)
 		character.on_finish_cast.disconnect(cast_bar.finish_cast)
 
-func _bind_character():
+func _bind_character(character_index: int):
 	character.on_cur_durability_change.connect(_durability_change)
 	character.on_cur_health_change.connect(_health_change)
 	character.on_cur_stamina_change.connect(_stamina_change)
@@ -115,7 +114,7 @@ func _bind_character():
 	character.on_update_cast.connect(cast_bar.update_cast)
 	character.on_finish_cast.connect(cast_bar.finish_cast)
 	
-	action_button_grid.bind_actions(character)
+	action_button_grid.bind_actions(character, character_index)
 	
 	$VBoxContainer2/MarginContainer/ImageContainer/Image.texture = character.texture
 

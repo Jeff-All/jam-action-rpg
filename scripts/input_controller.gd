@@ -66,6 +66,5 @@ func _to_action_selected(action_button: ActionButton):
 func _on_character_finished_cast(character: Character):
 	_cur_state.on_character_finished_cast(character)
 
-
 func _on_play_pressed():
 	on_play_pressed.emit()
