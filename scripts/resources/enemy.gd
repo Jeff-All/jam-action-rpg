@@ -27,7 +27,7 @@ func setup_first_tick():
 
 func process_tick(delta: float):
 	if !dead && action_being_cast == null:
-		start_cast(_attack_action, threat_table.target, false) 
+		start_cast(_attack_action, threat_table.target) 
 	super(delta)
 
 func _get_actions() -> Array[ActionState]:

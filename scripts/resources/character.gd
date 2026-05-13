@@ -179,13 +179,8 @@ var cur_cast: float = 0.0
 var action_being_cast: ActionState = null
 var target_of_cast: Character = null
 
-var auto_cast: ActionState = null
-var target_of_auto_cast: Character = null
 
-func start_cast(action: ActionState, target: Character, auto: bool):
-	if auto:
-		auto_cast = action
-		target_of_auto_cast = target
+func start_cast(action: ActionState, target: Character):
 	cur_cast = 0.0
 	action_being_cast = action
 	target_of_cast = target
@@ -207,16 +202,7 @@ func finish_cast():
 	action_being_cast = null
 	target_of_cast = null
 	on_finish_cast.emit(self)
-	
-	process_autocast()
 
-func process_autocast():
-	if auto_cast != null: 
-		if target_of_auto_cast.dead:
-			target_of_auto_cast = null
-			auto_cast = null
-		else: if auto_cast.base.can_afford(self):
-			start_cast(auto_cast, target_of_auto_cast, false)
 
 func interrupt_cast():
 	cur_cast = 0.0
@@ -229,8 +215,6 @@ func process_tick(delta: float):
 		update_recover(delta)
 		if action_being_cast != null:
 			update_cast(delta)
-		else:
-			process_autocast()
 
 var cur_recover: float = 0.0
 
