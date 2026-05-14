@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="Encounter" load_steps=4 format=3 uid="uid://bklcr2lv7do3a"]
+[gd_resource type="Resource" script_class="Encounter" load_steps=5 format=3 uid="uid://bklcr2lv7do3a"]
 
 [ext_resource type="Script" uid="uid://cc15xa1u2yo1s" path="res://scripts/resources/base_enemy.gd" id="1_8qh4d"]
 [ext_resource type="Resource" uid="uid://ctk36chpuix1m" path="res://resources/enemies/bandit.tres" id="2_iqhkn"]
 [ext_resource type="Script" uid="uid://b286ao0pehvai" path="res://scripts/resources/encounter.gd" id="3_h34yl"]
+[ext_resource type="Resource" uid="uid://x1nujtjylieh" path="res://resources/enemies/sturdy_bandit.tres" id="3_iqhkn"]
 
 [resource]
 script = ExtResource("3_h34yl")
-front_row = Array[ExtResource("1_8qh4d")]([ExtResource("2_iqhkn"), ExtResource("2_iqhkn")])
+front_row = Array[ExtResource("1_8qh4d")]([ExtResource("2_iqhkn"), ExtResource("3_iqhkn"), ExtResource("2_iqhkn")])
 metadata/_custom_type_script = "uid://b286ao0pehvai"

@@ -3,7 +3,7 @@ class_name AttackAction
 extends Action
 
 func get_cooldown(character: Character) -> float:
-	return character.weapon.speed
+	return maxf(character.weapon.speed, cooldown)
 
 func get_cast_time(caster: Character) -> float:
 	return caster.weapon.speed

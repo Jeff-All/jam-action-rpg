@@ -11,8 +11,8 @@ attribute = 1
 texture = ExtResource("3_bh2mc")
 targeting = ExtResource("2_of7mw")
 cost = Dictionary[int, int]({
-2: 6
+2: 4
 })
 instant = true
-base_cast_time = null
+cooldown = 6.0
 metadata/_custom_type_script = "uid://c7a605q407srf"

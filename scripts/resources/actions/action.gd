@@ -11,6 +11,7 @@ extends Resource
 
 @export var instant: bool = false
 @export var base_cast_time: float = 0.0
+@export var cooldown: float = 0.0
 
 func get_cast_time(_caster: Character) -> float:
 	return base_cast_time
@@ -47,5 +48,5 @@ func render_tooltip_full(_pc: PlayerCharacter, _enemy: Enemy, tooltip: ToolTip):
 func apply(_attacker: Character, _target: Character):
 	pass
 
-func get_cooldown(character: Character) -> float:
-	return 0.0
+func get_cooldown(_character: Character) -> float:
+	return cooldown
