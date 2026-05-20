@@ -140,5 +140,8 @@ func _on_cooldown()->bool:
 	return _cooldown > 0
 
 func update_cooldown(val: float):
+	if _cooldown > 0.0 && val <= 0.0:
+		$AnimationPlayer.play("action_button_flash")
 	_cooldown = val
 	$MarginContainer/Cooldown.custom_minimum_size = Vector2(0.0, $MarginContainer/BG.size.y * val)
+	

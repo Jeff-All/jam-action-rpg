@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cvfbnvprqkpo2"]
+[gd_scene load_steps=16 format=3 uid="uid://cvfbnvprqkpo2"]
 
 [ext_resource type="Script" uid="uid://ccf5r01d7gx5s" path="res://scripts/action_button.gd" id="1_js6u8"]
 [ext_resource type="Texture2D" uid="uid://dvpbt0o67h1dl" path="res://resources/art/icons/sword_transparent.png" id="2_u7r83"]
@@ -17,6 +17,43 @@ bg_color = Color(0.570213, 0.5755109, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_smqkt"]
 bg_color = Color(0.9265447, 0.44262242, 5.7756904e-07, 1)
 
+[sub_resource type="Animation" id="Animation_wn2sm"]
+resource_name = "action_button_flash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/Flash:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_smqkt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/Flash:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5myp6"]
+_data = {
+&"RESET": SubResource("Animation_smqkt"),
+&"action_button_flash": SubResource("Animation_wn2sm")
+}
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5myp6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ae0p"]
@@ -24,6 +61,9 @@ bg_color = Color(0, 0, 0, 0.8235294)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sva6b"]
 bg_color = Color(0, 0, 0, 0.79607844)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mjpwl"]
+bg_color = Color(1, 1, 0, 0.33333334)
 
 [node name="Action Button" type="MarginContainer"]
 custom_minimum_size = Vector2(60, 60)
@@ -36,6 +76,11 @@ default_color = SubResource("StyleBoxFlat_u7r83")
 hover_color = SubResource("StyleBoxFlat_ffiw1")
 down_color = SubResource("StyleBoxFlat_wn2sm")
 selected_color = SubResource("StyleBoxFlat_smqkt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5myp6")
+}
 
 [node name="Background" type="Panel" parent="."]
 layout_mode = 2
@@ -77,6 +122,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_sva6b")
 [node name="CostBar" parent="MarginContainer" instance=ExtResource("3_ffiw1")]
 visible = false
 layout_mode = 2
+
+[node name="Flash" type="Panel" parent="MarginContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mjpwl")
 
 [node name="Keybind" type="TextureRect" parent="MarginContainer"]
 custom_minimum_size = Vector2(20, 20)
