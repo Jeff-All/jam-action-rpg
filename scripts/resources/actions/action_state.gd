@@ -16,11 +16,16 @@ func _init(_base: Action, _character: Character):
 func start_cooldown():
 	_cur_cooldown = base.get_cooldown(character)
 
-func update_cooldowns(delta: float, char_cooldown_percent: float, char_cooldown_cur: float):
+func update_cooldowns(delta: float, char_cooldown_percent: float, char_cooldown_cur: float, attack_cooldown_percent: float, attack_cooldown_cur: float):
 	_cur_cooldown = maxf(0.0, _cur_cooldown - delta)
-	var percent = 0.0
-	if _cur_cooldown < char_cooldown_cur:
+	var percent = _cur_cooldown / base.get_cooldown(character)
+	var min_cooldown = _cur_cooldown
+	
+	if min_cooldown < char_cooldown_cur:
 		percent = char_cooldown_percent
-	else:
-		percent = _cur_cooldown / base.get_cooldown(character)
+		min_cooldown = char_cooldown_cur
+	
+	if base is AttackAction && min_cooldown < attack_cooldown_cur:
+		percent = attack_cooldown_percent
+	
 	on_update_cooldown.emit(percent)

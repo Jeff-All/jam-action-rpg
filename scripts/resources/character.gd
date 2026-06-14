@@ -181,8 +181,10 @@ var target_of_cast: Character = null
 
 func instant_cast(action: ActionState, target: Character):
 	cur_cooldown = cur_cooldown_max
+	if action.base is AttackAction:
+		cur_attack_cooldown = weapon.speed
 	action.start_cooldown()
-	action.update_cooldowns(0.0, 1.0, cur_cooldown)
+	action.update_cooldowns(0.0, 1.0, cur_cooldown, cur_attack_cooldown/weapon.speed, cur_attack_cooldown)
 	action.base.apply(self, target)
 
 func start_cast(action: ActionState, target: Character):
@@ -229,15 +231,16 @@ func update_recover(delta: float):
 		recover()
 
 func recover():
-	print("Recover: health = %s" % [health_recovery])
 	cur_recover = fmod(cur_recover, 3.0)
 	modify_resource(CharacterResource.STAMINA, stamina_recovery)
 	modify_resource(CharacterResource.HEALTH, health_recovery)
 
 var cur_cooldown_max: float = 1.0
 var cur_cooldown: float = 0.0
+var cur_attack_cooldown: float = 0.0
 
 func update_cooldowns(delta: float):
 	cur_cooldown = maxf(0.0, cur_cooldown - delta)
+	cur_attack_cooldown = maxf(0.0, cur_attack_cooldown - delta)
 	for cur_action in actions:
-		cur_action.update_cooldowns(delta, cur_cooldown/cur_cooldown_max, cur_cooldown)
+		cur_action.update_cooldowns(delta, cur_cooldown/cur_cooldown_max, cur_cooldown, cur_attack_cooldown/weapon.speed, cur_attack_cooldown)
