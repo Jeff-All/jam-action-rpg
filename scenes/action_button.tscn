@@ -17,6 +17,21 @@ bg_color = Color(0.570213, 0.5755109, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_smqkt"]
 bg_color = Color(0.9265447, 0.44262242, 5.7756904e-07, 1)
 
+[sub_resource type="Animation" id="Animation_smqkt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/Flash:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_wn2sm"]
 resource_name = "action_button_flash"
 length = 0.2
@@ -31,21 +46,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_smqkt"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer/Flash:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5myp6"]
@@ -111,6 +111,7 @@ stretch_mode = 5
 custom_minimum_size = Vector2(0, 54)
 layout_mode = 2
 size_flags_vertical = 8
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7ae0p")
 
 [node name="Overlay" type="Panel" parent="MarginContainer"]
@@ -126,6 +127,7 @@ layout_mode = 2
 [node name="Flash" type="Panel" parent="MarginContainer"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_mjpwl")
 
 [node name="Keybind" type="TextureRect" parent="MarginContainer"]
@@ -133,6 +135,7 @@ custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_filter = 2
 texture = ExtResource("4_wn2sm")
 expand_mode = 1
 
