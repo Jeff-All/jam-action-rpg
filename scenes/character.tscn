@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://weekes3e3nni"]
+[gd_scene load_steps=21 format=3 uid="uid://weekes3e3nni"]
 
 [ext_resource type="Script" uid="uid://cwi1at6chh8by" path="res://scripts/character_UI.gd" id="1_7ig0a"]
 [ext_resource type="PackedScene" uid="uid://gyyulhl3litf" path="res://scenes/state_button.tscn" id="2_0dpix"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bf87mn7t3q6e3" path="res://scenes/cast_bar.tscn" id="6_50cep"]
 [ext_resource type="StyleBox" uid="uid://decedaj14g6nl" path="res://styles/mana.tres" id="7_2hyy3"]
 [ext_resource type="Texture2D" uid="uid://cn1va2qvkx1yu" path="res://1p_square.png" id="8_a5ia6"]
+[ext_resource type="PackedScene" uid="uid://2yiufterqk0g" path="res://scenes/buff_bar.tscn" id="8_lagn4"]
 [ext_resource type="PackedScene" uid="uid://cfyl8owhf2474" path="res://scenes/action_button_grid.tscn" id="14_8yvht"]
 
 [sub_resource type="Animation" id="Animation_8yvht"]
@@ -129,6 +130,9 @@ theme_override_constants/separation = 2
 alignment = 2
 
 [node name="CastBar" parent="VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer" instance=ExtResource("6_50cep")]
+layout_mode = 2
+
+[node name="BuffBar" parent="VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer" instance=ExtResource("8_lagn4")]
 layout_mode = 2
 
 [node name="Status" type="HBoxContainer" parent="VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer"]

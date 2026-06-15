@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BuffRestore" load_steps=3 format=3 uid="uid://by4b3wnd6nlrl"]
+
+[ext_resource type="Script" uid="uid://u4gow0cl5mgs" path="res://scripts/resources/buffs/buff_restore.gd" id="1_jvi3l"]
+[ext_resource type="Texture2D" uid="uid://da2w37irijeee" path="res://resources/art/icons/Heart.png" id="2_ipyce"]
+
+[resource]
+script = ExtResource("1_jvi3l")
+name = "Restore"
+texture = ExtResource("2_ipyce")
+base_duration = 1.0
+metadata/_custom_type_script = "uid://u4gow0cl5mgs"

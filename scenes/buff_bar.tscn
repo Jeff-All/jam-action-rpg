@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://2yiufterqk0g"]
+
+[ext_resource type="Script" uid="uid://ci1o1xlstimby" path="res://scripts/buff_bar.gd" id="1_6n1vb"]
+[ext_resource type="PackedScene" uid="uid://xfdneyjssjq6" path="res://scenes/buff_button.tscn" id="1_t3fqn"]
+
+[node name="BuffBar" type="HBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+size_flags_horizontal = 4
+theme_override_constants/separation = 0
+alignment = 1
+script = ExtResource("1_6n1vb")
+
+[node name="Buff_1" parent="." instance=ExtResource("1_t3fqn")]
+layout_mode = 2
+
+[node name="Buff_2" parent="." instance=ExtResource("1_t3fqn")]
+layout_mode = 2
+
+[node name="Buff_3" parent="." instance=ExtResource("1_t3fqn")]
+layout_mode = 2
+
+[node name="Buff_4" parent="." instance=ExtResource("1_t3fqn")]
+layout_mode = 2
+
+[node name="Buff_5" parent="." instance=ExtResource("1_t3fqn")]
+layout_mode = 2
+
+[node name="Buff_6" parent="." instance=ExtResource("1_t3fqn")]
+layout_mode = 2

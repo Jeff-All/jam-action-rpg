@@ -79,7 +79,8 @@ func _unbind_character():
 		character.on_cur_mana_change.disconnect(_mana_change)
 		
 		character.on_take_damage.disconnect(_take_damage)
-		character.on_take_damage.disconnect(defend_attack)
+		character.on_defend_attack.disconnect(defend_attack)
+		character.on_heal.disconnect(heal)
 		
 		character.on_set_active.disconnect(_on_set_active)
 		character.on_set_highlight.disconnect(_on_set_highlight)
@@ -92,6 +93,8 @@ func _unbind_character():
 		character.on_start_cast.disconnect(cast_bar.start_cast)
 		character.on_update_cast.disconnect(cast_bar.update_cast)
 		character.on_finish_cast.disconnect(cast_bar.finish_cast)
+		
+		character.on_apply_buff.disconnect(_on_apply_buff)
 
 func _bind_character(character_index: int):
 	character.on_cur_durability_change.connect(_durability_change)
@@ -101,6 +104,7 @@ func _bind_character(character_index: int):
 	
 	character.on_take_damage.connect(_take_damage)
 	character.on_defend_attack.connect(defend_attack)
+	character.on_heal.connect(heal)
 	
 	character.on_set_active.connect(_on_set_active)
 	character.on_set_highlight.connect(_on_set_highlight)
@@ -113,6 +117,8 @@ func _bind_character(character_index: int):
 	character.on_start_cast.connect(cast_bar.start_cast)
 	character.on_update_cast.connect(cast_bar.update_cast)
 	character.on_finish_cast.connect(cast_bar.finish_cast)
+	
+	character.on_apply_buff.connect(_on_apply_buff)
 	
 	action_button_grid.bind_actions(character, character_index)
 	
@@ -143,6 +149,10 @@ func defend_attack():
 func _take_damage(damage: int):
 	combat_text.show_combat_text(center, "%s" % damage)
 	animation.play("take_damage")
+
+func heal(amount: int):
+	combat_text.show_combat_text(center, "%s" % amount)
+	animation.play("heal")
 
 func _on_hover():
 	print("hover %s.%s" % [character.name, character.count])
@@ -178,3 +188,7 @@ func _on_action_button_entered(action_button: ActionButton):
 
 func _on_action_button_exited(action_button: ActionButton):
 	on_action_button_exited.emit(action_button)
+
+func _on_apply_buff(buff: BuffActive):
+	print("character_ui._on_apply_buff")
+	$VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer/BuffBar.add_buff(buff)

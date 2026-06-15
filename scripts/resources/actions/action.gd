@@ -13,6 +13,8 @@ extends Resource
 @export var base_cast_time: float = 0.0
 @export var cooldown: float = 0.0
 
+@export var buffs: Dictionary[String, Buff]
+
 func get_cast_time(_caster: Character) -> float:
 	return base_cast_time
 
@@ -45,7 +47,7 @@ func render_tooltip(_attacker: PlayerCharacter, tooltip:ToolTip):
 func render_tooltip_full(_pc: PlayerCharacter, _enemy: Enemy, tooltip: ToolTip):
 	tooltip.text = "default full action tooltip"
 
-func apply(_attacker: Character, _target: Character):
+func apply(_buffs:Dictionary[String, BuffState], _attacker: Character, _target: Character):
 	pass
 
 func get_cooldown(_character: Character) -> float:

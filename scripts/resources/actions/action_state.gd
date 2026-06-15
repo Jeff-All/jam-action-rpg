@@ -5,6 +5,8 @@ extends Resource
 var base: Action
 var character: Character
 
+var buffs: Dictionary[String, BuffState]
+
 var _cur_cooldown: float = 0.0
 
 signal on_update_cooldown(percent: float)
@@ -12,6 +14,9 @@ signal on_update_cooldown(percent: float)
 func _init(_base: Action, _character: Character):
 	base = _base
 	character = _character
+	
+	for cur_buff_name in base.buffs:
+		buffs[cur_buff_name] = BuffState.new(base.buffs[cur_buff_name])
 
 func start_cooldown():
 	_cur_cooldown = base.get_cooldown(character)

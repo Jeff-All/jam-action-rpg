@@ -28,6 +28,15 @@ func on_enemy_pressed(enemy: CharacterUI, row: int, col: int):
 			character.start_cast(action, enemy.character) 
 		on_target_selected.emit()
 
+func _on_pc_pressed(pc: CharacterUI, index: int):
+	print("ActionSelected._on_pc_pressed(%s) at %s" % [pc.name, index])
+	if action.base.can_afford(character):
+		if action.base.instant:
+			character.instant_cast(action, pc.character)
+		else :
+			character.start_cast(action, pc.character) 
+		on_target_selected.emit()
+
 func on_action_button_pressed(_action_button: ActionButton):
 	print("default.on_action_button_pressed(%s)" % [action_button.action.base.name])
 	if _action_button.character is PlayerCharacter:

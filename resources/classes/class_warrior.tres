@@ -20,7 +20,6 @@ armor = 2
 durability = 5
 health = 5
 stamina = 5
-health_recovery = 1
 stamina_recovery = 1
 actions = Array[ExtResource("1_y64t6")]([ExtResource("2_clwi3"), ExtResource("3_clwi3"), ExtResource("4_fmb1j")])
 defenses = Array[ExtResource("1_y64t6")]([ExtResource("4_tbhcj"), ExtResource("5_clwi3"), ExtResource("6_clwi3")])

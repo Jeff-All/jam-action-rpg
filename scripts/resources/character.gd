@@ -9,6 +9,7 @@ signal on_cur_stamina_change(character)
 signal on_cur_mana_change(character)
 
 signal on_take_damage(damage: int)
+signal on_heal(amount: int)
 signal on_defend_attack()
 
 signal on_turn_order_mouse_enter(character)
@@ -16,6 +17,8 @@ signal on_turn_order_mouse_exit(character)
 
 signal on_set_active(character, value: bool)
 signal on_set_highlight(character, value: bool)
+
+signal on_apply_buff(buff: BuffActive)
 
 enum Attribute { STRENGTH, AGILITY, MAGIC }
 enum CharacterResource { DURABILITY, HEALTH, STAMINA, MANA}
@@ -99,6 +102,12 @@ func modify_resource(resource: CharacterResource, value: int):
 
 func defended_attack():
 	on_defend_attack.emit()
+
+func heal(amount: int):
+	var amount_healed = min(amount, max_health - cur_health)
+	cur_health = min(max_health, cur_health + amount)
+	
+	on_heal.emit(amount_healed)
 
 func take_damage(damage: int):
 	var actual_damage = damage
@@ -185,7 +194,7 @@ func instant_cast(action: ActionState, target: Character):
 		cur_attack_cooldown = weapon.speed
 	action.start_cooldown()
 	action.update_cooldowns(0.0, 1.0, cur_cooldown, cur_attack_cooldown/weapon.speed, cur_attack_cooldown)
-	action.base.apply(self, target)
+	action.base.apply(action.buffs,self, target)
 
 func start_cast(action: ActionState, target: Character):
 	cur_cast = 0.0
@@ -204,7 +213,7 @@ func update_cast(delta: float):
 
 func finish_cast():
 	cur_cast = 0.0
-	action_being_cast.base.apply(self, target_of_cast)
+	action_being_cast.base.apply(action_being_cast.buffs, self, target_of_cast)
 	
 	action_being_cast = null
 	target_of_cast = null
@@ -222,6 +231,7 @@ func process_tick(delta: float):
 		if action_being_cast != null:
 			update_cast(delta)
 		update_cooldowns(delta)
+		update_buffs(delta)
 
 var cur_recover: float = 0.0
 
@@ -244,3 +254,31 @@ func update_cooldowns(delta: float):
 	cur_attack_cooldown = maxf(0.0, cur_attack_cooldown - delta)
 	for cur_action in actions:
 		cur_action.update_cooldowns(delta, cur_cooldown/cur_cooldown_max, cur_cooldown, cur_attack_cooldown/weapon.speed, cur_attack_cooldown)
+
+var buffs: Array[BuffActive]
+
+var cur_buff_max: float = 1.0
+var cur_buff: float = 0.0
+
+func apply_buff(buff: BuffActive):
+	print("Character.apply_buff")
+	buffs.append(buff)
+	on_apply_buff.emit(buff)
+
+func end_buffs(to_end: Array[BuffActive]):
+	for cur in to_end:
+		end_buff(cur)
+
+func end_buff(buff: BuffActive):
+	buffs.remove_at(buffs.find(buff))
+	buff.end()
+
+func update_buffs(delta: float):
+	cur_buff += delta
+	if cur_buff > cur_buff_max:
+		var buffs_to_end: Array[BuffActive]
+		cur_buff = fmod(cur_buff, cur_buff_max)
+		for buff in buffs:
+			if !buff.tick():
+				buffs_to_end.append(buff)
+		end_buffs(buffs_to_end)

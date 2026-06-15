@@ -41,7 +41,7 @@ func render_tooltip(attacker: Character, tooltip:ToolTip):
 	var _max_damage = attacker.weapon.max_damage + _attribute_damage
 	tooltip.text = "%s%% chance to hit\n%s - %s damaage" % [hit_chance, _min_damage, _max_damage]
 
-func apply(attacker: Character, target: Character):
+func apply(_buffs:Dictionary[String, BuffState], attacker: Character, target: Character):
 	roll_attack(attacker, target)
 	
 	consume_resources(attacker)

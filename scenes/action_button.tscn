@@ -111,7 +111,6 @@ stretch_mode = 5
 custom_minimum_size = Vector2(0, 54)
 layout_mode = 2
 size_flags_vertical = 8
-mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_7ae0p")
 
 [node name="Overlay" type="Panel" parent="MarginContainer"]
