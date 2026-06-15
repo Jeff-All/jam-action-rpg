@@ -6,5 +6,5 @@
 
 [resource]
 script = ExtResource("3_h34yl")
-front_row = Array[ExtResource("1_8qh4d")]([ExtResource("2_iqhkn")])
+front_row = Array[ExtResource("1_8qh4d")]([ExtResource("2_iqhkn"), ExtResource("2_iqhkn"), ExtResource("2_iqhkn")])
 metadata/_custom_type_script = "uid://b286ao0pehvai"

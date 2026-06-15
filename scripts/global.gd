@@ -15,10 +15,10 @@ extends Node
 	"action_button_1_3": preload("res://resources/art/icons/3.png"),
 	"action_button_1_4": preload("res://resources/art/icons/4.png"),
 	
-	"action_button_2_1": preload("res://resources/art/icons/1.png"),
-	"action_button_2_2": preload("res://resources/art/icons/2.png"),
-	"action_button_2_3": preload("res://resources/art/icons/3.png"),
-	"action_button_2_4": preload("res://resources/art/icons/4.png"),
+	"action_button_2_1": preload("res://resources/art/icons/Q.png"),
+	"action_button_2_2": preload("res://resources/art/icons/W.png"),
+	"action_button_2_3": preload("res://resources/art/icons/E.png"),
+	"action_button_2_4": preload("res://resources/art/icons/R.png"),
 	
 	"action_button_3_1": preload("res://resources/art/icons/1.png"),
 	"action_button_3_2": preload("res://resources/art/icons/2.png"),

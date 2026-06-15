@@ -6,7 +6,7 @@ func on_hit(attacker: Character, target: Character):
 	var _attribute_damage = attacker.get_attribute(attacker.weapon.attribute)
 	var damage = randi_range(attacker.weapon.min_damage, attacker.weapon.max_damage) + attacker.get_attribute(Character.Attribute.STRENGTH)
 	
-	target.take_damage(damage)
+	target.take_damage(attacker, damage)
 
 func render_tooltip(attacker: Character, tooltip:ToolTip):
 	var hit_chance = min(100, attacker.weapon.hit + (attacker.attack * 10))

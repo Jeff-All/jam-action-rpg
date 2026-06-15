@@ -109,7 +109,7 @@ func heal(amount: int):
 	
 	on_heal.emit(amount_healed)
 
-func take_damage(damage: int):
+func take_damage(attacker: Character, damage: int):
 	var actual_damage = damage
 	if cur_durability > 0:
 		actual_damage -= armor

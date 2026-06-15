@@ -14,10 +14,11 @@ func prepare_for_battle():
 	_attack_action = ActionState.new(base.attack_action, self)
 	_actions.append(_attack_action)
 
-func take_damage_from_player_character(pc: PlayerCharacter, damage: int):
-	take_damage(damage)
+
+func take_damage(attacker: Character, damage: int):
+	super(attacker, damage)
 	
-	threat_table.adjust_threat(pc, damage)
+	threat_table.adjust_threat(attacker, damage)
 
 func _get_name() -> String:
 	return "%s.%s" % [base.name, base.count]

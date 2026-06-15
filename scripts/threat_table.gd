@@ -43,6 +43,7 @@ func set_table(player_characters: PlayerCharacters):
 	sort_table()
 
 func adjust_threat(pc: PlayerCharacter, threat: int):
+	print("threat_table.adjust_threat: %s" % pc.name)
 	var tuple = character_map[pc]
 	tuple.threat += threat
 	
