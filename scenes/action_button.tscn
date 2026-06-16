@@ -1,21 +1,13 @@
 [gd_scene load_steps=16 format=3 uid="uid://cvfbnvprqkpo2"]
 
 [ext_resource type="Script" uid="uid://ccf5r01d7gx5s" path="res://scripts/action_button.gd" id="1_js6u8"]
+[ext_resource type="StyleBox" uid="uid://cr2t3b55t18qe" path="res://styles/default.tres" id="2_7ae0p"]
 [ext_resource type="Texture2D" uid="uid://dvpbt0o67h1dl" path="res://resources/art/icons/sword_transparent.png" id="2_u7r83"]
 [ext_resource type="PackedScene" uid="uid://hjh1ool8quxb" path="res://scenes/cost_bar.tscn" id="3_ffiw1"]
+[ext_resource type="StyleBox" uid="uid://bgosnheawb5l3" path="res://styles/hover.tres" id="3_mjpwl"]
+[ext_resource type="StyleBox" uid="uid://dfnv38lfibf5s" path="res://styles/down.tres" id="4_npg4v"]
 [ext_resource type="Texture2D" uid="uid://de6uu66gyy3ob" path="res://resources/art/icons/1.png" id="4_wn2sm"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7r83"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ffiw1"]
-bg_color = Color(0.8688549, 0.8787619, 7.70092e-07, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wn2sm"]
-bg_color = Color(0.570213, 0.5755109, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_smqkt"]
-bg_color = Color(0.9265447, 0.44262242, 5.7756904e-07, 1)
+[ext_resource type="StyleBox" uid="uid://fykmjdbx4d5f" path="res://styles/selected.tres" id="5_prngg"]
 
 [sub_resource type="Animation" id="Animation_smqkt"]
 length = 0.001
@@ -72,10 +64,10 @@ offset_bottom = 50.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_js6u8")
-default_color = SubResource("StyleBoxFlat_u7r83")
-hover_color = SubResource("StyleBoxFlat_ffiw1")
-down_color = SubResource("StyleBoxFlat_wn2sm")
-selected_color = SubResource("StyleBoxFlat_smqkt")
+default_color = ExtResource("2_7ae0p")
+hover_color = ExtResource("3_mjpwl")
+down_color = ExtResource("4_npg4v")
+selected_color = ExtResource("5_prngg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

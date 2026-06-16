@@ -1,0 +1,65 @@
+[gd_scene load_steps=12 format=3 uid="uid://ydtaidvhl1rc"]
+
+[ext_resource type="Script" uid="uid://bb1ebodkgu8pb" path="res://scripts/slot_button.gd" id="1_roup1"]
+[ext_resource type="StyleBox" uid="uid://cr2t3b55t18qe" path="res://styles/default.tres" id="2_5cex4"]
+[ext_resource type="StyleBox" uid="uid://bgosnheawb5l3" path="res://styles/hover.tres" id="3_tprcn"]
+[ext_resource type="StyleBox" uid="uid://dfnv38lfibf5s" path="res://styles/down.tres" id="4_tprcn"]
+[ext_resource type="StyleBox" uid="uid://fykmjdbx4d5f" path="res://styles/selected.tres" id="4_vc7ok"]
+[ext_resource type="Texture2D" uid="uid://dmyf8r367m5s6" path="res://resources/art/icons/plus.png" id="6_tprcn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v7ysy"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tprcn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vc7ok"]
+bg_color = Color(0.14406255, 0.14406255, 0.14406249, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnfyj"]
+bg_color = Color(0.4236506, 0.42365065, 0.42365053, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_llq04"]
+
+[node name="SlotButton" type="PanelContainer"]
+custom_minimum_size = Vector2(100, 100)
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v7ysy")
+script = ExtResource("1_roup1")
+default_color = ExtResource("2_5cex4")
+hover_color = ExtResource("3_tprcn")
+down_color = ExtResource("4_tprcn")
+selected_color = ExtResource("4_vc7ok")
+background_active = SubResource("StyleBoxFlat_tprcn")
+background_disabled = SubResource("StyleBoxFlat_vc7ok")
+background_locked = SubResource("StyleBoxFlat_lnfyj")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Background" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_llq04")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Background/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("6_tprcn")
+expand_mode = 4
+stretch_mode = 5
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
