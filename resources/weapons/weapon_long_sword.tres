@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_nywqp")
+name = "Longsword"
 min_damage = 1
 max_damage = 3
 hit = 50

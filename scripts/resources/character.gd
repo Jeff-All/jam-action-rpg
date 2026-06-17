@@ -23,6 +23,28 @@ signal on_apply_buff(buff: BuffActive)
 enum Attribute { STRENGTH, AGILITY, MAGIC }
 enum CharacterResource { DURABILITY, HEALTH, STAMINA, MANA}
 
+static func get_attribute_name(attribute: Attribute) -> String:
+	match attribute:
+		Attribute.STRENGTH: 
+			return "Strength"
+		Attribute.AGILITY: 
+			return "Agility"
+		Attribute.MAGIC: 
+			return "Magic"
+	return ""
+
+static func get_resource_name(resource: CharacterResource) -> String:
+	match resource:
+		CharacterResource.DURABILITY:
+			return "Durability"
+		CharacterResource.HEALTH:
+			return "Health"
+		CharacterResource.STAMINA:
+			return "Stamina"
+		CharacterResource.MANA:
+			return "Mana"
+	return ""
+
 @export var name: String:
 	get():
 		return _get_name()

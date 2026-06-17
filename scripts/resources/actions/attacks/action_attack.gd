@@ -52,3 +52,9 @@ func roll_attack(attacker: Character, target: Character):
 		on_hit(attacker, target)
 	else:
 		target.defended_attack()
+
+func get_header() -> String:
+	return name
+
+func get_description() -> String:
+	return "Attack"

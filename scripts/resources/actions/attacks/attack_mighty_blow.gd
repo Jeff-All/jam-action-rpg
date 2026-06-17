@@ -3,8 +3,8 @@ class_name AttackMightyBlow
 extends AttackAction
 
 func on_hit(attacker: Character, target: Character):
-	var _attribute_damage = attacker.get_attribute(attacker.weapon.attribute)
-	var damage = randi_range(attacker.weapon.min_damage, attacker.weapon.max_damage) + attacker.get_attribute(Character.Attribute.STRENGTH)
+	var _attribute_damage = attacker.get_attribute(attacker.weapon.attribute) + attacker.get_attribute(Character.Attribute.STRENGTH)
+	var damage = randi_range(attacker.weapon.min_damage, attacker.weapon.max_damage) + _attribute_damage 
 	
 	target.take_damage(attacker, damage)
 
@@ -23,3 +23,6 @@ func on_hover_target(attacker: Character, target: CharacterUI, battle_board: Bat
 	print("attack_action.on_hover_target() attacker %s attacking %s has a %s%% chance to hit for %s - %s damage" % [attacker.name, target.character.name, hit_chance, _min_damage, _max_damage])
 	battle_board.tooltip.text = "%s Stamina\n%s%% chance to hit\n%s - %s damaage" % [cost[Character.CharacterResource.STAMINA], hit_chance, _min_damage, _max_damage]
 	battle_board.tooltip.visible = true
+
+func get_description() -> String:
+	return "Target: Single Enemy\n%s\n%s\nDeals weapon damage plus Strength" % [get_cost_description(), get_cooldown_description()]

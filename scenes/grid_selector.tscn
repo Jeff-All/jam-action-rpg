@@ -1,143 +1,231 @@
-[gd_scene load_steps=7 format=3 uid="uid://cd46maj1rq1d2"]
+[gd_scene load_steps=15 format=3 uid="uid://cd46maj1rq1d2"]
 
 [ext_resource type="Script" uid="uid://co6ufb2re66lx" path="res://scripts/grid_selector.gd" id="1_ahklf"]
 [ext_resource type="PackedScene" uid="uid://ydtaidvhl1rc" path="res://scenes/slot_button.tscn" id="1_e6uf0"]
 [ext_resource type="Texture2D" uid="uid://dy1b6iuk8t58h" path="res://resources/art/icons/arrow_right.png" id="3_cqo3v"]
 [ext_resource type="Texture2D" uid="uid://cqablcjq38wfv" path="res://resources/art/icons/arrow_left.png" id="3_xydb3"]
+[ext_resource type="PackedScene" uid="uid://dt7xrxget1oi1" path="res://scenes/simple_button.tscn" id="4_xydb3"]
+[ext_resource type="Script" uid="uid://ct10mfsiidr8r" path="res://scripts/selector.gd" id="6_0r56m"]
+[ext_resource type="Texture2D" uid="uid://dbxe6raf76mor" path="res://resources/art/icons/green_check.png" id="6_15kok"]
+[ext_resource type="Texture2D" uid="uid://p3xr1lkek1g2" path="res://resources/art/icons/red_x.png" id="7_0r56m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bpmon"]
 bg_color = Color(0, 0, 0, 0.75686276)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0r56m"]
+bg_color = Color(0.30980393, 0.31764707, 0.29411766, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0r387"]
 bg_color = Color(0.92156863, 0.8352941, 0.7019608, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_15kok"]
+bg_color = Color(0, 0, 0, 0.7294118)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pf2c3"]
+bg_color = Color(0.30888703, 0.31905738, 0.29486614, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4n66r"]
+bg_color = Color(0.92156863, 0.8352941, 0.7019608, 1)
+
 [node name="GridSelector" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_bpmon")
 script = ExtResource("1_ahklf")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="Grid" type="PanelContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_0r387")
+theme_override_styles/panel = SubResource("StyleBoxFlat_0r56m")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Grid"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="Grid/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_0r387")
+
+[node name="MarginContainer" type="MarginContainer" parent="Grid/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Grid/MarginContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 5
 theme_override_constants/v_separation = 5
 columns = 4
 
-[node name="SlotButton" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
+[node name="SlotButton" parent="Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
 layout_mode = 2
 
-[node name="SlotButton2" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
+[node name="SlotButton2" parent="Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
 layout_mode = 2
 
-[node name="SlotButton3" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
+[node name="SlotButton3" parent="Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
 layout_mode = 2
 
-[node name="SlotButton4" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
+[node name="SlotButton4" parent="Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
 layout_mode = 2
 
-[node name="SlotButton5" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
+[node name="SlotButton5" parent="Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
 layout_mode = 2
 
-[node name="SlotButton6" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
+[node name="SlotButton6" parent="Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
 layout_mode = 2
 
-[node name="SlotButton7" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
+[node name="SlotButton7" parent="Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
 layout_mode = 2
 
-[node name="SlotButton8" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
+[node name="SlotButton8" parent="Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
 layout_mode = 2
 
-[node name="SlotButton9" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
+[node name="SlotButton9" parent="Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
 layout_mode = 2
 
-[node name="SlotButton10" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
+[node name="SlotButton10" parent="Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
 layout_mode = 2
 
-[node name="SlotButton11" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
+[node name="SlotButton11" parent="Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
 layout_mode = 2
 
-[node name="SlotButton12" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
+[node name="SlotButton12" parent="Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
 layout_mode = 2
 
-[node name="SlotButton13" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
+[node name="SlotButton13" parent="Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
 layout_mode = 2
 
-[node name="SlotButton14" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
+[node name="SlotButton14" parent="Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
 layout_mode = 2
 
-[node name="SlotButton15" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
+[node name="SlotButton15" parent="Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
 layout_mode = 2
 
-[node name="SlotButton16" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
+[node name="SlotButton16" parent="Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer" instance=ExtResource("1_e6uf0")]
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
 
-[node name="Left" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+[node name="Left" parent="Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("4_xydb3")]
 layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/HBoxContainer/Left"]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/HBoxContainer/Left/MarginContainer"]
-layout_mode = 2
-mouse_filter = 2
 texture = ExtResource("3_xydb3")
-expand_mode = 2
-stretch_mode = 5
+margin = 10
 
-[node name="PageLabel" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+[node name="PageLabel" type="Label" parent="Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 50
 text = "1/30"
 horizontal_alignment = 1
 
-[node name="Right" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+[node name="Right" parent="Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/HBoxContainer" instance=ExtResource("4_xydb3")]
 layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/HBoxContainer/Right"]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/HBoxContainer/Right/MarginContainer"]
-layout_mode = 2
-mouse_filter = 2
 texture = ExtResource("3_cqo3v")
-expand_mode = 2
-stretch_mode = 5
+margin = 10
 
-[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
+[node name="Selector" type="PanelContainer" parent="."]
 visible = false
-custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_15kok")
+script = ExtResource("6_0r56m")
+
+[node name="PanelContainer" type="PanelContainer" parent="Selector"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_pf2c3")
+
+[node name="MarginContainer" type="MarginContainer" parent="Selector/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="Selector/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_4n66r")
+
+[node name="MarginContainer" type="MarginContainer" parent="Selector/PanelContainer/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Selector/PanelContainer/MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="PanelContainer" parent="Selector/PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Selector/PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Title"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Longsword"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="PanelContainer" parent="Selector/PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Selector/PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Description"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Selector/PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Description/MarginContainer"]
+layout_mode = 2
+text = "Attribute: Strength
+Damage: 1 - 3
+Damage Type: Slashing
+Hit: 50%
+Speed: 3.0"
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Selector/PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+alignment = 1
+
+[node name="Accept" parent="Selector/PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_xydb3")]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_15kok")
+
+[node name="Cancel" parent="Selector/PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("4_xydb3")]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("7_0r56m")
+
+[connection signal="on_pressed" from="Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/HBoxContainer/Left" to="." method="_on_left_pressed"]
+[connection signal="on_pressed" from="Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/HBoxContainer/Right" to="." method="_on_right_pressed"]
+[connection signal="on_pressed" from="Selector/PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Accept" to="." method="_on_accept_on_pressed"]
+[connection signal="on_pressed" from="Selector/PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Cancel" to="." method="_on_decline_on_pressed"]

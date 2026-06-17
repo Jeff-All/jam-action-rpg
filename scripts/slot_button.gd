@@ -16,7 +16,7 @@ signal on_lock(action_button: ActionButton)
 @export var background_disabled: StyleBox
 @export var background_locked: StyleBox
 
-var value: String = ""
+var value
 
 var texture: Texture2D:
 	set(_value):
@@ -24,11 +24,11 @@ var texture: Texture2D:
 
 func empty():
 	texture = null
-	value = ""
+	value = null
 
 func disable():
 	texture = null
-	value = ""
+	value = null
 	locked = true
 	$MarginContainer/Background.add_theme_stylebox_override("panel", background_disabled)
 
@@ -36,7 +36,7 @@ func enable():
 	locked = false
 	$MarginContainer/Background.add_theme_stylebox_override("panel", background_active)
 
-func fill(_value: String, _texture: Texture2D):
+func fill(_value, _texture: Texture2D):
 	texture = _texture
 	value = _value
 
@@ -47,8 +47,8 @@ var _locked: bool = false
 var selectable: bool = true
 
 var locked: bool:
-	set(value):
-		_locked = value
+	set(_value):
+		_locked = _value
 		if _locked:
 			mouse_default_cursor_shape = CursorShape.CURSOR_ARROW
 			on_lock.emit(self)
@@ -56,8 +56,8 @@ var locked: bool:
 			mouse_default_cursor_shape = CursorShape.CURSOR_POINTING_HAND
 
 var selected: bool:
-	set(value):
-		_selected = value
+	set(_value):
+		_selected = _value
 		if _selected:
 			add_theme_stylebox_override("panel", selected_color)
 			mouse_default_cursor_shape = CursorShape.CURSOR_ARROW

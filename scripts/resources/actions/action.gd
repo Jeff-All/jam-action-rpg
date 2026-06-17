@@ -15,6 +15,9 @@ extends Resource
 
 @export var buffs: Dictionary[String, Buff]
 
+func _to_string() -> String:
+	return name
+
 func get_cast_time(_caster: Character) -> float:
 	return base_cast_time
 
@@ -52,3 +55,20 @@ func apply(_buffs:Dictionary[String, BuffState], _attacker: Character, _target: 
 
 func get_cooldown(_character: Character) -> float:
 	return cooldown
+
+func get_header() -> String:
+	return name
+
+func get_description() -> String:
+	return "Default Action"
+
+func get_cost_description() -> String:
+	var to_return = ""
+	for cur in cost:
+		if to_return != "":
+			to_return += "\n"
+		to_return += "%s: %s" % [Character.get_resource_name(cur), cost[cur]]
+	return to_return
+
+func get_cooldown_description() -> String:
+	return "Cooldown: %s" % cooldown
