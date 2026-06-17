@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgsfyjnaxdtg0"]
+[gd_scene load_steps=5 format=3 uid="uid://dgsfyjnaxdtg0"]
 
 [ext_resource type="PackedScene" uid="uid://cv04weaxfdkni" path="res://scenes/character_builder.tscn" id="1_5yffv"]
+[ext_resource type="Script" uid="uid://cayh4uhp8py4i" path="res://scripts/party_builder.gd" id="1_47wxd"]
 [ext_resource type="PackedScene" uid="uid://cd46maj1rq1d2" path="res://scenes/grid_selector.tscn" id="2_5yffv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5yffv"]
@@ -13,6 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5yffv")
+script = ExtResource("1_47wxd")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2

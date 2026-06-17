@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cv04weaxfdkni"]
+[gd_scene load_steps=13 format=3 uid="uid://cv04weaxfdkni"]
 
+[ext_resource type="Script" uid="uid://cj5u10mm62kmb" path="res://scripts/character_builder.gd" id="1_d5p5p"]
 [ext_resource type="PackedScene" uid="uid://ydtaidvhl1rc" path="res://scenes/slot_button.tscn" id="1_djoia"]
 [ext_resource type="PackedScene" uid="uid://dt7xrxget1oi1" path="res://scenes/simple_button.tscn" id="2_mq5d6"]
 [ext_resource type="Texture2D" uid="uid://p3xr1lkek1g2" path="res://resources/art/icons/red_x.png" id="3_qf1e2"]
+[ext_resource type="Texture2D" uid="uid://24to84xa5io2" path="res://resources/art/icons/plus (2).png" id="4_qf1e2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ifc17"]
 bg_color = Color(0.30980393, 0.31764707, 0.29411766, 1)
@@ -25,10 +27,11 @@ bg_color = Color(0, 0.28627452, 0, 1)
 bg_color = Color(1.0829419e-06, 0.24038526, 0.34279636, 1)
 
 [node name="CharacterBuilder" type="PanelContainer"]
-custom_minimum_size = Vector2(200, 300)
+custom_minimum_size = Vector2(200, 0)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_ifc17")
+script = ExtResource("1_d5p5p")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -48,240 +51,248 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+[node name="Character" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character"]
 layout_mode = 2
 
-[node name="Name" type="LineEdit" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer"]
+[node name="Name" type="LineEdit" parent="MarginContainer/PanelContainer/MarginContainer/Character/PanelContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ifc17")
 text = "Name"
 alignment = 1
 
-[node name="Attributes" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Attributes" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Attributes"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/Attributes"]
 layout_mode = 2
 theme_override_constants/separation = 2
 alignment = 1
 
-[node name="Strength" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Attributes/HBoxContainer"]
+[node name="Strength" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/Attributes/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_xf5ec")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Attributes/HBoxContainer/Strength"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/Attributes/HBoxContainer/Strength"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Attributes/HBoxContainer/Strength/MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/Attributes/HBoxContainer/Strength/MarginContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_usy11")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Attributes/HBoxContainer/Strength/MarginContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/Attributes/HBoxContainer/Strength/MarginContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Attributes/HBoxContainer/Strength/MarginContainer/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/Attributes/HBoxContainer/Strength/MarginContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Attributes/HBoxContainer/Strength/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/Character/Attributes/HBoxContainer/Strength/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Strength"
 horizontal_alignment = 1
 
-[node name="Value" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Attributes/HBoxContainer/Strength/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Value" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/Character/Attributes/HBoxContainer/Strength/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "1"
 horizontal_alignment = 1
 
-[node name="Agility" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Attributes/HBoxContainer"]
+[node name="Agility" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/Attributes/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_xf5ec")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Attributes/HBoxContainer/Agility"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/Attributes/HBoxContainer/Agility"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Attributes/HBoxContainer/Agility/MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/Attributes/HBoxContainer/Agility/MarginContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_mq5d6")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Attributes/HBoxContainer/Agility/MarginContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/Attributes/HBoxContainer/Agility/MarginContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Attributes/HBoxContainer/Agility/MarginContainer/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/Attributes/HBoxContainer/Agility/MarginContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Attributes/HBoxContainer/Agility/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/Character/Attributes/HBoxContainer/Agility/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Agility"
 horizontal_alignment = 1
 
-[node name="Value" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Attributes/HBoxContainer/Agility/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Value" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/Character/Attributes/HBoxContainer/Agility/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "1"
 horizontal_alignment = 1
 
-[node name="Magic" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Attributes/HBoxContainer"]
+[node name="Magic" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/Attributes/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_xf5ec")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Attributes/HBoxContainer/Magic"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/Attributes/HBoxContainer/Magic"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Attributes/HBoxContainer/Magic/MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/Attributes/HBoxContainer/Magic/MarginContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_qf1e2")
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Attributes/HBoxContainer/Magic/MarginContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/Attributes/HBoxContainer/Magic/MarginContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Attributes/HBoxContainer/Magic/MarginContainer/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/Attributes/HBoxContainer/Magic/MarginContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Attributes/HBoxContainer/Magic/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/Character/Attributes/HBoxContainer/Magic/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Magic"
 horizontal_alignment = 1
 
-[node name="Value" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Attributes/HBoxContainer/Magic/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Value" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/Character/Attributes/HBoxContainer/Magic/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "1"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character"]
 layout_mode = 2
 
-[node name="Race" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Race" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Race"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer/Race"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Race/PanelContainer"]
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer/Race/PanelContainer"]
 layout_mode = 2
 text = "Race"
 horizontal_alignment = 1
 
-[node name="SlotButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Race" instance=ExtResource("1_djoia")]
+[node name="SlotButton" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer/Race" instance=ExtResource("1_djoia")]
 layout_mode = 2
 
-[node name="Class" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Class" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Class"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer/Class"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Class/PanelContainer"]
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer/Class/PanelContainer"]
 layout_mode = 2
 text = "Class"
 horizontal_alignment = 1
 
-[node name="SlotButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Class" instance=ExtResource("1_djoia")]
+[node name="SlotButton" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer/Class" instance=ExtResource("1_djoia")]
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character"]
 layout_mode = 2
 
-[node name="Ability" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Ability" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/Ability"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer2/Ability"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/Ability/PanelContainer"]
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer2/Ability/PanelContainer"]
 layout_mode = 2
 text = "Ability"
 horizontal_alignment = 1
 
-[node name="SlotButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/Ability" instance=ExtResource("1_djoia")]
+[node name="SlotButton" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer2/Ability" instance=ExtResource("1_djoia")]
 layout_mode = 2
 
-[node name="Passive" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Passive" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/Passive"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer2/Passive"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/Passive/PanelContainer"]
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer2/Passive/PanelContainer"]
 layout_mode = 2
 text = "Passive"
 horizontal_alignment = 1
 
-[node name="SlotButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/Passive" instance=ExtResource("1_djoia")]
+[node name="SlotButton" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer2/Passive" instance=ExtResource("1_djoia")]
 layout_mode = 2
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character"]
 layout_mode = 2
 
-[node name="Weapon" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="Weapon" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/Weapon"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer3/Weapon"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/Weapon/PanelContainer"]
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer3/Weapon/PanelContainer"]
 layout_mode = 2
 text = "Weapon"
 horizontal_alignment = 1
 
-[node name="SlotButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/Weapon" instance=ExtResource("1_djoia")]
+[node name="SlotButton" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer3/Weapon" instance=ExtResource("1_djoia")]
 layout_mode = 2
 
-[node name="Armor" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="Armor" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/Armor"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer3/Armor"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/Armor/PanelContainer"]
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer3/Armor/PanelContainer"]
 layout_mode = 2
 text = "Armor"
 horizontal_alignment = 1
 
-[node name="SlotButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/Armor" instance=ExtResource("1_djoia")]
+[node name="SlotButton" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer3/Armor" instance=ExtResource("1_djoia")]
 layout_mode = 2
 
-[node name="SimpleButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_mq5d6")]
+[node name="Delete" parent="MarginContainer/PanelContainer/MarginContainer/Character" instance=ExtResource("2_mq5d6")]
 layout_mode = 2
 texture = ExtResource("3_qf1e2")
+
+[node name="Add" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Add" parent="MarginContainer/PanelContainer/MarginContainer/Add" instance=ExtResource("2_mq5d6")]
+layout_mode = 2
+texture = ExtResource("4_qf1e2")
