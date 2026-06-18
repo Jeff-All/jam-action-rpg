@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="Race" load_steps=3 format=3 uid="uid://mdah4yhpnsiw"]
+[gd_resource type="Resource" script_class="Race" load_steps=4 format=3 uid="uid://mdah4yhpnsiw"]
 
 [ext_resource type="Script" uid="uid://bkijfvdnaky5k" path="res://scripts/resources/race.gd" id="1_flbbn"]
 [ext_resource type="Script" uid="uid://yndi76amfml" path="res://scripts/resources/actions/action.gd" id="1_pirfs"]
+[ext_resource type="Texture2D" uid="uid://boroq0lf8240i" path="res://resources/art/icons/races/dwarf.png" id="3_pirfs"]
 
 [resource]
 script = ExtResource("1_flbbn")
 name = "Dwarf"
+texture = ExtResource("3_pirfs")
 strength = 3
 agility = 1
 magic = 2

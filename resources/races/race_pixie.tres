@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="Race" load_steps=3 format=3 uid="uid://m4doyb4kcxlp"]
+[gd_resource type="Resource" script_class="Race" load_steps=4 format=3 uid="uid://m4doyb4kcxlp"]
 
 [ext_resource type="Script" uid="uid://bkijfvdnaky5k" path="res://scripts/resources/race.gd" id="1_6jho8"]
 [ext_resource type="Script" uid="uid://yndi76amfml" path="res://scripts/resources/actions/action.gd" id="1_14vas"]
+[ext_resource type="Texture2D" uid="uid://bdo81akoeuyy3" path="res://resources/art/icons/races/pixie.png" id="3_14vas"]
 
 [resource]
 script = ExtResource("1_6jho8")
 name = "Pixie"
+texture = ExtResource("3_14vas")
 strength = 1
 agility = 2
 magic = 3

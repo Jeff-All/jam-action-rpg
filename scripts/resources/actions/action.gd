@@ -15,6 +15,9 @@ extends Resource
 
 @export var buffs: Dictionary[String, Buff]
 
+func get_icon() -> Texture2D:
+	return texture
+
 func _to_string() -> String:
 	return name
 

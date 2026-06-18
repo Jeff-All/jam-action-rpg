@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Class" load_steps=7 format=3 uid="uid://cujlbu0bgcrx2"]
+[gd_resource type="Resource" script_class="Class" load_steps=8 format=3 uid="uid://cujlbu0bgcrx2"]
 
 [ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/class.gd" id="1_sih4u"]
 [ext_resource type="Script" uid="uid://yndi76amfml" path="res://scripts/resources/actions/action.gd" id="1_w8qfh"]
@@ -6,10 +6,12 @@
 [ext_resource type="Resource" uid="uid://bdtovlkut8il3" path="res://resources/actions/spells/action_restore.tres" id="3_0mrmi"]
 [ext_resource type="Resource" uid="uid://beih07aolh4dc" path="res://resources/actions/defenses/defend.tres" id="4_0mrmi"]
 [ext_resource type="Resource" uid="uid://b0d87hp7qlown" path="res://resources/actions/defenses/defend_dodge.tres" id="5_xyr0a"]
+[ext_resource type="Texture2D" uid="uid://j5e4w0eirxqm" path="res://resources/art/icons/classes/monk.png" id="7_xyr0a"]
 
 [resource]
 script = ExtResource("1_sih4u")
 name = "Monk"
+texture = ExtResource("7_xyr0a")
 threat = 1
 attack = 3
 defense = 3

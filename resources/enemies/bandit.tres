@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://lxbgh85qgjon" path="res://resources/art/characters/character_1024_bandit_d.png" id="5_q0v38"]
 [ext_resource type="Texture2D" uid="uid://o3va7owu3rxv" path="res://resources/art/characters/character_1024_bandit_e.png" id="6_0bay3"]
 [ext_resource type="Texture2D" uid="uid://bfcs7d11xdbqt" path="res://resources/art/characters/character_1024_bandit_f.png" id="7_68ha1"]
-[ext_resource type="Resource" uid="uid://dx0bfyr7vfgtv" path="res://resources/weapons/weapon_long_sword.tres" id="9_j16fm"]
+[ext_resource type="Resource" uid="uid://dx0bfyr7vfgtv" path="res://resources/weapons/weapon_rusty_longsword.tres" id="9_j16fm"]
 
 [resource]
 script = ExtResource("1_4gmrp")

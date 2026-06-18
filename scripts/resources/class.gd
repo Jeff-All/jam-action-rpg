@@ -4,6 +4,8 @@ extends Resource
 
 @export var name: String
 
+@export var texture: Texture2D
+
 @export var threat: int
 
 @export var attack: int
@@ -25,3 +27,12 @@ extends Resource
 
 @export var actions: Array[Action]
 @export var defenses: Array[Action]
+
+func get_header() -> String:
+	return name
+
+func get_description() -> String:
+	return ""
+
+func get_icon() -> Texture2D:
+	return texture

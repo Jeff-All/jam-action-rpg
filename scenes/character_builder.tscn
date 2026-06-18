@@ -65,6 +65,7 @@ text = "Name"
 alignment = 1
 
 [node name="Attributes" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character"]
+visible = false
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/Attributes"]
@@ -198,6 +199,7 @@ horizontal_alignment = 1
 
 [node name="SlotButton" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer/Race" instance=ExtResource("1_djoia")]
 layout_mode = 2
+category = "Race"
 
 [node name="Class" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer"]
 layout_mode = 2
@@ -214,6 +216,7 @@ horizontal_alignment = 1
 
 [node name="SlotButton" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer/Class" instance=ExtResource("1_djoia")]
 layout_mode = 2
+category = "Class"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character"]
 layout_mode = 2
@@ -233,22 +236,24 @@ horizontal_alignment = 1
 
 [node name="SlotButton" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer2/Ability" instance=ExtResource("1_djoia")]
 layout_mode = 2
+category = "Ability"
 
-[node name="Passive" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer2"]
+[node name="Trait" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer2/Passive"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer2/Trait"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer2/Passive/PanelContainer"]
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer2/Trait/PanelContainer"]
 layout_mode = 2
-text = "Passive"
+text = "Trait"
 horizontal_alignment = 1
 
-[node name="SlotButton" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer2/Passive" instance=ExtResource("1_djoia")]
+[node name="SlotButton" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer2/Trait" instance=ExtResource("1_djoia")]
 layout_mode = 2
+category = "Trait"
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character"]
 layout_mode = 2
@@ -268,6 +273,7 @@ horizontal_alignment = 1
 
 [node name="SlotButton" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer3/Weapon" instance=ExtResource("1_djoia")]
 layout_mode = 2
+category = "Weapon"
 
 [node name="Armor" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer3"]
 layout_mode = 2
@@ -284,6 +290,7 @@ horizontal_alignment = 1
 
 [node name="SlotButton" parent="MarginContainer/PanelContainer/MarginContainer/Character/HBoxContainer3/Armor" instance=ExtResource("1_djoia")]
 layout_mode = 2
+category = "Armor"
 
 [node name="Delete" parent="MarginContainer/PanelContainer/MarginContainer/Character" instance=ExtResource("2_mq5d6")]
 layout_mode = 2

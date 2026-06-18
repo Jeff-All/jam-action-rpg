@@ -3,6 +3,7 @@ class_name Weapon
 extends Resource
 
 @export var name: String
+@export var texture: Texture2D
 @export var min_damage: int
 @export var max_damage: int
 @export var damage_type: String
@@ -19,3 +20,6 @@ func get_description() -> String:
 
 func _to_string() -> String:
 	return name
+
+func get_icon() -> Texture2D:
+	return texture

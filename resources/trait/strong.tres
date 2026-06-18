@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Trait" load_steps=3 format=3 uid="uid://bn2qfh2prc5la"]
+
+[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/trait.gd" id="1_8qdae"]
+[ext_resource type="Texture2D" uid="uid://dhlduskp61a4s" path="res://resources/art/icons/traits/strong.png" id="2_io5b0"]
+
+[resource]
+script = ExtResource("1_8qdae")
+name = "Strong"
+texture = ExtResource("2_io5b0")
+metadata/_custom_type_script = "uid://b4kiwt5xn06c8"

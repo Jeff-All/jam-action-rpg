@@ -1,14 +1,16 @@
-[gd_resource type="Resource" script_class="Class" load_steps=6 format=3 uid="uid://cxppii7vomqji"]
+[gd_resource type="Resource" script_class="Class" load_steps=7 format=3 uid="uid://cxppii7vomqji"]
 
 [ext_resource type="Script" uid="uid://yndi76amfml" path="res://scripts/resources/actions/action.gd" id="1_0k4ws"]
 [ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/class.gd" id="1_10cqk"]
 [ext_resource type="Resource" uid="uid://0838ll6ej331" path="res://resources/actions/attacks/action_attack.tres" id="2_4p6lh"]
 [ext_resource type="Resource" uid="uid://beih07aolh4dc" path="res://resources/actions/defenses/defend.tres" id="4_7pcqf"]
 [ext_resource type="Resource" uid="uid://b0d87hp7qlown" path="res://resources/actions/defenses/defend_dodge.tres" id="5_b8cys"]
+[ext_resource type="Texture2D" uid="uid://dqbiobfw7q8j8" path="res://resources/art/icons/classes/rogue.png" id="6_7pcqf"]
 
 [resource]
 script = ExtResource("1_10cqk")
 name = "Rogue"
+texture = ExtResource("6_7pcqf")
 attack = 4
 defense = 3
 agility = 1

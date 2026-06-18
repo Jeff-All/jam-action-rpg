@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://1ww6pcrldjeq"]
+
+[ext_resource type="Script" uid="uid://8tck1kie4m0e" path="res://scripts/resources/weapon.gd" id="1_x342d"]
+[ext_resource type="Texture2D" uid="uid://bt15a8x3vtyiq" path="res://resources/art/icons/weapons/rusty_dagger.png" id="2_f2gcv"]
+
+[resource]
+script = ExtResource("1_x342d")
+name = "Rusty Dagger"
+texture = ExtResource("2_f2gcv")
+min_damage = 1
+max_damage = 1
+damage_type = "Piercing"
+attribute = 1
+hit = 90
+speed = 1.0
+metadata/_custom_type_script = "uid://8tck1kie4m0e"

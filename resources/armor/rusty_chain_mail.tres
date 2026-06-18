@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Armor" load_steps=3 format=3 uid="uid://nvmg1wj6p2a5"]
+
+[ext_resource type="Script" uid="uid://c80yoskj347ho" path="res://scripts/resources/armor.gd" id="1_jkdg3"]
+[ext_resource type="Texture2D" uid="uid://dc0jusjwycy61" path="res://resources/art/icons/armor/rusty_chain_mail.png" id="2_wdthu"]
+
+[resource]
+script = ExtResource("1_jkdg3")
+name = "Rusty Chain Mail"
+texture = ExtResource("2_wdthu")
+metadata/_custom_type_script = "uid://c80yoskj347ho"

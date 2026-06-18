@@ -16,6 +16,7 @@ signal on_lock(action_button: ActionButton)
 @export var background_disabled: StyleBox
 @export var background_locked: StyleBox
 
+@export var category: String
 var value
 
 var texture: Texture2D:
@@ -36,9 +37,9 @@ func enable():
 	locked = false
 	$MarginContainer/Background.add_theme_stylebox_override("panel", background_active)
 
-func fill(_value, _texture: Texture2D):
-	texture = _texture
+func fill(_value):
 	value = _value
+	texture = value.get_icon()
 
 var _hover: bool = false
 var _left_down: bool = false
@@ -54,6 +55,7 @@ var locked: bool:
 			on_lock.emit(self)
 		else: if selectable: 
 			mouse_default_cursor_shape = CursorShape.CURSOR_POINTING_HAND
+	get: return _locked
 
 var selected: bool:
 	set(_value):

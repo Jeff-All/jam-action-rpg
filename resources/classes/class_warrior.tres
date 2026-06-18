@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Class" load_steps=8 format=3 uid="uid://cd52scvecilnt"]
+[gd_resource type="Resource" script_class="Class" load_steps=9 format=3 uid="uid://cd52scvecilnt"]
 
 [ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/class.gd" id="1_hbnra"]
 [ext_resource type="Script" uid="uid://yndi76amfml" path="res://scripts/resources/actions/action.gd" id="1_y64t6"]
@@ -7,10 +7,12 @@
 [ext_resource type="Resource" uid="uid://beih07aolh4dc" path="res://resources/actions/defenses/defend.tres" id="4_tbhcj"]
 [ext_resource type="Resource" uid="uid://b0d87hp7qlown" path="res://resources/actions/defenses/defend_dodge.tres" id="5_clwi3"]
 [ext_resource type="Resource" uid="uid://dmp2u0e8w8rua" path="res://resources/actions/defenses/defend_block.tres" id="6_clwi3"]
+[ext_resource type="Texture2D" uid="uid://drcwqs8ghiwsa" path="res://resources/art/icons/classes/warrior.png" id="8_fmb1j"]
 
 [resource]
 script = ExtResource("1_hbnra")
 name = "Warrior"
+texture = ExtResource("8_fmb1j")
 threat = 3
 attack = 3
 defense = 5

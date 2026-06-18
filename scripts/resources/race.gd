@@ -4,6 +4,8 @@ extends Resource
 
 @export var name: String
 
+@export var texture: Texture2D
+
 @export var strength: int
 @export var agility: int
 @export var magic: int
@@ -55,3 +57,12 @@ func remove(character: Character):
 	character.health_recovery -= health_recovery
 	character.stamina_recovery -= stamina_recovery
 	character.mana_recovery -= mana_recovery
+
+func get_header() -> String:
+	return name
+
+func get_description() -> String:
+	return ""
+
+func get_icon() -> Texture2D:
+	return texture

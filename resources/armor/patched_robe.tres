@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Armor" load_steps=3 format=3 uid="uid://bjbp05uthfe07"]
+
+[ext_resource type="Script" uid="uid://c80yoskj347ho" path="res://scripts/resources/armor.gd" id="1_7vkyy"]
+[ext_resource type="Texture2D" uid="uid://ca45wq3ok5jh5" path="res://resources/art/icons/armor/patched_robe.png" id="2_e3oc6"]
+
+[resource]
+script = ExtResource("1_7vkyy")
+name = "Patched Robe"
+texture = ExtResource("2_e3oc6")
+metadata/_custom_type_script = "uid://c80yoskj347ho"

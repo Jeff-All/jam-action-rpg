@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://cd52scvecilnt" path="res://resources/classes/class_warrior.tres" id="1_yuatn"]
 [ext_resource type="Resource" uid="uid://cchko18dgvfq7" path="res://resources/races/race_human.tres" id="2_rg6fh"]
 [ext_resource type="Texture2D" uid="uid://btarp31hi148e" path="res://resources/art/characters/character_1024_human_warrior.png" id="4_rg6fh"]
-[ext_resource type="Resource" uid="uid://dx0bfyr7vfgtv" path="res://resources/weapons/weapon_long_sword.tres" id="5_mopfk"]
+[ext_resource type="Resource" uid="uid://dx0bfyr7vfgtv" path="res://resources/weapons/weapon_rusty_longsword.tres" id="5_mopfk"]
 
 [resource]
 script = ExtResource("1_q7gh3")

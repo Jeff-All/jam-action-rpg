@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cyidot871bswm" path="res://scripts/resources/base_player_character.gd" id="1_i0khi"]
 [ext_resource type="Resource" uid="uid://mdah4yhpnsiw" path="res://resources/races/race_dwarf.tres" id="2_1few3"]
 [ext_resource type="Texture2D" uid="uid://c5r6olphw08s4" path="res://resources/art/characters/character_1024_dwarf_monk.png" id="4_1few3"]
-[ext_resource type="Resource" uid="uid://dx0bfyr7vfgtv" path="res://resources/weapons/weapon_long_sword.tres" id="5_67shg"]
+[ext_resource type="Resource" uid="uid://dx0bfyr7vfgtv" path="res://resources/weapons/weapon_rusty_longsword.tres" id="5_67shg"]
 
 [resource]
 script = ExtResource("1_i0khi")

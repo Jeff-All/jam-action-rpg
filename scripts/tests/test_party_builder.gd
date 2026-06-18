@@ -1,5 +1,10 @@
 extends Control
 
+@export var start_options_1: CharacterStartOptions
+
+func options1():
+	$PartyBuilder.character_start_options = start_options_1
+
 func test1():
 	$PartyBuilder.show_builders(1)
 
