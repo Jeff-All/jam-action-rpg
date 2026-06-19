@@ -31,10 +31,28 @@ func check_if_ready() -> bool:
 			return false
 	return true
 
-func build_character() -> Character:
-	var character = Character.new()
+func build_character() -> CharacterBase:
+	var character_base = CharacterBase.new()
 	
 	for cur_button in buttons:
-		cur_button.value.apply(character)
+		var cur_value = cur_button.value
+		if cur_value is Race:
+			character_base.race = cur_value
+			continue
+		if cur_value is Class:
+			character_base.class_ = cur_value
+			continue
+		if cur_value is Ability:
+			character_base.ability = cur_value
+			continue
+		if cur_value is Trait:
+			character_base.trait_ = cur_value
+			continue
+		if cur_value is Weapon:
+			character_base.weapon = cur_value
+			continue
+		if cur_value is Armor:
+			character_base.armor = cur_value
+			continue
 	
-	return character
+	return character_base

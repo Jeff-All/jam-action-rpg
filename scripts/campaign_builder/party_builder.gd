@@ -1,6 +1,8 @@
+class_name PartyBuilder
+
 extends PanelContainer
 
-signal on_finish(characters: Array[Character])
+signal on_finish(characters: Array[CharacterBase])
 signal on_cancel()
 
 var character_start_options: CharacterStartOptions
@@ -19,6 +21,11 @@ func _ready():
 		builders.append(cur)
 		cur.visible = false
 		cur.on_slot_button_pressed.connect(_on_slot_button_pressed)
+
+func start(_character_start_options: CharacterStartOptions):
+	character_start_options = _character_start_options
+	
+	show_builders(character_start_options.character_count)
 
 func hide_builders():
 	for cur in builders:
@@ -66,12 +73,14 @@ func check_if_ready() -> bool:
 			return false
 	return true
 
-func _on_cancel_pressed(simple_button: SimpleButton):
+func _on_cancel_pressed(_simple_button: SimpleButton):
 	on_cancel.emit()
 
-func _on_continue_pressed(simple_button: SimpleButton):
+func _on_continue_pressed(_simple_button: SimpleButton):
 	if check_if_ready():
-		var characters: Array[Character]
-		for cur in builders:
-			characters.append(cur.build_character())
-		on_finish.emit()
+		var characters: Array[CharacterBase]
+		var cur_index = 0
+		while cur_index < character_count:
+			characters.append(builders[cur_index].build_character())
+			cur_index += 1
+		on_finish.emit(characters)

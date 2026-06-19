@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://cv04weaxfdkni"]
 
-[ext_resource type="Script" uid="uid://cj5u10mm62kmb" path="res://scripts/character_builder.gd" id="1_d5p5p"]
+[ext_resource type="Script" uid="uid://cj5u10mm62kmb" path="res://scripts/campaign_builder/character_builder.gd" id="1_d5p5p"]
 [ext_resource type="PackedScene" uid="uid://ydtaidvhl1rc" path="res://scenes/slot_button.tscn" id="1_djoia"]
 [ext_resource type="PackedScene" uid="uid://dt7xrxget1oi1" path="res://scenes/simple_button.tscn" id="2_mq5d6"]
 [ext_resource type="Texture2D" uid="uid://p3xr1lkek1g2" path="res://resources/art/icons/red_x.png" id="3_qf1e2"]

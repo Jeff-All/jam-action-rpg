@@ -1,0 +1,108 @@
+[gd_scene load_steps=29 format=3 uid="uid://d35viiin1r6d0"]
+
+[ext_resource type="Script" uid="uid://t681q8dgkk31" path="res://scripts/tests/test_campaign_builder.gd" id="1_toicq"]
+[ext_resource type="PackedScene" uid="uid://bqcwysj7k47nt" path="res://scenes/campaign_builder/campaign_builder.tscn" id="2_83a4m"]
+[ext_resource type="Script" uid="uid://bviccvmikhjva" path="res://scripts/resources/campaign_options.gd" id="2_7810o"]
+[ext_resource type="Script" uid="uid://bubl68t4u61vo" path="res://scripts/resources/abilities/ability.gd" id="3_wuf75"]
+[ext_resource type="Resource" uid="uid://cbi6ydrfspwjs" path="res://resources/abilities/test_ability.tres" id="4_hheme"]
+[ext_resource type="Script" uid="uid://c80yoskj347ho" path="res://scripts/resources/armor.gd" id="5_x5y6g"]
+[ext_resource type="Resource" uid="uid://bg0illklpqehh" path="res://resources/armor/ragged_leather_vest.tres" id="6_kxdej"]
+[ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/class.gd" id="7_xayjs"]
+[ext_resource type="Resource" uid="uid://cd52scvecilnt" path="res://resources/classes/class_warrior.tres" id="8_p3scs"]
+[ext_resource type="Script" uid="uid://bkijfvdnaky5k" path="res://scripts/resources/race.gd" id="9_uvhpq"]
+[ext_resource type="Resource" uid="uid://cchko18dgvfq7" path="res://resources/races/race_human.tres" id="10_fpw76"]
+[ext_resource type="Script" uid="uid://b0rrnk75kj3xv" path="res://scripts/resources/characters/character_start_options.gd" id="11_fwldu"]
+[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/trait.gd" id="12_efefc"]
+[ext_resource type="Resource" uid="uid://bn2qfh2prc5la" path="res://resources/trait/strong.tres" id="13_rp4w0"]
+[ext_resource type="Script" uid="uid://8tck1kie4m0e" path="res://scripts/resources/weapon.gd" id="14_mnk2a"]
+[ext_resource type="Resource" uid="uid://1ww6pcrldjeq" path="res://resources/weapons/weapon_rusty_dagger.tres" id="15_0ua8q"]
+[ext_resource type="Resource" uid="uid://nvmg1wj6p2a5" path="res://resources/armor/rusty_chain_mail.tres" id="16_p3scs"]
+[ext_resource type="Resource" uid="uid://cujlbu0bgcrx2" path="res://resources/classes/class_monk.tres" id="17_uvhpq"]
+[ext_resource type="Resource" uid="uid://mdah4yhpnsiw" path="res://resources/races/race_dwarf.tres" id="18_fpw76"]
+[ext_resource type="Resource" uid="uid://dty8f88lvkhfx" path="res://resources/trait/magical.tres" id="19_fwldu"]
+[ext_resource type="Resource" uid="uid://du3shcmfkaba2" path="res://resources/weapons/weapon_worn_longsword_and_shield.tres" id="20_efefc"]
+[ext_resource type="Resource" uid="uid://dx0bfyr7vfgtv" path="res://resources/weapons/weapon_rusty_longsword.tres" id="21_rp4w0"]
+
+[sub_resource type="Resource" id="Resource_hp753"]
+script = ExtResource("11_fwldu")
+races = Array[ExtResource("9_uvhpq")]([ExtResource("10_fpw76")])
+classes = Array[ExtResource("7_xayjs")]([ExtResource("8_p3scs")])
+abilities = Array[ExtResource("3_wuf75")]([ExtResource("4_hheme")])
+traits = Array[ExtResource("12_efefc")]([ExtResource("13_rp4w0")])
+weapons = Array[ExtResource("14_mnk2a")]([ExtResource("15_0ua8q")])
+armor = Array[ExtResource("5_x5y6g")]([ExtResource("6_kxdej")])
+character_count = 1
+metadata/_custom_type_script = "uid://b0rrnk75kj3xv"
+
+[sub_resource type="Resource" id="Resource_jds4q"]
+script = ExtResource("2_7810o")
+name = "Campaign 1"
+character_start_options = SubResource("Resource_hp753")
+metadata/_custom_type_script = "uid://bviccvmikhjva"
+
+[sub_resource type="Resource" id="Resource_mnk2a"]
+script = ExtResource("11_fwldu")
+races = Array[ExtResource("9_uvhpq")]([ExtResource("10_fpw76"), ExtResource("18_fpw76")])
+classes = Array[ExtResource("7_xayjs")]([ExtResource("8_p3scs"), ExtResource("17_uvhpq")])
+abilities = Array[ExtResource("3_wuf75")]([ExtResource("4_hheme")])
+traits = Array[ExtResource("12_efefc")]([ExtResource("19_fwldu"), ExtResource("13_rp4w0")])
+weapons = Array[ExtResource("14_mnk2a")]([ExtResource("20_efefc"), ExtResource("21_rp4w0")])
+armor = Array[ExtResource("5_x5y6g")]([ExtResource("16_p3scs")])
+character_count = 2
+metadata/_custom_type_script = "uid://b0rrnk75kj3xv"
+
+[sub_resource type="Resource" id="Resource_0ua8q"]
+script = ExtResource("2_7810o")
+name = "Campaign A"
+character_start_options = SubResource("Resource_mnk2a")
+metadata/_custom_type_script = "uid://bviccvmikhjva"
+
+[sub_resource type="Resource" id="Resource_ym72n"]
+script = ExtResource("11_fwldu")
+races = Array[ExtResource("9_uvhpq")]([ExtResource("10_fpw76")])
+classes = Array[ExtResource("7_xayjs")]([ExtResource("8_p3scs")])
+abilities = Array[ExtResource("3_wuf75")]([ExtResource("4_hheme")])
+traits = Array[ExtResource("12_efefc")]([ExtResource("13_rp4w0")])
+weapons = Array[ExtResource("14_mnk2a")]([ExtResource("15_0ua8q")])
+armor = Array[ExtResource("5_x5y6g")]([ExtResource("6_kxdej")])
+character_count = 1
+metadata/_custom_type_script = "uid://b0rrnk75kj3xv"
+
+[sub_resource type="Resource" id="Resource_7h04h"]
+script = ExtResource("2_7810o")
+name = "Campaign B"
+character_start_options = SubResource("Resource_ym72n")
+metadata/_custom_type_script = "uid://bviccvmikhjva"
+
+[node name="TestCampaignBuilder" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_toicq")
+available_campaigns_1 = Array[ExtResource("2_7810o")]([SubResource("Resource_jds4q")])
+available_campaigns_2 = Array[ExtResource("2_7810o")]([SubResource("Resource_0ua8q"), SubResource("Resource_7h04h")])
+
+[node name="CampaignBuilder" parent="." instance=ExtResource("2_83a4m")]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Test1" type="Button" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "Test1"
+
+[node name="Test2" type="Button" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "Test2"
+
+[connection signal="on_exit" from="CampaignBuilder" to="." method="_on_campaign_builder_on_exit"]
+[connection signal="on_finish" from="CampaignBuilder" to="." method="_on_campaign_builder_on_finish"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/Test1" to="." method="test1"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/Test2" to="." method="test2"]

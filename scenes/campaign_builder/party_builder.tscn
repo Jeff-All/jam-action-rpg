@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://dgsfyjnaxdtg0"]
+
+[ext_resource type="Script" uid="uid://cayh4uhp8py4i" path="res://scripts/campaign_builder/party_builder.gd" id="1_i30yd"]
+[ext_resource type="PackedScene" uid="uid://cv04weaxfdkni" path="res://scenes/campaign_builder/character_builder.tscn" id="2_qu38t"]
+[ext_resource type="PackedScene" uid="uid://dt7xrxget1oi1" path="res://scenes/simple_button.tscn" id="3_0i1k2"]
+[ext_resource type="Texture2D" uid="uid://p3xr1lkek1g2" path="res://resources/art/icons/red_x.png" id="4_n8dje"]
+[ext_resource type="Texture2D" uid="uid://dbxe6raf76mor" path="res://resources/art/icons/green_check.png" id="5_l0qqk"]
+[ext_resource type="PackedScene" uid="uid://cd46maj1rq1d2" path="res://scenes/grid_selector.tscn" id="6_kf6c6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5yffv"]
+bg_color = Color(0, 0, 0, 0.75686276)
+
+[node name="PartyBuilder" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5yffv")
+script = ExtResource("1_i30yd")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="CharacterBuilder" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_qu38t")]
+layout_mode = 2
+
+[node name="CharacterBuilder2" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_qu38t")]
+layout_mode = 2
+
+[node name="CharacterBuilder3" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_qu38t")]
+layout_mode = 2
+
+[node name="CharacterBuilder4" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_qu38t")]
+layout_mode = 2
+
+[node name="buttons" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Cancel" parent="MarginContainer/VBoxContainer/buttons" instance=ExtResource("3_0i1k2")]
+layout_mode = 2
+texture = ExtResource("4_n8dje")
+
+[node name="Continue" parent="MarginContainer/VBoxContainer/buttons" instance=ExtResource("3_0i1k2")]
+layout_mode = 2
+texture = ExtResource("5_l0qqk")
+
+[node name="GridSelector" parent="." instance=ExtResource("6_kf6c6")]
+visible = false
+layout_mode = 2
+
+[connection signal="on_pressed" from="MarginContainer/VBoxContainer/buttons/Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="on_pressed" from="MarginContainer/VBoxContainer/buttons/Continue" to="." method="_on_continue_pressed"]
