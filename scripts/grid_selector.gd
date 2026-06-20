@@ -8,6 +8,8 @@ var slot_buttons: Array[SlotButton]
 var items: Array
 var cur_page: int = 0
 var max_page: int = 0
+var cur_selected
+var selected_item
 
 func _ready():
 	for cur in $Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer.get_children():
@@ -15,7 +17,10 @@ func _ready():
 		slot_buttons.append(cur)
 		cur.disable()
 
-func fill(_items: Array, _show: bool = false):
+func fill(_items: Array, _selected_item, _show: bool = false):
+	selected_item = _selected_item
+	if selected_item == null:
+		$Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Details/PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Accept.disabled = true
 	cur_page = 0
 	@warning_ignore("integer_division")
 	max_page = items.size() / (slot_buttons.size()+1)
@@ -42,6 +47,7 @@ func fill_page_label():
 func clear_buttons():
 	for cur in slot_buttons:
 		cur.disable()
+		cur.selected = false
 
 func fill_page():
 	clear_buttons()
@@ -51,6 +57,10 @@ func fill_page():
 		var cur_item = items[cur_index + item_start_index]
 		var slot_button = slot_buttons[cur_index]
 		slot_button.fill(cur_item)
+		if cur_item == selected_item:
+			cur_selected = slot_button
+			slot_button.selected = true
+			$Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Details.populate(selected_item)
 		slot_button.enable()
 		cur_index += 1
 
@@ -67,13 +77,17 @@ func _on_right_pressed(_button: SimpleButton):
 	fill_page_label()
 
 func _on_slot_button_pressed(button: SlotButton):
-	$Selector.populate(button.value)
-	$Selector.visible = true
+	if cur_selected != null:
+		cur_selected.selected = false
+	cur_selected = button
+	selected_item = button.value
+	cur_selected.selected = true
+	$Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Details.populate(selected_item)
+	$Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Details/PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Accept.disabled = false
 
 func _on_accept_on_pressed(_button: SimpleButton):
-	on_selected.emit($Selector.value)
-	$Selector.visible = false
+	on_selected.emit(cur_selected.value)
 	visible = false
 
 func _on_decline_on_pressed(_button: SimpleButton):
-	$Selector.visible = false
+	visible = false

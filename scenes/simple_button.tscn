@@ -55,6 +55,7 @@ expand_mode = 2
 stretch_mode = 5
 
 [node name="Disabled" type="Panel" parent="."]
+visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_uvaku")
 

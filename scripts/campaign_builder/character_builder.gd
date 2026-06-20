@@ -5,6 +5,12 @@ extends PanelContainer
 signal on_slot_button_pressed(character_builder: CharacterBuilder, slot_button: SlotButton)
 
 var buttons: Array[SlotButton]
+var race: SlotButton
+var _class: SlotButton
+var ability: SlotButton
+var _trait: SlotButton
+var weapon: SlotButton
+var armor: SlotButton
 
 func _on_slot_button_pressed(slot_button: SlotButton):
 	on_slot_button_pressed.emit(self, slot_button)
@@ -13,6 +19,19 @@ func _ready():
 	for cur in find_children("*", "SlotButton", true):
 		cur.on_pressed.connect(_on_slot_button_pressed)
 		buttons.append(cur)
+		match cur.category:
+			"Race":
+				race = cur
+			"Class":
+				_class = cur
+			"Ability":
+				ability = cur
+			"Trait":
+				_trait = cur
+			"Weapon":
+				weapon = cur
+			"Armor":
+				armor = cur
 
 func activate(show_delete: bool = false):
 	$MarginContainer/PanelContainer/MarginContainer/Character.visible = true

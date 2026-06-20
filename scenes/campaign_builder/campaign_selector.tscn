@@ -1,11 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmrtldj1ghqa3"]
+[gd_scene load_steps=10 format=3 uid="uid://cmrtldj1ghqa3"]
 
 [ext_resource type="Script" uid="uid://boel3dyaaxk5y" path="res://scripts/campaign_builder/campaign_selector.gd" id="1_m3h8u"]
 [ext_resource type="PackedScene" uid="uid://dt7xrxget1oi1" path="res://scenes/simple_button.tscn" id="2_tgo20"]
-[ext_resource type="Texture2D" uid="uid://cqablcjq38wfv" path="res://resources/art/icons/arrow_left.png" id="3_8512n"]
 [ext_resource type="Texture2D" uid="uid://p3xr1lkek1g2" path="res://resources/art/icons/red_x.png" id="3_cewge"]
-[ext_resource type="Texture2D" uid="uid://dy1b6iuk8t58h" path="res://resources/art/icons/arrow_right.png" id="4_cewge"]
-[ext_resource type="Texture2D" uid="uid://dbxe6raf76mor" path="res://resources/art/icons/green_check.png" id="4_tpow4"]
+[ext_resource type="Texture2D" uid="uid://c4yj7e0ryym25" path="res://resources/art/icons/march.png" id="3_tpow4"]
+[ext_resource type="Texture2D" uid="uid://favpjs5h1neh" path="res://resources/art/icons/menu.png" id="5_oi2xp"]
+[ext_resource type="Texture2D" uid="uid://5c2u3odxao1e" path="res://resources/art/icons/left_arrow.png" id="6_mtn5p"]
+[ext_resource type="Texture2D" uid="uid://dke5e2aex1x4n" path="res://resources/art/icons/right_arrow.png" id="7_5ytrm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u1n5x"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m21pd"]
+bg_color = Color(0.288518, 0.288518, 0.2885179, 1)
 
 [node name="CampaignSelector" type="PanelContainer"]
 anchors_preset = 15
@@ -17,9 +24,12 @@ script = ExtResource("1_m3h8u")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="Footer" type="MarginContainer" parent="MarginContainer"]
-custom_minimum_size = Vector2(0, 180)
 layout_mode = 2
 size_flags_vertical = 8
 mouse_filter = 2
@@ -31,16 +41,22 @@ mouse_filter = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="Cancel" parent="MarginContainer/Footer/HBoxContainer2" instance=ExtResource("2_tgo20")]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Footer"]
 layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Continue" parent="MarginContainer/Footer/MarginContainer" instance=ExtResource("2_tgo20")]
+layout_mode = 2
+size_flags_horizontal = 8
+texture = ExtResource("3_tpow4")
+
+[node name="Cancel" parent="MarginContainer/Footer/MarginContainer" instance=ExtResource("2_tgo20")]
+layout_mode = 2
+size_flags_horizontal = 0
 texture = ExtResource("3_cewge")
 
-[node name="Continue" parent="MarginContainer/Footer/HBoxContainer2" instance=ExtResource("2_tgo20")]
-layout_mode = 2
-texture = ExtResource("4_tpow4")
-
 [node name="Header" type="MarginContainer" parent="MarginContainer"]
-custom_minimum_size = Vector2(0, 185)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 0
 
@@ -48,34 +64,53 @@ size_flags_vertical = 0
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 65
 text = "Header"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="SimpleButton" parent="MarginContainer/Header" instance=ExtResource("2_tgo20")]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
+texture = ExtResource("5_oi2xp")
+
+[node name="HBoxContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
 mouse_filter = 2
-theme_override_constants/separation = 10
-alignment = 1
 
 [node name="Left" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_tgo20")]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 4
-texture = ExtResource("3_8512n")
+texture = ExtResource("6_mtn5p")
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(600, 400)
+custom_minimum_size = Vector2(1000, 500)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_u1n5x")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m21pd")
 
 [node name="Right" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_tgo20")]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+size_flags_horizontal = 8
 size_flags_vertical = 4
-texture = ExtResource("4_cewge")
+texture = ExtResource("7_5ytrm")
 
-[connection signal="on_pressed" from="MarginContainer/Footer/HBoxContainer2/Cancel" to="." method="_on_cancel_pressed"]
-[connection signal="on_pressed" from="MarginContainer/Footer/HBoxContainer2/Continue" to="." method="_on_continue_pressed"]
+[connection signal="on_pressed" from="MarginContainer/Footer/MarginContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="on_pressed" from="MarginContainer/Footer/MarginContainer/Cancel" to="." method="_on_cancel_pressed"]
 [connection signal="on_pressed" from="MarginContainer/HBoxContainer/Left" to="." method="_on_left_pressed"]
 [connection signal="on_pressed" from="MarginContainer/HBoxContainer/Right" to="." method="_on_right_pressed"]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Jam - Action RPG"
-run/main_scene="res://scenes/battle_board.tscn"
+run/main_scene="uid://cg1iao7epd626"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 

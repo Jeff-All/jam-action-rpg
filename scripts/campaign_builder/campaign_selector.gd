@@ -26,8 +26,8 @@ func _ready():
 	left.disabled = false
 	right.disabled = false
 	
-	$MarginContainer/Footer/HBoxContainer2/Cancel.disabled = false
-	$MarginContainer/Footer/HBoxContainer2/Continue.disabled = false
+	$MarginContainer/Footer/MarginContainer/Cancel.disabled = false
+	$MarginContainer/Footer/MarginContainer/Continue.disabled = false
 
 func show_campaigns(_available_campaigns: Array[CampaignOptions]):
 	available_campaigns = _available_campaigns
