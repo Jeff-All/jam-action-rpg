@@ -20,11 +20,11 @@ func get_character_campaign(attack: Ability) -> CharacterCampaign:
 	character._class = class_
 	character.armor = armor
 	character.weapon = weapon
-	character.traits.append(trait_)
+	character.traits[0] = trait_
 	character.available_traits.append(trait_)
-	character.abilities.append(attack)
+	character.abilities[0] = attack
 	character.available_abilities.append(attack)
-	character.abilities.append(ability)
+	character.abilities[1] = ability
 	character.available_abilities.append(ability)
 	
 	return character

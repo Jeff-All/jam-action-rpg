@@ -30,3 +30,5 @@ extends Node
 	"action_button_4_3": preload("res://resources/art/icons/keybinds/C.png"),
 	"action_button_4_4": preload("res://resources/art/icons/keybinds/V.png")
 }
+
+@export var empty_slotButton: Resource = preload("res://resources/art/icons/plus.png")

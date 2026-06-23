@@ -4,6 +4,7 @@ extends PanelContainer
 
 signal on_weapon_pressed
 signal on_armor_pressed
+signal on_ability_pressed(index: int)
 
 var campaign: Campaign
 var _character: CharacterCampaign
@@ -85,6 +86,13 @@ func _on_armor_pressed(slot_button: SlotButton):
 	cur_slot_button = slot_button
 	on_armor_pressed.emit()
 
+var cur_index: int
+
+func _on_ability_pressed(slot_button: SlotButton, index: int):
+	cur_slot_button = slot_button
+	cur_index = index
+	on_ability_pressed.emit(index)
+
 func _grid_selector_on_selected(value):
 	match cur_slot_button.category:
 		"armor":
@@ -92,7 +100,7 @@ func _grid_selector_on_selected(value):
 		"weapon":
 			swap_weapon(value as Weapon)
 		"ability":
-			return
+			swap_ability(value as Ability)
 		"trait":
 			return
 
@@ -111,3 +119,12 @@ func swap_weapon(_weapon: Weapon):
 	portrait._populate_textures()
 	campaign.inventory.remove_at(campaign.inventory.find(_weapon))
 	campaign.inventory.append(old_weapon)
+
+func swap_ability(_ability: Ability):
+	var old_button_index = _character.abilities.find(_ability)
+	var old_ability = cur_slot_button.value
+	_character.abilities[cur_index] = _ability
+	if old_button_index >= 0:
+		_character.abilities[old_button_index] = old_ability
+	print("character_pane.swap_ability(): %s | %s" % [old_button_index, old_ability])
+	populate_button_row(abilities, _character.abilities)

@@ -78,6 +78,7 @@ texture = ExtResource("8_xnal3")
 [node name="GridSelector" parent="." instance=ExtResource("9_xnal3")]
 layout_mode = 2
 
+[connection signal="on_ability_pressed" from="MarginContainer/CharacterPane" to="." method="_character_pane_on_ability_pressed"]
 [connection signal="on_armor_pressed" from="MarginContainer/CharacterPane" to="." method="_character_pane_on_armor_pressed"]
 [connection signal="on_weapon_pressed" from="MarginContainer/CharacterPane" to="." method="_character_pane_on_weapon_pressed"]
 [connection signal="on_pressed" from="MarginContainer/Close" to="." method="_on_close_pressed"]

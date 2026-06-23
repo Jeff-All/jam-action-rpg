@@ -60,6 +60,11 @@ func _character_pane_on_weapon_pressed():
 	
 	selector.visible = true
 
+func _character_pane_on_ability_pressed(index: int):
+	selector.fill(character_pane._character.available_abilities, character_pane._character.abilities[index] if index < 4 else null)
+	
+	selector.visible = true
+
 func _grid_selector_on_selected(value):
 	character_pane._grid_selector_on_selected(value)
 	selector.visible = false

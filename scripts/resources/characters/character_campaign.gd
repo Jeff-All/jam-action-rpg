@@ -16,6 +16,12 @@ var key_binds: Array[String]
 
 func _init(_base: CharacterBase):
 	base = _base
+	
+	abilities = []
+	abilities.resize(4)
+	
+	traits = []
+	traits.resize(4)
 
 func get_character_battle() -> CharacterBattle:
 	return CharacterBattle.new(self)
