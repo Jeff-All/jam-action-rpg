@@ -10,23 +10,23 @@ extends Node
 ]
 
 @export var action_button_art_map: Dictionary[String, Resource] = {
-	"action_button_1_1": preload("res://resources/art/icons/1.png"),
-	"action_button_1_2": preload("res://resources/art/icons/2.png"),
-	"action_button_1_3": preload("res://resources/art/icons/3.png"),
-	"action_button_1_4": preload("res://resources/art/icons/4.png"),
+	"action_button_1_1": preload("res://resources/art/icons/keybinds/1.png"),
+	"action_button_1_2": preload("res://resources/art/icons/keybinds/2.png"),
+	"action_button_1_3": preload("res://resources/art/icons/keybinds/3.png"),
+	"action_button_1_4": preload("res://resources/art/icons/keybinds/4.png"),
 	
-	"action_button_2_1": preload("res://resources/art/icons/Q.png"),
-	"action_button_2_2": preload("res://resources/art/icons/W.png"),
-	"action_button_2_3": preload("res://resources/art/icons/E.png"),
-	"action_button_2_4": preload("res://resources/art/icons/R.png"),
+	"action_button_2_1": preload("res://resources/art/icons/keybinds/Q.png"),
+	"action_button_2_2": preload("res://resources/art/icons/keybinds/W.png"),
+	"action_button_2_3": preload("res://resources/art/icons/keybinds/E.png"),
+	"action_button_2_4": preload("res://resources/art/icons/keybinds/R.png"),
 	
-	"action_button_3_1": preload("res://resources/art/icons/1.png"),
-	"action_button_3_2": preload("res://resources/art/icons/2.png"),
-	"action_button_3_3": preload("res://resources/art/icons/3.png"),
-	"action_button_3_4": preload("res://resources/art/icons/4.png"),
+	"action_button_3_1": preload("res://resources/art/icons/keybinds/A.png"),
+	"action_button_3_2": preload("res://resources/art/icons/keybinds/S.png"),
+	"action_button_3_3": preload("res://resources/art/icons/keybinds/D.png"),
+	"action_button_3_4": preload("res://resources/art/icons/keybinds/F.png"),
 	
-	"action_button_4_1": preload("res://resources/art/icons/1.png"),
-	"action_button_4_2": preload("res://resources/art/icons/2.png"),
-	"action_button_4_3": preload("res://resources/art/icons/3.png"),
-	"action_button_4_4": preload("res://resources/art/icons/4.png")
+	"action_button_4_1": preload("res://resources/art/icons/keybinds/Z.png"),
+	"action_button_4_2": preload("res://resources/art/icons/keybinds/X.png"),
+	"action_button_4_3": preload("res://resources/art/icons/keybinds/C.png"),
+	"action_button_4_4": preload("res://resources/art/icons/keybinds/V.png")
 }

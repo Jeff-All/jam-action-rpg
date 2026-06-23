@@ -1,14 +1,13 @@
-class_name Campaign
+class_name CampaignUI
 
 extends MarginContainer
 
-var campaign_options: CampaignOptions
-var pcs: Array[CharacterCampaign]
+var campaign: Campaign
 
 var battle_selector
 var battle
 var post_battle
-var party
+var party: Party
 
 func _ready():
 	battle_selector = $BattleSelector
@@ -21,9 +20,8 @@ func _ready():
 	post_battle.visible = false
 	party.visible = false
 
-func start(_campaign_options: CampaignOptions, _party: Array[CharacterCampaign]):
-	campaign_options = _campaign_options
-	pcs = _party
+func start(_campaign: Campaign):
+	campaign = _campaign
 	
 	to_battle_selector()
 
@@ -35,3 +33,13 @@ func to_battle():
 
 func to_post_battle():
 	pass
+
+func _battle_selector_on_party_pressed():
+	party.populate(campaign)
+	
+	battle_selector.visible = false
+	party.visible = true
+
+func _party_on_close_pressed():
+	party.visible = false
+	battle_selector.visible = true

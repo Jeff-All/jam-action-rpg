@@ -81,6 +81,6 @@ func _on_continue_pressed(_simple_button: SimpleButton):
 		var characters: Array[CharacterBase]
 		var cur_index = 0
 		while cur_index < character_count:
-			characters.append(builders[cur_index].build_character())
+			characters.append(builders[cur_index].build_character(cur_index))
 			cur_index += 1
 		on_finish.emit(characters)

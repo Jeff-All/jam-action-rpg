@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://037e7762g8o5"]
+[gd_scene load_steps=11 format=3 uid="uid://037e7762g8o5"]
 
+[ext_resource type="Script" uid="uid://cm21w6e540lsb" path="res://scripts/campaign/battle_selector.gd" id="1_aiq3r"]
 [ext_resource type="PackedScene" uid="uid://dt7xrxget1oi1" path="res://scenes/simple_button.tscn" id="1_risrf"]
 [ext_resource type="Texture2D" uid="uid://p3xr1lkek1g2" path="res://resources/art/icons/red_x.png" id="2_mvwpo"]
 [ext_resource type="Texture2D" uid="uid://4npqraahuiy7" path="res://resources/art/icons/crossed_swords.png" id="3_mvwpo"]
@@ -20,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_aiq3r")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -111,3 +113,5 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 texture = ExtResource("6_mvwpo")
+
+[connection signal="on_pressed" from="MarginContainer/Footer/MarginContainer/Party" to="." method="_on_party_pressed"]

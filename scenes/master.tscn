@@ -1,17 +1,22 @@
-[gd_scene load_steps=38 format=3 uid="uid://cg1iao7epd626"]
+[gd_scene load_steps=43 format=3 uid="uid://cg1iao7epd626"]
 
 [ext_resource type="PackedScene" uid="uid://bqcwysj7k47nt" path="res://scenes/campaign_builder/campaign_builder.tscn" id="1_aynem"]
 [ext_resource type="Script" uid="uid://cnwml0lyyhakx" path="res://scripts/master.gd" id="1_rnotf"]
 [ext_resource type="Script" uid="uid://bviccvmikhjva" path="res://scripts/resources/campaign_options.gd" id="2_b571c"]
 [ext_resource type="PackedScene" uid="uid://dn5ogvnuvqlq2" path="res://scenes/main_menu.tscn" id="2_h2qy3"]
-[ext_resource type="PackedScene" uid="uid://cm6wx0xtevjib" path="res://scenes/campaign.tscn" id="2_jooxx"]
+[ext_resource type="PackedScene" uid="uid://cm6wx0xtevjib" path="res://scenes/campaign/campaign.tscn" id="2_jooxx"]
 [ext_resource type="Script" uid="uid://bubl68t4u61vo" path="res://scripts/resources/abilities/ability.gd" id="3_1oie2"]
-[ext_resource type="Resource" uid="uid://cbi6ydrfspwjs" path="res://resources/abilities/test_ability.tres" id="4_8s5bq"]
+[ext_resource type="Resource" uid="uid://bl77cy7kxkkwo" path="res://resources/abilities/attack.tres" id="4_b571c"]
+[ext_resource type="Resource" uid="uid://dxixtgcid4x6d" path="res://resources/abilities/heal.tres" id="5_1oie2"]
 [ext_resource type="Script" uid="uid://c80yoskj347ho" path="res://scripts/resources/armor.gd" id="5_cc0ex"]
+[ext_resource type="Resource" uid="uid://ia1e0gs7r4ff" path="res://resources/abilities/restore.tres" id="6_ll6bw"]
 [ext_resource type="Resource" uid="uid://bjbp05uthfe07" path="res://resources/armor/patched_robe.tres" id="6_q7qfu"]
 [ext_resource type="Resource" uid="uid://nvmg1wj6p2a5" path="res://resources/armor/rusty_chain_mail.tres" id="7_ll6bw"]
+[ext_resource type="Resource" uid="uid://b3c3hm82qu5ci" path="res://resources/abilities/scorch.tres" id="7_psqrp"]
 [ext_resource type="Resource" uid="uid://bg0illklpqehh" path="res://resources/armor/ragged_leather_vest.tres" id="8_psqrp"]
+[ext_resource type="Resource" uid="uid://c3kjh8y1s3hkk" path="res://resources/abilities/mighty_blow.tres" id="8_rdsyc"]
 [ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/class.gd" id="9_rdsyc"]
+[ext_resource type="Resource" uid="uid://d6xgnmorxpc6" path="res://resources/abilities/precision_strike.tres" id="9_so25y"]
 [ext_resource type="Resource" uid="uid://cujlbu0bgcrx2" path="res://resources/classes/class_monk.tres" id="10_so25y"]
 [ext_resource type="Resource" uid="uid://cxppii7vomqji" path="res://resources/classes/class_rogue.tres" id="11_4vi31"]
 [ext_resource type="Resource" uid="uid://uie5ceorji42" path="res://resources/classes/class_wizard.tres" id="12_jgajy"]
@@ -40,17 +45,20 @@
 script = ExtResource("22_ji3d4")
 races = Array[ExtResource("14_ldavi")]([ExtResource("15_u1ulu"), ExtResource("16_vh1kk"), ExtResource("17_lrpk2"), ExtResource("18_d3sbb"), ExtResource("19_78er0"), ExtResource("20_eyp33"), ExtResource("21_kqygu")])
 classes = Array[ExtResource("9_rdsyc")]([ExtResource("10_so25y"), ExtResource("11_4vi31"), ExtResource("12_jgajy"), ExtResource("13_tlk8g")])
-abilities = Array[ExtResource("3_1oie2")]([ExtResource("4_8s5bq")])
+abilities = Array[ExtResource("3_1oie2")]([ExtResource("5_1oie2"), ExtResource("6_ll6bw"), ExtResource("7_psqrp"), ExtResource("8_rdsyc"), ExtResource("9_so25y")])
 traits = Array[ExtResource("23_xwj8g")]([ExtResource("24_e1kxq"), ExtResource("25_6thjd"), ExtResource("26_8axbt")])
 weapons = Array[ExtResource("27_agqpr")]([ExtResource("28_kjqu1"), ExtResource("29_s25t6"), ExtResource("30_0vqyk"), ExtResource("31_k0tdf"), ExtResource("32_x2c05")])
 armor = Array[ExtResource("5_cc0ex")]([ExtResource("6_q7qfu"), ExtResource("7_ll6bw"), ExtResource("8_psqrp")])
-character_count = 1
+character_count = 2
 metadata/_custom_type_script = "uid://b0rrnk75kj3xv"
 
 [sub_resource type="Resource" id="Resource_auiim"]
 script = ExtResource("2_b571c")
 name = "Campaign A"
 character_start_options = SubResource("Resource_2vh21")
+starting_gold = 5
+max_inventory = 16
+starting_inventory = [ExtResource("8_psqrp"), ExtResource("30_0vqyk")]
 metadata/_custom_type_script = "uid://bviccvmikhjva"
 
 [node name="Master" type="MarginContainer"]
@@ -60,6 +68,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rnotf")
+attack = ExtResource("4_b571c")
 available_campaigns = Array[ExtResource("2_b571c")]([SubResource("Resource_auiim")])
 
 [node name="MainMenu" parent="." instance=ExtResource("2_h2qy3")]
@@ -71,7 +80,7 @@ layout_mode = 2
 [node name="CampaignBuilder" parent="." instance=ExtResource("1_aynem")]
 layout_mode = 2
 
-[node name="Campaign" parent="." instance=ExtResource("2_jooxx")]
+[node name="CampaignUI" parent="." instance=ExtResource("2_jooxx")]
 layout_mode = 2
 
 [connection signal="on_campaigns_pressed" from="MainMenu" to="." method="_main_menu_on_campaigns_pressed"]

@@ -2,7 +2,10 @@ class_name Armor
 
 extends Resource
 
+enum ArmorClass{ NONE, ROBE, LIGHT, MEDIUM, HEAVY }
+
 @export var name: String
+@export var armor_class: ArmorClass
 @export var texture: Texture2D
 
 func get_header() -> String:

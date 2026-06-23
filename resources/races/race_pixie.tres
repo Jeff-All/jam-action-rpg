@@ -1,8 +1,22 @@
-[gd_resource type="Resource" script_class="Race" load_steps=4 format=3 uid="uid://m4doyb4kcxlp"]
+[gd_resource type="Resource" script_class="Race" load_steps=18 format=3 uid="uid://m4doyb4kcxlp"]
 
 [ext_resource type="Script" uid="uid://bkijfvdnaky5k" path="res://scripts/resources/race.gd" id="1_6jho8"]
 [ext_resource type="Script" uid="uid://yndi76amfml" path="res://scripts/resources/actions/action.gd" id="1_14vas"]
+[ext_resource type="Texture2D" uid="uid://dludxqrd3gojj" path="res://resources/art/pcs/pixie/body/none.png" id="2_302os"]
 [ext_resource type="Texture2D" uid="uid://bdo81akoeuyy3" path="res://resources/art/icons/races/pixie.png" id="3_14vas"]
+[ext_resource type="Texture2D" uid="uid://b8lxgonspak2h" path="res://resources/art/pcs/pixie/body/robe.png" id="3_gewqc"]
+[ext_resource type="Texture2D" uid="uid://nkn6lftfl1k" path="res://resources/art/pcs/pixie/body/light.png" id="3_kkdnc"]
+[ext_resource type="Texture2D" uid="uid://bwhm3475208qa" path="res://resources/art/pcs/pixie/body/medium.png" id="4_302os"]
+[ext_resource type="Texture2D" uid="uid://dbwly7bil4l0p" path="res://resources/art/pcs/pixie/body/heavy.png" id="5_jy78u"]
+[ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/class.gd" id="6_7opv0"]
+[ext_resource type="Resource" uid="uid://cujlbu0bgcrx2" path="res://resources/classes/class_monk.tres" id="7_405w0"]
+[ext_resource type="Texture2D" uid="uid://crwxrm12lt1hc" path="res://resources/art/pcs/pixie/head/monk.png" id="8_qqg44"]
+[ext_resource type="Resource" uid="uid://cxppii7vomqji" path="res://resources/classes/class_rogue.tres" id="9_nqjai"]
+[ext_resource type="Texture2D" uid="uid://esxotjdg6yoe" path="res://resources/art/pcs/pixie/head/rogue.png" id="10_cvdp2"]
+[ext_resource type="Resource" uid="uid://uie5ceorji42" path="res://resources/classes/class_wizard.tres" id="11_q4oan"]
+[ext_resource type="Texture2D" uid="uid://dp3uy4s47e0mx" path="res://resources/art/pcs/pixie/head/wizard.png" id="12_c2gr7"]
+[ext_resource type="Resource" uid="uid://cd52scvecilnt" path="res://resources/classes/class_warrior.tres" id="13_rtvga"]
+[ext_resource type="Texture2D" uid="uid://dy03xms73hsu6" path="res://resources/art/pcs/pixie/head/warrior.png" id="14_pnx15"]
 
 [resource]
 script = ExtResource("1_6jho8")
@@ -16,4 +30,17 @@ stamina = 5
 mana = 10
 stamina_recovery = 2
 mana_recovery = 1
+body_textures = Dictionary[int, Texture2D]({
+0: ExtResource("2_302os"),
+1: ExtResource("3_gewqc"),
+2: ExtResource("3_kkdnc"),
+3: ExtResource("4_302os"),
+4: ExtResource("5_jy78u")
+})
+head_textures = Dictionary[ExtResource("6_7opv0"), Texture2D]({
+ExtResource("7_405w0"): ExtResource("8_qqg44"),
+ExtResource("9_nqjai"): ExtResource("10_cvdp2"),
+ExtResource("11_q4oan"): ExtResource("12_c2gr7"),
+ExtResource("13_rtvga"): ExtResource("14_pnx15")
+})
 metadata/_custom_type_script = "uid://bkijfvdnaky5k"

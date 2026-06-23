@@ -50,8 +50,8 @@ func check_if_ready() -> bool:
 			return false
 	return true
 
-func build_character() -> CharacterBase:
-	var character_base = CharacterBase.new()
+func build_character(index: int) -> CharacterBase:
+	var character_base = CharacterBase.new(index)
 	
 	for cur_button in buttons:
 		var cur_value = cur_button.value

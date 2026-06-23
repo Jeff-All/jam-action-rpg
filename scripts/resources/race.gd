@@ -23,6 +23,9 @@ extends Resource
 @export var actions: Array[Action]
 @export var defenses: Array[Action]
 
+@export var body_textures: Dictionary[Armor.ArmorClass,Texture2D]
+@export var head_textures: Dictionary[Class,Texture2D]
+
 func apply(character: Character):
 	character.strength += strength
 	character.agility += agility

@@ -1,0 +1,113 @@
+class_name CharacterPane
+
+extends PanelContainer
+
+signal on_weapon_pressed
+signal on_armor_pressed
+
+var campaign: Campaign
+var _character: CharacterCampaign
+
+var character: CharacterCampaign:
+	set(value):
+		_character = value
+		populate()
+
+var level_up: SimpleButton
+var portrait: CharacterPortrait
+
+var race: SlotButton
+var _class: SlotButton
+var weapon: SlotButton
+var armor: SlotButton
+
+var keybinds: Array[TextureRect]
+var abilities: Array[SlotButton]
+var traits: Array[SlotButton]
+
+func _ready():
+	level_up = $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/CharacterPortrait/LevelUp
+	portrait = $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/CharacterPortrait
+	
+	race = $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer4/Race
+	_class = $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer3/Class
+	weapon = $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer/Weapon
+	armor = $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer2/Armor
+	
+	race.locked = true
+	_class.locked = true
+	
+	for cur in $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities.find_children("Keybind*"):
+		keybinds.append(cur)
+	
+	for cur in $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities.get_children():
+		abilities.append(cur)
+	
+	for cur in $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer/VBoxContainer/Traits.get_children():
+		traits.append(cur)
+	
+	level_up.visible = false
+
+func populate():
+	portrait.character = _character
+	
+	race.fill(_character.race)
+	_class.fill(_character._class)
+	weapon.fill(_character.weapon)
+	armor.fill(_character.armor)
+	
+	populate_button_row(abilities, _character.abilities)
+	populate_button_row(traits, _character.traits)
+	
+	var index = 0
+	for cur in _character.get_keybinds():
+		if index >= keybinds.size():
+			break
+		keybinds[index].texture = Global.action_button_art_map[cur]
+		index += 1
+
+func populate_button_row(buttons, values):
+	print("character_pane.populate_button_row(): %s" % str(values))
+	var index = 0
+	for cur in values:
+		if index >= buttons.size():
+			return
+		buttons[index].fill(cur)
+		index += 1
+
+var cur_slot_button: SlotButton
+
+func _on_weapon_pressed(slot_button: SlotButton):
+	cur_slot_button = slot_button
+	on_weapon_pressed.emit()
+
+func _on_armor_pressed(slot_button: SlotButton):
+	cur_slot_button = slot_button
+	on_armor_pressed.emit()
+
+func _grid_selector_on_selected(value):
+	match cur_slot_button.category:
+		"armor":
+			swap_armor(value as Armor)
+		"weapon":
+			swap_weapon(value as Weapon)
+		"ability":
+			return
+		"trait":
+			return
+
+func swap_armor(_armor: Armor):
+	var old_armor = cur_slot_button.value
+	cur_slot_button.fill(_armor)
+	_character.armor = _armor
+	portrait._populate_textures()
+	campaign.inventory.remove_at(campaign.inventory.find(_armor))
+	campaign.inventory.append(old_armor)
+
+func swap_weapon(_weapon: Weapon):
+	var old_weapon = cur_slot_button.value
+	cur_slot_button.fill(_weapon)
+	_character.weapon = _weapon
+	portrait._populate_textures()
+	campaign.inventory.remove_at(campaign.inventory.find(_weapon))
+	campaign.inventory.append(old_weapon)

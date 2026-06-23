@@ -3,9 +3,10 @@ class_name CampaignBuilder
 extends MarginContainer
 
 signal on_exit()
-signal on_finish(campaign: CampaignOptions, party: Array[CharacterCampaign])
+signal on_finish(campaign: Campaign)
 
 var available_campaigns: Array[CampaignOptions]
+var attack: Ability
 
 var campaign_selector
 var party_builder: PartyBuilder
@@ -17,8 +18,9 @@ func _ready():
 	campaign_selector.visible = false
 	party_builder.visible = false
 
-func start(_available_campaigns: Array[CampaignOptions]):
+func start(_available_campaigns: Array[CampaignOptions], _attack: Ability):
 	available_campaigns = _available_campaigns
+	attack = _attack
 	
 	campaign_selector.show_campaigns(available_campaigns)
 	
@@ -45,5 +47,8 @@ func _on_party_builder_on_cancel():
 func _on_party_builder_on_finish(characters: Array[CharacterBase]):
 	var party: Array[CharacterCampaign]
 	for cur in characters:
-		party.append(cur.get_character_campaign())
-	on_finish.emit(cur_selected_campaign, party)
+		party.append(cur.get_character_campaign(attack))
+	
+	var campaign = Campaign.new(cur_selected_campaign, party)
+	
+	on_finish.emit(campaign)

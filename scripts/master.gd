@@ -2,20 +2,21 @@ class_name Master
 
 extends MarginContainer
 
+@export var attack: Ability
 @export var available_campaigns: Array[CampaignOptions]
 
 var main_menu
 var options
 var campaign_builder: CampaignBuilder
-var campaign: Campaign
+var campaign: CampaignUI
 
 func _ready():
 	main_menu = $MainMenu
 	options = $Options
 	campaign_builder = $CampaignBuilder
-	campaign = $Campaign
+	campaign = $CampaignUI
 	
-	campaign_builder.start(available_campaigns)
+	campaign_builder.start(available_campaigns, attack)
 	
 	main_menu.visible = true
 	options.visible = false
@@ -37,8 +38,8 @@ func _campaign_builder_on_exit():
 	campaign_builder.visible = false
 	main_menu.visible = true
 
-func _campaign_builder_on_finish(campaign_options: CampaignOptions, party: Array[CharacterCampaign]):
-	campaign.start(campaign_options, party)
+func _campaign_builder_on_finish(_campaign: Campaign):
+	campaign.start(_campaign)
 	
 	campaign_builder.visible = false
 	campaign.visible = true

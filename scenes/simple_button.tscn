@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dt7xrxget1oi1"]
+[gd_scene load_steps=10 format=3 uid="uid://dt7xrxget1oi1"]
 
 [ext_resource type="Texture2D" uid="uid://dy1b6iuk8t58h" path="res://resources/art/icons/arrow_right.png" id="1_7l1lv"]
 [ext_resource type="Script" uid="uid://cb0l4j7l6enbb" path="res://scripts/simple_button.gd" id="1_vc683"]
@@ -9,6 +9,9 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kjypl"]
 bg_color = Color(0.32982457, 0.33928037, 0.33613694, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14heg"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uvaku"]
 bg_color = Color(0.13333334, 0.13333334, 0.13333334, 0.78431374)
@@ -46,6 +49,11 @@ theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
+
+[node name="Panel" type="Panel" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_14heg")
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer"]
 layout_mode = 2

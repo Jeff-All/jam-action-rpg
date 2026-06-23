@@ -1,0 +1,661 @@
+[gd_scene load_steps=12 format=3 uid="uid://c44dc5jjppk6i"]
+
+[ext_resource type="Script" uid="uid://dbde2goirt2i8" path="res://scripts/character/character_pane.gd" id="1_3d36p"]
+[ext_resource type="PackedScene" uid="uid://bd3fgvk1uqbpx" path="res://scenes/character/character_portrait.tscn" id="1_glew1"]
+[ext_resource type="PackedScene" uid="uid://dt7xrxget1oi1" path="res://scenes/simple_button.tscn" id="2_ne0ed"]
+[ext_resource type="PackedScene" uid="uid://ydtaidvhl1rc" path="res://scenes/slot_button.tscn" id="2_nt3wi"]
+[ext_resource type="Texture2D" uid="uid://bq7xxvg6tybaa" path="res://resources/art/icons/arrow_up.png" id="3_3d36p"]
+[ext_resource type="Texture2D" uid="uid://86a4oicwr0k7" path="res://resources/art/icons/2.png" id="6_e33wu"]
+[ext_resource type="Texture2D" uid="uid://po1k50ywu7pm" path="res://resources/art/icons/keybinds/1.png" id="6_fnp4r"]
+[ext_resource type="Texture2D" uid="uid://cfncedu3ts6rh" path="res://resources/art/icons/3.png" id="8_h0okm"]
+[ext_resource type="Texture2D" uid="uid://dob2fb3cc7w07" path="res://resources/art/icons/4.png" id="9_gpn84"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ycxt1"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ach8"]
+bg_color = Color(0.18359044, 0.18359047, 0.18359032, 1)
+
+[node name="CharacterPane" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -85.0
+offset_right = 85.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_ycxt1")
+script = ExtResource("1_3d36p")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7ach8")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="CharacterPortrait" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("1_glew1")]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+
+[node name="LevelUp" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/CharacterPortrait" instance=ExtResource("2_ne0ed")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = ExtResource("3_3d36p")
+margin = 2
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+tab_alignment = 1
+current_tab = 0
+
+[node name="Stats" type="GridContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer"]
+layout_mode = 2
+columns = 3
+metadata/_tab_index = 0
+
+[node name="Strength" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Strength"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Strength/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Strength/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Strength"
+horizontal_alignment = 1
+
+[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Strength/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1"
+horizontal_alignment = 1
+
+[node name="Agility" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Agility"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Agility/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Agility/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Agility"
+horizontal_alignment = 1
+
+[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Agility/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1"
+horizontal_alignment = 1
+
+[node name="Magic" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Magic"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Magic/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Magic/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Magic"
+horizontal_alignment = 1
+
+[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Magic/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1"
+horizontal_alignment = 1
+
+[node name="Health" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Health"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Health/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Health/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Health"
+horizontal_alignment = 1
+
+[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Health/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "10"
+horizontal_alignment = 1
+
+[node name="Stamina" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Stamina"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Stamina/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Stamina/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Stamina"
+horizontal_alignment = 1
+
+[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Stamina/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5 + 1"
+horizontal_alignment = 1
+
+[node name="Mana" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Mana"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Mana/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Mana/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mana"
+horizontal_alignment = 1
+
+[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Mana/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5"
+horizontal_alignment = 1
+
+[node name="Defense" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Defense"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Defense/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Defense/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Defense"
+horizontal_alignment = 1
+
+[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Defense/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5"
+horizontal_alignment = 1
+
+[node name="Armor" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Armor"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Armor/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Armor/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Armor"
+horizontal_alignment = 1
+
+[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Armor/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5"
+horizontal_alignment = 1
+
+[node name="Durability" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Durability"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Durability/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Durability/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Durability"
+horizontal_alignment = 1
+
+[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Durability/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5"
+horizontal_alignment = 1
+
+[node name="Attack" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Attack"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Attack/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Attack/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Attack"
+horizontal_alignment = 1
+
+[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Attack/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5"
+horizontal_alignment = 1
+
+[node name="Crit" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Crit"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Crit/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Crit/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Crit"
+horizontal_alignment = 1
+
+[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Crit/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5"
+horizontal_alignment = 1
+
+[node name="Speed" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Speed"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Speed/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Speed/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Speed"
+horizontal_alignment = 1
+
+[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Speed/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5"
+horizontal_alignment = 1
+
+[node name="Resistances" type="GridContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+columns = 3
+metadata/_tab_index = 1
+
+[node name="Slashing" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Resistances"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Resistances/Slashing"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Resistances/Slashing/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Resistances/Slashing/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Slashing"
+horizontal_alignment = 1
+
+[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Resistances/Slashing/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+
+[node name="Blunt" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Resistances"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Resistances/Blunt"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Resistances/Blunt/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Resistances/Blunt/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Blunt"
+horizontal_alignment = 1
+
+[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Resistances/Blunt/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+
+[node name="Piercing" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Resistances"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Resistances/Piercing"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Resistances/Piercing/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Resistances/Piercing/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Piercing"
+horizontal_alignment = 1
+
+[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Resistances/Piercing/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer4" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer4"]
+layout_mode = 2
+text = "Race"
+horizontal_alignment = 1
+
+[node name="Race" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer4" instance=ExtResource("2_nt3wi")]
+layout_mode = 2
+category = "race"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer3"]
+layout_mode = 2
+text = "Class"
+horizontal_alignment = 1
+
+[node name="Class" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer3" instance=ExtResource("2_nt3wi")]
+layout_mode = 2
+category = "class"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Weapon"
+horizontal_alignment = 1
+
+[node name="Weapon" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer" instance=ExtResource("2_nt3wi")]
+layout_mode = 2
+category = "weapon"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+text = "Armor"
+horizontal_alignment = 1
+
+[node name="Armor" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer2" instance=ExtResource("2_nt3wi")]
+layout_mode = 2
+category = "armor"
+
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Abilities"
+horizontal_alignment = 1
+
+[node name="Abilities" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="SlotButton" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities" instance=ExtResource("2_nt3wi")]
+layout_mode = 2
+category = "ability"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities/SlotButton"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+
+[node name="Keybind1" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities/SlotButton/MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("6_fnp4r")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="SlotButton2" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities" instance=ExtResource("2_nt3wi")]
+layout_mode = 2
+category = "ability"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities/SlotButton2"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+
+[node name="Keybind2" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities/SlotButton2/MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("6_e33wu")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="SlotButton3" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities" instance=ExtResource("2_nt3wi")]
+layout_mode = 2
+category = "ability"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities/SlotButton3"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+
+[node name="Keybind3" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities/SlotButton3/MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("8_h0okm")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="SlotButton4" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities" instance=ExtResource("2_nt3wi")]
+layout_mode = 2
+category = "ability"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities/SlotButton4"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+
+[node name="Keybind4" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities/SlotButton4/MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("9_gpn84")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="PanelContainer5" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Traits"
+horizontal_alignment = 1
+
+[node name="Traits" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="SlotButton" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer/VBoxContainer/Traits" instance=ExtResource("2_nt3wi")]
+layout_mode = 2
+category = "trait"
+
+[node name="SlotButton2" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer/VBoxContainer/Traits" instance=ExtResource("2_nt3wi")]
+layout_mode = 2
+category = "trait"
+
+[node name="SlotButton3" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer/VBoxContainer/Traits" instance=ExtResource("2_nt3wi")]
+layout_mode = 2
+category = "trait"
+
+[node name="SlotButton4" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer/VBoxContainer/Traits" instance=ExtResource("2_nt3wi")]
+layout_mode = 2
+category = "trait"
+
+[connection signal="on_pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer4/Race" to="." method="_on_weapon_pressed"]
+[connection signal="on_pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer3/Class" to="." method="_on_weapon_pressed"]
+[connection signal="on_pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer/Weapon" to="." method="_on_weapon_pressed"]
+[connection signal="on_pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer2/Armor" to="." method="_on_armor_pressed"]

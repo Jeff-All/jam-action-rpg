@@ -55,6 +55,7 @@ theme_override_constants/margin_bottom = 5
 layout_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/Character"]
+visible = false
 layout_mode = 2
 
 [node name="Name" type="LineEdit" parent="MarginContainer/PanelContainer/MarginContainer/Character/PanelContainer"]

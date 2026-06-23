@@ -1,12 +1,12 @@
 [gd_scene load_steps=6 format=3 uid="uid://cm6wx0xtevjib"]
 
-[ext_resource type="Script" uid="uid://dd0ujj4l31b1c" path="res://scripts/campaign.gd" id="1_ppjge"]
+[ext_resource type="Script" uid="uid://dd0ujj4l31b1c" path="res://scripts/campaign/campaign_ui.gd" id="1_ppjge"]
 [ext_resource type="PackedScene" uid="uid://037e7762g8o5" path="res://scenes/campaign/battle_selector.tscn" id="2_giq8n"]
 [ext_resource type="PackedScene" uid="uid://blb7ngr3xoa6s" path="res://scenes/campaign/battle.tscn" id="3_8c0w4"]
 [ext_resource type="PackedScene" uid="uid://f763heqnyy3n" path="res://scenes/campaign/post_battle.tscn" id="4_shohx"]
 [ext_resource type="PackedScene" uid="uid://byu187nunkyt4" path="res://scenes/campaign/party.tscn" id="5_8c0w4"]
 
-[node name="Campaign" type="MarginContainer"]
+[node name="CampaignUI" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -25,3 +25,6 @@ layout_mode = 2
 
 [node name="Party" parent="." instance=ExtResource("5_8c0w4")]
 layout_mode = 2
+
+[connection signal="on_party_pressed" from="BattleSelector" to="." method="_battle_selector_on_party_pressed"]
+[connection signal="on_close_pressed" from="Party" to="." method="_party_on_close_pressed"]

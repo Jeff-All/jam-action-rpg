@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bd3fgvk1uqbpx"]
+
+[ext_resource type="Texture2D" uid="uid://dbwly7bil4l0p" path="res://resources/art/pcs/pixie/body/heavy.png" id="1_3pf80"]
+[ext_resource type="Script" uid="uid://b8tss5ux1nwy" path="res://scripts/character/character_portrait.gd" id="1_ditcq"]
+[ext_resource type="Texture2D" uid="uid://dy03xms73hsu6" path="res://resources/art/pcs/pixie/head/warrior.png" id="2_ditcq"]
+
+[node name="CharacterPortrait" type="PanelContainer"]
+custom_minimum_size = Vector2(100, 150)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ditcq")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Body" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_3pf80")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Head" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_ditcq")
+expand_mode = 1
+stretch_mode = 5

@@ -1,8 +1,22 @@
-[gd_resource type="Resource" script_class="Race" load_steps=4 format=3 uid="uid://dvlqijcfj3j2s"]
+[gd_resource type="Resource" script_class="Race" load_steps=18 format=3 uid="uid://dvlqijcfj3j2s"]
 
 [ext_resource type="Script" uid="uid://bkijfvdnaky5k" path="res://scripts/resources/race.gd" id="1_o2s4k"]
 [ext_resource type="Script" uid="uid://yndi76amfml" path="res://scripts/resources/actions/action.gd" id="1_srjxf"]
+[ext_resource type="Texture2D" uid="uid://btbj2dmmwvqcw" path="res://resources/art/pcs/elf/body/none.png" id="2_mtqfc"]
+[ext_resource type="Texture2D" uid="uid://qyny4b640elo" path="res://resources/art/pcs/elf/body/robe.png" id="3_cuk2m"]
 [ext_resource type="Texture2D" uid="uid://dkw6ltf5t30b2" path="res://resources/art/icons/races/elf.png" id="3_srjxf"]
+[ext_resource type="Texture2D" uid="uid://cfg1v3byn4b0y" path="res://resources/art/pcs/elf/body/light.png" id="4_d8aav"]
+[ext_resource type="Texture2D" uid="uid://c6r3c8nainpkr" path="res://resources/art/pcs/elf/body/medium.png" id="5_k6504"]
+[ext_resource type="Texture2D" uid="uid://gwqr2eukttul" path="res://resources/art/pcs/elf/body/heavy.png" id="6_qtrxa"]
+[ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/class.gd" id="7_knr56"]
+[ext_resource type="Resource" uid="uid://uie5ceorji42" path="res://resources/classes/class_wizard.tres" id="8_4uift"]
+[ext_resource type="Texture2D" uid="uid://dysf4cwh6lonm" path="res://resources/art/pcs/elf/head/wizard.png" id="9_phxb7"]
+[ext_resource type="Resource" uid="uid://cd52scvecilnt" path="res://resources/classes/class_warrior.tres" id="10_56g2s"]
+[ext_resource type="Texture2D" uid="uid://dr6jk1kc7x2u" path="res://resources/art/pcs/elf/head/warrior.png" id="11_3pt75"]
+[ext_resource type="Resource" uid="uid://cujlbu0bgcrx2" path="res://resources/classes/class_monk.tres" id="12_qtrxa"]
+[ext_resource type="Texture2D" uid="uid://bwk06xe5tv71t" path="res://resources/art/pcs/elf/head/monk.png" id="13_knr56"]
+[ext_resource type="Resource" uid="uid://cxppii7vomqji" path="res://resources/classes/class_rogue.tres" id="14_4uift"]
+[ext_resource type="Texture2D" uid="uid://cliccpfj00f2t" path="res://resources/art/pcs/elf/head/rogue.png" id="15_phxb7"]
 
 [resource]
 script = ExtResource("1_o2s4k")
@@ -15,4 +29,17 @@ health = 5
 stamina = 10
 mana = 5
 stamina_recovery = 3
+body_textures = Dictionary[int, Texture2D]({
+0: ExtResource("2_mtqfc"),
+1: ExtResource("3_cuk2m"),
+2: ExtResource("4_d8aav"),
+3: ExtResource("5_k6504"),
+4: ExtResource("6_qtrxa")
+})
+head_textures = Dictionary[ExtResource("7_knr56"), Texture2D]({
+ExtResource("8_4uift"): ExtResource("9_phxb7"),
+ExtResource("10_56g2s"): ExtResource("11_3pt75"),
+ExtResource("12_qtrxa"): ExtResource("13_knr56"),
+ExtResource("14_4uift"): ExtResource("15_phxb7")
+})
 metadata/_custom_type_script = "uid://bkijfvdnaky5k"
