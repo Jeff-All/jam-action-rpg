@@ -140,4 +140,6 @@ func swap_trait(_trait: Trait):
 	_character.traits[cur_index] = _trait
 	if old_button_index >= 0 && _trait != null:
 		_character.traits[old_button_index] = old_trait
+	_character.traits = _character.traits.filter(func(value): return value != null)
+	_character.traits.resize(4)
 	populate_button_row(traits, _character.traits)
