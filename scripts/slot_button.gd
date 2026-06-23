@@ -42,7 +42,7 @@ func fill(_value):
 	if value != null:
 		texture = value.get_icon()
 	else:
-		texture = Global.empty_slotButton
+		texture = Global.empty_slotButton.get_icon()
 
 var _hover: bool = false
 var _left_down: bool = false
