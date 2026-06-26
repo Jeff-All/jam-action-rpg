@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://c44dc5jjppk6i"]
+[gd_scene load_steps=13 format=3 uid="uid://c44dc5jjppk6i"]
 
 [ext_resource type="Script" uid="uid://dbde2goirt2i8" path="res://scripts/character/character_pane.gd" id="1_3d36p"]
 [ext_resource type="PackedScene" uid="uid://bd3fgvk1uqbpx" path="res://scenes/character/character_portrait.tscn" id="1_glew1"]
 [ext_resource type="PackedScene" uid="uid://dt7xrxget1oi1" path="res://scenes/simple_button.tscn" id="2_ne0ed"]
 [ext_resource type="PackedScene" uid="uid://ydtaidvhl1rc" path="res://scenes/slot_button.tscn" id="2_nt3wi"]
 [ext_resource type="Texture2D" uid="uid://bq7xxvg6tybaa" path="res://resources/art/icons/arrow_up.png" id="3_3d36p"]
+[ext_resource type="Texture2D" uid="uid://broco6v7r6cwx" path="res://resources/art/icons/roman_1.png" id="5_h0okm"]
 [ext_resource type="Texture2D" uid="uid://86a4oicwr0k7" path="res://resources/art/icons/2.png" id="6_e33wu"]
 [ext_resource type="Texture2D" uid="uid://po1k50ywu7pm" path="res://resources/art/icons/keybinds/1.png" id="6_fnp4r"]
 [ext_resource type="Texture2D" uid="uid://cfncedu3ts6rh" path="res://resources/art/icons/3.png" id="8_h0okm"]
@@ -69,6 +70,15 @@ size_flags_horizontal = 0
 size_flags_vertical = 8
 texture = ExtResource("3_3d36p")
 margin = 2
+
+[node name="Level" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/CharacterPortrait"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = ExtResource("5_h0okm")
+expand_mode = 4
+stretch_mode = 5
 
 [node name="TabContainer" type="TabContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2

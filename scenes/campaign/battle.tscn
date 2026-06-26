@@ -1,3 +1,125 @@
-[gd_scene format=3 uid="uid://blb7ngr3xoa6s"]
+[gd_scene load_steps=9 format=3 uid="uid://blb7ngr3xoa6s"]
+
+[ext_resource type="Texture2D" uid="uid://c87uvrk0xfvw" path="res://resources/art/icons/backgrounds/forest_floor_dirt.png" id="1_c7ond"]
+[ext_resource type="PackedScene" uid="uid://jv3ix0yuq18c" path="res://scenes/campaign/enemy_ui.tscn" id="1_o4xl7"]
+[ext_resource type="PackedScene" uid="uid://mwr6ui02sg5q" path="res://scenes/campaign/pcui.tscn" id="2_juykk"]
+
+[sub_resource type="Gradient" id="Gradient_c7ond"]
+offsets = PackedFloat32Array(0.5420561, 0.96728975, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.9098039, 0, 0, 0, 0.5294118)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o4xl7"]
+gradient = SubResource("Gradient_c7ond")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c6bip"]
+texture = SubResource("GradientTexture2D_o4xl7")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yl55d"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5o12h"]
+bg_color = Color(0.29219002, 0.29219005, 0.29218993, 1)
 
 [node name="Battle" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_c7ond")
+expand_mode = 2
+
+[node name="Panel" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_c6bip")
+
+[node name="Panel2" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_c6bip")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_constants/separation = -20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 125)
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="EnemyUI" parent="VBoxContainer2/VBoxContainer/HBoxContainer" instance=ExtResource("1_o4xl7")]
+layout_mode = 2
+flip = true
+
+[node name="EnemyUI2" parent="VBoxContainer2/VBoxContainer/HBoxContainer" instance=ExtResource("1_o4xl7")]
+layout_mode = 2
+
+[node name="EnemyUI3" parent="VBoxContainer2/VBoxContainer/HBoxContainer" instance=ExtResource("1_o4xl7")]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="EnemyUI" parent="VBoxContainer2/VBoxContainer/HBoxContainer2" instance=ExtResource("1_o4xl7")]
+layout_mode = 2
+flip = true
+
+[node name="EnemyUI2" parent="VBoxContainer2/VBoxContainer/HBoxContainer2" instance=ExtResource("1_o4xl7")]
+layout_mode = 2
+flip = true
+
+[node name="EnemyUI3" parent="VBoxContainer2/VBoxContainer/HBoxContainer2" instance=ExtResource("1_o4xl7")]
+layout_mode = 2
+
+[node name="EnemyUI4" parent="VBoxContainer2/VBoxContainer/HBoxContainer2" instance=ExtResource("1_o4xl7")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="PCUI" parent="VBoxContainer2/HBoxContainer" instance=ExtResource("2_juykk")]
+layout_mode = 2
+flip = true
+
+[node name="PCUI2" parent="VBoxContainer2/HBoxContainer" instance=ExtResource("2_juykk")]
+layout_mode = 2
+flip = true
+
+[node name="PCUI3" parent="VBoxContainer2/HBoxContainer" instance=ExtResource("2_juykk")]
+layout_mode = 2
+
+[node name="PCUI4" parent="VBoxContainer2/HBoxContainer" instance=ExtResource("2_juykk")]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yl55d")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer2/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5o12h")

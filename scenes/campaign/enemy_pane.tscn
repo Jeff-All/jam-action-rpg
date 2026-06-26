@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjviwb7u8uvsd"]
+
+[ext_resource type="Script" uid="uid://dm2ds1aib6w1n" path="res://scripts/campaign/enemy_pane.gd" id="1_ikp70"]
+[ext_resource type="Shader" uid="uid://biuiik7j0v1yi" path="res://shaders/edge_glow.gdshader" id="2_uae66"]
+[ext_resource type="Texture2D" uid="uid://c35pr6ghqi63s" path="res://resources/art/enemies/wraith.png" id="3_uae66"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o67aj"]
+resource_local_to_scene = true
+shader = ExtResource("2_uae66")
+shader_parameter/index = 0
+shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 1, 0.5019608, 0, 1, 1, 1, 1, 1, 0.69245994, 1.8410012e-06, 7.70092e-07, 1, 0, 0.56381637, 1.92523e-07, 1)
+shader_parameter/glow_color = Color(0, 0, 0, 1)
+shader_parameter/glow_intensity = 1.630000077425
+shader_parameter/glow_radius = 20.0
+
+[node name="enemy_pane" type="MarginContainer"]
+custom_minimum_size = Vector2(0, 125)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ikp70")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_o67aj")
+layout_mode = 2
+texture = ExtResource("3_uae66")
+expand_mode = 2
+stretch_mode = 5

@@ -31,16 +31,16 @@ func _input(event):
 func set_action(_character: Character, character_index: int, ability_index: int, value: ActionState):
 	character = _character
 	_action = value
-	if _action != null:
-		if _character is Enemy:
-			$MarginContainer/Keybind.visible = false
-		else:
-			$MarginContainer/Keybind.visible = true
-			keybind = Global.action_button_map[character_index][ability_index]
-			$MarginContainer/Keybind.texture = Global.action_button_art_map[keybind]
-			_action.on_update_cooldown.connect(update_cooldown)
-		$MarginContainer/Image.texture = _action.base.texture
-		$MarginContainer/CostBar.set_cost(character, _action.base.cost)
+	#if _action != null:
+		#if _character is Enemy:
+			#$MarginContainer/Keybind.visible = false
+		#else:
+			#$MarginContainer/Keybind.visible = true
+			#keybind = Global.action_button_map[character_index][ability_index]
+			#$MarginContainer/Keybind.texture = Global.action_button_art_map[keybind]
+			#_action.on_update_cooldown.connect(update_cooldown)
+		#$MarginContainer/Image.texture = _action.base.texture
+		#$MarginContainer/CostBar.set_cost(character, _action.base.cost)
 
 var selectable: bool = true
 

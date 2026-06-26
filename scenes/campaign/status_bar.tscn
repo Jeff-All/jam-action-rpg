@@ -1,0 +1,95 @@
+[gd_scene load_steps=5 format=3 uid="uid://bv5inapo0d0y4"]
+
+[ext_resource type="Script" uid="uid://bwp8nkegf22si" path="res://scripts/campaign/status_bar.gd" id="1_lpsmh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o4xl7"]
+bg_color = Color(0.18084264, 9.7765586e-08, 3.6098065e-08, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o2oi1"]
+bg_color = Color(0.6, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5pux2"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="StatusBar" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_o4xl7")
+script = ExtResource("1_lpsmh")
+
+[node name="Bars" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="BasePanel" type="Panel" parent="Bars"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_o2oi1")
+
+[node name="Ticks" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Nodual" type="HBoxContainer" parent="Ticks"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Panel" type="MarginContainer" parent="Ticks/Nodual"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel2" type="Panel" parent="Ticks/Nodual"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5pux2")
+
+[node name="Nodual2" type="HBoxContainer" parent="Ticks"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Panel" type="MarginContainer" parent="Ticks/Nodual2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel2" type="Panel" parent="Ticks/Nodual2"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5pux2")
+
+[node name="Nodual3" type="HBoxContainer" parent="Ticks"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Panel" type="MarginContainer" parent="Ticks/Nodual3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel2" type="Panel" parent="Ticks/Nodual3"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5pux2")
+
+[node name="Nodual4" type="HBoxContainer" parent="Ticks"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Panel" type="MarginContainer" parent="Ticks/Nodual4"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel2" type="Panel" parent="Ticks/Nodual4"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5pux2")
+
+[node name="Nodual5" type="HBoxContainer" parent="Ticks"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Panel" type="MarginContainer" parent="Ticks/Nodual5"]
+layout_mode = 2
+size_flags_horizontal = 3

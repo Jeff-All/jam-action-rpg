@@ -64,10 +64,10 @@ func set_character(new_character: Character, character_index: int):
 	$VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer/Status/Stamina.set_value(character.cur_stamina)
 	$VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer/Status/Mana.set_value(character.cur_mana)
 	
-	if new_character is Enemy:
-		$VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer2/ThreatTable.bind_table(new_character.threat_table)
-	else:
-		$VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer2/ThreatTable.visible = false
+	#if new_character is Enemy:
+	#	$VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer2/ThreatTable.bind_table(new_character.threat_table)
+	#else:
+	#	$VBoxContainer2/MarginContainer/ImageContainer/VBoxContainer2/ThreatTable.visible = false
 	
 	_bind_character(character_index)
 

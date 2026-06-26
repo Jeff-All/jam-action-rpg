@@ -1,27 +1,10 @@
-[gd_resource type="Resource" script_class="BaseEnemy" load_steps=10 format=3 uid="uid://ctk36chpuix1m"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://dplvg5jwy0786"]
 
-[ext_resource type="Script" uid="uid://cc15xa1u2yo1s" path="res://scripts/resources/base_enemy.gd" id="1_4gmrp"]
-[ext_resource type="Resource" uid="uid://0838ll6ej331" path="res://resources/actions/attacks/action_attack.tres" id="1_o5ruv"]
-[ext_resource type="Texture2D" uid="uid://lhg8dmluih3e" path="res://resources/art/characters/character_1024_bandit_a.png" id="2_2urji"]
-[ext_resource type="Texture2D" uid="uid://cylm1h2ykhthq" path="res://resources/art/characters/character_1024_bandit_b.png" id="3_o5ruv"]
-[ext_resource type="Texture2D" uid="uid://bh5b6vnvace7m" path="res://resources/art/characters/character_1024_bandit_c.png" id="4_j16fm"]
-[ext_resource type="Texture2D" uid="uid://lxbgh85qgjon" path="res://resources/art/characters/character_1024_bandit_d.png" id="5_q0v38"]
-[ext_resource type="Texture2D" uid="uid://o3va7owu3rxv" path="res://resources/art/characters/character_1024_bandit_e.png" id="6_0bay3"]
-[ext_resource type="Texture2D" uid="uid://bfcs7d11xdbqt" path="res://resources/art/characters/character_1024_bandit_f.png" id="7_68ha1"]
-[ext_resource type="Resource" uid="uid://dx0bfyr7vfgtv" path="res://resources/weapons/weapon_rusty_longsword.tres" id="9_j16fm"]
+[ext_resource type="Script" uid="uid://ep73png3yh5x" path="res://scripts/resources/enemies/enemy.gd" id="1_4gmrp"]
+[ext_resource type="Texture2D" uid="uid://dpiku3uyt1av7" path="res://resources/art/enemies/bandit.png" id="2_j7s40"]
 
 [resource]
 script = ExtResource("1_4gmrp")
 name = "Bandit"
-attack_speed = 3.0
-strength = 3
-agility = 3
-attack = 3
-defense = 3
-health = 10
-stamina = 5
-stamina_recovery = 1
-textures = Array[Texture2D]([ExtResource("2_2urji"), ExtResource("3_o5ruv"), ExtResource("4_j16fm"), ExtResource("5_q0v38"), ExtResource("6_0bay3"), ExtResource("7_68ha1")])
-attack_action = ExtResource("1_o5ruv")
-weapon = ExtResource("9_j16fm")
-metadata/_custom_type_script = "uid://cc15xa1u2yo1s"
+texture = ExtResource("2_j7s40")
+metadata/_custom_type_script = "uid://ep73png3yh5x"

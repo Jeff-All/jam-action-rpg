@@ -1,19 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://037e7762g8o5"]
+[gd_scene load_steps=10 format=3 uid="uid://037e7762g8o5"]
 
 [ext_resource type="Script" uid="uid://cm21w6e540lsb" path="res://scripts/campaign/battle_selector.gd" id="1_aiq3r"]
 [ext_resource type="PackedScene" uid="uid://dt7xrxget1oi1" path="res://scenes/simple_button.tscn" id="1_risrf"]
+[ext_resource type="PackedScene" uid="uid://b4375hi4q7yw6" path="res://scenes/campaign/battle_preview.tscn" id="2_f27e7"]
 [ext_resource type="Texture2D" uid="uid://p3xr1lkek1g2" path="res://resources/art/icons/red_x.png" id="2_mvwpo"]
 [ext_resource type="Texture2D" uid="uid://4npqraahuiy7" path="res://resources/art/icons/crossed_swords.png" id="3_mvwpo"]
 [ext_resource type="Texture2D" uid="uid://c2lquyfnc7a7i" path="res://resources/art/icons/party.png" id="4_mvwpo"]
 [ext_resource type="Texture2D" uid="uid://favpjs5h1neh" path="res://resources/art/icons/menu.png" id="5_bsbld"]
 [ext_resource type="Texture2D" uid="uid://5c2u3odxao1e" path="res://resources/art/icons/left_arrow.png" id="5_mvwpo"]
 [ext_resource type="Texture2D" uid="uid://dke5e2aex1x4n" path="res://resources/art/icons/right_arrow.png" id="6_mvwpo"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mvwpo"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bsbld"]
-bg_color = Color(0.288518, 0.288518, 0.2885179, 1)
 
 [node name="BattleSelector" type="PanelContainer"]
 anchors_preset = 15
@@ -25,93 +20,65 @@ script = ExtResource("1_aiq3r")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+theme_override_constants/margin_left = 140
+theme_override_constants/margin_top = 140
+theme_override_constants/margin_right = 140
+theme_override_constants/margin_bottom = 140
+
+[node name="BattlePreview" parent="MarginContainer" instance=ExtResource("2_f27e7")]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Footer" type="MarginContainer" parent="MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 8
-mouse_filter = 2
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Footer"]
-layout_mode = 2
-size_flags_vertical = 0
-mouse_filter = 2
-theme_override_constants/separation = 10
-alignment = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Footer"]
-layout_mode = 2
-size_flags_vertical = 8
-
-[node name="Party" parent="MarginContainer/Footer/MarginContainer" instance=ExtResource("1_risrf")]
+[node name="Party" parent="MarginContainer2" instance=ExtResource("1_risrf")]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 8
 texture = ExtResource("4_mvwpo")
 
-[node name="Continue" parent="MarginContainer/Footer/MarginContainer" instance=ExtResource("1_risrf")]
+[node name="Continue" parent="MarginContainer2" instance=ExtResource("1_risrf")]
 layout_mode = 2
 size_flags_horizontal = 8
+size_flags_vertical = 8
 texture = ExtResource("3_mvwpo")
 
-[node name="Cancel" parent="MarginContainer/Footer/MarginContainer" instance=ExtResource("1_risrf")]
+[node name="Cancel" parent="MarginContainer2" instance=ExtResource("1_risrf")]
 layout_mode = 2
 size_flags_horizontal = 0
+size_flags_vertical = 8
 texture = ExtResource("2_mvwpo")
 
-[node name="Header" type="MarginContainer" parent="MarginContainer"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="Title" type="Label" parent="MarginContainer/Header"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_font_sizes/font_size = 65
-text = "Header"
-horizontal_alignment = 1
-
-[node name="SimpleButton" parent="MarginContainer/Header" instance=ExtResource("1_risrf")]
-layout_mode = 2
-size_flags_horizontal = 0
-texture = ExtResource("5_bsbld")
-
-[node name="HBoxContainer" type="MarginContainer" parent="MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-mouse_filter = 2
-
-[node name="Left" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_risrf")]
+[node name="Left" parent="MarginContainer2" instance=ExtResource("1_risrf")]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 texture = ExtResource("5_mvwpo")
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(1000, 500)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_mvwpo")
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_bsbld")
-
-[node name="Right" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_risrf")]
+[node name="Right" parent="MarginContainer2" instance=ExtResource("1_risrf")]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 texture = ExtResource("6_mvwpo")
 
-[connection signal="on_pressed" from="MarginContainer/Footer/MarginContainer/Party" to="." method="_on_party_pressed"]
+[node name="Title" type="Label" parent="MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 65
+text = "Header"
+horizontal_alignment = 1
+
+[node name="Menu" parent="MarginContainer2" instance=ExtResource("1_risrf")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("5_bsbld")
+
+[connection signal="on_pressed" from="MarginContainer2/Party" to="." method="_on_party_pressed"]
+[connection signal="on_pressed" from="MarginContainer2/Left" to="." method="_on_left_pressed"]
+[connection signal="on_pressed" from="MarginContainer2/Right" to="." method="_on_right_pressed"]

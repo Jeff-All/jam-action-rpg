@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4375hi4q7yw6"]
+
+[ext_resource type="Script" uid="uid://dgauf6sa7htpw" path="res://scripts/campaign/battle_preview.gd" id="1_b1c7x"]
+[ext_resource type="PackedScene" uid="uid://bjviwb7u8uvsd" path="res://scenes/campaign/enemy_pane.tscn" id="1_ds3as"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mvwpo"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bsbld"]
+bg_color = Color(0.288518, 0.288518, 0.2885179, 1)
+
+[node name="BattlePreview" type="PanelContainer"]
+custom_minimum_size = Vector2(1000, 500)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -250.0
+offset_right = 500.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mvwpo")
+script = ExtResource("1_b1c7x")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bsbld")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="BackRow" type="HBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="enemy_pane" parent="MarginContainer/PanelContainer/VBoxContainer/BackRow" instance=ExtResource("1_ds3as")]
+layout_mode = 2
+
+[node name="enemy_pane2" parent="MarginContainer/PanelContainer/VBoxContainer/BackRow" instance=ExtResource("1_ds3as")]
+layout_mode = 2
+
+[node name="enemy_pane3" parent="MarginContainer/PanelContainer/VBoxContainer/BackRow" instance=ExtResource("1_ds3as")]
+layout_mode = 2
+
+[node name="enemy_pane4" parent="MarginContainer/PanelContainer/VBoxContainer/BackRow" instance=ExtResource("1_ds3as")]
+visible = false
+layout_mode = 2
+
+[node name="FrontRow" type="HBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="enemy_pane" parent="MarginContainer/PanelContainer/VBoxContainer/FrontRow" instance=ExtResource("1_ds3as")]
+layout_mode = 2
+
+[node name="enemy_pane2" parent="MarginContainer/PanelContainer/VBoxContainer/FrontRow" instance=ExtResource("1_ds3as")]
+layout_mode = 2
+
+[node name="enemy_pane3" parent="MarginContainer/PanelContainer/VBoxContainer/FrontRow" instance=ExtResource("1_ds3as")]
+layout_mode = 2
+
+[node name="enemy_pane4" parent="MarginContainer/PanelContainer/VBoxContainer/FrontRow" instance=ExtResource("1_ds3as")]
+layout_mode = 2

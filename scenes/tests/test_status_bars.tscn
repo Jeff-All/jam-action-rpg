@@ -1,0 +1,240 @@
+[gd_scene load_steps=3 format=3 uid="uid://csmbnvnwtoy3y"]
+
+[ext_resource type="Script" uid="uid://be43s8ah5orta" path="res://scripts/tests/test_status_bars.gd" id="1_7spdm"]
+[ext_resource type="PackedScene" uid="uid://d4hf4002xav2t" path="res://scenes/campaign/status_bars.tscn" id="2_6av5g"]
+
+[node name="TestStatusBars" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7spdm")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="StatusBars" parent="MarginContainer" instance=ExtResource("2_6av5g")]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Width" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Width"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/Width/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/Width/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Width"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Width" type="SpinBox" parent="HBoxContainer/Width/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+max_value = 500.0
+
+[node name="Health" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Health"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer/Health/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/Health/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Health"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Health/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Cur" type="SpinBox" parent="HBoxContainer/Health/MarginContainer/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+max_value = 500.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Health/MarginContainer/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+text = "/"
+
+[node name="Max" type="SpinBox" parent="HBoxContainer/Health/MarginContainer/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+max_value = 500.0
+
+[node name="Armor" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Armor"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer/Armor/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/Armor/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Armor"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cur" type="SpinBox" parent="HBoxContainer/Armor/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+max_value = 500.0
+
+[node name="Shield" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Shield"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer/Shield/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/Shield/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Shield"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cur" type="SpinBox" parent="HBoxContainer/Shield/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+max_value = 500.0
+
+[node name="Durability" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Durability"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer/Durability/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/Durability/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Durability"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Durability/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Cur" type="SpinBox" parent="HBoxContainer/Durability/MarginContainer/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+max_value = 500.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Durability/MarginContainer/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+text = "/"
+
+[node name="Max" type="SpinBox" parent="HBoxContainer/Durability/MarginContainer/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+max_value = 500.0
+
+[node name="Stamina" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Stamina"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer/Stamina/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/Stamina/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Stamina"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Stamina/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Cur" type="SpinBox" parent="HBoxContainer/Stamina/MarginContainer/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+max_value = 500.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Stamina/MarginContainer/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+text = "/"
+
+[node name="Max" type="SpinBox" parent="HBoxContainer/Stamina/MarginContainer/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+max_value = 500.0
+
+[node name="Mana" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Mana"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer/Mana/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/Mana/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+text = "Mana"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Mana/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="Cur" type="SpinBox" parent="HBoxContainer/Mana/MarginContainer/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+max_value = 500.0
+
+[node name="Label" type="Label" parent="HBoxContainer/Mana/MarginContainer/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+text = "/"
+
+[node name="Max" type="SpinBox" parent="HBoxContainer/Mana/MarginContainer/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+max_value = 500.0
+
+[connection signal="value_changed" from="HBoxContainer/Width/MarginContainer/VBoxContainer2/Width" to="." method="_on_width_value_changed"]
+[connection signal="value_changed" from="HBoxContainer/Health/MarginContainer/VBoxContainer3/HBoxContainer/Cur" to="." method="_on_cur_health_changed"]
+[connection signal="value_changed" from="HBoxContainer/Health/MarginContainer/VBoxContainer3/HBoxContainer/Max" to="." method="_on_max_health_changed"]
+[connection signal="value_changed" from="HBoxContainer/Armor/MarginContainer/VBoxContainer3/Cur" to="." method="_on_cur_armor_changed"]
+[connection signal="value_changed" from="HBoxContainer/Shield/MarginContainer/VBoxContainer3/Cur" to="." method="_on_cur_shield_changed"]
+[connection signal="value_changed" from="HBoxContainer/Durability/MarginContainer/VBoxContainer3/HBoxContainer/Cur" to="." method="_on_cur_durability_changed"]
+[connection signal="value_changed" from="HBoxContainer/Durability/MarginContainer/VBoxContainer3/HBoxContainer/Max" to="." method="_on_max_durability_changed"]
+[connection signal="value_changed" from="HBoxContainer/Stamina/MarginContainer/VBoxContainer3/HBoxContainer/Cur" to="." method="_on_cur_stamina_changed"]
+[connection signal="value_changed" from="HBoxContainer/Stamina/MarginContainer/VBoxContainer3/HBoxContainer/Max" to="." method="_on_max_stamina_changed"]
+[connection signal="value_changed" from="HBoxContainer/Mana/MarginContainer/VBoxContainer3/HBoxContainer/Cur" to="." method="_on_cur_mana_changed"]
+[connection signal="value_changed" from="HBoxContainer/Mana/MarginContainer/VBoxContainer3/HBoxContainer/Max" to="." method="_on_max_mana_changed"]

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://bvw6tm6ybvkbx"]
+
+[ext_resource type="Script" uid="uid://ep73png3yh5x" path="res://scripts/resources/enemies/enemy.gd" id="1_v5rpf"]
+[ext_resource type="Texture2D" uid="uid://c35pr6ghqi63s" path="res://resources/art/enemies/wraith.png" id="2_r2bec"]
+
+[resource]
+script = ExtResource("1_v5rpf")
+name = "Wraith"
+texture = ExtResource("2_r2bec")
+metadata/_custom_type_script = "uid://ep73png3yh5x"

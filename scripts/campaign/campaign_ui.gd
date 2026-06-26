@@ -26,7 +26,9 @@ func start(_campaign: Campaign):
 	to_battle_selector()
 
 func to_battle_selector():
-	$BattleSelector.visible = true
+	battle_selector.fill(campaign.campaign_options.battles)
+	
+	battle_selector.visible = true
 
 func to_battle():
 	pass

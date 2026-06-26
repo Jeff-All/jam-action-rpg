@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://cqv4n51gwbi88"]
+
+[ext_resource type="Script" uid="uid://ep73png3yh5x" path="res://scripts/resources/enemies/enemy.gd" id="1_0tpt1"]
+[ext_resource type="Texture2D" uid="uid://kou2dw7yttgb" path="res://resources/art/enemies/skeletal_knight.png" id="2_0tpt1"]
+
+[resource]
+script = ExtResource("1_0tpt1")
+name = "Skeletal Knight"
+texture = ExtResource("2_0tpt1")
+metadata/_custom_type_script = "uid://ep73png3yh5x"

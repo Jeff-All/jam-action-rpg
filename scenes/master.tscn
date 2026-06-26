@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cg1iao7epd626"]
+[gd_scene load_steps=51 format=3 uid="uid://cg1iao7epd626"]
 
 [ext_resource type="PackedScene" uid="uid://bqcwysj7k47nt" path="res://scenes/campaign_builder/campaign_builder.tscn" id="1_aynem"]
 [ext_resource type="Script" uid="uid://cnwml0lyyhakx" path="res://scripts/master.gd" id="1_rnotf"]
@@ -6,13 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://dn5ogvnuvqlq2" path="res://scenes/main_menu.tscn" id="2_h2qy3"]
 [ext_resource type="PackedScene" uid="uid://cm6wx0xtevjib" path="res://scenes/campaign/campaign.tscn" id="2_jooxx"]
 [ext_resource type="Script" uid="uid://bubl68t4u61vo" path="res://scripts/resources/abilities/ability.gd" id="3_1oie2"]
+[ext_resource type="Script" uid="uid://b2hvd7p2gcqwk" path="res://scripts/resources/battle_options.gd" id="4_4vi31"]
 [ext_resource type="Resource" uid="uid://bl77cy7kxkkwo" path="res://resources/abilities/attack.tres" id="4_b571c"]
 [ext_resource type="Resource" uid="uid://dxixtgcid4x6d" path="res://resources/abilities/heal.tres" id="5_1oie2"]
 [ext_resource type="Script" uid="uid://c80yoskj347ho" path="res://scripts/resources/armor.gd" id="5_cc0ex"]
+[ext_resource type="Script" uid="uid://ep73png3yh5x" path="res://scripts/resources/enemies/enemy.gd" id="5_jgajy"]
 [ext_resource type="Resource" uid="uid://ia1e0gs7r4ff" path="res://resources/abilities/restore.tres" id="6_ll6bw"]
 [ext_resource type="Resource" uid="uid://bjbp05uthfe07" path="res://resources/armor/patched_robe.tres" id="6_q7qfu"]
+[ext_resource type="Resource" uid="uid://dplvg5jwy0786" path="res://resources/enemies/bandit.tres" id="6_tlk8g"]
+[ext_resource type="Resource" uid="uid://c8xrt7dxn8dfu" path="res://resources/enemies/skeletal_raider.tres" id="7_ldavi"]
 [ext_resource type="Resource" uid="uid://nvmg1wj6p2a5" path="res://resources/armor/rusty_chain_mail.tres" id="7_ll6bw"]
 [ext_resource type="Resource" uid="uid://b3c3hm82qu5ci" path="res://resources/abilities/scorch.tres" id="7_psqrp"]
+[ext_resource type="Resource" uid="uid://bu4gi5wf2ogn" path="res://resources/enemies/wolf.tres" id="8_jgajy"]
 [ext_resource type="Resource" uid="uid://bg0illklpqehh" path="res://resources/armor/ragged_leather_vest.tres" id="8_psqrp"]
 [ext_resource type="Resource" uid="uid://c3kjh8y1s3hkk" path="res://resources/abilities/mighty_blow.tres" id="8_rdsyc"]
 [ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/class.gd" id="9_rdsyc"]
@@ -41,6 +46,21 @@
 [ext_resource type="Resource" uid="uid://dx0bfyr7vfgtv" path="res://resources/weapons/weapon_rusty_longsword.tres" id="31_k0tdf"]
 [ext_resource type="Resource" uid="uid://du3shcmfkaba2" path="res://resources/weapons/weapon_worn_longsword_and_shield.tres" id="32_x2c05"]
 
+[sub_resource type="Resource" id="Resource_u1ulu"]
+script = ExtResource("4_4vi31")
+front_row = Array[ExtResource("5_jgajy")]([ExtResource("6_tlk8g")])
+metadata/_custom_type_script = "uid://b2hvd7p2gcqwk"
+
+[sub_resource type="Resource" id="Resource_vh1kk"]
+script = ExtResource("4_4vi31")
+front_row = Array[ExtResource("5_jgajy")]([ExtResource("7_ldavi")])
+metadata/_custom_type_script = "uid://b2hvd7p2gcqwk"
+
+[sub_resource type="Resource" id="Resource_tlk8g"]
+script = ExtResource("4_4vi31")
+front_row = Array[ExtResource("5_jgajy")]([ExtResource("8_jgajy")])
+metadata/_custom_type_script = "uid://b2hvd7p2gcqwk"
+
 [sub_resource type="Resource" id="Resource_2vh21"]
 script = ExtResource("22_ji3d4")
 races = Array[ExtResource("14_ldavi")]([ExtResource("15_u1ulu"), ExtResource("16_vh1kk"), ExtResource("17_lrpk2"), ExtResource("18_d3sbb"), ExtResource("19_78er0"), ExtResource("20_eyp33"), ExtResource("21_kqygu")])
@@ -49,7 +69,7 @@ abilities = Array[ExtResource("3_1oie2")]([ExtResource("5_1oie2"), ExtResource("
 traits = Array[ExtResource("23_xwj8g")]([ExtResource("24_e1kxq"), ExtResource("25_6thjd"), ExtResource("26_8axbt")])
 weapons = Array[ExtResource("27_agqpr")]([ExtResource("28_kjqu1"), ExtResource("29_s25t6"), ExtResource("30_0vqyk"), ExtResource("31_k0tdf"), ExtResource("32_x2c05")])
 armor = Array[ExtResource("5_cc0ex")]([ExtResource("6_q7qfu"), ExtResource("7_ll6bw"), ExtResource("8_psqrp")])
-character_count = 2
+character_count = 1
 metadata/_custom_type_script = "uid://b0rrnk75kj3xv"
 
 [sub_resource type="Resource" id="Resource_auiim"]
@@ -58,7 +78,8 @@ name = "Campaign A"
 character_start_options = SubResource("Resource_2vh21")
 starting_gold = 5
 max_inventory = 16
-starting_inventory = [ExtResource("8_psqrp"), ExtResource("30_0vqyk")]
+starting_inventory = Array[Resource]([ExtResource("8_psqrp"), ExtResource("30_0vqyk")])
+battles = Array[ExtResource("4_4vi31")]([SubResource("Resource_u1ulu"), SubResource("Resource_vh1kk"), SubResource("Resource_tlk8g")])
 metadata/_custom_type_script = "uid://bviccvmikhjva"
 
 [node name="Master" type="MarginContainer"]

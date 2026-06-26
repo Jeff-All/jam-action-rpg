@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://c8xrt7dxn8dfu"]
+
+[ext_resource type="Script" uid="uid://ep73png3yh5x" path="res://scripts/resources/enemies/enemy.gd" id="1_lfrdi"]
+[ext_resource type="Texture2D" uid="uid://by3rk00mildoo" path="res://resources/art/enemies/skeletal_raider.png" id="2_gaqqc"]
+
+[resource]
+script = ExtResource("1_lfrdi")
+name = "Skeletal Raider"
+texture = ExtResource("2_gaqqc")
+metadata/_custom_type_script = "uid://ep73png3yh5x"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://dsxwgw2v4753f"]
+
+[ext_resource type="Script" uid="uid://ep73png3yh5x" path="res://scripts/resources/enemies/enemy.gd" id="1_kqje1"]
+[ext_resource type="Texture2D" uid="uid://cnqivw23j2kxy" path="res://resources/art/enemies/bandit_armored.png" id="2_kqje1"]
+
+[resource]
+script = ExtResource("1_kqje1")
+name = "Armored Bandit"
+texture = ExtResource("2_kqje1")
+metadata/_custom_type_script = "uid://ep73png3yh5x"

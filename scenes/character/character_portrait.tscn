@@ -1,30 +1,83 @@
-[gd_scene load_steps=4 format=3 uid="uid://bd3fgvk1uqbpx"]
+[gd_scene load_steps=8 format=3 uid="uid://bd3fgvk1uqbpx"]
 
-[ext_resource type="Texture2D" uid="uid://dbwly7bil4l0p" path="res://resources/art/pcs/pixie/body/heavy.png" id="1_3pf80"]
 [ext_resource type="Script" uid="uid://b8tss5ux1nwy" path="res://scripts/character/character_portrait.gd" id="1_ditcq"]
-[ext_resource type="Texture2D" uid="uid://dy03xms73hsu6" path="res://resources/art/pcs/pixie/head/warrior.png" id="2_ditcq"]
+[ext_resource type="Texture2D" uid="uid://bd7aid43g5gf0" path="res://resources/art/pcs/dwarf/body/heavy.png" id="3_1gf8i"]
+[ext_resource type="Shader" uid="uid://biuiik7j0v1yi" path="res://shaders/edge_glow.gdshader" id="3_dl156"]
+[ext_resource type="Texture2D" uid="uid://ccyqqq2srrd8q" path="res://resources/art/pcs/dwarf/head/warrior.png" id="4_dl156"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ditcq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dl156"]
+resource_local_to_scene = true
+shader = ExtResource("3_dl156")
+shader_parameter/index = 0
+shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 1, 0.5019608, 0, 1)
+shader_parameter/glow_color = Color(1, 0.5, 0, 1)
+shader_parameter/glow_intensity = 1.6650000790875001
+shader_parameter/glow_radius = 1.5930000756675
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1gf8i"]
+shader = ExtResource("3_dl156")
+shader_parameter/index = 0
+shader_parameter/color_palette = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/glow_color = Color(1, 0.84313726, 0, 1)
+shader_parameter/glow_intensity = 2.0
+shader_parameter/glow_radius = 5.0
 
 [node name="CharacterPortrait" type="PanelContainer"]
-custom_minimum_size = Vector2(100, 150)
+custom_minimum_size = Vector2(75, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ditcq")
+script = ExtResource("1_ditcq")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer"]
+material = SubResource("ShaderMaterial_dl156")
+layout_mode = 2
+mouse_filter = 2
+
+[node name="SubViewport" type="SubViewport" parent="MarginContainer/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(240, 160)
+size_2d_override = Vector2i(240, 160)
+render_target_update_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/SubViewportContainer/SubViewport"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ditcq")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="Body" type="TextureRect" parent="MarginContainer/SubViewportContainer/SubViewport/MarginContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Body" type="TextureRect" parent="MarginContainer"]
-layout_mode = 2
-texture = ExtResource("1_3pf80")
-expand_mode = 1
+texture = ExtResource("3_1gf8i")
+expand_mode = 2
 stretch_mode = 5
 
-[node name="Head" type="TextureRect" parent="MarginContainer"]
+[node name="Head" type="TextureRect" parent="MarginContainer/SubViewportContainer/SubViewport/MarginContainer"]
 layout_mode = 2
-texture = ExtResource("2_ditcq")
-expand_mode = 1
+texture = ExtResource("4_dl156")
+expand_mode = 2
 stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_1gf8i")
+layout_mode = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 2

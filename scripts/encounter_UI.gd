@@ -34,7 +34,8 @@ func set_encounter(_enemies: Enemies):
 		$"Top Row".set_character(index, cur_character)
 
 func _on_character_ui_pressed(character: CharacterUI, index):
-	on_enemy_pressed.emit(character, row_map[character.character as Enemy], index)
+	pass
+	#on_enemy_pressed.emit(character, row_map[character.character as Enemy], index)
 
 func _on_character_hover(character: CharacterUI):
 	on_enemy_hover.emit(character)

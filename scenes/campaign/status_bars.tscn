@@ -1,0 +1,84 @@
+[gd_scene load_steps=14 format=3 uid="uid://d4hf4002xav2t"]
+
+[ext_resource type="Script" uid="uid://bb3iwfb3aupmv" path="res://scripts/campaign/status_bars.gd" id="1_ou0la"]
+[ext_resource type="PackedScene" uid="uid://bv5inapo0d0y4" path="res://scenes/campaign/status_bar.tscn" id="1_pvm7n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ou0la"]
+bg_color = Color(0.15912652, 6.768387e-08, 3.308989e-08, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1k8yi"]
+bg_color = Color(0.12591082, 0.12591085, 0.12591076, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5eee6"]
+bg_color = Color(0, 0.11210611, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1q26o"]
+bg_color = Color(2.7675182e-07, 0.19664496, 0.2912071, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4x4ef"]
+bg_color = Color(0.6, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ksxjb"]
+bg_color = Color(1, 0.84313726, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0hhym"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rbdi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bw7t"]
+bg_color = Color(0, 0.6, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7fmbt"]
+bg_color = Color(0, 0.5294118, 0.7490196, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c6bip"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="StatusBars" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+alignment = 1
+script = ExtResource("1_ou0la")
+health_background_style = SubResource("StyleBoxFlat_ou0la")
+durability_background_style = SubResource("StyleBoxFlat_1k8yi")
+stamina_background_style = SubResource("StyleBoxFlat_5eee6")
+mana_background_style = SubResource("StyleBoxFlat_1q26o")
+health_style = SubResource("StyleBoxFlat_4x4ef")
+shield_style = SubResource("StyleBoxFlat_ksxjb")
+armor_style = SubResource("StyleBoxFlat_0hhym")
+durability_style = SubResource("StyleBoxFlat_1rbdi")
+stamina_style = SubResource("StyleBoxFlat_1bw7t")
+mana_style = SubResource("StyleBoxFlat_7fmbt")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c6bip")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 1
+
+[node name="HealthBar" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_pvm7n")]
+layout_mode = 2
+
+[node name="DurabilityBar" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_pvm7n")]
+layout_mode = 2
+
+[node name="StaminaBar" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_pvm7n")]
+layout_mode = 2
+
+[node name="ManaBar" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_pvm7n")]
+layout_mode = 2
