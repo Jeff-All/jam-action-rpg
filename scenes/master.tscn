@@ -59,6 +59,7 @@ metadata/_custom_type_script = "uid://b2hvd7p2gcqwk"
 [sub_resource type="Resource" id="Resource_tlk8g"]
 script = ExtResource("4_4vi31")
 front_row = Array[ExtResource("5_jgajy")]([ExtResource("8_jgajy")])
+back_row = Array[ExtResource("5_jgajy")]([ExtResource("8_jgajy"), ExtResource("8_jgajy")])
 metadata/_custom_type_script = "uid://b2hvd7p2gcqwk"
 
 [sub_resource type="Resource" id="Resource_2vh21"]

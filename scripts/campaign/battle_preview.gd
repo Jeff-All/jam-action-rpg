@@ -1,37 +1,37 @@
 class_name BattlePreview
 
-extends PanelContainer
+extends Control
 
-var front_row: Array[EnemyPane]
-var back_row: Array[EnemyPane]
+var front_row: HBoxContainer
+var back_row: HBoxContainer
 
 func _ready():
-	for cur in $MarginContainer/PanelContainer/VBoxContainer/BackRow.get_children():
-		back_row.append(cur)
-	
-	for cur in $MarginContainer/PanelContainer/VBoxContainer/FrontRow.get_children():
-		front_row.append(cur)
+	front_row = $FrontRow
+	back_row = $BackRow
 
 func fill(battle: BattleOptions):
 	clear()
 	
+	if battle.front_row.size() > 0:
+		fill_row(front_row, battle.front_row)
+		if battle.back_row.size() > 0:
+			fill_row(back_row, battle.back_row)
+	else: if battle.back_row.size() > 0:
+		fill_row(front_row, battle.back_row)
+
+func fill_row(row: HBoxContainer, enemies: Array[Enemy]):
 	var index = 0
-	for cur in battle.front_row:
-		if index > front_row.size():
-			break
-		front_row[index].enemy = cur
-		front_row[index].visible = true
-		index += 1
-	index = 0
-	for cur in battle.back_row: 
-		if index > back_row.size():
-			break
-		back_row[index].enemy = cur
-		back_row[index].visible = true
+	for cur in row.get_children():
+		if index >= enemies.size():
+			return
+		cur.enemy = enemies[index]
+		cur.visible = true
 		index += 1
 
 func clear():
-	for cur in front_row:
-		cur.visible = false
-	for cur in back_row:
+	clear_row(front_row)
+	clear_row(back_row)
+
+func clear_row(row: HBoxContainer):
+	for cur in row.get_children():
 		cur.visible = false

@@ -1,6 +1,6 @@
 class_name BattleSelector
 
-extends PanelContainer
+extends Control
 
 signal on_party_pressed
 
@@ -13,10 +13,10 @@ var battles: Array[BattleOptions]
 var cur_index: int
 
 func _ready():
-	battle_preview = $MarginContainer/BattlePreview
+	battle_preview = $BattlePreview
 	
-	left = $MarginContainer2/Left
-	right = $MarginContainer2/Right
+	left = $Control/Left
+	right = $Control/Right
 
 func fill(_battles: Array[BattleOptions]):
 	cur_index = 0
