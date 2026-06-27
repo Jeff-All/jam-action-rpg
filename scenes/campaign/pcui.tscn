@@ -1,17 +1,19 @@
-[gd_scene load_steps=9 format=3 uid="uid://mwr6ui02sg5q"]
+[gd_scene load_steps=11 format=3 uid="uid://mwr6ui02sg5q"]
 
 [ext_resource type="PackedScene" uid="uid://bd3fgvk1uqbpx" path="res://scenes/character/character_portrait.tscn" id="1_id3o2"]
 [ext_resource type="Script" uid="uid://caffi0xmkrqil" path="res://scripts/campaign/pcui.gd" id="1_ynthc"]
 [ext_resource type="PackedScene" uid="uid://d4hf4002xav2t" path="res://scenes/campaign/status_bars.tscn" id="2_ynthc"]
 [ext_resource type="PackedScene" uid="uid://dt7xrxget1oi1" path="res://scenes/simple_button.tscn" id="3_l0bw5"]
+[ext_resource type="Texture2D" uid="uid://dtplaun3uefj5" path="res://resources/art/icons/scroll_wide.png" id="5_ah6eo"]
 [ext_resource type="PackedScene" uid="uid://jjowbaf4jl1i" path="res://scenes/campaign/ability_button.tscn" id="5_kf6cy"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ynthc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l0bw5"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ah6eo"]
-bg_color = Color(0.15686275, 0.15686275, 0.15686275, 0.7607843)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kf6cy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ah6eo"]
 
 [node name="PCUI" type="PanelContainer"]
 offset_right = 300.0
@@ -74,34 +76,52 @@ custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ah6eo")
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/margin_top = 3
-theme_override_constants/margin_bottom = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-theme_override_constants/separation = 5
+theme_override_styles/panel = SubResource("StyleBoxEmpty_kf6cy")
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ah6eo")
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/PanelContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = -25
+theme_override_constants/margin_top = -15
+theme_override_constants/margin_right = -25
+theme_override_constants/margin_bottom = -10
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer/PanelContainer/MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("5_ah6eo")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/PanelContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_constants/separation = 0
 alignment = 1
 
-[node name="AbilityButton" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("5_kf6cy")]
+[node name="AbilityButton" parent="VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("5_kf6cy")]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="AbilityButton2" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("5_kf6cy")]
+[node name="AbilityButton2" parent="VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("5_kf6cy")]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="AbilityButton3" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("5_kf6cy")]
+[node name="AbilityButton3" parent="VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("5_kf6cy")]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="AbilityButton4" parent="VBoxContainer/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("5_kf6cy")]
+[node name="AbilityButton4" parent="VBoxContainer/PanelContainer/PanelContainer/MarginContainer/HBoxContainer" instance=ExtResource("5_kf6cy")]
 layout_mode = 2
 size_flags_vertical = 4
 
