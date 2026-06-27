@@ -1,6 +1,6 @@
 class_name CampaignBuilder
 
-extends MarginContainer
+extends Control
 
 signal on_exit()
 signal on_finish(campaign: Campaign)

@@ -1,6 +1,6 @@
 class_name MainMenu
 
-extends PanelContainer
+extends Panel
 
 signal on_campaigns_pressed()
 signal on_options_pressed()

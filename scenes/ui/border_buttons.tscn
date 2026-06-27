@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://c1pufg0fwx42a"]
+
+[node name="BorderButtons" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Margin" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.0078125
+anchor_top = 0.0125
+anchor_right = 0.9921875
+anchor_bottom = 0.9875
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TopLeft" type="Control" parent="Margin"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchor_right = 0.079
+anchor_bottom = 0.128
+offset_right = 0.45999908
+offset_bottom = 0.15999603
+
+[node name="TopRight" type="Control" parent="Margin"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchor_left = 0.92100006
+anchor_right = 1.0
+anchor_bottom = 0.128
+offset_left = -0.460083
+offset_bottom = 0.15999603
+grow_horizontal = 0
+
+[node name="BottomRight" type="Control" parent="Margin"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchor_left = 0.92100006
+anchor_top = 0.87200004
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.460083
+offset_top = -0.16003418
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="BottomLeft" type="Control" parent="Margin"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchor_top = 0.87200004
+anchor_right = 0.079
+anchor_bottom = 1.0
+offset_top = -0.16003418
+offset_right = 0.45999908
+grow_vertical = 0
+
+[node name="Top" type="HBoxContainer" parent="Margin"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.079
+anchor_right = 0.92100006
+anchor_bottom = 0.128
+offset_left = 0.45999908
+offset_right = -0.460083
+offset_bottom = 0.15999603
+grow_horizontal = 2
+alignment = 1
+
+[node name="Bottom" type="HBoxContainer" parent="Margin"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.079
+anchor_top = 0.87200004
+anchor_right = 0.92100006
+anchor_bottom = 1.0
+offset_left = 0.45999908
+offset_top = -0.16003418
+offset_right = -0.460083
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Left" type="VBoxContainer" parent="Margin"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.128
+anchor_right = 0.079
+anchor_bottom = 0.87200004
+offset_top = 0.15999603
+offset_right = 0.45999908
+offset_bottom = -0.16003418
+grow_vertical = 2
+alignment = 1
+
+[node name="Right" type="VBoxContainer" parent="Margin"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.92100006
+anchor_top = 0.128
+anchor_right = 1.0
+anchor_bottom = 0.87200004
+offset_left = -0.460083
+offset_top = 0.15999603
+offset_bottom = -0.16003418
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 1

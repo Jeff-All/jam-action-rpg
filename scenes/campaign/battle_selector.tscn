@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://037e7762g8o5"]
+[gd_scene load_steps=11 format=3 uid="uid://037e7762g8o5"]
 
 [ext_resource type="Script" uid="uid://cm21w6e540lsb" path="res://scripts/campaign/battle_selector.gd" id="1_aiq3r"]
 [ext_resource type="PackedScene" uid="uid://dt7xrxget1oi1" path="res://scenes/simple_button.tscn" id="1_risrf"]
@@ -6,9 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://p3xr1lkek1g2" path="res://resources/art/icons/red_x.png" id="2_mvwpo"]
 [ext_resource type="Texture2D" uid="uid://4npqraahuiy7" path="res://resources/art/icons/crossed_swords.png" id="3_mvwpo"]
 [ext_resource type="Texture2D" uid="uid://c2lquyfnc7a7i" path="res://resources/art/icons/party.png" id="4_mvwpo"]
-[ext_resource type="Texture2D" uid="uid://favpjs5h1neh" path="res://resources/art/icons/menu.png" id="5_bsbld"]
 [ext_resource type="Texture2D" uid="uid://5c2u3odxao1e" path="res://resources/art/icons/left_arrow.png" id="5_mvwpo"]
 [ext_resource type="Texture2D" uid="uid://dke5e2aex1x4n" path="res://resources/art/icons/right_arrow.png" id="6_mvwpo"]
+[ext_resource type="Texture2D" uid="uid://csukt2oof5ev2" path="res://resources/art/icons/menu_scroll.png" id="9_f27e7"]
+[ext_resource type="PackedScene" uid="uid://c1pufg0fwx42a" path="res://scenes/ui/border_buttons.tscn" id="9_oduct"]
 
 [node name="BattleSelector" type="Control"]
 layout_mode = 3
@@ -27,103 +28,65 @@ anchor_top = 0.15
 anchor_right = 0.9
 anchor_bottom = 0.85
 
-[node name="Control" type="Control" parent="."]
+[node name="BorderButtons" parent="." instance=ExtResource("9_oduct")]
 layout_mode = 1
-anchor_left = 0.01
-anchor_top = 0.01
-anchor_right = 0.99
-anchor_bottom = 0.99
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
 
-[node name="Party" parent="Control" instance=ExtResource("1_risrf")]
+[node name="Menu" parent="BorderButtons/Margin/TopLeft" index="0" instance=ExtResource("1_risrf")]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.46
-anchor_top = 0.87200004
-anchor_right = 0.54
-anchor_bottom = 1.0
-offset_left = 0.17596436
-offset_top = 0.35198975
-offset_right = -0.17602539
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 8
-texture = ExtResource("4_mvwpo")
-metadata/_edit_use_anchors_ = true
-
-[node name="Continue" parent="Control" instance=ExtResource("1_risrf")]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.92
-anchor_top = 0.87200004
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 0.3519287
-offset_top = 0.35198975
 offset_right = 0.0
 offset_bottom = 0.0
-grow_horizontal = 0
-grow_vertical = 0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("9_f27e7")
+
+[node name="Continue" parent="BorderButtons/Margin/BottomRight" index="0" instance=ExtResource("1_risrf")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 texture = ExtResource("3_mvwpo")
 
-[node name="Cancel" parent="Control" instance=ExtResource("1_risrf")]
+[node name="Cancel" parent="BorderButtons/Margin/BottomLeft" index="0" instance=ExtResource("1_risrf")]
 layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.87200004
-anchor_right = 0.080000006
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = 0.0
 offset_bottom = 0.0
-grow_vertical = 0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 texture = ExtResource("2_mvwpo")
 
-[node name="Left" parent="Control" instance=ExtResource("1_risrf")]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.43600002
-anchor_right = 0.080000006
-anchor_bottom = 0.564
-offset_right = 0.0
-offset_bottom = 0.0
-grow_vertical = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
+[node name="Party" parent="BorderButtons/Margin/Bottom" index="0" instance=ExtResource("1_risrf")]
+layout_mode = 2
+texture = ExtResource("4_mvwpo")
+metadata/_edit_use_anchors_ = true
+
+[node name="Left" parent="BorderButtons/Margin/Left" index="0" instance=ExtResource("1_risrf")]
+layout_mode = 2
+expand_mode = 4
 texture = ExtResource("5_mvwpo")
 
-[node name="Right" parent="Control" instance=ExtResource("1_risrf")]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.92
-anchor_top = 0.43600002
-anchor_right = 1.0
-anchor_bottom = 0.564
-offset_right = 0.0
-offset_bottom = 0.0
-grow_horizontal = 0
-grow_vertical = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
+[node name="Right" parent="BorderButtons/Margin/Right" index="0" instance=ExtResource("1_risrf")]
+layout_mode = 2
+expand_mode = 4
 texture = ExtResource("6_mvwpo")
 
-[node name="Menu" parent="Control" instance=ExtResource("1_risrf")]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.080000006
-anchor_bottom = 0.128
-offset_right = 0.0
-offset_bottom = 0.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture = ExtResource("5_bsbld")
+[connection signal="on_pressed" from="BorderButtons/Margin/Bottom/Party" to="." method="_on_party_pressed"]
+[connection signal="on_pressed" from="BorderButtons/Margin/Left/Left" to="." method="_on_left_pressed"]
+[connection signal="on_pressed" from="BorderButtons/Margin/Right/Right" to="." method="_on_right_pressed"]
 
-[connection signal="on_pressed" from="Control/Party" to="." method="_on_party_pressed"]
-[connection signal="on_pressed" from="Control/Left" to="." method="_on_left_pressed"]
-[connection signal="on_pressed" from="Control/Right" to="." method="_on_right_pressed"]
+[editable path="BorderButtons"]

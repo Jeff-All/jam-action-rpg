@@ -1,6 +1,6 @@
 class_name SimpleButton
 
-extends PanelContainer
+extends Control
 
 signal on_pressed(simple_button: SimpleButton)
 
@@ -8,7 +8,10 @@ signal on_pressed(simple_button: SimpleButton)
 @export var hover_color: StyleBox
 @export var down_color: StyleBox
 
+@export var expand_mode: TextureRect.ExpandMode
+
 var _texture: Texture2D = null
+var _panel: Panel
 
 @export var texture: Texture2D:
 	set(value):
@@ -25,6 +28,8 @@ var _margin: int
 func _ready():
 	print("margin: %s" % margin)
 	texture_rect.texture = _texture
+	texture_rect.expand_mode = expand_mode
+	_panel = $Panel
 	
 	$MarginContainer/PanelContainer/MarginContainer.add_theme_constant_override("margin_top", _margin)
 	$MarginContainer/PanelContainer/MarginContainer.add_theme_constant_override("margin_left", _margin)
@@ -41,7 +46,7 @@ var disabled: bool:
 		if value:
 			mouse_default_cursor_shape = CursorShape.CURSOR_ARROW
 			$Disabled.visible = true
-			add_theme_stylebox_override("panel", default_color)
+			_panel.add_theme_stylebox_override("panel", default_color)
 		else:
 			mouse_default_cursor_shape = CursorShape.CURSOR_POINTING_HAND
 			$Disabled.visible = false
@@ -51,14 +56,14 @@ func _on_mouse_entered():
 	if !_disabled:
 		_hover = true
 		if _left_down:
-			add_theme_stylebox_override("panel", down_color)
+			_panel.add_theme_stylebox_override("panel", down_color)
 		if !_left_down:
-			add_theme_stylebox_override("panel", hover_color)
+			_panel.add_theme_stylebox_override("panel", hover_color)
 
 func _on_mouse_exited():
 	if !_disabled:
 		_hover = false
-		add_theme_stylebox_override("panel", default_color)
+		_panel.add_theme_stylebox_override("panel", default_color)
 
 func _on_gui_input(event):
 	if !_disabled:
@@ -66,9 +71,9 @@ func _on_gui_input(event):
 			if event.button_index == MOUSE_BUTTON_LEFT:
 				if event.is_pressed():
 					_left_down = true
-					add_theme_stylebox_override("panel", down_color)
+					_panel.add_theme_stylebox_override("panel", down_color)
 				else:
 					_left_down = false
 					if _hover: 
-						add_theme_stylebox_override("panel", hover_color)
+						_panel.add_theme_stylebox_override("panel", hover_color)
 						on_pressed.emit(self)
