@@ -8,15 +8,27 @@ extends PanelContainer
 var sub_view_port_container: SubViewportContainer
 var animation_player: AnimationPlayer
 var grayout: Panel
+var texture_rect: TextureRect
 
 var can_afford: bool = true
 var on_cooldown: bool = false
+
+var _ability: Ability
+
+var ability: Ability:
+	set(value):
+		_ability = value
+		if _ability != null:
+			texture_rect.texture = _ability.texture
+	get:
+		return _ability
 
 func _ready():
 	sub_view_port_container = $SubViewportContainer
 	
 	animation_player = $AnimationPlayer
-	grayout = $SubViewportContainer/SubViewport/TextureRect2/MarginContainer/VBoxContainer/Grayout/Panel4
+	grayout = $SubViewportContainer/SubViewport/TextureRect/MarginContainer/VBoxContainer/Grayout/Panel4
+	texture_rect = $SubViewportContainer/SubViewport/TextureRect
 	
 	grayout.add_theme_stylebox_override("panel", grayout_theme)
 

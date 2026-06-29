@@ -1,82 +1,139 @@
-[gd_scene load_steps=9 format=3 uid="uid://dgsfyjnaxdtg0"]
+[gd_scene load_steps=17 format=3 uid="uid://dgsfyjnaxdtg0"]
 
 [ext_resource type="Script" uid="uid://cayh4uhp8py4i" path="res://scripts/campaign_builder/party_builder.gd" id="1_i30yd"]
+[ext_resource type="Texture2D" uid="uid://dxy6bty10o4xp" path="res://resources/art/textures/slate_brick.png" id="2_n8dje"]
 [ext_resource type="PackedScene" uid="uid://cv04weaxfdkni" path="res://scenes/campaign_builder/character_builder.tscn" id="2_qu38t"]
-[ext_resource type="PackedScene" uid="uid://dt7xrxget1oi1" path="res://scenes/simple_button.tscn" id="3_0i1k2"]
+[ext_resource type="PackedScene" uid="uid://dt7xrxget1oi1" path="res://scenes/ui/simple_button.tscn" id="3_0i1k2"]
 [ext_resource type="Texture2D" uid="uid://p3xr1lkek1g2" path="res://resources/art/icons/red_x.png" id="4_n8dje"]
+[ext_resource type="PackedScene" uid="uid://c1pufg0fwx42a" path="res://scenes/ui/border_buttons.tscn" id="4_ylauw"]
 [ext_resource type="Texture2D" uid="uid://c4yj7e0ryym25" path="res://resources/art/icons/march.png" id="5_i30yd"]
-[ext_resource type="PackedScene" uid="uid://cd46maj1rq1d2" path="res://scenes/grid_selector.tscn" id="6_kf6c6"]
-[ext_resource type="Texture2D" uid="uid://favpjs5h1neh" path="res://resources/art/icons/menu.png" id="6_qu38t"]
+[ext_resource type="Texture2D" uid="uid://csukt2oof5ev2" path="res://resources/art/icons/menu_scroll.png" id="6_i30yd"]
+[ext_resource type="PackedScene" uid="uid://cd46maj1rq1d2" path="res://scenes/ui/grid_selector.tscn" id="6_kf6c6"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5yffv"]
-bg_color = Color(0, 0, 0, 0.75686276)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l0qqk"]
+texture = ExtResource("2_n8dje")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
-[node name="PartyBuilder" type="PanelContainer"]
+[sub_resource type="Gradient" id="Gradient_n8dje"]
+offsets = PackedFloat32Array(0.7056075, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_n8dje"]
+gradient = SubResource("Gradient_n8dje")
+fill = 1
+fill_from = Vector2(0.5, 0.525641)
+fill_to = Vector2(1, 0.081196584)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kf6c6"]
+texture = SubResource("GradientTexture2D_n8dje")
+
+[sub_resource type="Gradient" id="Gradient_l0qqk"]
+offsets = PackedFloat32Array(0.6448598, 1)
+colors = PackedColorArray(0, 0, 0, 0.5411765, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l0qqk"]
+gradient = SubResource("Gradient_l0qqk")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0.1923077, 0.491453)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5ud64"]
+texture = SubResource("GradientTexture2D_l0qqk")
+
+[node name="PartyBuilder" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_5yffv")
 script = ExtResource("1_i30yd")
+shadow_offsets = Dictionary[String, Vector2]({
+"Ability": Vector2(0.1, -0.1),
+"Armor": Vector2(0.1, 0.2),
+"Class": Vector2(0.1, -0.1),
+"Race": Vector2(0.1, -0.1),
+"Trait": Vector2(0.2, -0.1),
+"Weapon": Vector2(0.1, 0.2)
+})
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 2
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_l0qqk")
 
-[node name="Builders" type="HBoxContainer" parent="MarginContainer"]
+[node name="Background2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Background2"]
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
-size_flags_vertical = 4
-theme_override_constants/separation = 20
+theme_override_styles/panel = SubResource("StyleBoxTexture_kf6c6")
+
+[node name="Panel2" type="Panel" parent="Background2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5ud64")
+
+[node name="Builders" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0578125
+anchor_top = 0.26875
+anchor_right = 0.9421875
+anchor_bottom = 0.79
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
 alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="CharacterBuilder" parent="MarginContainer/Builders" instance=ExtResource("2_qu38t")]
+[node name="CharacterBuilder" parent="Builders" instance=ExtResource("2_qu38t")]
 layout_mode = 2
 
-[node name="CharacterBuilder2" parent="MarginContainer/Builders" instance=ExtResource("2_qu38t")]
+[node name="CharacterBuilder2" parent="Builders" instance=ExtResource("2_qu38t")]
 layout_mode = 2
 
-[node name="CharacterBuilder3" parent="MarginContainer/Builders" instance=ExtResource("2_qu38t")]
+[node name="CharacterBuilder3" parent="Builders" instance=ExtResource("2_qu38t")]
 layout_mode = 2
 
-[node name="CharacterBuilder4" parent="MarginContainer/Builders" instance=ExtResource("2_qu38t")]
+[node name="CharacterBuilder4" parent="Builders" instance=ExtResource("2_qu38t")]
 layout_mode = 2
+size_flags_horizontal = 4
 
-[node name="Footer" type="MarginContainer" parent="MarginContainer"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-size_flags_vertical = 8
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+[node name="BorderButtons" parent="." instance=ExtResource("4_ylauw")]
+layout_mode = 1
 
-[node name="Cancel" parent="MarginContainer/Footer" instance=ExtResource("3_0i1k2")]
-layout_mode = 2
-size_flags_horizontal = 0
-texture = ExtResource("4_n8dje")
+[node name="Menu" parent="BorderButtons/Margin/TopLeft" index="0" instance=ExtResource("3_0i1k2")]
+layout_mode = 1
+texture = ExtResource("6_i30yd")
 
-[node name="Continue" parent="MarginContainer/Footer" instance=ExtResource("3_0i1k2")]
-layout_mode = 2
-size_flags_horizontal = 8
+[node name="Continue" parent="BorderButtons/Margin/BottomRight" index="0" instance=ExtResource("3_0i1k2")]
+layout_mode = 1
 texture = ExtResource("5_i30yd")
 
-[node name="Header" type="MarginContainer" parent="MarginContainer"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="Menu" parent="MarginContainer/Header" instance=ExtResource("3_0i1k2")]
-layout_mode = 2
-size_flags_horizontal = 0
-texture = ExtResource("6_qu38t")
+[node name="Cancel" parent="BorderButtons/Margin/BottomLeft" index="0" instance=ExtResource("3_0i1k2")]
+layout_mode = 1
+texture = ExtResource("4_n8dje")
 
 [node name="GridSelector" parent="." instance=ExtResource("6_kf6c6")]
 visible = false
-layout_mode = 2
+layout_mode = 1
 
-[connection signal="on_pressed" from="MarginContainer/Footer/Cancel" to="." method="_on_cancel_pressed"]
-[connection signal="on_pressed" from="MarginContainer/Footer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="on_slot_button_pressed" from="Builders/CharacterBuilder" to="." method="_on_slot_button_pressed"]
+[connection signal="on_slot_button_pressed" from="Builders/CharacterBuilder2" to="." method="_on_slot_button_pressed"]
+[connection signal="on_slot_button_pressed" from="Builders/CharacterBuilder3" to="." method="_on_slot_button_pressed"]
+[connection signal="on_slot_button_pressed" from="Builders/CharacterBuilder4" to="." method="_on_slot_button_pressed"]
+[connection signal="on_pressed" from="BorderButtons/Margin/BottomRight/Continue" to="." method="_on_continue_pressed"]
+[connection signal="on_pressed" from="BorderButtons/Margin/BottomLeft/Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="on_selected" from="GridSelector" to="." method="_on_grid_selector_selected"]
+
+[editable path="BorderButtons"]

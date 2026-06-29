@@ -1,14 +1,48 @@
-[gd_scene load_steps=10 format=3 uid="uid://byu187nunkyt4"]
+[gd_scene load_steps=19 format=3 uid="uid://byu187nunkyt4"]
 
 [ext_resource type="PackedScene" uid="uid://bd3fgvk1uqbpx" path="res://scenes/character/character_portrait.tscn" id="1_an5un"]
+[ext_resource type="Texture2D" uid="uid://dxy6bty10o4xp" path="res://resources/art/textures/slate_brick.png" id="1_y15ec"]
 [ext_resource type="Script" uid="uid://bwcomgrveqt1j" path="res://scripts/campaign/party.gd" id="1_ycxt1"]
-[ext_resource type="PackedScene" uid="uid://dt7xrxget1oi1" path="res://scenes/simple_button.tscn" id="2_duf15"]
+[ext_resource type="PackedScene" uid="uid://dt7xrxget1oi1" path="res://scenes/ui/simple_button.tscn" id="2_duf15"]
 [ext_resource type="PackedScene" uid="uid://c44dc5jjppk6i" path="res://scenes/character/character_pane.tscn" id="2_sv8km"]
 [ext_resource type="Texture2D" uid="uid://p3xr1lkek1g2" path="res://resources/art/icons/red_x.png" id="3_sv8km"]
-[ext_resource type="Texture2D" uid="uid://favpjs5h1neh" path="res://resources/art/icons/menu.png" id="4_ycxt1"]
-[ext_resource type="Texture2D" uid="uid://5c2u3odxao1e" path="res://resources/art/icons/left_arrow.png" id="7_wqdol"]
-[ext_resource type="Texture2D" uid="uid://dke5e2aex1x4n" path="res://resources/art/icons/right_arrow.png" id="8_xnal3"]
-[ext_resource type="PackedScene" uid="uid://cd46maj1rq1d2" path="res://scenes/grid_selector.tscn" id="9_xnal3"]
+[ext_resource type="PackedScene" uid="uid://c1pufg0fwx42a" path="res://scenes/ui/border_buttons.tscn" id="5_xnal3"]
+[ext_resource type="Texture2D" uid="uid://csukt2oof5ev2" path="res://resources/art/icons/menu_scroll.png" id="7_xnal3"]
+[ext_resource type="PackedScene" uid="uid://cd46maj1rq1d2" path="res://scenes/ui/grid_selector.tscn" id="9_xnal3"]
+[ext_resource type="Texture2D" uid="uid://riisrric5105" path="res://resources/art/icons/arrow_right_b.png" id="9_y15ec"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mxsv5"]
+texture = ExtResource("1_y15ec")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y15ec"]
+bg_color = Color(0, 0, 0, 0.5529412)
+
+[sub_resource type="Gradient" id="Gradient_y15ec"]
+offsets = PackedFloat32Array(0.7056075, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_l0qqk"]
+gradient = SubResource("Gradient_y15ec")
+fill = 1
+fill_from = Vector2(0.5, 0.525641)
+fill_to = Vector2(1, 0.081196584)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dav4b"]
+texture = SubResource("GradientTexture2D_l0qqk")
+
+[sub_resource type="Gradient" id="Gradient_dvyam"]
+offsets = PackedFloat32Array(0.6448598, 1)
+colors = PackedColorArray(0, 0, 0, 0.5411765, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kf6c6"]
+gradient = SubResource("Gradient_dvyam")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0.1923077, 0.491453)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1vdgv"]
+texture = SubResource("GradientTexture2D_kf6c6")
 
 [node name="Party" type="PanelContainer"]
 anchors_preset = 15
@@ -16,7 +50,36 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mxsv5")
 script = ExtResource("1_ycxt1")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 205.0
+offset_top = 132.0
+offset_right = -220.0
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_y15ec")
+
+[node name="Background2" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="Panel" type="PanelContainer" parent="Background2"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_dav4b")
+
+[node name="Panel2" type="Panel" parent="Background2"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_1vdgv")
 
 [node name="Portraits" type="HBoxContainer" parent="."]
 visible = false
@@ -43,46 +106,51 @@ layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
 
 [node name="CharacterPane" parent="MarginContainer" instance=ExtResource("2_sv8km")]
 layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 1
 
-[node name="Close" parent="MarginContainer" instance=ExtResource("2_duf15")]
+[node name="GridSelector" parent="." instance=ExtResource("9_xnal3")]
+visible = false
 layout_mode = 2
+
+[node name="BorderButtons" parent="." instance=ExtResource("5_xnal3")]
+layout_mode = 2
+
+[node name="Menu" parent="BorderButtons/Margin/TopLeft" index="0" instance=ExtResource("2_duf15")]
+layout_mode = 1
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("7_xnal3")
+
+[node name="Close" parent="BorderButtons/Margin/BottomLeft" index="0" instance=ExtResource("2_duf15")]
+layout_mode = 1
 size_flags_horizontal = 0
 size_flags_vertical = 8
 texture = ExtResource("3_sv8km")
 
-[node name="Menu" parent="MarginContainer" instance=ExtResource("2_duf15")]
+[node name="Left" parent="BorderButtons/Margin/Left" index="0" instance=ExtResource("2_duf15")]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture = ExtResource("4_ycxt1")
-
-[node name="Left" parent="MarginContainer" instance=ExtResource("2_duf15")]
-layout_mode = 2
-size_flags_horizontal = 0
 size_flags_vertical = 4
-texture = ExtResource("7_wqdol")
+flip_h = true
+texture = ExtResource("9_y15ec")
 
-[node name="Right" parent="MarginContainer" instance=ExtResource("2_duf15")]
+[node name="Right" parent="BorderButtons/Margin/Right" index="0" instance=ExtResource("2_duf15")]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-size_flags_horizontal = 8
 size_flags_vertical = 4
-texture = ExtResource("8_xnal3")
-
-[node name="GridSelector" parent="." instance=ExtResource("9_xnal3")]
-layout_mode = 2
+texture = ExtResource("9_y15ec")
 
 [connection signal="on_ability_pressed" from="MarginContainer/CharacterPane" to="." method="_character_pane_on_ability_pressed"]
 [connection signal="on_armor_pressed" from="MarginContainer/CharacterPane" to="." method="_character_pane_on_armor_pressed"]
 [connection signal="on_trait_pressed" from="MarginContainer/CharacterPane" to="." method="_character_pane_on_trait_pressed"]
 [connection signal="on_weapon_pressed" from="MarginContainer/CharacterPane" to="." method="_character_pane_on_weapon_pressed"]
-[connection signal="on_pressed" from="MarginContainer/Close" to="." method="_on_close_pressed"]
-[connection signal="on_pressed" from="MarginContainer/Left" to="." method="_on_left_pressed"]
-[connection signal="on_pressed" from="MarginContainer/Right" to="." method="_on_right_pressed"]
 [connection signal="on_selected" from="GridSelector" to="." method="_grid_selector_on_selected"]
+[connection signal="on_pressed" from="BorderButtons/Margin/BottomLeft/Close" to="." method="_on_close_pressed"]
+[connection signal="on_pressed" from="BorderButtons/Margin/Left/Left" to="." method="_on_left_pressed"]
+[connection signal="on_pressed" from="BorderButtons/Margin/Right/Right" to="." method="_on_right_pressed"]
+
+[editable path="BorderButtons"]

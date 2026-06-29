@@ -1,6 +1,6 @@
 class_name SlotButton
 
-extends PanelContainer
+extends Control
 
 signal on_pressed(action_button: SlotButton)
 signal on_enter(action_button: SlotButton)
@@ -16,12 +16,33 @@ signal on_lock(action_button: ActionButton)
 @export var background_disabled: StyleBox
 @export var background_locked: StyleBox
 
+@export var shadow_offset: Vector2
+
 @export var category: String
 var value
 
+@export var expand_mode: TextureRect.ExpandMode
+
+var texture_rect: TextureRect
+var shadow: TextureRect
+var panel: Panel
+
 var texture: Texture2D:
 	set(_value):
-		$MarginContainer/Background/MarginContainer/TextureRect.texture = _value
+		texture_rect.texture = _value
+		shadow.texture = _value
+
+func _ready():
+	texture_rect = $TextureRect
+	shadow = $Shadow
+	panel = $Panel
+	
+	texture_rect.expand_mode = expand_mode
+	
+	shadow.anchor_left = shadow_offset.x
+	shadow.anchor_right = shadow_offset.x + 1.0
+	shadow.anchor_top = shadow_offset.y
+	shadow.anchor_bottom = shadow_offset.y + 1.0
 
 func empty():
 	texture = null
@@ -31,16 +52,24 @@ func disable():
 	texture = null
 	value = null
 	locked = true
-	$MarginContainer/Background.add_theme_stylebox_override("panel", background_disabled)
+	texture_rect.material.set_shader_parameter("index", 0)
+	#$MarginContainer/Background.add_theme_stylebox_override("panel", background_disabled)
 
 func enable():
 	locked = false
-	$MarginContainer/Background.add_theme_stylebox_override("panel", background_active)
+	texture_rect.material.set_shader_parameter("index", 1)
+	#$MarginContainer/Background.add_theme_stylebox_override("panel", background_active)
 
-func fill(_value):
+func fill(_value, _offset = null):
+	if _offset != null:
+		shadow_offset = _offset
 	value = _value
 	if value != null:
 		texture = value.get_icon()
+		shadow.anchor_left = shadow_offset.x
+		shadow.anchor_right = shadow_offset.x + 1.0
+		shadow.anchor_top = shadow_offset.y
+		shadow.anchor_bottom = shadow_offset.y + 1.0
 	else:
 		texture = Global.empty_slotButton.get_icon()
 
@@ -64,10 +93,12 @@ var selected: bool:
 	set(_value):
 		_selected = _value
 		if _selected:
-			add_theme_stylebox_override("panel", selected_color)
+			texture_rect.material.set_shader_parameter("index", 3)
+			#add_theme_stylebox_override("panel", selected_color)
 			mouse_default_cursor_shape = CursorShape.CURSOR_ARROW
 		else: 
-			add_theme_stylebox_override("panel", default_color)
+			texture_rect.material.set_shader_parameter("index", 1)
+			#add_theme_stylebox_override("panel", default_color)
 			if !_locked && selectable:
 				mouse_default_cursor_shape = CursorShape.CURSOR_POINTING_HAND
 
@@ -76,24 +107,29 @@ func _on_mouse_entered():
 	_hover = true
 	if !_selected && !_locked:
 		if _left_down:
-			add_theme_stylebox_override("panel", down_color)
+			texture_rect.material.set_shader_parameter("index", 4)
+			#add_theme_stylebox_override("panel", down_color)
 		if !_left_down:
-			add_theme_stylebox_override("panel", hover_color)
+			texture_rect.material.set_shader_parameter("index", 2)
+			#add_theme_stylebox_override("panel", hover_color)
 
 func _on_mouse_exited():
 	on_exit.emit(self)
 	_hover = false
 	if !_selected && !_locked:
-		add_theme_stylebox_override("panel", default_color)
+		texture_rect.material.set_shader_parameter("index", 1)
+		#add_theme_stylebox_override("panel", default_color)
 
 func _on_gui_input(event):
 	if event is InputEventMouseButton and !_locked:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.is_pressed() and !_selected:
 				_left_down = true
-				add_theme_stylebox_override("panel", down_color)
+				texture_rect.material.set_shader_parameter("index", 4)
+				#add_theme_stylebox_override("panel", down_color)
 			else:
 				_left_down = false
 				if _hover and !_selected: 
-					add_theme_stylebox_override("panel", hover_color)
+					texture_rect.material.set_shader_parameter("index", 2)
+					#add_theme_stylebox_override("panel", hover_color)
 					on_pressed.emit(self)

@@ -18,6 +18,7 @@ anchor_right = 0.9921875
 anchor_bottom = 0.9875
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="TopLeft" type="Control" parent="Margin"]
@@ -27,6 +28,7 @@ anchor_right = 0.079
 anchor_bottom = 0.128
 offset_right = 0.45999908
 offset_bottom = 0.15999603
+mouse_filter = 2
 
 [node name="TopRight" type="Control" parent="Margin"]
 custom_minimum_size = Vector2(100, 100)
@@ -37,6 +39,7 @@ anchor_bottom = 0.128
 offset_left = -0.460083
 offset_bottom = 0.15999603
 grow_horizontal = 0
+mouse_filter = 2
 
 [node name="BottomRight" type="Control" parent="Margin"]
 custom_minimum_size = Vector2(100, 100)
@@ -49,6 +52,7 @@ offset_left = -0.460083
 offset_top = -0.16003418
 grow_horizontal = 0
 grow_vertical = 0
+mouse_filter = 2
 
 [node name="BottomLeft" type="Control" parent="Margin"]
 custom_minimum_size = Vector2(100, 100)
@@ -59,6 +63,7 @@ anchor_bottom = 1.0
 offset_top = -0.16003418
 offset_right = 0.45999908
 grow_vertical = 0
+mouse_filter = 2
 
 [node name="Top" type="HBoxContainer" parent="Margin"]
 custom_minimum_size = Vector2(0, 100)
@@ -71,6 +76,7 @@ offset_left = 0.45999908
 offset_right = -0.460083
 offset_bottom = 0.15999603
 grow_horizontal = 2
+mouse_filter = 2
 alignment = 1
 
 [node name="Bottom" type="HBoxContainer" parent="Margin"]
@@ -86,6 +92,7 @@ offset_top = -0.16003418
 offset_right = -0.460083
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 2
 alignment = 1
 
 [node name="Left" type="VBoxContainer" parent="Margin"]
@@ -99,6 +106,7 @@ offset_top = 0.15999603
 offset_right = 0.45999908
 offset_bottom = -0.16003418
 grow_vertical = 2
+mouse_filter = 2
 alignment = 1
 
 [node name="Right" type="VBoxContainer" parent="Margin"]
@@ -114,4 +122,5 @@ offset_top = 0.15999603
 offset_bottom = -0.16003418
 grow_horizontal = 0
 grow_vertical = 2
+mouse_filter = 2
 alignment = 1

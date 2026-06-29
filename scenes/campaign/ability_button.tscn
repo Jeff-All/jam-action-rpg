@@ -60,7 +60,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SubViewportContainer/SubViewport/TextureRect2/MarginContainer/VBoxContainer/Flash:custom_minimum_size")
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/TextureRect/MarginContainer/VBoxContainer/Flash:custom_minimum_size")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -72,7 +72,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SubViewportContainer/SubViewport/TextureRect2/MarginContainer/Blackout:custom_minimum_size")
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/TextureRect/MarginContainer/Blackout:custom_minimum_size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -84,7 +84,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SubViewportContainer/SubViewport/TextureRect2/MarginContainer/Blackout:visible")
+tracks/2/path = NodePath("SubViewportContainer/SubViewport/TextureRect/MarginContainer/Blackout:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -99,7 +99,7 @@ resource_name = "ability_cooldown"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SubViewportContainer/SubViewport/TextureRect2/MarginContainer/Blackout:custom_minimum_size")
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/TextureRect/MarginContainer/Blackout:custom_minimum_size")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -111,7 +111,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SubViewportContainer/SubViewport/TextureRect2/MarginContainer/VBoxContainer/Flash:custom_minimum_size")
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/TextureRect/MarginContainer/VBoxContainer/Flash:custom_minimum_size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -137,7 +137,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SubViewportContainer/SubViewport/TextureRect2/MarginContainer/Blackout:visible")
+tracks/3/path = NodePath("SubViewportContainer/SubViewport/TextureRect/MarginContainer/Blackout:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -153,7 +153,7 @@ length = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SubViewportContainer/SubViewport/TextureRect2/MarginContainer/VBoxContainer/Flash:custom_minimum_size")
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/TextureRect/MarginContainer/VBoxContainer/Flash:custom_minimum_size")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -165,7 +165,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SubViewportContainer/SubViewport/TextureRect2/MarginContainer/Blackout:custom_minimum_size")
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/TextureRect/MarginContainer/Blackout:custom_minimum_size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -177,7 +177,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SubViewportContainer/SubViewport/TextureRect2/MarginContainer/Blackout:visible")
+tracks/2/path = NodePath("SubViewportContainer/SubViewport/TextureRect/MarginContainer/Blackout:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -193,7 +193,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SubViewportContainer/SubViewport/TextureRect2/MarginContainer/VBoxContainer/Flash:custom_minimum_size")
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/TextureRect/MarginContainer/VBoxContainer/Flash:custom_minimum_size")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -205,7 +205,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SubViewportContainer/SubViewport/TextureRect2/MarginContainer/Blackout:custom_minimum_size")
+tracks/1/path = NodePath("SubViewportContainer/SubViewport/TextureRect/MarginContainer/Blackout:custom_minimum_size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -217,7 +217,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SubViewportContainer/SubViewport/TextureRect2/MarginContainer/Blackout:visible")
+tracks/2/path = NodePath("SubViewportContainer/SubViewport/TextureRect/MarginContainer/Blackout:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -261,7 +261,7 @@ handle_input_locally = false
 size = Vector2i(50, 50)
 render_target_update_mode = 4
 
-[node name="TextureRect2" type="TextureRect" parent="SubViewportContainer/SubViewport"]
+[node name="TextureRect" type="TextureRect" parent="SubViewportContainer/SubViewport"]
 clip_children = 2
 anchors_preset = 15
 anchor_right = 1.0
@@ -273,7 +273,7 @@ texture = ExtResource("3_qj6ay")
 expand_mode = 5
 stretch_mode = 5
 
-[node name="MarginContainer" type="MarginContainer" parent="SubViewportContainer/SubViewport/TextureRect2"]
+[node name="MarginContainer" type="MarginContainer" parent="SubViewportContainer/SubViewport/TextureRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -282,7 +282,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SubViewportContainer/SubViewport/TextureRect2/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewportContainer/SubViewport/TextureRect/MarginContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
@@ -290,38 +290,38 @@ mouse_filter = 2
 theme_override_constants/separation = 0
 alignment = 2
 
-[node name="Grayout" type="PanelContainer" parent="SubViewportContainer/SubViewport/TextureRect2/MarginContainer/VBoxContainer"]
+[node name="Grayout" type="PanelContainer" parent="SubViewportContainer/SubViewport/TextureRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_6pgqv")
 
-[node name="Panel4" type="Panel" parent="SubViewportContainer/SubViewport/TextureRect2/MarginContainer/VBoxContainer/Grayout"]
+[node name="Panel4" type="Panel" parent="SubViewportContainer/SubViewport/TextureRect/MarginContainer/VBoxContainer/Grayout"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_pjibu")
 
-[node name="Flash" type="MarginContainer" parent="SubViewportContainer/SubViewport/TextureRect2/MarginContainer/VBoxContainer"]
+[node name="Flash" type="MarginContainer" parent="SubViewportContainer/SubViewport/TextureRect/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Panel5" type="Panel" parent="SubViewportContainer/SubViewport/TextureRect2/MarginContainer/VBoxContainer/Flash"]
+[node name="Panel5" type="Panel" parent="SubViewportContainer/SubViewport/TextureRect/MarginContainer/VBoxContainer/Flash"]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 size_flags_vertical = 0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_6pgqv")
 
-[node name="Panel" type="Panel" parent="SubViewportContainer/SubViewport/TextureRect2/MarginContainer/VBoxContainer/Flash"]
+[node name="Panel" type="Panel" parent="SubViewportContainer/SubViewport/TextureRect/MarginContainer/VBoxContainer/Flash"]
 custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
 size_flags_vertical = 0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ge8i1")
 
-[node name="Blackout" type="Panel" parent="SubViewportContainer/SubViewport/TextureRect2/MarginContainer"]
+[node name="Blackout" type="Panel" parent="SubViewportContainer/SubViewport/TextureRect/MarginContainer"]
 visible = false
 custom_minimum_size = Vector2(0, 5)
 layout_mode = 2

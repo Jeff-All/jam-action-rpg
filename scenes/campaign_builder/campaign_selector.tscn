@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cmrtldj1ghqa3"]
+[gd_scene load_steps=11 format=3 uid="uid://cmrtldj1ghqa3"]
 
 [ext_resource type="Script" uid="uid://boel3dyaaxk5y" path="res://scripts/campaign_builder/campaign_selector.gd" id="1_m3h8u"]
-[ext_resource type="PackedScene" uid="uid://dt7xrxget1oi1" path="res://scenes/simple_button.tscn" id="2_tgo20"]
+[ext_resource type="PackedScene" uid="uid://c1pufg0fwx42a" path="res://scenes/ui/border_buttons.tscn" id="2_oi2xp"]
+[ext_resource type="PackedScene" uid="uid://dt7xrxget1oi1" path="res://scenes/ui/simple_button.tscn" id="2_tgo20"]
 [ext_resource type="Texture2D" uid="uid://p3xr1lkek1g2" path="res://resources/art/icons/red_x.png" id="3_cewge"]
 [ext_resource type="Texture2D" uid="uid://c4yj7e0ryym25" path="res://resources/art/icons/march.png" id="3_tpow4"]
-[ext_resource type="Texture2D" uid="uid://favpjs5h1neh" path="res://resources/art/icons/menu.png" id="5_oi2xp"]
+[ext_resource type="Texture2D" uid="uid://csukt2oof5ev2" path="res://resources/art/icons/menu_scroll.png" id="4_mtn5p"]
 [ext_resource type="Texture2D" uid="uid://5c2u3odxao1e" path="res://resources/art/icons/left_arrow.png" id="6_mtn5p"]
 [ext_resource type="Texture2D" uid="uid://dke5e2aex1x4n" path="res://resources/art/icons/right_arrow.png" id="7_5ytrm"]
 
@@ -29,61 +30,10 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="Footer" type="MarginContainer" parent="MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 8
-mouse_filter = 2
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Footer"]
-layout_mode = 2
-size_flags_vertical = 0
-mouse_filter = 2
-theme_override_constants/separation = 10
-alignment = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Footer"]
-layout_mode = 2
-size_flags_vertical = 8
-
-[node name="Continue" parent="MarginContainer/Footer/MarginContainer" instance=ExtResource("2_tgo20")]
-layout_mode = 2
-size_flags_horizontal = 8
-texture = ExtResource("3_tpow4")
-
-[node name="Cancel" parent="MarginContainer/Footer/MarginContainer" instance=ExtResource("2_tgo20")]
-layout_mode = 2
-size_flags_horizontal = 0
-texture = ExtResource("3_cewge")
-
-[node name="Header" type="MarginContainer" parent="MarginContainer"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-size_flags_vertical = 0
-
-[node name="Title" type="Label" parent="MarginContainer/Header"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-theme_override_font_sizes/font_size = 65
-text = "Header"
-horizontal_alignment = 1
-
-[node name="SimpleButton" parent="MarginContainer/Header" instance=ExtResource("2_tgo20")]
-layout_mode = 2
-size_flags_horizontal = 0
-texture = ExtResource("5_oi2xp")
-
 [node name="HBoxContainer" type="MarginContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 mouse_filter = 2
-
-[node name="Left" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_tgo20")]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-texture = ExtResource("6_mtn5p")
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(1000, 500)
@@ -103,14 +53,35 @@ theme_override_constants/margin_bottom = 5
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_m21pd")
 
-[node name="Right" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_tgo20")]
+[node name="BorderButtons" parent="." instance=ExtResource("2_oi2xp")]
+layout_mode = 2
+
+[node name="Menu" parent="BorderButtons/Margin/TopLeft" index="0" instance=ExtResource("2_tgo20")]
+layout_mode = 1
+size_flags_horizontal = 0
+texture = ExtResource("4_mtn5p")
+
+[node name="Continue" parent="BorderButtons/Margin/BottomRight" index="0" instance=ExtResource("2_tgo20")]
+layout_mode = 1
+texture = ExtResource("3_tpow4")
+
+[node name="Cancel" parent="BorderButtons/Margin/BottomLeft" index="0" instance=ExtResource("2_tgo20")]
+layout_mode = 1
+texture = ExtResource("3_cewge")
+
+[node name="Left" parent="BorderButtons/Margin/Left" index="0" instance=ExtResource("2_tgo20")]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 4
+texture = ExtResource("6_mtn5p")
+
+[node name="Right" parent="BorderButtons/Margin/Right" index="0" instance=ExtResource("2_tgo20")]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
 texture = ExtResource("7_5ytrm")
 
-[connection signal="on_pressed" from="MarginContainer/Footer/MarginContainer/Continue" to="." method="_on_continue_pressed"]
-[connection signal="on_pressed" from="MarginContainer/Footer/MarginContainer/Cancel" to="." method="_on_cancel_pressed"]
-[connection signal="on_pressed" from="MarginContainer/HBoxContainer/Left" to="." method="_on_left_pressed"]
-[connection signal="on_pressed" from="MarginContainer/HBoxContainer/Right" to="." method="_on_right_pressed"]
+[connection signal="on_pressed" from="BorderButtons/Margin/BottomRight/Continue" to="." method="_on_continue_pressed"]
+[connection signal="on_pressed" from="BorderButtons/Margin/BottomLeft/Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="on_pressed" from="BorderButtons/Margin/Left/Left" to="." method="_on_left_pressed"]
+[connection signal="on_pressed" from="BorderButtons/Margin/Right/Right" to="." method="_on_right_pressed"]
+
+[editable path="BorderButtons"]

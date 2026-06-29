@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://budiou7xhfcie"]
+
+[ext_resource type="Texture2D" uid="uid://1ok8oqdqlssp" path="res://resources/art/enemies/sprite_sheets/bandit_idle.png" id="1_5ljl8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5okcb"]
+atlas = ExtResource("1_5ljl8")
+region = Rect2(0, 0, 400.6648, 708)
+
+[sub_resource type="Animation" id="Animation_x2dv1"]
+resource_name = "idle"
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Rect2(0, 0, 400.6648, 708), Rect2(429.64563, 0, 355.83496, 708), Rect2(786.1526, 0, 360.7771, 708), Rect2(1154.3428, 0, 365.71924, 708)]
+}
+
+[sub_resource type="Animation" id="Animation_w2rpd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:texture:region")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 400.6648, 708)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sw4tn"]
+_data = {
+&"RESET": SubResource("Animation_w2rpd"),
+&"idle": SubResource("Animation_x2dv1")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.344
+anchor_top = 0.057000004
+anchor_right = 0.656
+anchor_bottom = 0.94200003
+offset_left = -0.32000732
+offset_top = 0.3999977
+offset_right = 0.3199463
+offset_bottom = 0.39996338
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_5okcb")
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_sw4tn")
+}
+autoplay = "idle"

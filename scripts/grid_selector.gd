@@ -10,14 +10,19 @@ var cur_page: int = 0
 var max_page: int = 0
 var cur_selected
 var selected_item
+var page_label
+var shadow_offset: Vector2 = Vector2.ZERO
 
 func _ready():
+	page_label = $Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/HBoxContainer/PanelContainer/PageLabel
+	
 	for cur in $Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/GridContainer.get_children():
 		cur.on_pressed.connect(_on_slot_button_pressed)
 		slot_buttons.append(cur)
 		cur.disable()
 
-func fill(_items: Array, _selected_item, _show: bool = false):
+func fill(_items: Array, _selected_item, _show: bool = false, _offset: Vector2 = Vector2.ZERO):
+	shadow_offset = _offset
 	selected_item = _selected_item
 	if selected_item == null:
 		$Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Details/PanelContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/Accept.disabled = true
@@ -33,7 +38,7 @@ func fill(_items: Array, _selected_item, _show: bool = false):
 	visible = _show
 
 func fill_page_label():
-	$Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/HBoxContainer/PageLabel.text = "%s/%s" % [cur_page + 1, max_page + 1]
+	page_label.text = "%s/%s" % [cur_page + 1, max_page + 1]
 	
 	if cur_page == max_page:
 		$Grid/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/HBoxContainer/Right .disabled = true
@@ -56,7 +61,7 @@ func fill_page():
 	while cur_index < slot_buttons.size() && cur_index + item_start_index < items.size():
 		var cur_item = items[cur_index + item_start_index]
 		var slot_button = slot_buttons[cur_index]
-		slot_button.fill(cur_item)
+		slot_button.fill(cur_item, shadow_offset)
 		if cur_item == selected_item:
 			cur_selected = slot_button
 			slot_button.selected = true

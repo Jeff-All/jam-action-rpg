@@ -7,17 +7,18 @@ signal on_continue_pressed(campaign: CampaignOptions)
 
 var available_campaigns: Array[CampaignOptions]
 
-var title: Label
 var left: SimpleButton
 var right: SimpleButton
+var cancel: SimpleButton
+var continue_: SimpleButton
 
 var cur_campaign_index: int = 0
 
 func _ready():
-	title = $MarginContainer/Header/Title
-	
-	left = $MarginContainer/HBoxContainer/Left
-	right = $MarginContainer/HBoxContainer/Right
+	left = $BorderButtons/Margin/Left/Left
+	right = $BorderButtons/Margin/Right/Right
+	cancel = $BorderButtons/Margin/BottomLeft/Cancel
+	continue_ = $BorderButtons/Margin/BottomRight/Continue
 	
 	
 	left.visible = false
@@ -26,8 +27,8 @@ func _ready():
 	left.disabled = false
 	right.disabled = false
 	
-	$MarginContainer/Footer/MarginContainer/Cancel.disabled = false
-	$MarginContainer/Footer/MarginContainer/Continue.disabled = false
+	cancel.disabled = false
+	continue_.disabled = false
 
 func show_campaigns(_available_campaigns: Array[CampaignOptions]):
 	available_campaigns = _available_campaigns
@@ -43,8 +44,7 @@ func show_campaigns(_available_campaigns: Array[CampaignOptions]):
 	show_campaign()
 
 func show_campaign():
-	var cur_campaign = available_campaigns[cur_campaign_index] 
-	title.text = cur_campaign.name
+	var cur_campaign = available_campaigns[cur_campaign_index]
 
 func _on_left_pressed(_simple_button: SimpleButton):
 	cur_campaign_index = posmod(cur_campaign_index - 1, available_campaigns.size())

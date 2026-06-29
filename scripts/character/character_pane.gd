@@ -1,6 +1,6 @@
 class_name CharacterPane
 
-extends PanelContainer
+extends Control
 
 signal on_weapon_pressed
 signal on_armor_pressed
@@ -31,21 +31,21 @@ func _ready():
 	level_up = $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/CharacterPortrait/LevelUp
 	portrait = $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/CharacterPortrait
 	
-	race = $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer4/Race
-	_class = $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer3/Class
-	weapon = $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer/Weapon
-	armor = $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer2/Armor
+	race = $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer2/VBoxContainer4/Race
+	_class = $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer2/VBoxContainer3/Class
+	weapon = $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer2/VBoxContainer/Weapon
+	armor = $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer2/VBoxContainer2/Armor
 	
 	race.locked = true
 	_class.locked = true
 	
-	for cur in $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities.find_children("Keybind*"):
+	for cur in $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/Abilities.find_children("Keybind*"):
 		keybinds.append(cur)
 	
-	for cur in $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities.get_children():
+	for cur in $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/Abilities.get_children():
 		abilities.append(cur)
 	
-	for cur in $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer/VBoxContainer/Traits.get_children():
+	for cur in $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer/VBoxContainer/PanelContainer/Traits.get_children():
 		traits.append(cur)
 	
 	level_up.visible = false

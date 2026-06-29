@@ -1,3 +1,5 @@
+class_name EnemyUI
+
 extends VBoxContainer
 
 @export var flip: bool = false

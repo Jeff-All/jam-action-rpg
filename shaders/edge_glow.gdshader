@@ -4,7 +4,7 @@ uniform int index = 0;
 uniform vec4 color_palette[5]: source_color;
 uniform vec4 glow_color : source_color = vec4(1.0, 0.5, 0.0, 1.0);
 uniform float glow_intensity : hint_range(0.0, 5.0) = 2.0;
-uniform float glow_radius : hint_range(0.0, 20.0) = 5.0;
+uniform float glow_radius : hint_range(0.0, 50.0) = 5.0;
 
 void fragment() {
     vec4 current_color = texture(TEXTURE, UV);

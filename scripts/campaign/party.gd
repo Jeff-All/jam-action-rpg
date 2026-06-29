@@ -16,8 +16,8 @@ var cur_index: int
 func _ready():
 	character_pane = $MarginContainer/CharacterPane
 	
-	left = $MarginContainer/Left
-	right = $MarginContainer/Right
+	left = $BorderButtons/Margin/Left/Left
+	right = $BorderButtons/Margin/Right/Right
 	
 	selector = $GridSelector
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ydtaidvhl1rc"]
+[gd_scene load_steps=15 format=3 uid="uid://ydtaidvhl1rc"]
 
 [ext_resource type="Script" uid="uid://bb1ebodkgu8pb" path="res://scripts/slot_button.gd" id="1_roup1"]
 [ext_resource type="StyleBox" uid="uid://cr2t3b55t18qe" path="res://styles/default.tres" id="2_5cex4"]
@@ -6,9 +6,7 @@
 [ext_resource type="StyleBox" uid="uid://dfnv38lfibf5s" path="res://styles/down.tres" id="4_tprcn"]
 [ext_resource type="StyleBox" uid="uid://fykmjdbx4d5f" path="res://styles/selected.tres" id="4_vc7ok"]
 [ext_resource type="Texture2D" uid="uid://dmyf8r367m5s6" path="res://resources/art/icons/plus.png" id="6_tprcn"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v7ysy"]
-bg_color = Color(0, 0, 0, 1)
+[ext_resource type="Shader" uid="uid://biuiik7j0v1yi" path="res://shaders/edge_glow.gdshader" id="6_vc7ok"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tprcn"]
 
@@ -18,15 +16,36 @@ bg_color = Color(0.14406255, 0.14406255, 0.14406249, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnfyj"]
 bg_color = Color(0.4236506, 0.42365065, 0.42365053, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_llq04"]
+[sub_resource type="Gradient" id="Gradient_2lqyp"]
+offsets = PackedFloat32Array(0, 0.88785046)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2lqyp"]
-bg_color = Color(0, 0, 0, 1)
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iusl5"]
+gradient = SubResource("Gradient_2lqyp")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.90000004, 0.90000004)
+metadata/_snap_enabled = true
 
-[node name="SlotButton" type="PanelContainer"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qkkvl"]
+texture = SubResource("GradientTexture2D_iusl5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ivar1"]
+resource_local_to_scene = true
+shader = ExtResource("6_vc7ok")
+shader_parameter/index = 1
+shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 1, 0.84313726, 0, 1, 0.9254902, 0.44313726, 0, 1, 0.22563049, 0.18496665, 0, 1)
+shader_parameter/glow_color = Color(1, 0.5, 0, 1)
+shader_parameter/glow_intensity = 5.0
+shader_parameter/glow_radius = 30.000001425
+
+[node name="SlotButton" type="Control"]
 custom_minimum_size = Vector2(100, 100)
+layout_mode = 3
+anchor_right = 0.078
+anchor_bottom = 0.125
+offset_right = 0.15999603
 mouse_default_cursor_shape = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_v7ysy")
 script = ExtResource("1_roup1")
 default_color = ExtResource("2_5cex4")
 hover_color = ExtResource("3_tprcn")
@@ -35,39 +54,50 @@ selected_color = ExtResource("4_vc7ok")
 background_active = SubResource("StyleBoxFlat_tprcn")
 background_disabled = SubResource("StyleBoxFlat_vc7ok")
 background_locked = SubResource("StyleBoxFlat_lnfyj")
+expand_mode = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 2
+[node name="Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_qkkvl")
 
-[node name="Background" type="PanelContainer" parent="MarginContainer"]
-layout_mode = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_llq04")
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Background"]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="Panel" type="Panel" parent="MarginContainer/Background/MarginContainer"]
-layout_mode = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_2lqyp")
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/Background/MarginContainer"]
-layout_mode = 2
+[node name="Shadow" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 0.5764706)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("6_tprcn")
-expand_mode = 4
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_ivar1")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("6_tprcn")
+expand_mode = 1
 stretch_mode = 5
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="gui_input" from="Panel" to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="Panel" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Panel" to="." method="_on_mouse_exited"]

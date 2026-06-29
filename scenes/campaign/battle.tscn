@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://blb7ngr3xoa6s"]
+[gd_scene load_steps=16 format=3 uid="uid://blb7ngr3xoa6s"]
 
 [ext_resource type="Texture2D" uid="uid://c87uvrk0xfvw" path="res://resources/art/icons/backgrounds/forest_floor_dirt.png" id="1_c7ond"]
+[ext_resource type="Script" uid="uid://x28uinci7ftm" path="res://scripts/campaign/battle.gd" id="1_lo4kw"]
 [ext_resource type="PackedScene" uid="uid://jv3ix0yuq18c" path="res://scenes/campaign/enemy_ui.tscn" id="1_o4xl7"]
 [ext_resource type="Texture2D" uid="uid://cmldrfu1wpthu" path="res://resources/art/icons/planks.png" id="2_c6bip"]
 [ext_resource type="PackedScene" uid="uid://mwr6ui02sg5q" path="res://scenes/campaign/pcui.tscn" id="2_juykk"]
@@ -8,6 +9,7 @@
 [ext_resource type="Shader" uid="uid://biuiik7j0v1yi" path="res://shaders/edge_glow.gdshader" id="3_yl55d"]
 [ext_resource type="Texture2D" uid="uid://csukt2oof5ev2" path="res://resources/art/icons/menu_scroll.png" id="4_5pux2"]
 [ext_resource type="Texture2D" uid="uid://26q574ld2e0l" path="res://resources/art/icons/backpack.png" id="5_5o12h"]
+[ext_resource type="PackedScene" uid="uid://dt7xrxget1oi1" path="res://scenes/ui/simple_button.tscn" id="8_o2oi1"]
 
 [sub_resource type="Gradient" id="Gradient_c7ond"]
 offsets = PackedFloat32Array(0.5420561, 0.96728975, 1)
@@ -38,23 +40,28 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_lo4kw")
 
 [node name="Background" type="MarginContainer" parent="."]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="Background"]
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("1_c7ond")
 expand_mode = 2
 
 [node name="Panel" type="PanelContainer" parent="Background"]
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_c6bip")
 
 [node name="Panel2" type="PanelContainer" parent="Background"]
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_c6bip")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -65,6 +72,7 @@ theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 10
 
 [node name="PanelContainer2" type="PanelContainer" parent="MarginContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -84,7 +92,7 @@ layout_mode = 2
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(100, 100)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer2/SubViewportContainer/SubViewport"]
 anchors_preset = 15
@@ -100,6 +108,7 @@ expand_mode = 2
 stretch_mode = 5
 
 [node name="PanelContainer3" type="PanelContainer" parent="MarginContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
@@ -119,7 +128,7 @@ layout_mode = 2
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(100, 100)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer3/SubViewportContainer/SubViewport"]
 anchors_preset = 15
@@ -135,6 +144,7 @@ expand_mode = 2
 stretch_mode = 5
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
@@ -154,7 +164,7 @@ layout_mode = 2
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(100, 100)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/SubViewportContainer/SubViewport"]
 anchors_preset = 15
@@ -169,8 +179,30 @@ texture = ExtResource("2_o4xl7")
 expand_mode = 2
 stretch_mode = 5
 
+[node name="SimpleButton" parent="MarginContainer" instance=ExtResource("8_o2oi1")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = ExtResource("2_o4xl7")
+
+[node name="SimpleButton2" parent="MarginContainer" instance=ExtResource("8_o2oi1")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = ExtResource("5_5o12h")
+
+[node name="SimpleButton3" parent="MarginContainer" instance=ExtResource("8_o2oi1")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("4_5pux2")
+
 [node name="Foreground" type="MarginContainer" parent="."]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -178,64 +210,69 @@ theme_override_constants/margin_bottom = 10
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Foreground"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Foreground/VBoxContainer2"]
+[node name="Enemies" type="VBoxContainer" parent="Foreground/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 6
+mouse_filter = 2
 theme_override_constants/separation = -20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Foreground/VBoxContainer2/VBoxContainer"]
+[node name="BackRow" type="HBoxContainer" parent="Foreground/VBoxContainer2/Enemies"]
 custom_minimum_size = Vector2(0, 125)
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="EnemyUI" parent="Foreground/VBoxContainer2/VBoxContainer/HBoxContainer" instance=ExtResource("1_o4xl7")]
+[node name="EnemyUI" parent="Foreground/VBoxContainer2/Enemies/BackRow" instance=ExtResource("1_o4xl7")]
 layout_mode = 2
 flip = true
 
-[node name="EnemyUI2" parent="Foreground/VBoxContainer2/VBoxContainer/HBoxContainer" instance=ExtResource("1_o4xl7")]
+[node name="EnemyUI2" parent="Foreground/VBoxContainer2/Enemies/BackRow" instance=ExtResource("1_o4xl7")]
 layout_mode = 2
 
-[node name="EnemyUI3" parent="Foreground/VBoxContainer2/VBoxContainer/HBoxContainer" instance=ExtResource("1_o4xl7")]
+[node name="EnemyUI3" parent="Foreground/VBoxContainer2/Enemies/BackRow" instance=ExtResource("1_o4xl7")]
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Foreground/VBoxContainer2/VBoxContainer"]
+[node name="FrontRow" type="HBoxContainer" parent="Foreground/VBoxContainer2/Enemies"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="EnemyUI" parent="Foreground/VBoxContainer2/VBoxContainer/HBoxContainer2" instance=ExtResource("1_o4xl7")]
+[node name="EnemyUI" parent="Foreground/VBoxContainer2/Enemies/FrontRow" instance=ExtResource("1_o4xl7")]
 layout_mode = 2
 flip = true
 
-[node name="EnemyUI2" parent="Foreground/VBoxContainer2/VBoxContainer/HBoxContainer2" instance=ExtResource("1_o4xl7")]
+[node name="EnemyUI2" parent="Foreground/VBoxContainer2/Enemies/FrontRow" instance=ExtResource("1_o4xl7")]
 layout_mode = 2
 flip = true
 
-[node name="EnemyUI3" parent="Foreground/VBoxContainer2/VBoxContainer/HBoxContainer2" instance=ExtResource("1_o4xl7")]
+[node name="EnemyUI3" parent="Foreground/VBoxContainer2/Enemies/FrontRow" instance=ExtResource("1_o4xl7")]
 layout_mode = 2
 
-[node name="EnemyUI4" parent="Foreground/VBoxContainer2/VBoxContainer/HBoxContainer2" instance=ExtResource("1_o4xl7")]
+[node name="EnemyUI4" parent="Foreground/VBoxContainer2/Enemies/FrontRow" instance=ExtResource("1_o4xl7")]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Foreground/VBoxContainer2"]
+[node name="PCs" type="HBoxContainer" parent="Foreground/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 8
+mouse_filter = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="PCUI" parent="Foreground/VBoxContainer2/HBoxContainer" instance=ExtResource("2_juykk")]
+[node name="PCUI" parent="Foreground/VBoxContainer2/PCs" instance=ExtResource("2_juykk")]
 layout_mode = 2
 flip = true
 
-[node name="PCUI2" parent="Foreground/VBoxContainer2/HBoxContainer" instance=ExtResource("2_juykk")]
+[node name="PCUI2" parent="Foreground/VBoxContainer2/PCs" instance=ExtResource("2_juykk")]
 layout_mode = 2
 flip = true
 
-[node name="PCUI3" parent="Foreground/VBoxContainer2/HBoxContainer" instance=ExtResource("2_juykk")]
+[node name="PCUI3" parent="Foreground/VBoxContainer2/PCs" instance=ExtResource("2_juykk")]
 layout_mode = 2
 
-[node name="PCUI4" parent="Foreground/VBoxContainer2/HBoxContainer" instance=ExtResource("2_juykk")]
+[node name="PCUI4" parent="Foreground/VBoxContainer2/PCs" instance=ExtResource("2_juykk")]
 layout_mode = 2

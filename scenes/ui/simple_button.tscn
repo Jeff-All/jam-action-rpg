@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://dt7xrxget1oi1"]
+
+[ext_resource type="Script" uid="uid://cb0l4j7l6enbb" path="res://scripts/simple_button.gd" id="1_vc683"]
+[ext_resource type="StyleBox" uid="uid://cr2t3b55t18qe" path="res://styles/default.tres" id="2_kjypl"]
+[ext_resource type="StyleBox" uid="uid://bgosnheawb5l3" path="res://styles/hover.tres" id="3_uvaku"]
+[ext_resource type="StyleBox" uid="uid://dfnv38lfibf5s" path="res://styles/down.tres" id="4_14heg"]
+[ext_resource type="Texture2D" uid="uid://djfwsqtggt8wu" path="res://icon.svg" id="5_gcumf"]
+[ext_resource type="Texture2D" uid="uid://bqe4stvcrk1al" path="res://resources/art/icons/play.png" id="6_3ea2e"]
+[ext_resource type="Shader" uid="uid://biuiik7j0v1yi" path="res://shaders/edge_glow.gdshader" id="6_wmf0h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1mr1m"]
+resource_local_to_scene = true
+shader = ExtResource("6_wmf0h")
+shader_parameter/index = 0
+shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 1, 0.84313726, 0, 1, 0.18889248, 0.15262929, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/glow_color = Color(1, 0.5, 0, 1)
+shader_parameter/glow_intensity = 5.0
+shader_parameter/glow_radius = 50.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wmf0h"]
+bg_color = Color(0, 0, 0, 0.74509805)
+
+[node name="SimpleButton" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+script = ExtResource("1_vc683")
+default_color = ExtResource("2_kjypl")
+hover_color = ExtResource("3_uvaku")
+down_color = ExtResource("4_14heg")
+expand_mode = 2
+texture = ExtResource("5_gcumf")
+margin = 5
+
+[node name="TextureRect" type="TextureRect" parent="."]
+clip_children = 2
+material = SubResource("ShaderMaterial_1mr1m")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.90000004
+anchor_bottom = 0.90000004
+mouse_filter = 2
+texture = ExtResource("6_3ea2e")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Disabled" type="Panel" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_wmf0h")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

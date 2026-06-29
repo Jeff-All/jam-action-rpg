@@ -1,9 +1,18 @@
 class_name PartyBuilder
 
-extends PanelContainer
+extends Control
 
 signal on_finish(characters: Array[CharacterBase])
 signal on_cancel()
+
+@export var shadow_offsets: Dictionary[String, Vector2] = {
+	"Race" = Vector2.ZERO,
+	"Class" = Vector2.ZERO,
+	"Ability" = Vector2.ZERO,
+	"Trait" = Vector2.ZERO,
+	"Weapon" = Vector2.ZERO,
+	"Armor" = Vector2.ZERO,
+}
 
 var character_start_options: CharacterStartOptions
 
@@ -11,16 +20,23 @@ var builders: Array[CharacterBuilder]
 
 var character_count: int
 
-func _ready():
-	$GridSelector.on_selected.connect(_on_grid_selector_selected)
-	
-	$MarginContainer/Footer/Cancel.disabled = false
-	$MarginContainer/Footer/Continue.disabled = false
+var grid_selector: GridSelector
+var cancel: SimpleButton
+var continue_: SimpleButton
+var menu: SimpleButton
 
-	for cur in $MarginContainer/Builders.get_children() :
+func _ready():
+	grid_selector = $GridSelector
+	cancel = $BorderButtons/Margin/BottomLeft/Cancel
+	continue_ = $BorderButtons/Margin/BottomRight/Continue
+	menu = $BorderButtons/Margin/TopLeft/Menu
+	
+	cancel.disabled = false
+	cancel.disabled = false
+
+	for cur in $Builders.get_children() :
 		builders.append(cur)
 		cur.visible = false
-		cur.on_slot_button_pressed.connect(_on_slot_button_pressed)
 
 func start(_character_start_options: CharacterStartOptions):
 	character_start_options = _character_start_options
@@ -38,7 +54,7 @@ func show_builders(count: int):
 	while index < character_count:
 		builders[index].activate()
 		index += 1
-	$MarginContainer/Footer/Continue.disabled = !check_if_ready()
+	continue_.disabled = !check_if_ready()
 
 var cur_character_builder: CharacterBuilder
 var cur_slot_button: SlotButton
@@ -51,21 +67,21 @@ func _on_slot_button_pressed(character_builder: CharacterBuilder, slot_button: S
 	
 	match slot_button.category:
 		"Race":
-			$GridSelector.fill(character_start_options.races, character_builder.race.value, true)
+			grid_selector.fill(character_start_options.races, character_builder.race.value, true, shadow_offsets["Race"])
 		"Class":
-			$GridSelector.fill(character_start_options.classes, character_builder._class.value, true)
+			grid_selector.fill(character_start_options.classes, character_builder._class.value, true, shadow_offsets["Class"])
 		"Ability":
-			$GridSelector.fill(character_start_options.abilities, character_builder.ability.value, true)
+			grid_selector.fill(character_start_options.abilities, character_builder.ability.value, true, shadow_offsets["Ability"])
 		"Trait":
-			$GridSelector.fill(character_start_options.traits, character_builder._trait.value, true)
+			grid_selector.fill(character_start_options.traits, character_builder._trait.value, true, shadow_offsets["Trait"])
 		"Weapon":
-			$GridSelector.fill(character_start_options.weapons, character_builder.weapon.value, true)
+			grid_selector.fill(character_start_options.weapons, character_builder.weapon.value, true, shadow_offsets["Weapon"])
 		"Armor":
-			$GridSelector.fill(character_start_options.armor, character_builder.armor.value, true)
+			grid_selector.fill(character_start_options.armor, character_builder.armor.value, true, shadow_offsets["Armor"])
 
 func _on_grid_selector_selected(value):
 	cur_slot_button.fill(value)
-	$MarginContainer/Footer/Continue.disabled = !check_if_ready()
+	continue_.disabled = !check_if_ready()
 
 func check_if_ready() -> bool:
 	for cur_index in character_count:

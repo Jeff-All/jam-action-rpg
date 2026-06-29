@@ -1,49 +1,84 @@
-[gd_scene load_steps=13 format=3 uid="uid://c44dc5jjppk6i"]
+[gd_scene load_steps=21 format=3 uid="uid://c44dc5jjppk6i"]
 
 [ext_resource type="Script" uid="uid://dbde2goirt2i8" path="res://scripts/character/character_pane.gd" id="1_3d36p"]
 [ext_resource type="PackedScene" uid="uid://bd3fgvk1uqbpx" path="res://scenes/character/character_portrait.tscn" id="1_glew1"]
-[ext_resource type="PackedScene" uid="uid://dt7xrxget1oi1" path="res://scenes/simple_button.tscn" id="2_ne0ed"]
+[ext_resource type="PackedScene" uid="uid://dt7xrxget1oi1" path="res://scenes/ui/simple_button.tscn" id="2_ne0ed"]
 [ext_resource type="PackedScene" uid="uid://ydtaidvhl1rc" path="res://scenes/slot_button.tscn" id="2_nt3wi"]
+[ext_resource type="Texture2D" uid="uid://db6oyp3rjqasp" path="res://resources/art/textures/starry_night.png" id="2_uv47x"]
 [ext_resource type="Texture2D" uid="uid://bq7xxvg6tybaa" path="res://resources/art/icons/arrow_up.png" id="3_3d36p"]
 [ext_resource type="Texture2D" uid="uid://broco6v7r6cwx" path="res://resources/art/icons/roman_1.png" id="5_h0okm"]
 [ext_resource type="Texture2D" uid="uid://86a4oicwr0k7" path="res://resources/art/icons/2.png" id="6_e33wu"]
 [ext_resource type="Texture2D" uid="uid://po1k50ywu7pm" path="res://resources/art/icons/keybinds/1.png" id="6_fnp4r"]
+[ext_resource type="Texture2D" uid="uid://dtplaun3uefj5" path="res://resources/art/icons/scroll_wide.png" id="6_s1hac"]
 [ext_resource type="Texture2D" uid="uid://cfncedu3ts6rh" path="res://resources/art/icons/3.png" id="8_h0okm"]
 [ext_resource type="Texture2D" uid="uid://dob2fb3cc7w07" path="res://resources/art/icons/4.png" id="9_gpn84"]
+[ext_resource type="PackedScene" uid="uid://bpf4iur8muk4k" path="res://scenes/ui/frame.tscn" id="12_uv47x"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ycxt1"]
-bg_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8kavs"]
+texture = ExtResource("2_uv47x")
+expand_margin_right = 55.0
+expand_margin_bottom = 10.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ach8"]
-bg_color = Color(0.18359044, 0.18359047, 0.18359032, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lyufh"]
 
-[node name="CharacterPane" type="PanelContainer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -85.0
-offset_top = -85.0
-offset_right = 85.0
-offset_bottom = 85.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uv47x"]
+texture = ExtResource("6_s1hac")
+expand_margin_left = 55.0
+expand_margin_top = 40.0
+expand_margin_right = 55.0
+expand_margin_bottom = 30.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_66eaw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s1hac"]
+texture = ExtResource("6_s1hac")
+expand_margin_left = 55.0
+expand_margin_top = 40.0
+expand_margin_right = 55.0
+expand_margin_bottom = 30.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wm7uc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4ndoq"]
+texture = ExtResource("6_s1hac")
+expand_margin_left = 55.0
+expand_margin_top = 40.0
+expand_margin_right = 55.0
+expand_margin_bottom = 30.0
+
+[node name="CharacterPane" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_ycxt1")
 script = ExtResource("1_3d36p")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+[node name="MarginContainer" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.20209375
+anchor_top = 0.16700001
+anchor_right = 0.76953125
+anchor_bottom = 0.79625
+offset_left = 0.32000732
+offset_top = 0.3999939
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_7ach8")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.014
+anchor_bottom = 1.028
+offset_left = 2.0
+offset_top = 5.0
+offset_right = -0.1640625
+offset_bottom = -0.083984375
+theme_override_styles/panel = SubResource("StyleBoxTexture_8kavs")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
 layout_mode = 2
@@ -54,6 +89,7 @@ theme_override_constants/margin_bottom = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 55
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(250, 0)
@@ -62,6 +98,7 @@ layout_mode = 2
 [node name="CharacterPortrait" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("1_glew1")]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
+size_flags_vertical = 8
 
 [node name="LevelUp" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/CharacterPortrait" instance=ExtResource("2_ne0ed")]
 custom_minimum_size = Vector2(50, 50)
@@ -80,392 +117,398 @@ texture = ExtResource("5_h0okm")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="TabContainer" type="TabContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 10
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
 tab_alignment = 1
 current_tab = 0
 
-[node name="Stats" type="GridContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer"]
+[node name="Stats" type="GridContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer"]
 layout_mode = 2
 columns = 3
 metadata/_tab_index = 0
 
-[node name="Strength" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats"]
+[node name="Strength" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Strength"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Strength"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Strength/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Strength/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Strength/MarginContainer/VBoxContainer"]
+[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Strength/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Strength"
 horizontal_alignment = 1
 
-[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Strength/MarginContainer/VBoxContainer"]
+[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Strength/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "1"
 horizontal_alignment = 1
 
-[node name="Agility" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats"]
+[node name="Agility" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Agility"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Agility"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Agility/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Agility/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Agility/MarginContainer/VBoxContainer"]
+[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Agility/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Agility"
 horizontal_alignment = 1
 
-[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Agility/MarginContainer/VBoxContainer"]
+[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Agility/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "1"
 horizontal_alignment = 1
 
-[node name="Magic" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats"]
+[node name="Magic" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Magic"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Magic"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Magic/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Magic/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Magic/MarginContainer/VBoxContainer"]
+[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Magic/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Magic"
 horizontal_alignment = 1
 
-[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Magic/MarginContainer/VBoxContainer"]
+[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Magic/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "1"
 horizontal_alignment = 1
 
-[node name="Health" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats"]
+[node name="Health" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Health"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Health"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Health/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Health/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Health/MarginContainer/VBoxContainer"]
+[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Health/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Health"
 horizontal_alignment = 1
 
-[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Health/MarginContainer/VBoxContainer"]
+[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Health/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "10"
 horizontal_alignment = 1
 
-[node name="Stamina" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats"]
+[node name="Stamina" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Stamina"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Stamina"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Stamina/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Stamina/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Stamina/MarginContainer/VBoxContainer"]
+[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Stamina/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Stamina"
 horizontal_alignment = 1
 
-[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Stamina/MarginContainer/VBoxContainer"]
+[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Stamina/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "5 + 1"
 horizontal_alignment = 1
 
-[node name="Mana" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats"]
+[node name="Mana" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Mana"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Mana"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Mana/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Mana/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Mana/MarginContainer/VBoxContainer"]
+[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Mana/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Mana"
 horizontal_alignment = 1
 
-[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Mana/MarginContainer/VBoxContainer"]
+[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Mana/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "5"
 horizontal_alignment = 1
 
-[node name="Defense" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats"]
+[node name="Defense" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Defense"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Defense"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Defense/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Defense/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Defense/MarginContainer/VBoxContainer"]
+[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Defense/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Defense"
 horizontal_alignment = 1
 
-[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Defense/MarginContainer/VBoxContainer"]
+[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Defense/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "5"
 horizontal_alignment = 1
 
-[node name="Armor" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats"]
+[node name="Armor" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Armor"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Armor"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Armor/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Armor/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Armor/MarginContainer/VBoxContainer"]
+[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Armor/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Armor"
 horizontal_alignment = 1
 
-[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Armor/MarginContainer/VBoxContainer"]
+[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Armor/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "5"
 horizontal_alignment = 1
 
-[node name="Durability" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats"]
+[node name="Durability" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Durability"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Durability"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Durability/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Durability/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Durability/MarginContainer/VBoxContainer"]
+[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Durability/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Durability"
 horizontal_alignment = 1
 
-[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Durability/MarginContainer/VBoxContainer"]
+[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Durability/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "5"
 horizontal_alignment = 1
 
-[node name="Attack" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats"]
+[node name="Attack" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Attack"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Attack"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Attack/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Attack/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Attack/MarginContainer/VBoxContainer"]
+[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Attack/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Attack"
 horizontal_alignment = 1
 
-[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Attack/MarginContainer/VBoxContainer"]
+[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Attack/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "5"
 horizontal_alignment = 1
 
-[node name="Crit" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats"]
+[node name="Crit" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Crit"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Crit"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Crit/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Crit/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Crit/MarginContainer/VBoxContainer"]
+[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Crit/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Crit"
 horizontal_alignment = 1
 
-[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Crit/MarginContainer/VBoxContainer"]
+[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Crit/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "5"
 horizontal_alignment = 1
 
-[node name="Speed" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats"]
+[node name="Speed" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Speed"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Speed"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Speed/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Speed/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Speed/MarginContainer/VBoxContainer"]
+[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Speed/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Speed"
 horizontal_alignment = 1
 
-[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Stats/Speed/MarginContainer/VBoxContainer"]
+[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Stats/Speed/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "5"
 horizontal_alignment = 1
 
-[node name="Resistances" type="GridContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer"]
+[node name="Resistances" type="GridContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer"]
 visible = false
 layout_mode = 2
 columns = 3
 metadata/_tab_index = 1
 
-[node name="Slashing" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Resistances"]
+[node name="Slashing" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Resistances"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Resistances/Slashing"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Resistances/Slashing"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Resistances/Slashing/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Resistances/Slashing/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Resistances/Slashing/MarginContainer/VBoxContainer"]
+[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Resistances/Slashing/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Slashing"
 horizontal_alignment = 1
 
-[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Resistances/Slashing/MarginContainer/VBoxContainer"]
+[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Resistances/Slashing/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "0"
 horizontal_alignment = 1
 
-[node name="Blunt" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Resistances"]
+[node name="Blunt" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Resistances"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Resistances/Blunt"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Resistances/Blunt"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Resistances/Blunt/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Resistances/Blunt/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Resistances/Blunt/MarginContainer/VBoxContainer"]
+[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Resistances/Blunt/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Blunt"
 horizontal_alignment = 1
 
-[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Resistances/Blunt/MarginContainer/VBoxContainer"]
+[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Resistances/Blunt/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "0"
 horizontal_alignment = 1
 
-[node name="Piercing" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Resistances"]
+[node name="Piercing" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Resistances"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Resistances/Piercing"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Resistances/Piercing"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_right = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Resistances/Piercing/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Resistances/Piercing/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Resistances/Piercing/MarginContainer/VBoxContainer"]
+[node name="Strength" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Resistances/Piercing/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Piercing"
 horizontal_alignment = 1
 
-[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/Resistances/Piercing/MarginContainer/VBoxContainer"]
+[node name="Strength2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TabContainer/Resistances/Piercing/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "0"
@@ -473,70 +516,97 @@ horizontal_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 19
 
 [node name="PanelContainer4" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_lyufh")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer"]
 layout_mode = 2
-alignment = 1
+theme_override_constants/separation = 14
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer4"]
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0.21568628, 0.21568628, 0.21568628, 0.6745098)
 text = "Race"
 horizontal_alignment = 1
 
-[node name="Race" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer4" instance=ExtResource("2_nt3wi")]
+[node name="Label2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-category = "race"
-
-[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer3"]
-layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.47058824)
 text = "Class"
 horizontal_alignment = 1
 
-[node name="Class" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer3" instance=ExtResource("2_nt3wi")]
+[node name="Label3" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-category = "class"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer"]
-layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.50980395)
 text = "Weapon"
 horizontal_alignment = 1
 
-[node name="Weapon" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer" instance=ExtResource("2_nt3wi")]
+[node name="Label4" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-category = "weapon"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer2"]
-layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5019608)
 text = "Armor"
 horizontal_alignment = 1
 
-[node name="Armor" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer2" instance=ExtResource("2_nt3wi")]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_uv47x")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Race" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer2/VBoxContainer4" instance=ExtResource("2_nt3wi")]
+layout_mode = 2
+shadow_offset = Vector2(0.1, -0.1)
+category = "race"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Class" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer2/VBoxContainer3" instance=ExtResource("2_nt3wi")]
+layout_mode = 2
+shadow_offset = Vector2(0.1, -0.1)
+category = "class"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Weapon" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer2/VBoxContainer" instance=ExtResource("2_nt3wi")]
+layout_mode = 2
+shadow_offset = Vector2(0.3, -0.1)
+category = "weapon"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="Armor" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer2/VBoxContainer2" instance=ExtResource("2_nt3wi")]
+layout_mode = 2
+shadow_offset = Vector2(0.1, -0.1)
 category = "armor"
 
 [node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_66eaw")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2"]
 layout_mode = 2
@@ -546,83 +616,93 @@ theme_override_constants/margin_bottom = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 14
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "Abilities"
 horizontal_alignment = 1
 
-[node name="Abilities" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_s1hac")
+
+[node name="Abilities" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Ability" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities" instance=ExtResource("2_nt3wi")]
+[node name="Ability" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/Abilities" instance=ExtResource("2_nt3wi")]
 layout_mode = 2
+shadow_offset = Vector2(0.1, -0.1)
 category = "ability"
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities/Ability"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/Abilities/Ability"]
 custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
+layout_mode = 0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 
-[node name="Keybind1" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities/Ability/MarginContainer2"]
+[node name="Keybind1" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/Abilities/Ability/MarginContainer2"]
 layout_mode = 2
 texture = ExtResource("6_fnp4r")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Ability2" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities" instance=ExtResource("2_nt3wi")]
+[node name="Ability2" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/Abilities" instance=ExtResource("2_nt3wi")]
 layout_mode = 2
+shadow_offset = Vector2(0.1, -0.1)
 category = "ability"
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities/Ability2"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/Abilities/Ability2"]
 custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
+layout_mode = 0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 
-[node name="Keybind2" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities/Ability2/MarginContainer2"]
+[node name="Keybind2" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/Abilities/Ability2/MarginContainer2"]
 layout_mode = 2
 texture = ExtResource("6_e33wu")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Ability3" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities" instance=ExtResource("2_nt3wi")]
+[node name="Ability3" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/Abilities" instance=ExtResource("2_nt3wi")]
 layout_mode = 2
+shadow_offset = Vector2(0.1, -0.1)
 category = "ability"
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities/Ability3"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/Abilities/Ability3"]
 custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
+layout_mode = 0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 
-[node name="Keybind3" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities/Ability3/MarginContainer2"]
+[node name="Keybind3" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/Abilities/Ability3/MarginContainer2"]
 layout_mode = 2
 texture = ExtResource("8_h0okm")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="Ability4" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities" instance=ExtResource("2_nt3wi")]
+[node name="Ability4" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/Abilities" instance=ExtResource("2_nt3wi")]
 layout_mode = 2
+shadow_offset = Vector2(0.1, -0.1)
 category = "ability"
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities/Ability4"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/Abilities/Ability4"]
 custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
+layout_mode = 0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/margin_left = 12
 theme_override_constants/margin_top = 12
 
-[node name="Keybind4" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities/Ability4/MarginContainer2"]
+[node name="Keybind4" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/Abilities/Ability4/MarginContainer2"]
 layout_mode = 2
 texture = ExtResource("9_gpn84")
 expand_mode = 2
@@ -630,6 +710,7 @@ stretch_mode = 4
 
 [node name="PanelContainer5" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_wm7uc")
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5"]
 layout_mode = 2
@@ -639,41 +720,65 @@ theme_override_constants/margin_bottom = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 14
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
 text = "Traits"
 horizontal_alignment = 1
 
-[node name="Traits" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4ndoq")
+
+[node name="Traits" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Trait1" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer/VBoxContainer/Traits" instance=ExtResource("2_nt3wi")]
+[node name="Trait1" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer/VBoxContainer/PanelContainer/Traits" instance=ExtResource("2_nt3wi")]
 layout_mode = 2
+shadow_offset = Vector2(0.1, -0.1)
 category = "trait"
 
-[node name="Trait2" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer/VBoxContainer/Traits" instance=ExtResource("2_nt3wi")]
+[node name="Trait2" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer/VBoxContainer/PanelContainer/Traits" instance=ExtResource("2_nt3wi")]
 layout_mode = 2
+shadow_offset = Vector2(0.1, -0.1)
 category = "trait"
 
-[node name="Trait3" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer/VBoxContainer/Traits" instance=ExtResource("2_nt3wi")]
+[node name="Trait3" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer/VBoxContainer/PanelContainer/Traits" instance=ExtResource("2_nt3wi")]
 layout_mode = 2
+shadow_offset = Vector2(0.1, -0.1)
 category = "trait"
 
-[node name="Trait4" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer/VBoxContainer/Traits" instance=ExtResource("2_nt3wi")]
+[node name="Trait4" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer/VBoxContainer/PanelContainer/Traits" instance=ExtResource("2_nt3wi")]
 layout_mode = 2
+shadow_offset = Vector2(0.1, -0.1)
 category = "trait"
 
-[connection signal="on_pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer4/Race" to="." method="_on_weapon_pressed"]
-[connection signal="on_pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer3/Class" to="." method="_on_weapon_pressed"]
-[connection signal="on_pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer/Weapon" to="." method="_on_weapon_pressed"]
-[connection signal="on_pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/HBoxContainer2/VBoxContainer2/Armor" to="." method="_on_armor_pressed"]
-[connection signal="on_pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities/Ability" to="." method="_on_ability_pressed" binds= [0]]
-[connection signal="on_pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities/Ability2" to="." method="_on_ability_pressed" binds= [1]]
-[connection signal="on_pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities/Ability3" to="." method="_on_ability_pressed" binds= [2]]
-[connection signal="on_pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/Abilities/Ability4" to="." method="_on_ability_pressed" binds= [3]]
-[connection signal="on_pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer/VBoxContainer/Traits/Trait1" to="." method="_on_trait_pressed" binds= [0]]
-[connection signal="on_pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer/VBoxContainer/Traits/Trait2" to="." method="_on_trait_pressed" binds= [1]]
-[connection signal="on_pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer/VBoxContainer/Traits/Trait3" to="." method="_on_trait_pressed" binds= [2]]
-[connection signal="on_pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer/VBoxContainer/Traits/Trait4" to="." method="_on_trait_pressed" binds= [3]]
+[node name="Frame" parent="MarginContainer" instance=ExtResource("12_uv47x")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.019000001
+anchor_top = 0.010000001
+anchor_right = 1.08
+anchor_bottom = 1.044
+offset_left = -0.20599937
+offset_top = -0.03000021
+offset_right = 10.919983
+offset_bottom = -0.13201904
+grow_horizontal = 1
+grow_vertical = 1
+
+[connection signal="on_pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer2/VBoxContainer4/Race" to="." method="_on_weapon_pressed"]
+[connection signal="on_pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer2/VBoxContainer3/Class" to="." method="_on_weapon_pressed"]
+[connection signal="on_pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer2/VBoxContainer/Weapon" to="." method="_on_weapon_pressed"]
+[connection signal="on_pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer4/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer2/VBoxContainer2/Armor" to="." method="_on_armor_pressed"]
+[connection signal="on_pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/Abilities/Ability" to="." method="_on_ability_pressed" binds= [0]]
+[connection signal="on_pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/Abilities/Ability2" to="." method="_on_ability_pressed" binds= [1]]
+[connection signal="on_pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/Abilities/Ability3" to="." method="_on_ability_pressed" binds= [2]]
+[connection signal="on_pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer2/MarginContainer/VBoxContainer/PanelContainer/Abilities/Ability4" to="." method="_on_ability_pressed" binds= [3]]
+[connection signal="on_pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer/VBoxContainer/PanelContainer/Traits/Trait1" to="." method="_on_trait_pressed" binds= [0]]
+[connection signal="on_pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer/VBoxContainer/PanelContainer/Traits/Trait2" to="." method="_on_trait_pressed" binds= [1]]
+[connection signal="on_pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer/VBoxContainer/PanelContainer/Traits/Trait3" to="." method="_on_trait_pressed" binds= [2]]
+[connection signal="on_pressed" from="MarginContainer/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer2/PanelContainer5/MarginContainer/VBoxContainer/PanelContainer/Traits/Trait4" to="." method="_on_trait_pressed" binds= [3]]

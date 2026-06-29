@@ -1,15 +1,51 @@
-[gd_scene load_steps=11 format=3 uid="uid://037e7762g8o5"]
+[gd_scene load_steps=21 format=3 uid="uid://037e7762g8o5"]
 
 [ext_resource type="Script" uid="uid://cm21w6e540lsb" path="res://scripts/campaign/battle_selector.gd" id="1_aiq3r"]
-[ext_resource type="PackedScene" uid="uid://dt7xrxget1oi1" path="res://scenes/simple_button.tscn" id="1_risrf"]
+[ext_resource type="PackedScene" uid="uid://dt7xrxget1oi1" path="res://scenes/ui/simple_button.tscn" id="1_risrf"]
 [ext_resource type="PackedScene" uid="uid://b4375hi4q7yw6" path="res://scenes/campaign/battle_preview.tscn" id="2_f27e7"]
 [ext_resource type="Texture2D" uid="uid://p3xr1lkek1g2" path="res://resources/art/icons/red_x.png" id="2_mvwpo"]
+[ext_resource type="Texture2D" uid="uid://c87uvrk0xfvw" path="res://resources/art/icons/backgrounds/forest_floor_dirt.png" id="2_oduct"]
+[ext_resource type="Texture2D" uid="uid://dxy6bty10o4xp" path="res://resources/art/textures/slate_brick.png" id="2_xa3m4"]
+[ext_resource type="PackedScene" uid="uid://bpf4iur8muk4k" path="res://scenes/ui/frame.tscn" id="3_k43hd"]
 [ext_resource type="Texture2D" uid="uid://4npqraahuiy7" path="res://resources/art/icons/crossed_swords.png" id="3_mvwpo"]
 [ext_resource type="Texture2D" uid="uid://c2lquyfnc7a7i" path="res://resources/art/icons/party.png" id="4_mvwpo"]
-[ext_resource type="Texture2D" uid="uid://5c2u3odxao1e" path="res://resources/art/icons/left_arrow.png" id="5_mvwpo"]
-[ext_resource type="Texture2D" uid="uid://dke5e2aex1x4n" path="res://resources/art/icons/right_arrow.png" id="6_mvwpo"]
 [ext_resource type="Texture2D" uid="uid://csukt2oof5ev2" path="res://resources/art/icons/menu_scroll.png" id="9_f27e7"]
+[ext_resource type="Texture2D" uid="uid://riisrric5105" path="res://resources/art/icons/arrow_right_b.png" id="9_k43hd"]
 [ext_resource type="PackedScene" uid="uid://c1pufg0fwx42a" path="res://scenes/ui/border_buttons.tscn" id="9_oduct"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2mpvy"]
+texture = ExtResource("2_xa3m4")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xa3m4"]
+bg_color = Color(0, 0, 0, 0.5294118)
+
+[sub_resource type="Gradient" id="Gradient_xa3m4"]
+offsets = PackedFloat32Array(0.78504676, 1)
+colors = PackedColorArray(0, 0, 0, 0.19626169, 0, 0, 0, 0.6627451)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xa3m4"]
+gradient = SubResource("Gradient_xa3m4")
+fill = 1
+fill_from = Vector2(0.525641, 0.48290598)
+fill_to = Vector2(0.94871795, 0.094017096)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q67dj"]
+texture = SubResource("GradientTexture2D_xa3m4")
+
+[sub_resource type="Gradient" id="Gradient_k43hd"]
+offsets = PackedFloat32Array(0.5420561, 0.96728975, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.9098039, 0, 0, 0, 0.5294118)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2mpvy"]
+gradient = SubResource("Gradient_k43hd")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xa3m4"]
+texture = SubResource("GradientTexture2D_2mpvy")
 
 [node name="BattleSelector" type="Control"]
 layout_mode = 3
@@ -19,6 +55,75 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_aiq3r")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2mpvy")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.115
+anchor_top = 0.14500001
+anchor_right = 0.855
+anchor_bottom = 0.855
+offset_left = -0.19999695
+offset_right = 0.5999756
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xa3m4")
+
+[node name="Background2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Background2"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_q67dj")
+
+[node name="Panel2" type="PanelContainer" parent="Background2"]
+visible = false
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xa3m4")
+
+[node name="Background" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.15
+anchor_top = 0.15
+anchor_right = 0.85
+anchor_bottom = 0.8
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+layout_mode = 2
+texture = ExtResource("2_oduct")
+expand_mode = 2
+
+[node name="Panel" type="PanelContainer" parent="Background"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xa3m4")
+
+[node name="Panel2" type="PanelContainer" parent="Background"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xa3m4")
+
+[node name="Frame" parent="Background" instance=ExtResource("3_k43hd")]
+layout_mode = 2
 
 [node name="BattlePreview" parent="." instance=ExtResource("2_f27e7")]
 layout_mode = 1
@@ -33,58 +138,43 @@ layout_mode = 1
 
 [node name="Menu" parent="BorderButtons/Margin/TopLeft" index="0" instance=ExtResource("1_risrf")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 0.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = ExtResource("9_f27e7")
 
-[node name="Continue" parent="BorderButtons/Margin/BottomRight" index="0" instance=ExtResource("1_risrf")]
+[node name="StartBattle" parent="BorderButtons/Margin/BottomRight" index="0" instance=ExtResource("1_risrf")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 0.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 texture = ExtResource("3_mvwpo")
 
 [node name="Cancel" parent="BorderButtons/Margin/BottomLeft" index="0" instance=ExtResource("1_risrf")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 0.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 texture = ExtResource("2_mvwpo")
 
 [node name="Party" parent="BorderButtons/Margin/Bottom" index="0" instance=ExtResource("1_risrf")]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+size_flags_horizontal = 4
 texture = ExtResource("4_mvwpo")
 metadata/_edit_use_anchors_ = true
 
 [node name="Left" parent="BorderButtons/Margin/Left" index="0" instance=ExtResource("1_risrf")]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+flip_h = true
 expand_mode = 4
-texture = ExtResource("5_mvwpo")
+texture = ExtResource("9_k43hd")
 
 [node name="Right" parent="BorderButtons/Margin/Right" index="0" instance=ExtResource("1_risrf")]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 expand_mode = 4
-texture = ExtResource("6_mvwpo")
+texture = ExtResource("9_k43hd")
 
+[connection signal="on_pressed" from="BorderButtons/Margin/BottomRight/StartBattle" to="." method="_on_start_battle_pressed"]
 [connection signal="on_pressed" from="BorderButtons/Margin/Bottom/Party" to="." method="_on_party_pressed"]
 [connection signal="on_pressed" from="BorderButtons/Margin/Left/Left" to="." method="_on_left_pressed"]
 [connection signal="on_pressed" from="BorderButtons/Margin/Right/Right" to="." method="_on_right_pressed"]
