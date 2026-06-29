@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://blb7ngr3xoa6s"]
 
 [ext_resource type="Texture2D" uid="uid://c87uvrk0xfvw" path="res://resources/art/icons/backgrounds/forest_floor_dirt.png" id="1_c7ond"]
-[ext_resource type="Script" uid="uid://x28uinci7ftm" path="res://scripts/campaign/battle.gd" id="1_lo4kw"]
+[ext_resource type="Script" uid="uid://x28uinci7ftm" path="res://scripts/campaign/battle_ui.gd" id="1_lo4kw"]
 [ext_resource type="PackedScene" uid="uid://jv3ix0yuq18c" path="res://scenes/campaign/enemy_ui.tscn" id="1_o4xl7"]
 [ext_resource type="Texture2D" uid="uid://cmldrfu1wpthu" path="res://resources/art/icons/planks.png" id="2_c6bip"]
 [ext_resource type="PackedScene" uid="uid://mwr6ui02sg5q" path="res://scenes/campaign/pcui.tscn" id="2_juykk"]

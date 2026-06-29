@@ -14,20 +14,7 @@ func _init(_index: int):
 	index = _index
 
 func get_character_campaign(attack: Ability) -> CharacterCampaign:
-	var character = CharacterCampaign.new(self)
-	
-	character.race = race
-	character._class = class_
-	character.armor = armor
-	character.weapon = weapon
-	character.traits[0] = trait_
-	character.available_traits.append(trait_)
-	character.abilities[0] = attack
-	character.available_abilities.append(attack)
-	character.abilities[1] = ability
-	character.available_abilities.append(ability)
-	
-	return character
+	return CharacterCampaign.new(self, attack)
 
 func _to_string() -> String:
 	return "Race: %s\nClass: %s\nAbility: %s\nTrait: %s\nWeapon: %s\nArmor: %s" %[

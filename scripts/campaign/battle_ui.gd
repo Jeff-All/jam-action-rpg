@@ -1,4 +1,4 @@
-class_name Battle
+class_name BattleUI
 
 extends Control
 
@@ -7,8 +7,7 @@ var back_row: Array[EnemyUI]
 
 var pcs: Array[PCUI]
 
-var battle_options: BattleOptions
-var campaign: Campaign
+var battle: Battle
 
 func _ready():
 	for cur in $Foreground/VBoxContainer2/Enemies/FrontRow.get_children():
@@ -20,17 +19,15 @@ func _ready():
 	for cur in $Foreground/VBoxContainer2/PCs.get_children():
 		pcs.append(cur)
 
-func setup_battle(_campaign: Campaign, _battle_options: BattleOptions):
-	battle_options = _battle_options
-	campaign = _campaign
-	
+func setup_battle(_battle: Battle):
+	battle = _battle
 	setup_enemies()
 	setup_party()
 
 func setup_enemies():
 	hide_enemies()
-	setup_enemy_row(front_row, battle_options.front_row)
-	setup_enemy_row(back_row, battle_options.back_row)
+	setup_enemy_row(front_row, battle.options.front_row)
+	setup_enemy_row(back_row, battle.options.back_row)
 
 func hide_enemies():
 	for cur in front_row:
@@ -50,7 +47,7 @@ func setup_enemy_row(row: Array[EnemyUI], enemies: Array[Enemy]):
 func setup_party():
 	hide_pcs()
 	var index = 0
-	for cur in campaign.party:
+	for cur in battle.party:
 		if index > pcs.size():
 			break
 		pcs[index].character = cur

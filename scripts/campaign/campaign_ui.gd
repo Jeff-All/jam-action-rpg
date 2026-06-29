@@ -5,7 +5,7 @@ extends MarginContainer
 var campaign: Campaign
 
 var battle_selector
-var battle: Battle
+var battle: BattleUI
 var post_battle
 var party: Party
 
@@ -47,7 +47,10 @@ func _party_on_close_pressed():
 	battle_selector.visible = true
 
 func _battle_selector_on_start_battle_pressed(battle_options: BattleOptions):
-	battle.setup_battle(campaign, battle_options)
+	var _battle = Battle.new()
+	_battle.build(campaign, battle_options)
+	
+	battle.setup_battle(_battle)
 	
 	battle_selector.visible = false
 	battle.visible = true

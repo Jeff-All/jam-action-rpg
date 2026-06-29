@@ -18,6 +18,7 @@ var _health: StatusBar
 var _durability: StatusBar
 var _stamina: StatusBar
 var _mana: StatusBar
+var _width: float
 
 var width: float:
 	set(value):
@@ -26,6 +27,11 @@ var width: float:
 			value = value - fmod(value, 5.0)
 		$PanelContainer/MarginContainer/VBoxContainer.custom_minimum_size.x = value
 		$PanelContainer/MarginContainer/VBoxContainer.size.x = value
+		_width = value
+		_health._width = value
+		_durability._width = value
+		_stamina._width = value
+		_mana._width = value
 		print("status_bars.width: %s" % [value])
 
 var max_health: int:

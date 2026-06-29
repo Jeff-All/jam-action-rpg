@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cg1iao7epd626"]
+[gd_scene load_steps=47 format=3 uid="uid://cg1iao7epd626"]
 
 [ext_resource type="PackedScene" uid="uid://bqcwysj7k47nt" path="res://scenes/campaign_builder/campaign_builder.tscn" id="1_aynem"]
 [ext_resource type="Script" uid="uid://cnwml0lyyhakx" path="res://scripts/master.gd" id="1_rnotf"]
@@ -28,12 +28,8 @@
 [ext_resource type="Resource" uid="uid://cd52scvecilnt" path="res://resources/classes/class_warrior.tres" id="13_tlk8g"]
 [ext_resource type="Script" uid="uid://bkijfvdnaky5k" path="res://scripts/resources/race.gd" id="14_ldavi"]
 [ext_resource type="Resource" uid="uid://dvlqijcfj3j2s" path="res://resources/races/race_elf.tres" id="15_u1ulu"]
-[ext_resource type="Resource" uid="uid://dxt4dciegeqdg" path="res://resources/races/race_orc.tres" id="16_vh1kk"]
 [ext_resource type="Resource" uid="uid://mdah4yhpnsiw" path="res://resources/races/race_dwarf.tres" id="17_lrpk2"]
-[ext_resource type="Resource" uid="uid://gy5es324hwyb" path="res://resources/races/race_gnome.tres" id="18_d3sbb"]
-[ext_resource type="Resource" uid="uid://cchko18dgvfq7" path="res://resources/races/race_human.tres" id="19_78er0"]
 [ext_resource type="Resource" uid="uid://m4doyb4kcxlp" path="res://resources/races/race_pixie.tres" id="20_eyp33"]
-[ext_resource type="Resource" uid="uid://bcadhmd54aq7u" path="res://resources/races/race_lizardfolk.tres" id="21_kqygu"]
 [ext_resource type="Script" uid="uid://b0rrnk75kj3xv" path="res://scripts/resources/characters/character_start_options.gd" id="22_ji3d4"]
 [ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/trait.gd" id="23_xwj8g"]
 [ext_resource type="Resource" uid="uid://dl3c2od1ni3sf" path="res://resources/trait/agile.tres" id="24_e1kxq"]
@@ -64,13 +60,13 @@ metadata/_custom_type_script = "uid://b2hvd7p2gcqwk"
 
 [sub_resource type="Resource" id="Resource_2vh21"]
 script = ExtResource("22_ji3d4")
-races = Array[ExtResource("14_ldavi")]([ExtResource("15_u1ulu"), ExtResource("16_vh1kk"), ExtResource("17_lrpk2"), ExtResource("18_d3sbb"), ExtResource("19_78er0"), ExtResource("20_eyp33"), ExtResource("21_kqygu")])
+races = Array[ExtResource("14_ldavi")]([ExtResource("15_u1ulu"), ExtResource("17_lrpk2"), ExtResource("20_eyp33")])
 classes = Array[ExtResource("9_rdsyc")]([ExtResource("10_so25y"), ExtResource("11_4vi31"), ExtResource("12_jgajy"), ExtResource("13_tlk8g")])
 abilities = Array[ExtResource("3_1oie2")]([ExtResource("5_1oie2"), ExtResource("6_ll6bw"), ExtResource("7_psqrp"), ExtResource("8_rdsyc"), ExtResource("9_so25y")])
 traits = Array[ExtResource("23_xwj8g")]([ExtResource("24_e1kxq"), ExtResource("25_6thjd"), ExtResource("26_8axbt")])
 weapons = Array[ExtResource("27_agqpr")]([ExtResource("28_kjqu1"), ExtResource("29_s25t6"), ExtResource("30_0vqyk"), ExtResource("31_k0tdf"), ExtResource("32_x2c05")])
 armor = Array[ExtResource("5_cc0ex")]([ExtResource("6_q7qfu"), ExtResource("7_ll6bw"), ExtResource("8_psqrp")])
-character_count = 1
+character_count = 2
 metadata/_custom_type_script = "uid://b0rrnk75kj3xv"
 
 [sub_resource type="Resource" id="Resource_auiim"]

@@ -25,10 +25,8 @@ texture = ExtResource("3_srjxf")
 strength = 1
 agility = 3
 magic = 2
-health = 5
-stamina = 10
-mana = 5
-stamina_recovery = 3
+stamina = 5
+stamina_recovery = 1
 body_textures = Dictionary[int, Texture2D]({
 0: ExtResource("2_mtqfc"),
 1: ExtResource("3_cuk2m"),

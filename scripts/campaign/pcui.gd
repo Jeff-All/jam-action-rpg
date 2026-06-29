@@ -6,20 +6,25 @@ extends Node
 
 var _material: ShaderMaterial
 var portrait: CharacterPortrait
-var _character: CharacterCampaign
+var _character: CharacterBattle
+var status_bars: StatusBars
 
 var abilities: Array[AbilityButton]
 
-var character: CharacterCampaign:
+var character: CharacterBattle:
 	set(value):
 		_character = value
-		portrait.character = value
+		if _character == null:
+			return
+		portrait.character = value.character_campaign
 		set_abilities()
+		bind_status_bars()
 	get: return _character
 
 func _ready():
 	_material = $VBoxContainer/CharacterPortrait.get_shader()
 	portrait = $VBoxContainer/CharacterPortrait
+	status_bars = $VBoxContainer/StatusBars
 	
 	for cur in $VBoxContainer/PanelContainer/PanelContainer/MarginContainer/AbilityButtons.get_children():
 		abilities.append(cur)
@@ -37,7 +42,7 @@ func _on_mouse_exited():
 func set_abilities():
 	clear_abilities()
 	var index = 0
-	for cur in _character.abilities:
+	for cur in _character.character_campaign.abilities:
 		if index >= abilities.size():
 			break
 		abilities[index].ability = cur
@@ -47,3 +52,14 @@ func set_abilities():
 func clear_abilities():
 	for cur in abilities:
 		cur.visible = false
+
+func bind_status_bars():
+	status_bars.max_health = _character.character_campaign.resources[CharacterCampaign.Resources.HEALTH]
+	status_bars.cur_health = _character.character_campaign.resources[CharacterCampaign.Resources.HEALTH]
+	status_bars.cur_armor = _character.character_campaign.resources[CharacterCampaign.Resources.ARMOR]
+	status_bars.max_durability = _character.character_campaign.resources[CharacterCampaign.Resources.DURABILITY]
+	status_bars.cur_durability = _character.character_campaign.resources[CharacterCampaign.Resources.DURABILITY]
+	status_bars.max_stamina= _character.character_campaign.resources[CharacterCampaign.Resources.STAMINA]
+	status_bars.cur_stamina = _character.character_campaign.resources[CharacterCampaign.Resources.STAMINA]
+	status_bars.max_mana = _character.character_campaign.resources[CharacterCampaign.Resources.MANA]
+	status_bars.cur_mana = _character.character_campaign.resources[CharacterCampaign.Resources.MANA]
