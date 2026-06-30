@@ -21,6 +21,9 @@ var max_value: int:
 	set(value):
 		if value > 0:
 			_max_value = value
+			visible = true
+		else:
+			visible = false
 		update_sizes()
 
 func set_bar_value(id: String, value: int):

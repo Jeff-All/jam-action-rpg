@@ -7,4 +7,6 @@
 script = ExtResource("1_lfrdi")
 name = "Skeletal Raider"
 texture = ExtResource("2_gaqqc")
+health = 10
+stamina = 5
 metadata/_custom_type_script = "uid://ep73png3yh5x"

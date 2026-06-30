@@ -22,7 +22,6 @@ var _width: float
 
 var width: float:
 	set(value):
-		print("status_bars.width(pre): %s" % [value])
 		if fmod(value, 5.0) != 0:
 			value = value - fmod(value, 5.0)
 		$PanelContainer/MarginContainer/VBoxContainer.custom_minimum_size.x = value
@@ -32,7 +31,6 @@ var width: float:
 		_durability._width = value
 		_stamina._width = value
 		_mana._width = value
-		print("status_bars.width: %s" % [value])
 
 var max_health: int:
 	set(value):

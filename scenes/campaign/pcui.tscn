@@ -110,18 +110,22 @@ theme_override_constants/separation = 0
 alignment = 1
 
 [node name="AbilityButton" parent="VBoxContainer/PanelContainer/PanelContainer/MarginContainer/AbilityButtons" instance=ExtResource("5_kf6cy")]
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 size_flags_vertical = 4
 
 [node name="AbilityButton2" parent="VBoxContainer/PanelContainer/PanelContainer/MarginContainer/AbilityButtons" instance=ExtResource("5_kf6cy")]
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 size_flags_vertical = 4
 
 [node name="AbilityButton3" parent="VBoxContainer/PanelContainer/PanelContainer/MarginContainer/AbilityButtons" instance=ExtResource("5_kf6cy")]
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 size_flags_vertical = 4
 
 [node name="AbilityButton4" parent="VBoxContainer/PanelContainer/PanelContainer/MarginContainer/AbilityButtons" instance=ExtResource("5_kf6cy")]
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 size_flags_vertical = 4
 

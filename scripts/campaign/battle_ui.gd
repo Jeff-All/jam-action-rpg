@@ -26,8 +26,8 @@ func setup_battle(_battle: Battle):
 
 func setup_enemies():
 	hide_enemies()
-	setup_enemy_row(front_row, battle.options.front_row)
-	setup_enemy_row(back_row, battle.options.back_row)
+	setup_enemy_row(front_row, battle.front_row)
+	setup_enemy_row(back_row, battle.back_row)
 
 func hide_enemies():
 	for cur in front_row:
@@ -35,12 +35,12 @@ func hide_enemies():
 	for cur in back_row:
 		cur.visible = false
 
-func setup_enemy_row(row: Array[EnemyUI], enemies: Array[Enemy]):
+func setup_enemy_row(row: Array[EnemyUI], enemies: Array[EnemyBattle]):
 	var index = 0
 	for cur in enemies: 
 		if index >= row.size():
 			break
-		row[index].enemy_pane.enemy = cur
+		row[index].enemy = cur
 		row[index].visible = true
 		index += 1
 

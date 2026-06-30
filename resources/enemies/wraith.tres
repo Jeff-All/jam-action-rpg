@@ -7,4 +7,7 @@
 script = ExtResource("1_v5rpf")
 name = "Wraith"
 texture = ExtResource("2_r2bec")
+health = 10
+stamina = 5
+mana = 5
 metadata/_custom_type_script = "uid://ep73png3yh5x"

@@ -265,14 +265,18 @@ alignment = 1
 
 [node name="PCUI" parent="Foreground/VBoxContainer2/PCs" instance=ExtResource("2_juykk")]
 layout_mode = 2
+size_flags_vertical = 8
 flip = true
 
 [node name="PCUI2" parent="Foreground/VBoxContainer2/PCs" instance=ExtResource("2_juykk")]
 layout_mode = 2
+size_flags_vertical = 8
 flip = true
 
 [node name="PCUI3" parent="Foreground/VBoxContainer2/PCs" instance=ExtResource("2_juykk")]
 layout_mode = 2
+size_flags_vertical = 8
 
 [node name="PCUI4" parent="Foreground/VBoxContainer2/PCs" instance=ExtResource("2_juykk")]
 layout_mode = 2
+size_flags_vertical = 8

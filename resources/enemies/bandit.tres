@@ -7,4 +7,6 @@
 script = ExtResource("1_4gmrp")
 name = "Bandit"
 texture = ExtResource("2_j7s40")
+health = 10
+stamina = 5
 metadata/_custom_type_script = "uid://ep73png3yh5x"

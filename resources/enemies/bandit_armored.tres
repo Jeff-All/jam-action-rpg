@@ -7,4 +7,8 @@
 script = ExtResource("1_kqje1")
 name = "Armored Bandit"
 texture = ExtResource("2_kqje1")
+health = 10
+armor = 2
+durability = 5
+stamina = 5
 metadata/_custom_type_script = "uid://ep73png3yh5x"

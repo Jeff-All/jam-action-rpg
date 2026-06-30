@@ -7,4 +7,8 @@
 script = ExtResource("1_0tpt1")
 name = "Skeletal Knight"
 texture = ExtResource("2_0tpt1")
+health = 15
+armor = 3
+durability = 10
+stamina = 5
 metadata/_custom_type_script = "uid://ep73png3yh5x"
