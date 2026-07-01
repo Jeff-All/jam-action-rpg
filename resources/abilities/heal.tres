@@ -7,9 +7,6 @@
 script = ExtResource("1_kjkqg")
 name = "Heal"
 texture = ExtResource("3_rmh8t")
-cost = Dictionary[String, int]({
-"mana": 3
-})
 instant = true
 cooldown = 10.0
 targeting = 1

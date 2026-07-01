@@ -105,8 +105,28 @@ func bind_status_bars():
 	status_bars.cur_stamina = _character.character_campaign.resources[CharacterCampaign.Resources.STAMINA]
 	status_bars.max_mana = _character.character_campaign.resources[CharacterCampaign.Resources.MANA]
 	status_bars.cur_mana = _character.character_campaign.resources[CharacterCampaign.Resources.MANA]
+	
+	_character.on_cur_resource_change.connect(_on_cur_resource_change)
 
-func _ability_button_on_pressed(button: AbilityButton, index: int):
+func _on_cur_resource_change(resource: CharacterCampaign.Resources, value: int):
+	match resource:
+		CharacterCampaign.Resources.HEALTH:
+			status_bars.cur_health = value
+		CharacterCampaign.Resources.DURABILITY:
+			status_bars.cur_durability = value
+		CharacterCampaign.Resources.STAMINA:
+			status_bars.cur_stamina = value
+		CharacterCampaign.Resources.MANA:
+			status_bars.cur_mana = value
+	check_if_can_afford_abilities()
+
+func check_if_can_afford_abilities():
+	for cur in abilities:
+		if cur.ability != null:
+			var can_afford = character.can_afford(cur.ability)
+			cur.can_afford = can_afford
+
+func _ability_button_on_pressed(button: AbilityButton, _index: int):
 	on_ability_pressed.emit(self, button)
 
 func trigger_base_cooldown():

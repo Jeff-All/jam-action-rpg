@@ -7,9 +7,6 @@
 script = ExtResource("1_bf8h7")
 name = "Precision Strike"
 texture = ExtResource("2_klyjo")
-cost = Dictionary[String, int]({
-"stamina": 3
-})
 instant = true
 cooldown = 5.0
 targeting = 3

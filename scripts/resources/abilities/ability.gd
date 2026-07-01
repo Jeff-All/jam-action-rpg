@@ -4,7 +4,7 @@ extends Resource
 
 @export var name: String
 @export var texture: Texture2D
-@export var cost: Dictionary[String, int]
+@export var cost: Dictionary[CharacterCampaign.Resources, int]
 @export var instant: bool = false
 @export var base_cast_time: float = 0.0
 @export var cooldown: float = 0.0
@@ -42,7 +42,9 @@ func execute(ability_button: AbilityButton, source: PCUI, target):
 	source.trigger_base_cooldown()
 
 func consume_resources(source: PCUI):
-	pass
+	for cur in cost:
+		pass
+		source._character.set_cur_resource(cur, source._character.cur_resources[cur] - cost[cur])
 
-func get_cooldown(ability_button: AbilityButton, source: PCUI, target) -> float:
+func get_cooldown(_ability_button: AbilityButton, _source: PCUI, _target) -> float:
 	return cooldown

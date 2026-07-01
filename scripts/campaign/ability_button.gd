@@ -13,7 +13,8 @@ var grayout: Panel
 var texture_rect: TextureRect
 var _material: ShaderMaterial
 
-var can_afford: bool = true
+
+var _can_afford: bool = true
 var on_cooldown: bool = false
 
 var _clickable: bool = true
@@ -47,7 +48,7 @@ var clickable: bool:
 			_material.set_shader_parameter("index", 0)
 			mouse_default_cursor_shape = Control.CursorShape.CURSOR_ARROW
 	get:
-		return !on_cooldown && _clickable
+		return !on_cooldown && _clickable && can_afford
 
 var selected: bool:
 	set(value):
@@ -65,6 +66,16 @@ var selected: bool:
 			else:
 				_material.set_shader_parameter("index", 0)
 				mouse_default_cursor_shape = Control.CursorShape.CURSOR_ARROW
+
+var can_afford: bool:
+	set(value):
+		if _can_afford != value:
+			if value:
+				_on_can_afford()
+			else:
+				_on_cant_afford()
+		_can_afford = value
+	get: return _can_afford
 
 func _ready():
 	sub_view_port_container = $SubViewportContainer
@@ -126,20 +137,17 @@ func _on_flash_animation_ended():
 		grayout.add_theme_stylebox_override("panel", grayout_theme)
 
 func _on_cant_afford():
-	can_afford = false
 	grayout.add_theme_stylebox_override("panel", cant_afford_theme)
 	if !on_cooldown:
 		animation_player.stop()
 		animation_player.play("ability_pre_flash")
 
 func _on_can_afford():
-	can_afford = true
 	if !on_cooldown:
 		animation_player.stop()
 		animation_player.play("ability_flash")
 		mouse_default_cursor_shape = Control.CursorShape.CURSOR_POINTING_HAND
-	else:
-		grayout.add_theme_stylebox_override("panel", grayout_theme)
+	grayout.add_theme_stylebox_override("panel", grayout_theme)
 
 func start_cooldown(duration: float):
 	if on_cooldown:

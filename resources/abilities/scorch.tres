@@ -7,9 +7,6 @@
 script = ExtResource("1_qsgks")
 name = "Scorch"
 texture = ExtResource("3_v6ayd")
-cost = Dictionary[String, int]({
-"mana": 3
-})
 instant = true
 cooldown = 3.0
 targeting = 4

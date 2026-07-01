@@ -7,8 +7,8 @@
 script = ExtResource("1_pogff")
 name = "Mighty Blow"
 texture = ExtResource("2_7phhe")
-cost = Dictionary[String, int]({
-"stamina": 1
+cost = Dictionary[int, int]({
+4: 3
 })
 instant = true
 cooldown = 5.0

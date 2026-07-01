@@ -7,8 +7,8 @@
 script = ExtResource("1_766j1")
 name = "Attack"
 texture = ExtResource("3_5rcu6")
-cost = Dictionary[String, int]({
-"stamina": 1
+cost = Dictionary[int, int]({
+4: 1
 })
 instant = true
 targeting = 3
