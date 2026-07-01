@@ -2,6 +2,12 @@ class_name BattleUI
 
 extends Control
 
+@export var play_button_texture: Texture2D
+@export var pause_button_texture: Texture2D
+
+var play_button: SimpleButton
+var chrono_controller: ChronoController
+
 var front_row: Array[EnemyUI]
 var back_row: Array[EnemyUI]
 var pcs: Array[PCUI]
@@ -15,6 +21,9 @@ var selected_ability_button: AbilityButton
 var selected_pc: PCUI
 
 func _ready():
+	play_button = $MarginContainer/PlayButton
+	chrono_controller = $ChronoController
+	
 	for cur in $Foreground/VBoxContainer2/Enemies/FrontRow.get_children():
 		front_row.append(cur)
 	
@@ -23,6 +32,13 @@ func _ready():
 	
 	for cur in $Foreground/VBoxContainer2/PCs.get_children():
 		pcs.append(cur)
+
+func process_step():
+	for cur in pcs:
+		cur.process_step()
+
+func _chono_controller_on_process_step():
+	process_step()
 
 func setup_battle(_battle: Battle):
 	battle = _battle
@@ -152,3 +168,9 @@ func _enemy_ui_on_pressed(enemy_ui: EnemyUI, _row_index: int, _index: int):
 func process_ability_use_on_enemy(_enemy_ui: EnemyUI):
 	selected_ability_button.ability.execute(selected_ability_button, selected_pc, _enemy_ui)
 	go_to_base_state()
+
+func _on_play_button_pressed(simple_button: SimpleButton):
+	if chrono_controller.play_pause():
+		simple_button.texture_rect.texture = play_button_texture
+	else:
+		simple_button.texture_rect.texture = pause_button_texture

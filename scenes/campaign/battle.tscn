@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://blb7ngr3xoa6s"]
+[gd_scene load_steps=18 format=3 uid="uid://blb7ngr3xoa6s"]
 
 [ext_resource type="Texture2D" uid="uid://c87uvrk0xfvw" path="res://resources/art/icons/backgrounds/forest_floor_dirt.png" id="1_c7ond"]
 [ext_resource type="Script" uid="uid://x28uinci7ftm" path="res://scripts/campaign/battle_ui.gd" id="1_lo4kw"]
@@ -6,10 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://cmldrfu1wpthu" path="res://resources/art/icons/planks.png" id="2_c6bip"]
 [ext_resource type="PackedScene" uid="uid://mwr6ui02sg5q" path="res://scenes/campaign/pcui.tscn" id="2_juykk"]
 [ext_resource type="Texture2D" uid="uid://bqe4stvcrk1al" path="res://resources/art/icons/play.png" id="2_o4xl7"]
+[ext_resource type="Texture2D" uid="uid://bw7ybww4jgbri" path="res://resources/art/icons/pause.png" id="3_2gnb6"]
 [ext_resource type="Shader" uid="uid://biuiik7j0v1yi" path="res://shaders/edge_glow.gdshader" id="3_yl55d"]
 [ext_resource type="Texture2D" uid="uid://csukt2oof5ev2" path="res://resources/art/icons/menu_scroll.png" id="4_5pux2"]
 [ext_resource type="Texture2D" uid="uid://26q574ld2e0l" path="res://resources/art/icons/backpack.png" id="5_5o12h"]
 [ext_resource type="PackedScene" uid="uid://dt7xrxget1oi1" path="res://scenes/ui/simple_button.tscn" id="8_o2oi1"]
+[ext_resource type="PackedScene" uid="uid://ceo56rckck325" path="res://scenes/campaign/chrono_controller.tscn" id="11_bo6vs"]
 
 [sub_resource type="Gradient" id="Gradient_c7ond"]
 offsets = PackedFloat32Array(0.5420561, 0.96728975, 1)
@@ -41,6 +43,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lo4kw")
+play_button_texture = ExtResource("2_o4xl7")
+pause_button_texture = ExtResource("3_2gnb6")
 
 [node name="Background" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -179,7 +183,7 @@ texture = ExtResource("2_o4xl7")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="SimpleButton" parent="MarginContainer" instance=ExtResource("8_o2oi1")]
+[node name="PlayButton" parent="MarginContainer" instance=ExtResource("8_o2oi1")]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -281,6 +285,11 @@ size_flags_vertical = 8
 layout_mode = 2
 size_flags_vertical = 8
 
+[node name="ChronoController" parent="." instance=ExtResource("11_bo6vs")]
+layout_mode = 2
+mouse_filter = 2
+
+[connection signal="on_pressed" from="MarginContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="on_pressed" from="Foreground/VBoxContainer2/Enemies/BackRow/EnemyUI" to="." method="_enemy_ui_on_pressed" binds= [1, 0]]
 [connection signal="on_pressed" from="Foreground/VBoxContainer2/Enemies/BackRow/EnemyUI2" to="." method="_enemy_ui_on_pressed" binds= [1, 1]]
 [connection signal="on_pressed" from="Foreground/VBoxContainer2/Enemies/BackRow/EnemyUI3" to="." method="_enemy_ui_on_pressed" binds= [1, 2]]
@@ -292,3 +301,4 @@ size_flags_vertical = 8
 [connection signal="on_ability_pressed" from="Foreground/VBoxContainer2/PCs/PCUI2" to="." method="_pcui_on_ability_pressed"]
 [connection signal="on_ability_pressed" from="Foreground/VBoxContainer2/PCs/PCUI3" to="." method="_pcui_on_ability_pressed"]
 [connection signal="on_ability_pressed" from="Foreground/VBoxContainer2/PCs/PCUI4" to="." method="_pcui_on_ability_pressed"]
+[connection signal="on_process_step" from="ChronoController" to="." method="_chono_controller_on_process_step"]

@@ -1,5 +1,8 @@
 extends Node
 
+@export var step_size: float = 0.2
+@export var tick_size: float = 3.0
+
 @export var base_cooldown: float = 1.5
 
 @export var action_button_map: Array = [

@@ -55,6 +55,14 @@ func _ready():
 	
 	await get_tree().process_frame
 
+func process_step():
+	process_recovery()
+
+func process_recovery():
+	if character != null:
+		for cur in character.character_campaign.recovery:
+			character.add_cur_resource(cur, (character.character_campaign.recovery[cur] * Global.step_size) / Global.tick_size)
+
 func _on_mouse_entered():
 	_hover = true
 	if _clickable:
