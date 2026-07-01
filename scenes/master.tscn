@@ -20,7 +20,6 @@
 [ext_resource type="Resource" uid="uid://bu4gi5wf2ogn" path="res://resources/enemies/wolf.tres" id="8_jgajy"]
 [ext_resource type="Resource" uid="uid://bg0illklpqehh" path="res://resources/armor/ragged_leather_vest.tres" id="8_psqrp"]
 [ext_resource type="Resource" uid="uid://c3kjh8y1s3hkk" path="res://resources/abilities/attacks/mighty_blow.tres" id="8_rdsyc"]
-[ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/class.gd" id="9_rdsyc"]
 [ext_resource type="Resource" uid="uid://d6xgnmorxpc6" path="res://resources/abilities/attacks/precision_strike.tres" id="9_so25y"]
 [ext_resource type="Resource" uid="uid://cujlbu0bgcrx2" path="res://resources/classes/class_monk.tres" id="10_so25y"]
 [ext_resource type="Resource" uid="uid://cxppii7vomqji" path="res://resources/classes/class_rogue.tres" id="11_4vi31"]
@@ -29,6 +28,7 @@
 [ext_resource type="Script" uid="uid://bkijfvdnaky5k" path="res://scripts/resources/race.gd" id="14_ldavi"]
 [ext_resource type="Resource" uid="uid://dvlqijcfj3j2s" path="res://resources/races/race_elf.tres" id="15_u1ulu"]
 [ext_resource type="Resource" uid="uid://mdah4yhpnsiw" path="res://resources/races/race_dwarf.tres" id="17_lrpk2"]
+[ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/class.gd" id="19_psqrp"]
 [ext_resource type="Resource" uid="uid://m4doyb4kcxlp" path="res://resources/races/race_pixie.tres" id="20_eyp33"]
 [ext_resource type="Script" uid="uid://b0rrnk75kj3xv" path="res://scripts/resources/characters/character_start_options.gd" id="22_ji3d4"]
 [ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/trait.gd" id="23_xwj8g"]
@@ -61,7 +61,7 @@ metadata/_custom_type_script = "uid://b2hvd7p2gcqwk"
 [sub_resource type="Resource" id="Resource_2vh21"]
 script = ExtResource("22_ji3d4")
 races = Array[ExtResource("14_ldavi")]([ExtResource("15_u1ulu"), ExtResource("17_lrpk2"), ExtResource("20_eyp33")])
-classes = Array[ExtResource("9_rdsyc")]([ExtResource("10_so25y"), ExtResource("11_4vi31"), ExtResource("12_jgajy"), ExtResource("13_tlk8g")])
+classes = Array[ExtResource("19_psqrp")]([ExtResource("10_so25y"), ExtResource("11_4vi31"), ExtResource("12_jgajy"), ExtResource("13_tlk8g")])
 abilities = Array[ExtResource("3_1oie2")]([ExtResource("5_1oie2"), ExtResource("6_ll6bw"), ExtResource("7_psqrp"), ExtResource("8_rdsyc"), ExtResource("9_so25y")])
 traits = Array[ExtResource("23_xwj8g")]([ExtResource("24_e1kxq"), ExtResource("25_6thjd"), ExtResource("26_8axbt")])
 weapons = Array[ExtResource("27_agqpr")]([ExtResource("28_kjqu1"), ExtResource("29_s25t6"), ExtResource("30_0vqyk"), ExtResource("31_k0tdf"), ExtResource("32_x2c05")])

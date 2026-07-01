@@ -1,9 +1,8 @@
-[gd_scene load_steps=34 format=3 uid="uid://caauageidp2he"]
+[gd_scene load_steps=33 format=3 uid="uid://caauageidp2he"]
 
 [ext_resource type="Script" uid="uid://b7jaey874juma" path="res://scripts/tests/test_party_builder.gd" id="1_ai8fm"]
 [ext_resource type="Script" uid="uid://bubl68t4u61vo" path="res://scripts/resources/abilities/ability.gd" id="2_sen6f"]
 [ext_resource type="PackedScene" uid="uid://dgsfyjnaxdtg0" path="res://scenes/campaign_builder/party_builder.tscn" id="2_wcfvd"]
-[ext_resource type="Resource" uid="uid://cbi6ydrfspwjs" path="res://resources/abilities/test_ability.tres" id="3_aebwi"]
 [ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/class.gd" id="6_7382a"]
 [ext_resource type="Script" uid="uid://c80yoskj347ho" path="res://scripts/resources/armor.gd" id="6_bc2w7"]
 [ext_resource type="Resource" uid="uid://nvmg1wj6p2a5" path="res://resources/armor/rusty_chain_mail.tres" id="7_dt5kl"]
@@ -37,7 +36,6 @@
 script = ExtResource("19_m7h1p")
 races = Array[ExtResource("11_6widf")]([ExtResource("12_sen6f"), ExtResource("13_aebwi"), ExtResource("14_4k24a"), ExtResource("15_wamkq"), ExtResource("16_r0gi6"), ExtResource("17_3715v"), ExtResource("18_wdelf")])
 classes = Array[ExtResource("6_7382a")]([ExtResource("7_xtdk2"), ExtResource("8_mykvl"), ExtResource("9_c7kvu"), ExtResource("10_ik3pe")])
-abilities = Array[ExtResource("2_sen6f")]([ExtResource("3_aebwi")])
 traits = Array[ExtResource("24_ik3pe")]([ExtResource("25_aebwi"), ExtResource("26_4k24a"), ExtResource("27_wamkq")])
 weapons = Array[ExtResource("20_65v2c")]([ExtResource("21_72q3h"), ExtResource("22_h7ibo"), ExtResource("27_mykvl"), ExtResource("28_c7kvu"), ExtResource("34_wamkq")])
 armor = Array[ExtResource("6_bc2w7")]([ExtResource("7_dt5kl"), ExtResource("8_7382a"), ExtResource("9_xtdk2")])

@@ -1,9 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dn1bg3ocmv2yk"]
 
 [ext_resource type="Script" uid="uid://dkj77hoxreb2l" path="res://scripts/global.gd" id="1_4pk28"]
-[ext_resource type="Resource" uid="uid://dlkxd335krd65" path="res://resources/actions/action_end_turn.tres" id="2_nmxvb"]
-[ext_resource type="Script" uid="uid://yndi76amfml" path="res://scripts/resources/actions/action.gd" id="2_opebo"]
 
 [node name="Global" type="Node2D"]
 script = ExtResource("1_4pk28")
-default_actions = Array[ExtResource("2_opebo")]([ExtResource("2_nmxvb")])
+

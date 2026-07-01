@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://nq5eb2arkkgy"]
+[gd_scene load_steps=15 format=3 uid="uid://dr15c5nw00emu"]
 
 [ext_resource type="Script" uid="uid://birn4ssd4lqfy" path="res://scripts/pc_builder.gd" id="1_fle6o"]
 [ext_resource type="Script" uid="uid://bkijfvdnaky5k" path="res://scripts/resources/race.gd" id="2_8vuoh"]
@@ -9,11 +9,51 @@
 [ext_resource type="Resource" uid="uid://gy5es324hwyb" path="res://resources/races/race_gnome.tres" id="7_eby2h"]
 [ext_resource type="Resource" uid="uid://m4doyb4kcxlp" path="res://resources/races/race_pixie.tres" id="8_ihfm6"]
 [ext_resource type="Resource" uid="uid://bcadhmd54aq7u" path="res://resources/races/race_lizardfolk.tres" id="9_y5agu"]
-[ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/class.gd" id="10_hc7c0"]
 [ext_resource type="Resource" uid="uid://cujlbu0bgcrx2" path="res://resources/classes/class_monk.tres" id="11_gm6o2"]
 [ext_resource type="Resource" uid="uid://cxppii7vomqji" path="res://resources/classes/class_rogue.tres" id="12_ckf0q"]
 [ext_resource type="Resource" uid="uid://uie5ceorji42" path="res://resources/classes/class_wizard.tres" id="13_v2bmy"]
 [ext_resource type="Resource" uid="uid://cd52scvecilnt" path="res://resources/classes/class_warrior.tres" id="14_u8rq6"]
+
+[sub_resource type="GDScript" id="GDScript_q862y"]
+script/source = "class_name Class
+
+extends Resource
+
+@export var name: String
+
+@export var texture: Texture2D
+
+@export var threat: int
+
+@export var attack: int
+@export var defense: int
+
+@export var strength: int
+@export var agility: int
+@export var magic: int
+
+@export var armor: int
+@export var durability: int
+@export var health: int
+@export var stamina: int
+@export var mana: int
+
+@export var health_recovery: int
+@export var stamina_recovery: int
+@export var mana_recovery: int
+
+@export var actions: Array[Action]
+@export var defenses: Array[Action]
+
+func get_header() -> String:
+	return name
+
+func get_description() -> String:
+	return \"\"
+
+func get_icon() -> Texture2D:
+	return texture
+"
 
 [node name="PcBuilder" type="MarginContainer"]
 anchors_preset = 15
@@ -23,7 +63,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fle6o")
 races = Array[ExtResource("2_8vuoh")]([ExtResource("3_2v2iu"), ExtResource("4_s41ki"), ExtResource("5_hejon"), ExtResource("6_d8oga"), ExtResource("7_eby2h"), ExtResource("8_ihfm6"), ExtResource("9_y5agu")])
-classes = Array[ExtResource("10_hc7c0")]([ExtResource("11_gm6o2"), ExtResource("12_ckf0q"), ExtResource("13_v2bmy"), ExtResource("14_u8rq6")])
+classes = Array[SubResource("GDScript_q862y")]([ExtResource("11_gm6o2"), ExtResource("12_ckf0q"), ExtResource("13_v2bmy"), ExtResource("14_u8rq6")])
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2

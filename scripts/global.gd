@@ -2,8 +2,6 @@ extends Node
 
 @export var base_cooldown: float = 1.5
 
-@export var default_actions: Array[Action]
-
 @export var action_button_map: Array = [
 	["action_button_1_1", "action_button_1_2", "action_button_1_3", "action_button_1_4"],
 	["action_button_2_1", "action_button_2_2", "action_button_2_3", "action_button_2_4"],

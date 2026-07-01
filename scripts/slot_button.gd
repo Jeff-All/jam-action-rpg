@@ -5,7 +5,7 @@ extends Control
 signal on_pressed(action_button: SlotButton)
 signal on_enter(action_button: SlotButton)
 signal on_exit(action_button: SlotButton)
-signal on_lock(action_button: ActionButton)
+signal on_lock(action_button: SlotButton)
 
 @export var default_color: StyleBox
 @export var hover_color: StyleBox

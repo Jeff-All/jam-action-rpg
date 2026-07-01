@@ -25,9 +25,6 @@ extends Resource
 @export var stamina_recovery: int
 @export var mana_recovery: int
 
-@export var actions: Array[Action]
-@export var defenses: Array[Action]
-
 func get_header() -> String:
 	return name
 
