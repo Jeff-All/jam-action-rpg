@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="AbilityAttack" load_steps=3 format=3 uid="uid://bl77cy7kxkkwo"]
+
+[ext_resource type="Script" uid="uid://dsqu6cmwxle51" path="res://scripts/resources/abilities/attacks/ability_attack.gd" id="1_766j1"]
+[ext_resource type="Texture2D" uid="uid://ddx5qdlv4e7gx" path="res://resources/art/icons/abilities/attack.png" id="3_5rcu6"]
+
+[resource]
+script = ExtResource("1_766j1")
+name = "Attack"
+texture = ExtResource("3_5rcu6")
+cost = Dictionary[String, int]({
+"stamina": 1
+})
+instant = true
+targeting = 3
+metadata/_custom_type_script = "uid://bubl68t4u61vo"

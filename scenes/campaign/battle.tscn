@@ -280,3 +280,15 @@ size_flags_vertical = 8
 [node name="PCUI4" parent="Foreground/VBoxContainer2/PCs" instance=ExtResource("2_juykk")]
 layout_mode = 2
 size_flags_vertical = 8
+
+[connection signal="on_pressed" from="Foreground/VBoxContainer2/Enemies/BackRow/EnemyUI" to="." method="_enemy_ui_on_pressed" binds= [1, 0]]
+[connection signal="on_pressed" from="Foreground/VBoxContainer2/Enemies/BackRow/EnemyUI2" to="." method="_enemy_ui_on_pressed" binds= [1, 1]]
+[connection signal="on_pressed" from="Foreground/VBoxContainer2/Enemies/BackRow/EnemyUI3" to="." method="_enemy_ui_on_pressed" binds= [1, 2]]
+[connection signal="on_pressed" from="Foreground/VBoxContainer2/Enemies/FrontRow/EnemyUI" to="." method="_enemy_ui_on_pressed" binds= [0, 0]]
+[connection signal="on_pressed" from="Foreground/VBoxContainer2/Enemies/FrontRow/EnemyUI2" to="." method="_enemy_ui_on_pressed" binds= [0, 1]]
+[connection signal="on_pressed" from="Foreground/VBoxContainer2/Enemies/FrontRow/EnemyUI3" to="." method="_enemy_ui_on_pressed" binds= [0, 2]]
+[connection signal="on_pressed" from="Foreground/VBoxContainer2/Enemies/FrontRow/EnemyUI4" to="." method="_enemy_ui_on_pressed" binds= [0, 3]]
+[connection signal="on_ability_pressed" from="Foreground/VBoxContainer2/PCs/PCUI" to="." method="_pcui_on_ability_pressed"]
+[connection signal="on_ability_pressed" from="Foreground/VBoxContainer2/PCs/PCUI2" to="." method="_pcui_on_ability_pressed"]
+[connection signal="on_ability_pressed" from="Foreground/VBoxContainer2/PCs/PCUI3" to="." method="_pcui_on_ability_pressed"]
+[connection signal="on_ability_pressed" from="Foreground/VBoxContainer2/PCs/PCUI4" to="." method="_pcui_on_ability_pressed"]

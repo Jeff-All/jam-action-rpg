@@ -1,4 +1,4 @@
-class_name Targeting
+class_name TargetingA
 
 extends Resource
 

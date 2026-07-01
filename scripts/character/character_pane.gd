@@ -69,7 +69,6 @@ func populate():
 		index += 1
 
 func populate_button_row(buttons, values):
-	print("character_pane.populate_button_row(): %s" % str(values))
 	var index = 0
 	for cur in values:
 		if index >= buttons.size():

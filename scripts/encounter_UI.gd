@@ -72,6 +72,6 @@ func _on_action_button_entered(action_button: ActionButton):
 func _on_action_button_exited(action_button: ActionButton):
 	on_action_button_exited.emit(action_button)
 
-func set_combat_text(combat_text: CombatText):
+func set_combat_text(combat_text: CombatTextA):
 	$"Top Row".set_combat_text(combat_text)
 	$"Bottom Row".set_combat_text(combat_text)

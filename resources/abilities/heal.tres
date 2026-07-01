@@ -1,17 +1,16 @@
-[gd_resource type="Resource" script_class="Ability" load_steps=4 format=3 uid="uid://dxixtgcid4x6d"]
+[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://dxixtgcid4x6d"]
 
 [ext_resource type="Script" uid="uid://bubl68t4u61vo" path="res://scripts/resources/abilities/ability.gd" id="1_kjkqg"]
-[ext_resource type="Resource" uid="uid://83vx50hj6mda" path="res://resources/actions/targeting/allies_targeting.tres" id="2_sj3gi"]
 [ext_resource type="Texture2D" uid="uid://bbw3ymbs3eeqa" path="res://resources/art/icons/abilities/heal.png" id="3_rmh8t"]
 
 [resource]
 script = ExtResource("1_kjkqg")
 name = "Heal"
 texture = ExtResource("3_rmh8t")
-targeting = ExtResource("2_sj3gi")
 cost = Dictionary[String, int]({
 "mana": 3
 })
 instant = true
 cooldown = 10.0
+targeting = 1
 metadata/_custom_type_script = "uid://bubl68t4u61vo"

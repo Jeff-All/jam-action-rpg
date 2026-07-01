@@ -4,11 +4,14 @@ extends Resource
 
 @export var name: String
 @export var texture: Texture2D
-@export var targeting: Targeting
 @export var cost: Dictionary[String, int]
 @export var instant: bool = false
 @export var base_cast_time: float = 0.0
 @export var cooldown: float = 0.0
+@export var targeting: Targeting = Targeting.SELF
+@export var to_hit: int
+
+enum Targeting { SELF, ALLIES, PARTY, MELEE, RANGED, ALL}
 
 func get_icon() -> Texture2D:
 	return texture
@@ -32,3 +35,14 @@ func get_cost_description() -> String:
 
 func get_cooldown_description() -> String:
 	return "Cooldown: %s" % cooldown
+
+func execute(ability_button: AbilityButton, source: PCUI, target):
+	consume_resources(source)
+	ability_button.start_cooldown(get_cooldown(ability_button, source, target))
+	source.trigger_base_cooldown()
+
+func consume_resources(source: PCUI):
+	pass
+
+func get_cooldown(ability_button: AbilityButton, source: PCUI, target) -> float:
+	return cooldown

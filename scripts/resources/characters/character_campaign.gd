@@ -6,6 +6,7 @@ var base: CharacterBase
 
 var race: Race
 var _class: Class
+var speed: int
 var armor: Armor
 var weapon: Weapon
 var abilities: Array[Ability]

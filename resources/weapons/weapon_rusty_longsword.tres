@@ -10,6 +10,6 @@ texture = ExtResource("2_6l6i7")
 min_damage = 1
 max_damage = 3
 damage_type = "Slashing"
-hit = 70
+hit = 100
 speed = 3.0
 metadata/_custom_type_script = "uid://8tck1kie4m0e"

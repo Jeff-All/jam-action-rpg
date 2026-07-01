@@ -12,10 +12,10 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 resource_local_to_scene = true
 shader = ExtResource("3_dl156")
 shader_parameter/index = 0
-shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 1, 0.5019608, 0, 1)
+shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 0.84313726, 0, 1, 0.31869584, 0.26313275, 0, 1, 1, 0.5019608, 0, 1)
 shader_parameter/glow_color = Color(1, 0.5, 0, 1)
-shader_parameter/glow_intensity = 1.6650000790875
-shader_parameter/glow_radius = 1.5930000756675
+shader_parameter/glow_intensity = 2.000000095
+shader_parameter/glow_radius = 3.0000001425
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1gf8i"]
 shader = ExtResource("3_dl156")
@@ -35,7 +35,6 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-mouse_default_cursor_shape = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ditcq")
 script = ExtResource("1_ditcq")
 

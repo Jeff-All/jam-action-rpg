@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://mwr6ui02sg5q"]
+[gd_scene load_steps=14 format=3 uid="uid://mwr6ui02sg5q"]
 
 [ext_resource type="PackedScene" uid="uid://bd3fgvk1uqbpx" path="res://scenes/character/character_portrait.tscn" id="1_id3o2"]
 [ext_resource type="Script" uid="uid://caffi0xmkrqil" path="res://scripts/campaign/pcui.gd" id="1_ynthc"]
@@ -14,6 +14,43 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kf6cy"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ah6eo"]
+
+[sub_resource type="Animation" id="Animation_ah6eo"]
+resource_name = "death"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/StatusBars:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kf6cy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/StatusBars:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4nmhk"]
+_data = {
+&"RESET": SubResource("Animation_kf6cy"),
+&"death": SubResource("Animation_ah6eo")
+}
 
 [node name="PCUI" type="PanelContainer"]
 offset_right = 300.0
@@ -31,7 +68,6 @@ custom_minimum_size = Vector2(210, 140)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-mouse_default_cursor_shape = 0
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/CharacterPortrait"]
 layout_mode = 2
@@ -129,6 +165,15 @@ custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 size_flags_vertical = 4
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4nmhk")
+}
+
 [connection signal="mouse_entered" from="VBoxContainer/CharacterPortrait/MarginContainer2/Panel" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/CharacterPortrait/MarginContainer2/Panel" to="." method="_on_mouse_exited"]
 [connection signal="on_pressed" from="VBoxContainer/HBoxContainer/SimpleButton" to="." method="_on_simple_button_on_pressed"]
+[connection signal="on_pressed" from="VBoxContainer/PanelContainer/PanelContainer/MarginContainer/AbilityButtons/AbilityButton" to="." method="_ability_button_on_pressed" binds= [0]]
+[connection signal="on_pressed" from="VBoxContainer/PanelContainer/PanelContainer/MarginContainer/AbilityButtons/AbilityButton2" to="." method="_ability_button_on_pressed" binds= [1]]
+[connection signal="on_pressed" from="VBoxContainer/PanelContainer/PanelContainer/MarginContainer/AbilityButtons/AbilityButton3" to="." method="_ability_button_on_pressed" binds= [2]]
+[connection signal="on_pressed" from="VBoxContainer/PanelContainer/PanelContainer/MarginContainer/AbilityButtons/AbilityButton4" to="." method="_ability_button_on_pressed" binds= [3]]

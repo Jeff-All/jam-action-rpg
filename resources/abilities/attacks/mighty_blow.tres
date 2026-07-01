@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="AbilityAttack" load_steps=3 format=3 uid="uid://c3kjh8y1s3hkk"]
+
+[ext_resource type="Script" uid="uid://dsqu6cmwxle51" path="res://scripts/resources/abilities/attacks/ability_attack.gd" id="1_pogff"]
+[ext_resource type="Texture2D" uid="uid://y8rkrr685xg3" path="res://resources/art/icons/abilities/mighty_blow.png" id="2_7phhe"]
+
+[resource]
+script = ExtResource("1_pogff")
+name = "Mighty Blow"
+texture = ExtResource("2_7phhe")
+cost = Dictionary[String, int]({
+"stamina": 1
+})
+instant = true
+cooldown = 5.0
+targeting = 3
+metadata/_custom_type_script = "uid://bubl68t4u61vo"

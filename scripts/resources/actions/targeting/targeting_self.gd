@@ -1,6 +1,6 @@
 class_name TargetingSelf
 
-extends Targeting
+extends TargetingA
 
 func target(character: Character, battle_board: BattleBoard):
 	super.target(character, battle_board)

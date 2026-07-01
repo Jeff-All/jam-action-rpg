@@ -60,7 +60,6 @@ var cur_character_builder: CharacterBuilder
 var cur_slot_button: SlotButton
 
 func _on_slot_button_pressed(character_builder: CharacterBuilder, slot_button: SlotButton):
-	print("party_builder._on_slot_button_pressed() %s" % slot_button.category)
 	
 	cur_character_builder = character_builder
 	cur_slot_button = slot_button

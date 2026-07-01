@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="AbilityAttack" load_steps=3 format=3 uid="uid://d6xgnmorxpc6"]
+
+[ext_resource type="Script" uid="uid://dsqu6cmwxle51" path="res://scripts/resources/abilities/attacks/ability_attack.gd" id="1_bf8h7"]
+[ext_resource type="Texture2D" uid="uid://cqvxh87ah3iai" path="res://resources/art/icons/abilities/precision_strike.png" id="2_klyjo"]
+
+[resource]
+script = ExtResource("1_bf8h7")
+name = "Precision Strike"
+texture = ExtResource("2_klyjo")
+cost = Dictionary[String, int]({
+"stamina": 3
+})
+instant = true
+cooldown = 5.0
+targeting = 3
+metadata/_custom_type_script = "uid://bubl68t4u61vo"

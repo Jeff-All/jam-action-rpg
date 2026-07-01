@@ -5,7 +5,7 @@ extends Resource
 @export var name: String
 @export var attribute: Character.Attribute
 @export var texture: Texture2D
-@export var targeting: Targeting
+@export var targeting: TargetingA
 
 @export var cost: Dictionary[Character.CharacterResource, int]
 

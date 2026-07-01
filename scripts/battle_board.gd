@@ -22,7 +22,7 @@ var enemies: EncounterUI
 var pcs: CharacterRow
 var mid_text: MidText
 var play_button: Button
-var combat_text: CombatText
+var combat_text: CombatTextA
 var defend_row: ButtonRow
 var tooltip: PanelContainer
 

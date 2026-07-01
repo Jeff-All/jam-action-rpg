@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cm6wx0xtevjib" path="res://scenes/campaign/campaign.tscn" id="2_jooxx"]
 [ext_resource type="Script" uid="uid://bubl68t4u61vo" path="res://scripts/resources/abilities/ability.gd" id="3_1oie2"]
 [ext_resource type="Script" uid="uid://b2hvd7p2gcqwk" path="res://scripts/resources/battle_options.gd" id="4_4vi31"]
-[ext_resource type="Resource" uid="uid://bl77cy7kxkkwo" path="res://resources/abilities/attack.tres" id="4_b571c"]
+[ext_resource type="Resource" uid="uid://bl77cy7kxkkwo" path="res://resources/abilities/attacks/attack.tres" id="4_b571c"]
 [ext_resource type="Resource" uid="uid://dxixtgcid4x6d" path="res://resources/abilities/heal.tres" id="5_1oie2"]
 [ext_resource type="Script" uid="uid://c80yoskj347ho" path="res://scripts/resources/armor.gd" id="5_cc0ex"]
 [ext_resource type="Script" uid="uid://ep73png3yh5x" path="res://scripts/resources/enemies/enemy.gd" id="5_jgajy"]
@@ -19,9 +19,9 @@
 [ext_resource type="Resource" uid="uid://b3c3hm82qu5ci" path="res://resources/abilities/scorch.tres" id="7_psqrp"]
 [ext_resource type="Resource" uid="uid://bu4gi5wf2ogn" path="res://resources/enemies/wolf.tres" id="8_jgajy"]
 [ext_resource type="Resource" uid="uid://bg0illklpqehh" path="res://resources/armor/ragged_leather_vest.tres" id="8_psqrp"]
-[ext_resource type="Resource" uid="uid://c3kjh8y1s3hkk" path="res://resources/abilities/mighty_blow.tres" id="8_rdsyc"]
+[ext_resource type="Resource" uid="uid://c3kjh8y1s3hkk" path="res://resources/abilities/attacks/mighty_blow.tres" id="8_rdsyc"]
 [ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/class.gd" id="9_rdsyc"]
-[ext_resource type="Resource" uid="uid://d6xgnmorxpc6" path="res://resources/abilities/precision_strike.tres" id="9_so25y"]
+[ext_resource type="Resource" uid="uid://d6xgnmorxpc6" path="res://resources/abilities/attacks/precision_strike.tres" id="9_so25y"]
 [ext_resource type="Resource" uid="uid://cujlbu0bgcrx2" path="res://resources/classes/class_monk.tres" id="10_so25y"]
 [ext_resource type="Resource" uid="uid://cxppii7vomqji" path="res://resources/classes/class_rogue.tres" id="11_4vi31"]
 [ext_resource type="Resource" uid="uid://uie5ceorji42" path="res://resources/classes/class_wizard.tres" id="12_jgajy"]
@@ -66,7 +66,7 @@ abilities = Array[ExtResource("3_1oie2")]([ExtResource("5_1oie2"), ExtResource("
 traits = Array[ExtResource("23_xwj8g")]([ExtResource("24_e1kxq"), ExtResource("25_6thjd"), ExtResource("26_8axbt")])
 weapons = Array[ExtResource("27_agqpr")]([ExtResource("28_kjqu1"), ExtResource("29_s25t6"), ExtResource("30_0vqyk"), ExtResource("31_k0tdf"), ExtResource("32_x2c05")])
 armor = Array[ExtResource("5_cc0ex")]([ExtResource("6_q7qfu"), ExtResource("7_ll6bw"), ExtResource("8_psqrp")])
-character_count = 4
+character_count = 1
 metadata/_custom_type_script = "uid://b0rrnk75kj3xv"
 
 [sub_resource type="Resource" id="Resource_auiim"]

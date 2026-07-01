@@ -1,4 +1,4 @@
-class_name CombatText
+class_name CombatTextA
 
 extends Control
 

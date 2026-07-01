@@ -71,7 +71,7 @@ func set_characters(characters: Array):
 	for index in characters.size():
 		set_character(index, characters[index])
 
-func set_combat_text(combat_text: CombatText):
+func set_combat_text(combat_text: CombatTextA):
 	for cur in character_uis:
 		cur.combat_text = combat_text
 

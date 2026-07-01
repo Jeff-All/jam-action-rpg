@@ -1,5 +1,7 @@
 extends Node
 
+@export var base_cooldown: float = 1.5
+
 @export var default_actions: Array[Action]
 
 @export var action_button_map: Array = [
@@ -32,3 +34,5 @@ extends Node
 }
 
 @export var empty_slotButton: Resource = preload("res://resources/abilities/none.tres")
+
+@export var combat_text: PackedScene = preload("res://scenes/ui/combat_text.tscn")

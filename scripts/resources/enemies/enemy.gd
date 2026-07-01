@@ -11,5 +11,7 @@ extends Resource
 @export var stamina: int
 @export var mana: int
 
+@export var dodge: int
+
 func get_enemy_battle() -> EnemyBattle:
 	return EnemyBattle.new(self)

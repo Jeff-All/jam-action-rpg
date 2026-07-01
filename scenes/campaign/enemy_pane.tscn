@@ -1,17 +1,169 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjviwb7u8uvsd"]
+[gd_scene load_steps=9 format=3 uid="uid://bjviwb7u8uvsd"]
 
 [ext_resource type="Script" uid="uid://dm2ds1aib6w1n" path="res://scripts/campaign/enemy_pane.gd" id="1_ikp70"]
-[ext_resource type="Shader" uid="uid://biuiik7j0v1yi" path="res://shaders/edge_glow.gdshader" id="2_uae66"]
+[ext_resource type="Material" uid="uid://c0ex04hphfkxm" path="res://resources/material/sprite_outlines.tres" id="2_o67aj"]
 [ext_resource type="Texture2D" uid="uid://c35pr6ghqi63s" path="res://resources/art/enemies/wraith.png" id="3_uae66"]
+[ext_resource type="Texture2D" uid="uid://d1wqpfbp3wadw" path="res://resources/art/icons/tombstone.png" id="4_o67aj"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_o67aj"]
-resource_local_to_scene = true
-shader = ExtResource("2_uae66")
-shader_parameter/index = 0
-shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 1, 0.5019608, 0, 1, 1, 1, 1, 1, 0.69245994, 1.8410012e-06, 7.70092e-07, 1, 0, 0.56381637, 1.92523e-07, 1)
-shader_parameter/glow_color = Color(0, 0, 0, 1)
-shader_parameter/glow_intensity = 1.630000077425
-shader_parameter/glow_radius = 20.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o67aj"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_o67aj"]
+resource_name = "death"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/Tombstone:anchor_bottom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.675, 0.985]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/Tombstone:anchor_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.675, -0.015]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/TextureRect:anchor_top")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.005]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel/TextureRect:anchor_bottom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 2.005]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Panel/TextureRect:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Panel/TextureRect:material")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="Animation" id="Animation_qcwym"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/Tombstone:anchor_bottom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.675]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/Tombstone:anchor_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.675]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/TextureRect:anchor_top")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel/TextureRect:anchor_bottom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Panel/TextureRect:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Panel/TextureRect:material")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_o67aj")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nknf0"]
+_data = {
+&"RESET": SubResource("Animation_qcwym"),
+&"death": SubResource("Animation_o67aj")
+}
 
 [node name="enemy_pane" type="MarginContainer"]
 anchors_preset = 8
@@ -27,9 +179,40 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ikp70")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-material = SubResource("ShaderMaterial_o67aj")
+[node name="Panel" type="Panel" parent="."]
+clip_children = 1
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o67aj")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+clip_children = 2
+material = ExtResource("2_o67aj")
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("3_uae66")
 expand_mode = 2
 stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Tombstone" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.675
+anchor_right = 1.0
+anchor_bottom = 1.675
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_o67aj")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_nknf0")
+}

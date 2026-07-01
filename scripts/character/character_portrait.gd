@@ -9,7 +9,6 @@ var body: TextureRect
 var head: TextureRect
 
 func _ready():
-	print("ready")
 	view_port = $MarginContainer/SubViewportContainer/SubViewport
 	texture_rect = $TextureRect
 	body = $MarginContainer/SubViewportContainer/SubViewport/MarginContainer/Body

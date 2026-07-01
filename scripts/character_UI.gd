@@ -10,7 +10,7 @@ signal on_action_button_entered(action_button: ActionButton)
 signal on_action_button_exited(action_button: ActionButton)
 
 var animation: AnimationPlayer
-var combat_text: CombatText
+var combat_text: CombatTextA
 var action_button_grid: ActionButtonGrid
 
 var center: Vector2:
