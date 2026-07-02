@@ -37,8 +37,15 @@ func process_step():
 	for cur in pcs:
 		cur.process_step()
 
+func process_animations(delta: float):
+	for cur in pcs:
+		cur.process_animations(delta)
+
 func _chono_controller_on_process_step():
 	process_step()
+
+func _chrono_controller_on_process(delta: float):
+	process_animations(delta)
 
 func setup_battle(_battle: Battle):
 	battle = _battle

@@ -55,8 +55,15 @@ func _ready():
 	
 	await get_tree().process_frame
 
+func process_animations(delta: float):
+	for cur in abilities:
+		cur.process_animations(delta)
+
 func process_step():
 	process_recovery()
+	
+	for cur in abilities:
+		cur.process_step()
 
 func process_recovery():
 	if character != null:

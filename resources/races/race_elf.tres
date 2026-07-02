@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Race" load_steps=18 format=3 uid="uid://dvlqijcfj3j2s"]
+[gd_resource type="Resource" script_class="Race" load_steps=17 format=3 uid="uid://dvlqijcfj3j2s"]
 
 [ext_resource type="Script" uid="uid://bkijfvdnaky5k" path="res://scripts/resources/race.gd" id="1_o2s4k"]
 [ext_resource type="Texture2D" uid="uid://btbj2dmmwvqcw" path="res://resources/art/pcs/elf/body/none.png" id="2_mtqfc"]
@@ -21,9 +21,8 @@
 script = ExtResource("1_o2s4k")
 name = "Elf"
 texture = ExtResource("3_srjxf")
-strength = 1
-agility = 3
-magic = 2
+agility = 2
+magic = 1
 stamina = 5
 stamina_recovery = 1
 body_textures = Dictionary[int, Texture2D]({

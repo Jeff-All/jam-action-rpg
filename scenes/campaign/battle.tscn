@@ -301,4 +301,5 @@ mouse_filter = 2
 [connection signal="on_ability_pressed" from="Foreground/VBoxContainer2/PCs/PCUI2" to="." method="_pcui_on_ability_pressed"]
 [connection signal="on_ability_pressed" from="Foreground/VBoxContainer2/PCs/PCUI3" to="." method="_pcui_on_ability_pressed"]
 [connection signal="on_ability_pressed" from="Foreground/VBoxContainer2/PCs/PCUI4" to="." method="_pcui_on_ability_pressed"]
+[connection signal="on_process" from="ChronoController" to="." method="_chrono_controller_on_process"]
 [connection signal="on_process_step" from="ChronoController" to="." method="_chono_controller_on_process_step"]

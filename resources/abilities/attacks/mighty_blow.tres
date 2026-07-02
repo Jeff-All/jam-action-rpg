@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="AbilityAttack" load_steps=3 format=3 uid="uid://c3kjh8y1s3hkk"]
+[gd_resource type="Resource" script_class="MightyBlow" load_steps=3 format=3 uid="uid://c3kjh8y1s3hkk"]
 
-[ext_resource type="Script" uid="uid://dsqu6cmwxle51" path="res://scripts/resources/abilities/attacks/ability_attack.gd" id="1_pogff"]
+[ext_resource type="Script" uid="uid://bigbtdw6iedjn" path="res://scripts/resources/abilities/attacks/attack_mighty_blow.gd" id="1_pogff"]
 [ext_resource type="Texture2D" uid="uid://y8rkrr685xg3" path="res://resources/art/icons/abilities/mighty_blow.png" id="2_7phhe"]
 
 [resource]
@@ -8,7 +8,7 @@ script = ExtResource("1_pogff")
 name = "Mighty Blow"
 texture = ExtResource("2_7phhe")
 cost = Dictionary[int, int]({
-4: 3
+4: 5
 })
 instant = true
 cooldown = 5.0

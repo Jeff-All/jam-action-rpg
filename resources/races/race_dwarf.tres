@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Race" load_steps=18 format=3 uid="uid://mdah4yhpnsiw"]
+[gd_resource type="Resource" script_class="Race" load_steps=17 format=3 uid="uid://mdah4yhpnsiw"]
 
 [ext_resource type="Script" uid="uid://bkijfvdnaky5k" path="res://scripts/resources/race.gd" id="1_flbbn"]
 [ext_resource type="Texture2D" uid="uid://b7hccfolnbu5b" path="res://resources/art/pcs/dwarf/body/none.png" id="2_ag6t5"]
@@ -21,9 +21,8 @@
 script = ExtResource("1_flbbn")
 name = "Dwarf"
 texture = ExtResource("3_pirfs")
-strength = 3
-agility = 1
-magic = 2
+strength = 2
+magic = 1
 armor = 1
 durability = 5
 body_textures = Dictionary[int, Texture2D]({

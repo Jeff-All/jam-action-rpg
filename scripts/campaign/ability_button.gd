@@ -88,6 +88,12 @@ func _ready():
 	
 	grayout.add_theme_stylebox_override("panel", grayout_theme)
 
+func process_animations(delta: float):
+	animation_player.advance(delta)
+
+func process_step():
+	pass
+
 func _on_mouse_entered():
 	_hover = true
 	if clickable && !_selected:
@@ -118,7 +124,10 @@ func _on_cooldown_started(duration: float):
 	on_cooldown = true
 	animation_player.stop()
 	animation_player.speed_scale = 1/duration
-	animation_player.play("ability_cooldown")
+	animation_player.current_animation = "ability_cooldown"
+	animation_player.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
+	#animation_player.play("ability_cooldown")
+	#animation_player.stop()
 	mouse_default_cursor_shape = Control.CursorShape.CURSOR_ARROW
 
 func _on_cooldown_animation_ended():

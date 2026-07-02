@@ -28,11 +28,19 @@ var recovery: Dictionary[Resources, int] = {
 		Resources.ARMOR: 0,
 		Resources.DURABILITY: 0,
 		Resources.SHIELDING: 0,
-		Resources.STAMINA: 1,
+		Resources.STAMINA: 3,
 		Resources.MANA: 0,
 }
 
-enum Resources{ HEALTH, ARMOR, DURABILITY, SHIELDING, STAMINA, MANA}
+var attributes: Dictionary[Attributes, int] = {
+	Attributes.STRENGTH: 1,
+	Attributes.AGILITY: 1,
+	Attributes.MANA: 1,
+}
+
+enum Resources{ HEALTH, ARMOR, DURABILITY, SHIELDING, STAMINA, MANA }
+
+enum Attributes { STRENGTH, AGILITY, MANA }
 
 func _init(_base: CharacterBase, attack: Ability):
 	base = _base
@@ -44,6 +52,7 @@ func _init(_base: CharacterBase, attack: Ability):
 	traits.resize(4)
 	
 	set_race(_base.race)
+	set_class(_base.class_)
 	
 	_class = _base.class_
 	armor = _base.armor
@@ -54,6 +63,7 @@ func _init(_base: CharacterBase, attack: Ability):
 	available_abilities.append(attack)
 	abilities[1] = _base.ability
 	available_abilities.append(_base.ability)
+
 
 func get_character_battle() -> CharacterBattle:
 	return CharacterBattle.new(self)
@@ -82,11 +92,33 @@ func equip_weapon(_weapon: Weapon) -> Weapon:
 func set_race(_race: Race):
 	race = _race
 	
+	attributes[Attributes.STRENGTH] += race.strength
+	attributes[Attributes.AGILITY] += race.agility
+	attributes[Attributes.MANA] += race.mana
+	
 	resources[Resources.HEALTH] += race.health
 	resources[Resources.ARMOR] += race.armor
 	resources[Resources.DURABILITY] += race.durability
 	resources[Resources.STAMINA] += race.stamina
 	resources[Resources.MANA] += race.mana
+	
+	recovery[Resources.HEALTH] += race.health_recovery
+	recovery[Resources.STAMINA] += race.stamina_recovery
+	recovery[Resources.MANA] += race.mana_recovery
 
 func set_class(class_: Class):
-	pass
+	_class = class_
+	
+	attributes[Attributes.STRENGTH] += _class.strength
+	attributes[Attributes.AGILITY] += _class.agility
+	attributes[Attributes.MANA] += _class.mana
+	
+	resources[Resources.HEALTH] += _class.health
+	resources[Resources.ARMOR] += _class.armor
+	resources[Resources.DURABILITY] += _class.durability
+	resources[Resources.STAMINA] += _class.stamina
+	resources[Resources.MANA] += _class.mana
+	
+	recovery[Resources.HEALTH] += _class.health_recovery
+	recovery[Resources.STAMINA] += _class.stamina_recovery
+	recovery[Resources.MANA] += _class.mana_recovery

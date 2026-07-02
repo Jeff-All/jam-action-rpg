@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Race" load_steps=18 format=3 uid="uid://m4doyb4kcxlp"]
+[gd_resource type="Resource" script_class="Race" load_steps=17 format=3 uid="uid://m4doyb4kcxlp"]
 
 [ext_resource type="Script" uid="uid://bkijfvdnaky5k" path="res://scripts/resources/race.gd" id="1_6jho8"]
 [ext_resource type="Texture2D" uid="uid://dludxqrd3gojj" path="res://resources/art/pcs/pixie/body/none.png" id="2_302os"]
@@ -21,9 +21,8 @@
 script = ExtResource("1_6jho8")
 name = "Pixie"
 texture = ExtResource("3_14vas")
-strength = 1
-agility = 2
-magic = 3
+agility = 1
+magic = 2
 mana = 5
 mana_recovery = 1
 body_textures = Dictionary[int, Texture2D]({

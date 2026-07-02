@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ceo56rckck325"]
 
-[ext_resource type="Script" uid="uid://b2lturfxwb5ow" path="res://scripts/campaign/chono_controller.gd" id="1_b2cvd"]
+[ext_resource type="Script" uid="uid://b2lturfxwb5ow" path="res://scripts/campaign/chrono_controller.gd" id="1_b2cvd"]
 
 [node name="ChronoController" type="Control"]
 layout_mode = 3

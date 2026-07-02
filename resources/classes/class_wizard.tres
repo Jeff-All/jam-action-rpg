@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Class" load_steps=7 format=3 uid="uid://uie5ceorji42"]
+[gd_resource type="Resource" script_class="Class" load_steps=3 format=3 uid="uid://uie5ceorji42"]
 
 [ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/class.gd" id="1_jag1r"]
 [ext_resource type="Texture2D" uid="uid://byek5dygnp81t" path="res://resources/art/icons/classes/wizard.png" id="6_mkdc8"]
@@ -8,6 +8,6 @@ script = ExtResource("1_jag1r")
 name = "Wizard"
 texture = ExtResource("6_mkdc8")
 magic = 1
-mana = 10
+mana = 5
 mana_recovery = 1
 metadata/_custom_type_script = "uid://7im2jq7xrwm1"
