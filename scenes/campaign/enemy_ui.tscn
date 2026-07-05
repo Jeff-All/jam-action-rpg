@@ -1,12 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://jv3ix0yuq18c"]
+[gd_scene load_steps=17 format=3 uid="uid://jv3ix0yuq18c"]
 
 [ext_resource type="Script" uid="uid://b4u2y85ob56ti" path="res://scripts/campaign/enemy_ui.gd" id="1_acs8f"]
 [ext_resource type="PackedScene" uid="uid://bjviwb7u8uvsd" path="res://scenes/campaign/enemy_pane.tscn" id="1_xorx4"]
 [ext_resource type="Texture2D" uid="uid://bwxbbofoad70s" path="res://resources/art/icons/abilities/restore.png" id="2_k0veb"]
 [ext_resource type="PackedScene" uid="uid://d4hf4002xav2t" path="res://scenes/campaign/status_bars.tscn" id="2_kamf1"]
-[ext_resource type="Texture2D" uid="uid://riisrric5105" path="res://resources/art/icons/arrow_right_b.png" id="3_k0veb"]
-[ext_resource type="Texture2D" uid="uid://ddx5qdlv4e7gx" path="res://resources/art/icons/abilities/attack.png" id="3_sctin"]
-[ext_resource type="Texture2D" uid="uid://dkw6ltf5t30b2" path="res://resources/art/icons/races/elf.png" id="5_acs8f"]
+[ext_resource type="PackedScene" uid="uid://c1hovltajgvap" path="res://scenes/enemies/enemy_targeting.tscn" id="5_k0veb"]
 [ext_resource type="Shader" uid="uid://biuiik7j0v1yi" path="res://shaders/edge_glow.gdshader" id="6_ht1om"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sctin"]
@@ -20,12 +18,7 @@ bg_color = Color(0, 0, 0, 0.6745098)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_acs8f"]
 bg_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p6m8r"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oss8l"]
-bg_color = Color(0.09803922, 0.09803922, 0.09803922, 0.7764706)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2vw8u"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bwp5x"]
 shader = ExtResource("6_ht1om")
 shader_parameter/index = 0
 shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
@@ -41,16 +34,76 @@ shader_parameter/glow_color = Color(1, 0.5, 0, 1)
 shader_parameter/glow_intensity = 2.0
 shader_parameter/glow_radius = 1.0000000475
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ht1om"]
-bg_color = Color(0, 0, 0, 0.9019608)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bwp5x"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2vw8u"]
 shader = ExtResource("6_ht1om")
 shader_parameter/index = 0
 shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
 shader_parameter/glow_color = Color(1, 0.5, 0, 1)
 shader_parameter/glow_intensity = 5.0
 shader_parameter/glow_radius = 20.0
+
+[sub_resource type="Animation" id="Animation_oss8l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EnemyPane/VBoxContainer/StatusBars:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/Targeting:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer/Targeting/Targeting/MarginContainer/HBoxContainer/Target:material")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_bwp5x")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer/Targeting/Targeting/MarginContainer/HBoxContainer/CastArrow/SubViewportContainer:material")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_oss8l")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MarginContainer/Targeting/Targeting/MarginContainer/HBoxContainer/Ability:material")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_2vw8u")]
+}
 
 [sub_resource type="Animation" id="Animation_ht1om"]
 resource_name = "death"
@@ -67,20 +120,53 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
-
-[sub_resource type="Animation" id="Animation_oss8l"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("EnemyPane/VBoxContainer/StatusBars:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/Targeting:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer/Targeting/Targeting/MarginContainer/HBoxContainer/Target:material")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [null, null]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer/Targeting/Targeting/MarginContainer/HBoxContainer/CastArrow/SubViewportContainer:material")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [null, null]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MarginContainer/Targeting/Targeting/MarginContainer/HBoxContainer/Ability:material")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [null, null]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2vw8u"]
@@ -365,115 +451,12 @@ layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 20
 
-[node name="Targeting2" type="HBoxContainer" parent="MarginContainer"]
-custom_minimum_size = Vector2(0, 35)
+[node name="Targeting" parent="MarginContainer" instance=ExtResource("5_k0veb")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-alignment = 1
-
-[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/Targeting2"]
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_p6m8r")
-
-[node name="Targeting" type="PanelContainer" parent="MarginContainer/Targeting2"]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_oss8l")
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Targeting2/Targeting"]
-layout_mode = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Targeting2/Targeting/MarginContainer"]
-layout_mode = 2
-
-[node name="TextureRect3" type="TextureRect" parent="MarginContainer/Targeting2/Targeting/MarginContainer/HBoxContainer"]
-material = SubResource("ShaderMaterial_2vw8u")
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("3_sctin")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Targeting2/Targeting/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer/Targeting2/Targeting/MarginContainer/HBoxContainer/MarginContainer"]
-material = SubResource("ShaderMaterial_oss8l")
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="SubViewport" type="SubViewport" parent="MarginContainer/Targeting2/Targeting/MarginContainer/HBoxContainer/MarginContainer/SubViewportContainer"]
-transparent_bg = true
-handle_input_locally = false
-size = Vector2i(41, 41)
-render_target_update_mode = 0
-
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/Targeting2/Targeting/MarginContainer/HBoxContainer/MarginContainer/SubViewportContainer/SubViewport"]
-clip_children = 2
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_k0veb")
-expand_mode = 5
-stretch_mode = 5
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Targeting2/Targeting/MarginContainer/HBoxContainer/MarginContainer/SubViewportContainer/SubViewport/TextureRect2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Panel" type="Panel" parent="MarginContainer/Targeting2/Targeting/MarginContainer/HBoxContainer/MarginContainer/SubViewportContainer/SubViewport/TextureRect2/MarginContainer"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-size_flags_horizontal = 8
-theme_override_styles/panel = SubResource("StyleBoxFlat_ht1om")
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/Targeting2/Targeting/MarginContainer/HBoxContainer"]
-material = SubResource("ShaderMaterial_bwp5x")
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-texture = ExtResource("5_acs8f")
-expand_mode = 2
-stretch_mode = 5
-
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/Targeting2"]
-custom_minimum_size = Vector2(35, 35)
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Targeting2/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 2
-
-[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/Targeting2/PanelContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="MarginContainer/Targeting2/PanelContainer/MarginContainer/VBoxContainer3"]
-layout_mode = 2
-size_flags_vertical = 3
-text = "+3"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -483,3 +466,6 @@ libraries = {
 [connection signal="gui_input" from="EnemyPane/Panel2" to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="EnemyPane/Panel2" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="EnemyPane/Panel2" to="." method="_on_mouse_exited"]
+[connection signal="on_cast_end" from="MarginContainer/Targeting" to="." method="_targeting_on_cast_end"]
+
+[editable path="MarginContainer/Targeting"]

@@ -37,3 +37,6 @@ extends Node
 @export var empty_slotButton: Resource = preload("res://resources/abilities/none.tres")
 
 @export var combat_text: PackedScene = preload("res://scenes/ui/combat_text.tscn")
+
+@export var max_threat: int = 10
+@export var min_threat: int = 0

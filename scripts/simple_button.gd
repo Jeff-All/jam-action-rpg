@@ -44,28 +44,29 @@ var disabled: bool:
 		_disabled = value
 		if value:
 			mouse_default_cursor_shape = CursorShape.CURSOR_ARROW
-			texture_rect.material.set_shader_parameter("index", 0)
-			#_panel.add_theme_stylebox_override("panel", default_color)
+			if texture_rect.material != null:
+				texture_rect.material.set_shader_parameter("index", 0)
 			disabled_ui.visible = true
 		else:
 			mouse_default_cursor_shape = CursorShape.CURSOR_POINTING_HAND
 			disabled_ui.visible = false
 
 func _on_mouse_entered():
+	print("on_mouse_entered() %s" % name)
 	if !_disabled:
 		_hover = true
 		if _left_down:
-			texture_rect.material.set_shader_parameter("index", 2)
-			#_panel.add_theme_stylebox_override("panel", down_color)
+			if texture_rect.material != null:
+				texture_rect.material.set_shader_parameter("index", 2)
 		if !_left_down:
-			texture_rect.material.set_shader_parameter("index", 1)
-			#_panel.add_theme_stylebox_override("panel", hover_color)
+			if texture_rect.material != null:
+				texture_rect.material.set_shader_parameter("index", 1)
 
 func _on_mouse_exited():
 	if !_disabled:
 		_hover = false
-		texture_rect.material.set_shader_parameter("index", 0)
-		#_panel.add_theme_stylebox_override("panel", default_color)
+		if texture_rect.material != null:
+			texture_rect.material.set_shader_parameter("index", 0)
 
 func _on_gui_input(event):
 	if !_disabled:
@@ -73,11 +74,11 @@ func _on_gui_input(event):
 			if event.button_index == MOUSE_BUTTON_LEFT:
 				if event.is_pressed():
 					_left_down = true
-					texture_rect.material.set_shader_parameter("index", 2)
-					#_panel.add_theme_stylebox_override("panel", down_color)
+					if texture_rect.material != null:
+						texture_rect.material.set_shader_parameter("index", 2)
 				else:
 					_left_down = false
 					if _hover:
-						texture_rect.material.set_shader_parameter("index", 1)
-						#_panel.add_theme_stylebox_override("panel", hover_color)
+						if texture_rect.material != null:
+							texture_rect.material.set_shader_parameter("index", 1)
 						on_pressed.emit(self)

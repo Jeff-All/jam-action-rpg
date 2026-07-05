@@ -2,16 +2,23 @@ class_name BattleUI
 
 extends Control
 
+signal on_continue()
+signal on_exit()
+
 @export var play_button_texture: Texture2D
 @export var pause_button_texture: Texture2D
 
 var play_button: SimpleButton
 var chrono_controller: ChronoController
+var animation_player: AnimationPlayer
 
 var front_row: Array[EnemyUI]
 var back_row: Array[EnemyUI]
+var enemies: Array[EnemyUI]
 var pcs: Array[PCUI]
 var battle: Battle
+
+var running: bool = false
 
 var state: State = State.BASE
 
@@ -23,6 +30,7 @@ var selected_pc: PCUI
 func _ready():
 	play_button = $MarginContainer/PlayButton
 	chrono_controller = $ChronoController
+	animation_player = $AnimationPlayer
 	
 	for cur in $Foreground/VBoxContainer2/Enemies/FrontRow.get_children():
 		front_row.append(cur)
@@ -33,12 +41,58 @@ func _ready():
 	for cur in $Foreground/VBoxContainer2/PCs.get_children():
 		pcs.append(cur)
 
-func process_step():
+func reset():
+	chrono_controller.reset()
+	
+	for cur in front_row:
+		cur.reset()
+	
+	for cur in back_row:
+		cur.reset()
+	
 	for cur in pcs:
-		cur.process_step()
+		cur.reset()
+	
+	battle = null
+	enemies = []
+	state = State.BASE
+	selected_ability_button = null
+	selected_pc = null
+	last_enemy_processed_index = 0
+	
+	play_button.texture_rect.texture = play_button_texture
+	
+	animation_player.play("RESET")
+
+var last_enemy_processed_index = 0
+var processed_last_tick: bool = false
+
+func process_step():
+	if running:
+		for cur in pcs:
+			cur.process_step()
+		if !processed_last_tick:
+			var count = 0
+			while enemies[last_enemy_processed_index].enemy.dead:
+				last_enemy_processed_index = ( last_enemy_processed_index + 1 ) % enemies.size()
+				count += 1
+				if count > enemies.size():
+					# Victory
+					return
+			if enemies[last_enemy_processed_index].process_step(self):
+				processed_last_tick = true
+			last_enemy_processed_index = ( last_enemy_processed_index + 1 ) % enemies.size()
+		else:
+			processed_last_tick = false
 
 func process_animations(delta: float):
 	for cur in pcs:
+		cur.process_animations(delta)
+	
+	for cur in front_row:
+		cur.process_animations(delta)
+	
+	for cur in back_row:
 		cur.process_animations(delta)
 
 func _chono_controller_on_process_step():
@@ -48,11 +102,14 @@ func _chrono_controller_on_process(delta: float):
 	process_animations(delta)
 
 func setup_battle(_battle: Battle):
+	print("battle_ui.setup_battle")
 	battle = _battle
-	setup_enemies()
+	
 	setup_party()
+	setup_enemies()
 	
 	go_to_base_state()
+	running = true
 
 func setup_enemies():
 	hide_enemies()
@@ -65,13 +122,15 @@ func hide_enemies():
 	for cur in back_row:
 		cur.visible = false
 
-func setup_enemy_row(row: Array[EnemyUI], enemies: Array[EnemyBattle]):
+func setup_enemy_row(row: Array[EnemyUI], _enemies: Array[EnemyBattle]):
 	var index = 0
-	for cur in enemies: 
+	for cur in _enemies: 
 		if index >= row.size():
 			break
 		row[index].enemy = cur
 		row[index].visible = true
+		enemies.append(row[index])
+		cur.setup_base_threat(pcs)
 		index += 1
 
 func setup_party():
@@ -181,3 +240,35 @@ func _on_play_button_pressed(simple_button: SimpleButton):
 		simple_button.texture_rect.texture = play_button_texture
 	else:
 		simple_button.texture_rect.texture = pause_button_texture
+
+func _enemy_ui_on_cast_end(enemy: EnemyUI, ability: EnemyAbility, target):
+	if !target.dead && !enemy.dead:
+		enemy._enemy.base.execute_ability(ability, target, self)
+
+func _enemy_ui_on_death(_enemy: EnemyUI):
+	for cur in enemies:
+		if cur.enemy != null:
+			if !cur.enemy.dead:
+				return
+	victory()
+
+func victory():
+	running = false
+	animation_player.play("Victory")
+
+func _continue_on_pressed(_simple_button: SimpleButton):
+	on_continue.emit()
+
+func _exit_on_pressed(_simple_button: SimpleButton):
+	on_exit.emit()
+
+func _pcui_on_death(_pc: PCUI):
+	for cur in pcs:
+		if cur._character != null:
+			if !cur.dead:
+				return
+	defeat()
+
+func defeat():
+	running = false
+	animation_player.play("Defeat")

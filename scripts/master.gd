@@ -43,3 +43,8 @@ func _campaign_builder_on_finish(_campaign: Campaign):
 	
 	campaign_builder.visible = false
 	campaign.visible = true
+
+func _campaign_ui_on_exit():
+	campaign.visible = false
+	
+	main_menu.visible = true

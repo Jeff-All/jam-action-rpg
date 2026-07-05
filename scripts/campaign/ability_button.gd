@@ -13,7 +13,6 @@ var grayout: Panel
 var texture_rect: TextureRect
 var _material: ShaderMaterial
 
-
 var _can_afford: bool = true
 var on_cooldown: bool = false
 
@@ -88,6 +87,15 @@ func _ready():
 	
 	grayout.add_theme_stylebox_override("panel", grayout_theme)
 
+func reset():
+	clickable = true
+	_hover = false
+	_left_down = false
+	_selected = false
+	
+	_can_afford = true
+	on_cooldown = false
+
 func process_animations(delta: float):
 	animation_player.advance(delta)
 
@@ -125,9 +133,6 @@ func _on_cooldown_started(duration: float):
 	animation_player.stop()
 	animation_player.speed_scale = 1/duration
 	animation_player.current_animation = "ability_cooldown"
-	animation_player.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
-	#animation_player.play("ability_cooldown")
-	#animation_player.stop()
 	mouse_default_cursor_shape = Control.CursorShape.CURSOR_ARROW
 
 func _on_cooldown_animation_ended():

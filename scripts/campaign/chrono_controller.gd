@@ -8,6 +8,10 @@ signal on_process_step()
 var cur_step: float = 0.0
 var paused: bool = true
 
+func reset():
+	cur_step = 0.0
+	paused = true
+
 func _process(delta):
 	if !paused:
 		cur_step += delta

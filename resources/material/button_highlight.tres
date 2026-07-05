@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://qy2se5xv6pls"]
+
+[ext_resource type="Shader" uid="uid://biuiik7j0v1yi" path="res://shaders/edge_glow.gdshader" id="1_ye320"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_ye320")
+shader_parameter/index = 0
+shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 1, 0.84313726, 0, 1, 0.18889248, 0.15262929, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/glow_color = Color(1, 0.5, 0, 1)
+shader_parameter/glow_intensity = 5.0
+shader_parameter/glow_radius = 20.00000095

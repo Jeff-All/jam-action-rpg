@@ -23,6 +23,15 @@ func _ready():
 	
 	selector.visible = false
 
+func reset():
+	left.visible = false
+	right.visible = false
+	
+	campaign = null
+	character_pane.campaign = null
+	
+	cur_index = 0
+
 func populate(_campaign: Campaign):
 	campaign = _campaign
 	character_pane.campaign = campaign

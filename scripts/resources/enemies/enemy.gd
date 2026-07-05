@@ -13,5 +13,26 @@ extends Resource
 
 @export var dodge: int
 
+@export var ability_attack: EnemyAbility
+
 func get_enemy_battle() -> EnemyBattle:
 	return EnemyBattle.new(self)
+
+func pick_ability(cur: EnemyUI, _battle: BattleUI) -> Array:
+	return [ability_attack, find_target_attack(cur)]
+
+func find_target_attack(cur: EnemyUI):
+	return cur.enemy.threat_table.find_target()
+
+func execute_ability(ability: EnemyAbility, target, _battle: BattleUI):
+	match ability:
+		ability_attack:
+			execute_attack(target)
+
+func execute_attack(target):
+	var roll = randi_range(0,100)
+	if roll < ability_attack.floats["Hit"]:
+		var damage = randi_range(ability_attack.floats["MinDamage"], ability_attack.floats["MaxDamage"])
+		target.take_damage(damage)
+	else:
+		target.spawn_combat_text("MISS")

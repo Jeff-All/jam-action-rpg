@@ -31,6 +31,14 @@ var cur_shields: int
 var cur_stamina: int
 var cur_mana: int
 
+var threat_table: ThreatTable = ThreatTable.new()
+
+var cooldowns: Dictionary[EnemyAbility, float]
+
+var cur_target: PCUI
+var cur_ability: EnemyAbility
+var cur_cast_time: float = 0.0
+
 func _init(_base: Enemy):
 	base = _base
 	
@@ -40,3 +48,13 @@ func _init(_base: Enemy):
 	cur_shields = 0
 	cur_stamina = _base.stamina
 	cur_mana = _base.mana
+
+func setup_base_threat(pcs: Array[PCUI]):
+	print("enemy_battle.setup_base_threat")
+	for cur in pcs:
+		if cur.character != null:
+			print("enemy_battle.setup_base_threat.add_threat %s" % cur.name)
+			add_threat(cur, 0)
+
+func add_threat(source: PCUI, value: int):
+	threat_table.add_threat(source, value)

@@ -4,6 +4,7 @@ extends Node
 
 signal on_pressed(PCUI)
 signal on_ability_pressed(PCUI, AbilityButton)
+signal on_death(pc: PCUI)
 
 @export var flip: bool = false
 
@@ -19,6 +20,14 @@ var _clickable: bool = false
 var _hover: bool = false
 var _left_down: bool = false
 
+var _dead: bool = false
+
+var dead: bool:
+	set(value):
+		_dead = value
+	get:
+		return _dead
+
 var character: CharacterBattle:
 	set(value):
 		_character = value
@@ -27,6 +36,9 @@ var character: CharacterBattle:
 		portrait.character = value.character_campaign
 		set_abilities()
 		bind_status_bars()
+		bind_character()
+		
+		_dead = false
 	get: return _character
 
 var clickable: bool:
@@ -42,6 +54,10 @@ var clickable: bool:
 			_material.set_shader_parameter("index", 0)
 			mouse_panel.mouse_default_cursor_shape = Control.CursorShape.CURSOR_ARROW
 
+var texture: Texture2D:
+	get:
+		return portrait.view_port.get_texture()
+
 func _ready():
 	_material = $VBoxContainer/CharacterPortrait.get_shader()
 	portrait = $VBoxContainer/CharacterPortrait
@@ -54,6 +70,18 @@ func _ready():
 	portrait.flip(flip)
 	
 	await get_tree().process_frame
+
+func reset():
+	clear_abilities()
+	unbind_character()
+	portrait.character = null
+	character = null
+	dead = false
+	
+	for cur in abilities:
+		cur.reset()
+	
+	portrait.animation_player.play("RESET")
 
 func process_animations(delta: float):
 	for cur in abilities:
@@ -95,7 +123,6 @@ func _on_gui_input(event):
 						_material.set_shader_parameter("index", 2)
 						on_pressed.emit(self)
 
-
 func set_abilities():
 	clear_abilities()
 	var index = 0
@@ -109,6 +136,7 @@ func set_abilities():
 func clear_abilities():
 	for cur in abilities:
 		cur.visible = false
+		cur.ability = null
 
 func bind_status_bars():
 	status_bars.max_health = _character.character_campaign.resources[CharacterCampaign.Resources.HEALTH]
@@ -120,13 +148,22 @@ func bind_status_bars():
 	status_bars.cur_stamina = _character.character_campaign.resources[CharacterCampaign.Resources.STAMINA]
 	status_bars.max_mana = _character.character_campaign.resources[CharacterCampaign.Resources.MANA]
 	status_bars.cur_mana = _character.character_campaign.resources[CharacterCampaign.Resources.MANA]
-	
+
+func bind_character():
 	_character.on_cur_resource_change.connect(_on_cur_resource_change)
+	_character.on_death.connect(_on_death)
+
+func unbind_character():
+	if _character != null:
+		_character.on_cur_resource_change.disconnect(_on_cur_resource_change)
+		_character.on_death.disconnect(_on_death)
 
 func _on_cur_resource_change(resource: CharacterCampaign.Resources, value: int):
 	match resource:
 		CharacterCampaign.Resources.HEALTH:
 			status_bars.cur_health = value
+		CharacterCampaign.Resources.ARMOR:
+			status_bars.cur_armor = value
 		CharacterCampaign.Resources.DURABILITY:
 			status_bars.cur_durability = value
 		CharacterCampaign.Resources.STAMINA:
@@ -134,6 +171,22 @@ func _on_cur_resource_change(resource: CharacterCampaign.Resources, value: int):
 		CharacterCampaign.Resources.MANA:
 			status_bars.cur_mana = value
 	check_if_can_afford_abilities()
+
+func take_damage(value: int):
+	var armor = character.cur_resources[CharacterCampaign.Resources.ARMOR]
+	var durability = character.cur_resources[CharacterCampaign.Resources.DURABILITY]
+	if armor > 0 && durability > 0:
+		if armor <= value:
+			durability -= 1
+			value = value - armor
+		else:
+			value = 0
+	spawn_combat_text("%s" % value)
+	var health = character.cur_resources[CharacterCampaign.Resources.HEALTH]
+	character.set_cur_resource(CharacterCampaign.Resources.HEALTH, health - value)
+	character.set_cur_resource(CharacterCampaign.Resources.DURABILITY, durability)
+	if durability <= 0:
+		character.set_cur_resource(CharacterCampaign.Resources.ARMOR, 0)
 
 func check_if_can_afford_abilities():
 	for cur in abilities:
@@ -152,3 +205,16 @@ func trigger_attack_cooldown():
 	for cur in abilities:
 		if cur.ability is AbilityAttack:
 			cur.start_cooldown(character.character_campaign.weapon.speed)
+
+func spawn_combat_text(text: String):
+	var combat_text = Global.combat_text.instantiate() as CombatText
+	mouse_panel.add_child(combat_text)
+	combat_text.label.text = text
+	combat_text.animation.play("float")
+
+func _on_death(_char: CharacterBattle):
+	dead = true
+	on_death.emit(self)
+	for cur in abilities:
+		cur.clickable = false
+	portrait.animation_player.play("Death")

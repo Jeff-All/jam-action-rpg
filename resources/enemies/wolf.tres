@@ -1,7 +1,22 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://bu4gi5wf2ogn"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=6 format=3 uid="uid://bu4gi5wf2ogn"]
 
+[ext_resource type="Script" uid="uid://6ggv8n4xqyob" path="res://scripts/resources/enemies/enemy_ability/enemy_ability.gd" id="1_qy7xp"]
 [ext_resource type="Script" uid="uid://ep73png3yh5x" path="res://scripts/resources/enemies/enemy.gd" id="1_swj5j"]
 [ext_resource type="Texture2D" uid="uid://di4bgu5wbaxdw" path="res://resources/art/enemies/wolf.png" id="2_eg5bs"]
+[ext_resource type="Texture2D" uid="uid://ddx5qdlv4e7gx" path="res://resources/art/icons/abilities/attack.png" id="2_hf1wb"]
+
+[sub_resource type="Resource" id="Resource_hf1wb"]
+script = ExtResource("1_qy7xp")
+name = "Bite"
+cast_time = 3.0
+cast_variability = 1.0
+texture = ExtResource("2_hf1wb")
+floats = Dictionary[String, float]({
+"Hit": 50.0,
+"MaxDamage": 3.0,
+"MinDamage": 1.0
+})
+metadata/_custom_type_script = "uid://6ggv8n4xqyob"
 
 [resource]
 script = ExtResource("1_swj5j")
@@ -9,4 +24,5 @@ name = "Wolf"
 texture = ExtResource("2_eg5bs")
 health = 10
 stamina = 10
+ability_attack = SubResource("Resource_hf1wb")
 metadata/_custom_type_script = "uid://ep73png3yh5x"

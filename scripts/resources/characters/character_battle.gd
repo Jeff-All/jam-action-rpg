@@ -3,6 +3,7 @@ class_name CharacterBattle
 extends Resource
 
 signal on_cur_resource_change(resource: CharacterCampaign.Resources, value: int)
+signal on_death(character: CharacterBattle)
 
 var character_campaign: CharacterCampaign
 
@@ -39,6 +40,9 @@ func set_cur_resource(resource: CharacterCampaign.Resources, value: int):
 		value = character_campaign.resources[resource]
 	if cur_resources[resource] != value:
 		cur_resources[resource] = value
+		if resource == CharacterCampaign.Resources.HEALTH:
+			if value <= 0:
+				on_death.emit(self)
 		on_cur_resource_change.emit(resource, value)
 
 func _init(_character_campaign: CharacterCampaign):

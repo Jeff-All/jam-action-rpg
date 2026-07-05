@@ -20,6 +20,10 @@ func _ready():
 	left = $BorderButtons/Margin/Left/Left
 	right = $BorderButtons/Margin/Right/Right
 
+func reset():
+	battles = []
+	cur_index = 0
+
 func fill(_battles: Array[BattleOptions]):
 	cur_index = 0
 	battles = _battles
