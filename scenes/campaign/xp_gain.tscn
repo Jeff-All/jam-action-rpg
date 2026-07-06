@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbsbujkxbkcnn"]
+[gd_scene load_steps=9 format=3 uid="uid://dbsbujkxbkcnn"]
 
 [ext_resource type="Script" uid="uid://dpvs2mmwj4jl2" path="res://scripts/campaign/xp_gain.gd" id="1_grml6"]
-[ext_resource type="PackedScene" uid="uid://bpf4iur8muk4k" path="res://scenes/ui/frame.tscn" id="2_l8k3a"]
 [ext_resource type="PackedScene" uid="uid://bu1r41jvdgc68" path="res://scenes/campaign/character_xp_window.tscn" id="3_7k232"]
 [ext_resource type="PackedScene" uid="uid://dt7xrxget1oi1" path="res://scenes/ui/simple_button.tscn" id="4_mhggy"]
 [ext_resource type="Shader" uid="uid://biuiik7j0v1yi" path="res://shaders/edge_glow.gdshader" id="5_d1kfq"]
 [ext_resource type="Texture2D" uid="uid://c5uc4nyg4gtlg" path="res://resources/art/icons/Continue.png" id="6_18spi"]
+[ext_resource type="PackedScene" uid="uid://cfht8t107ki2y" path="res://scenes/campaign/post_battle/level_up.tscn" id="7_18spi"]
+[ext_resource type="Texture2D" uid="uid://dxy6bty10o4xp" path="res://resources/art/textures/slate_brick.png" id="7_d1kfq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q88tc"]
 resource_local_to_scene = true
@@ -25,16 +26,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_grml6")
 
-[node name="Control" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 154.0
-offset_top = 304.0
-offset_right = 1133.0
-offset_bottom = 528.0
-
-[node name="Frame" parent="Control" instance=ExtResource("2_l8k3a")]
-visible = false
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_d1kfq")
+expand_mode = 1
+stretch_mode = 1
 
 [node name="CharacterXPWindows" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -84,6 +85,12 @@ grow_vertical = 2
 texture = ExtResource("6_18spi")
 metadata/_edit_use_anchors_ = true
 
+[node name="LevelUp" parent="." instance=ExtResource("7_18spi")]
+visible = false
+layout_mode = 1
+
+[connection signal="on_level_up" from="CharacterXPWindows/CharacterXPWindow" to="." method="_character_xp_window_on_level_up"]
 [connection signal="on_pressed" from="SimpleButton" to="." method="_on_continue_pressed"]
+[connection signal="on_ability_select" from="LevelUp" to="." method="_level_up_on_ability_select"]
 
 [editable path="SimpleButton"]

@@ -10,6 +10,7 @@ extends Resource
 @export var cooldown: float = 0.0
 @export var targeting: Targeting = Targeting.SELF
 @export var to_hit: int
+@export var description: String
 
 enum Targeting { SELF, ALLIES, PARTY, MELEE, RANGED, ALL}
 

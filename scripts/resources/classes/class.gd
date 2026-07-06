@@ -25,6 +25,8 @@ extends Resource
 @export var stamina_recovery: int
 @export var mana_recovery: int
 
+@export var levels: Dictionary[int, ClassLevel]
+
 func get_header() -> String:
 	return name
 

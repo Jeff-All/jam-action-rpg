@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b7jaey874juma" path="res://scripts/tests/test_party_builder.gd" id="1_ai8fm"]
 [ext_resource type="Script" uid="uid://bubl68t4u61vo" path="res://scripts/resources/abilities/ability.gd" id="2_sen6f"]
 [ext_resource type="PackedScene" uid="uid://dgsfyjnaxdtg0" path="res://scenes/campaign_builder/party_builder.tscn" id="2_wcfvd"]
-[ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/class.gd" id="6_7382a"]
+[ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/classes/class.gd" id="6_7382a"]
 [ext_resource type="Script" uid="uid://c80yoskj347ho" path="res://scripts/resources/armor.gd" id="6_bc2w7"]
 [ext_resource type="Resource" uid="uid://nvmg1wj6p2a5" path="res://resources/armor/rusty_chain_mail.tres" id="7_dt5kl"]
 [ext_resource type="Resource" uid="uid://cujlbu0bgcrx2" path="res://resources/classes/class_monk.tres" id="7_xtdk2"]

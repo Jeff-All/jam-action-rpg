@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Class" load_steps=3 format=3 uid="uid://cxppii7vomqji"]
 
-[ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/class.gd" id="1_10cqk"]
+[ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/classes/class.gd" id="1_10cqk"]
 [ext_resource type="Texture2D" uid="uid://dqbiobfw7q8j8" path="res://resources/art/icons/classes/rogue.png" id="6_7pcqf"]
 
 [resource]

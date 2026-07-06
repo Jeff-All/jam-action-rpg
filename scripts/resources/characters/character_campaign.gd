@@ -4,7 +4,7 @@ extends Resource
 
 var base: CharacterBase
 
-var level: int = 1
+var level: int = 0
 var xp_needed: int = 10
 var cur_xp: int = 0
 
@@ -92,6 +92,21 @@ func equip_armor(_armor: Armor) -> Armor:
 
 func equip_weapon(_weapon: Weapon) -> Weapon:
 	return null
+
+func add_ability(ability: Ability):
+	available_abilities.append(ability)
+	var index = 0
+	for cur in abilities:
+		if cur == null:
+			break
+		index += 1
+	if index < abilities.size():
+		abilities[index] = ability
+
+func level_up():
+	if cur_xp >= xp_needed:
+		cur_xp = cur_xp - xp_needed
+		xp_needed = xp_needed * 2
 
 func set_race(_race: Race):
 	race = _race

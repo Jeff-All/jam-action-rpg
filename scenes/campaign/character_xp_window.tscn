@@ -139,4 +139,6 @@ ignore_texture_size = true
 stretch_mode = 0
 metadata/_edit_use_anchors_ = true
 
+[connection signal="pressed" from="Control/LevelUp" to="." method="_on_level_up_pressed"]
+
 [editable path="Control/TextureRect/XPBar"]

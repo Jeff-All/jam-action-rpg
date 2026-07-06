@@ -1,10 +1,21 @@
-[gd_resource type="Resource" script_class="Class" load_steps=3 format=3 uid="uid://cd52scvecilnt"]
+[gd_resource type="Resource" script_class="Class" load_steps=10 format=3 uid="uid://cd52scvecilnt"]
 
-[ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/class.gd" id="1_hbnra"]
+[ext_resource type="Script" uid="uid://cr8mt1s82yoec" path="res://scripts/resources/classes/class_level.gd" id="1_fmb1j"]
+[ext_resource type="Script" uid="uid://bubl68t4u61vo" path="res://scripts/resources/abilities/ability.gd" id="1_y64t6"]
+[ext_resource type="Resource" uid="uid://d6xgnmorxpc6" path="res://resources/abilities/attacks/precision_strike.tres" id="3_w5hpm"]
+[ext_resource type="Resource" uid="uid://c3kjh8y1s3hkk" path="res://resources/abilities/attacks/mighty_blow.tres" id="4_xb028"]
+[ext_resource type="Resource" uid="uid://ia1e0gs7r4ff" path="res://resources/abilities/restore.tres" id="5_ajh4x"]
+[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/trait.gd" id="6_l17ss"]
+[ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/classes/class.gd" id="7_lt7yf"]
 [ext_resource type="Texture2D" uid="uid://drcwqs8ghiwsa" path="res://resources/art/icons/classes/warrior.png" id="8_fmb1j"]
 
+[sub_resource type="Resource" id="Resource_1x3km"]
+script = ExtResource("1_fmb1j")
+abilities = Array[ExtResource("1_y64t6")]([ExtResource("3_w5hpm"), ExtResource("4_xb028"), ExtResource("5_ajh4x")])
+metadata/_custom_type_script = "uid://cr8mt1s82yoec"
+
 [resource]
-script = ExtResource("1_hbnra")
+script = ExtResource("7_lt7yf")
 name = "Warrior"
 texture = ExtResource("8_fmb1j")
 threat = 3
@@ -13,4 +24,7 @@ defense = 5
 strength = 1
 armor = 1
 health = 5
+levels = Dictionary[int, ExtResource("1_fmb1j")]({
+1: SubResource("Resource_1x3km")
+})
 metadata/_custom_type_script = "uid://7im2jq7xrwm1"

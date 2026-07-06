@@ -2,6 +2,8 @@ class_name CharacterXPWindow
 
 extends Control
 
+signal on_level_up(character: CharacterCampaign)
+
 var xp_bar: StatusBar
 var levelup_button: TextureButton
 var portrait: CharacterPortrait
@@ -14,8 +16,9 @@ var character: CharacterCampaign:
 	set(value):
 		_character = value
 		portrait.character = _character
-		max_xp = _character.xp_needed
-		xp = _character.cur_xp
+		update()
+	get:
+		return _character
 
 var max_xp: int:
 	set(value):
@@ -40,3 +43,10 @@ func _ready():
 	portrait = $CharacterPortrait
 	
 	levelup_button.visible = false
+
+func update():
+	max_xp = _character.xp_needed
+	xp = _character.cur_xp
+
+func _on_level_up_pressed():
+	on_level_up.emit(character)

@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://il067chpnhke" path="res://resources/art/pcs/dwarf/body/light.png" id="4_nvlfq"]
 [ext_resource type="Texture2D" uid="uid://djq8jrovhvky4" path="res://resources/art/pcs/dwarf/body/medium.png" id="5_bnrq4"]
 [ext_resource type="Texture2D" uid="uid://bd7aid43g5gf0" path="res://resources/art/pcs/dwarf/body/heavy.png" id="6_16g1s"]
-[ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/class.gd" id="7_2bd77"]
+[ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/classes/class.gd" id="7_2bd77"]
 [ext_resource type="Resource" uid="uid://cujlbu0bgcrx2" path="res://resources/classes/class_monk.tres" id="8_px5lo"]
 [ext_resource type="Texture2D" uid="uid://h4s6jxl2l6h" path="res://resources/art/pcs/dwarf/head/monk.png" id="9_nh60s"]
 [ext_resource type="Resource" uid="uid://cxppii7vomqji" path="res://resources/classes/class_rogue.tres" id="10_5tex2"]

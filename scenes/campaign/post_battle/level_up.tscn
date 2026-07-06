@@ -1,0 +1,472 @@
+[gd_scene load_steps=32 format=3 uid="uid://cfht8t107ki2y"]
+
+[ext_resource type="Script" uid="uid://tyl7qv7vy6ck" path="res://scripts/campaign/post_battle/level_up.gd" id="1_dbtow"]
+[ext_resource type="Texture2D" uid="uid://dxy6bty10o4xp" path="res://resources/art/textures/slate_brick.png" id="1_tqwu3"]
+[ext_resource type="PackedScene" uid="uid://bhoacsi1rhf6s" path="res://scenes/campaign/post_battle/ability_select.tscn" id="2_dbtow"]
+[ext_resource type="Texture2D" uid="uid://bpqhnjplafwfm" path="res://resources/art/icons/backgrounds/forest_landscape.png" id="3_8k8db"]
+[ext_resource type="PackedScene" uid="uid://bd3fgvk1uqbpx" path="res://scenes/character/character_portrait.tscn" id="4_fjlde"]
+[ext_resource type="PackedScene" uid="uid://bpf4iur8muk4k" path="res://scenes/ui/frame.tscn" id="5_qg4wj"]
+[ext_resource type="Texture2D" uid="uid://cyroh8j1a6y6m" path="res://resources/art/textures/capped/scroll_middle.png" id="6_nrauk"]
+[ext_resource type="PackedScene" uid="uid://dt7xrxget1oi1" path="res://scenes/ui/simple_button.tscn" id="7_ack5j"]
+[ext_resource type="Texture2D" uid="uid://y8rkrr685xg3" path="res://resources/art/icons/abilities/mighty_blow.png" id="8_kv7m3"]
+[ext_resource type="Shader" uid="uid://biuiik7j0v1yi" path="res://shaders/edge_glow.gdshader" id="9_6nx3q"]
+[ext_resource type="Texture2D" uid="uid://dhw2r7a78ib0w" path="res://resources/art/textures/capped/scroll_left_cap.png" id="10_jxo07"]
+[ext_resource type="Texture2D" uid="uid://1fvtlimuxe62" path="res://resources/art/textures/capped/scroll_right_cap.png" id="11_m0374"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7gldj"]
+bg_color = Color(0, 0, 0, 0.64705884)
+expand_margin_left = 23.0
+expand_margin_bottom = 26.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ie7yw"]
+texture = ExtResource("6_nrauk")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y4wjs"]
+resource_local_to_scene = true
+shader = ExtResource("9_6nx3q")
+shader_parameter/index = 0
+shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 1, 0.84313726, 0, 1, 0.18889248, 0.15262929, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/glow_color = Color(1, 0.5, 0, 1)
+shader_parameter/glow_intensity = 5.0
+shader_parameter/glow_radius = 50.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gw3om"]
+resource_local_to_scene = true
+shader = ExtResource("9_6nx3q")
+shader_parameter/index = 0
+shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 1, 0.84313726, 0, 1, 0.18889248, 0.15262929, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/glow_color = Color(1, 0.5, 0, 1)
+shader_parameter/glow_intensity = 5.0
+shader_parameter/glow_radius = 50.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cmbvv"]
+resource_local_to_scene = true
+shader = ExtResource("9_6nx3q")
+shader_parameter/index = 0
+shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 1, 0.84313726, 0, 1, 0.18889248, 0.15262929, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/glow_color = Color(1, 0.5, 0, 1)
+shader_parameter/glow_intensity = 5.0
+shader_parameter/glow_radius = 50.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fmsld"]
+resource_local_to_scene = true
+shader = ExtResource("9_6nx3q")
+shader_parameter/index = 0
+shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 1, 0.84313726, 0, 1, 0.18889248, 0.15262929, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/glow_color = Color(1, 0.5, 0, 1)
+shader_parameter/glow_intensity = 5.0
+shader_parameter/glow_radius = 50.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4gevh"]
+resource_local_to_scene = true
+shader = ExtResource("9_6nx3q")
+shader_parameter/index = 0
+shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 1, 0.84313726, 0, 1, 0.18889248, 0.15262929, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/glow_color = Color(1, 0.5, 0, 1)
+shader_parameter/glow_intensity = 5.0
+shader_parameter/glow_radius = 50.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_duoyy"]
+resource_local_to_scene = true
+shader = ExtResource("9_6nx3q")
+shader_parameter/index = 0
+shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 1, 0.84313726, 0, 1, 0.18889248, 0.15262929, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/glow_color = Color(1, 0.5, 0, 1)
+shader_parameter/glow_intensity = 5.0
+shader_parameter/glow_radius = 50.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ie7yw"]
+resource_local_to_scene = true
+shader = ExtResource("9_6nx3q")
+shader_parameter/index = 0
+shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 1, 0.84313726, 0, 1, 0.18889248, 0.15262929, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/glow_color = Color(1, 0.5, 0, 1)
+shader_parameter/glow_intensity = 5.0
+shader_parameter/glow_radius = 50.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1j0pm"]
+resource_local_to_scene = true
+shader = ExtResource("9_6nx3q")
+shader_parameter/index = 0
+shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 1, 0.84313726, 0, 1, 0.18889248, 0.15262929, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/glow_color = Color(1, 0.5, 0, 1)
+shader_parameter/glow_intensity = 5.0
+shader_parameter/glow_radius = 50.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5xree"]
+resource_local_to_scene = true
+shader = ExtResource("9_6nx3q")
+shader_parameter/index = 0
+shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 1, 0.84313726, 0, 1, 0.18889248, 0.15262929, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/glow_color = Color(1, 0.5, 0, 1)
+shader_parameter/glow_intensity = 5.0
+shader_parameter/glow_radius = 50.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ammjq"]
+resource_local_to_scene = true
+shader = ExtResource("9_6nx3q")
+shader_parameter/index = 0
+shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 1, 0.84313726, 0, 1, 0.18889248, 0.15262929, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/glow_color = Color(1, 0.5, 0, 1)
+shader_parameter/glow_intensity = 5.0
+shader_parameter/glow_radius = 50.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qa6lg"]
+resource_local_to_scene = true
+shader = ExtResource("9_6nx3q")
+shader_parameter/index = 0
+shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 1, 0.84313726, 0, 1, 0.18889248, 0.15262929, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/glow_color = Color(1, 0.5, 0, 1)
+shader_parameter/glow_intensity = 5.0
+shader_parameter/glow_radius = 50.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_stax1"]
+resource_local_to_scene = true
+shader = ExtResource("9_6nx3q")
+shader_parameter/index = 0
+shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 1, 0.84313726, 0, 1, 0.18889248, 0.15262929, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/glow_color = Color(1, 0.5, 0, 1)
+shader_parameter/glow_intensity = 5.0
+shader_parameter/glow_radius = 50.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7ace8"]
+resource_local_to_scene = true
+shader = ExtResource("9_6nx3q")
+shader_parameter/index = 0
+shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 1, 0.84313726, 0, 1, 0.18889248, 0.15262929, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/glow_color = Color(1, 0.5, 0, 1)
+shader_parameter/glow_intensity = 5.0
+shader_parameter/glow_radius = 50.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b6auk"]
+resource_local_to_scene = true
+shader = ExtResource("9_6nx3q")
+shader_parameter/index = 0
+shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 1, 0.84313726, 0, 1, 0.18889248, 0.15262929, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/glow_color = Color(1, 0.5, 0, 1)
+shader_parameter/glow_intensity = 5.0
+shader_parameter/glow_radius = 50.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ch4hd"]
+resource_local_to_scene = true
+shader = ExtResource("9_6nx3q")
+shader_parameter/index = 0
+shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 1, 0.84313726, 0, 1, 0.18889248, 0.15262929, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/glow_color = Color(1, 0.5, 0, 1)
+shader_parameter/glow_intensity = 5.0
+shader_parameter/glow_radius = 50.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1j0pm"]
+texture = ExtResource("10_jxo07")
+expand_margin_left = 50.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5xree"]
+texture = ExtResource("11_m0374")
+expand_margin_right = 50.0
+
+[node name="LevelUp" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dbtow")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_tqwu3")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Abilities" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.38375
+anchor_right = 1.0
+anchor_bottom = 0.75875
+offset_top = -16.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="AbilitySelect" parent="Abilities" instance=ExtResource("2_dbtow")]
+layout_mode = 2
+
+[node name="AbilitySelect2" parent="Abilities" instance=ExtResource("2_dbtow")]
+layout_mode = 2
+
+[node name="AbilitySelect3" parent="Abilities" instance=ExtResource("2_dbtow")]
+layout_mode = 2
+
+[node name="CharacterWindow" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.40600005
+anchor_top = 0.0675
+anchor_right = 0.59400004
+anchor_bottom = 0.2675
+offset_left = 0.3199463
+offset_right = -0.32006836
+grow_horizontal = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Shadow" type="Panel" parent="CharacterWindow"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7gldj")
+
+[node name="Background" type="TextureRect" parent="CharacterWindow"]
+layout_mode = 2
+texture = ExtResource("3_8k8db")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CharacterPortrait" parent="CharacterWindow" instance=ExtResource("4_fjlde")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CharacterWindow"]
+layout_mode = 2
+
+[node name="Frame" parent="CharacterWindow/Control" instance=ExtResource("5_qg4wj")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.02
+anchor_bottom = 1.0375
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="MarginContainer" parent="CharacterWindow/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.6364999
+anchor_top = 0.85600007
+anchor_right = 2.6134999
+anchor_bottom = 1.30625
+offset_top = 0.039993286
+grow_horizontal = 2
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="CharacterWindow/Control/TextureRect"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ie7yw")
+
+[node name="CurAbilities" type="HBoxContainer" parent="CharacterWindow/Control/TextureRect"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SimpleButton" parent="CharacterWindow/Control/TextureRect/CurAbilities" instance=ExtResource("7_ack5j")]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+expand_mode = 1
+texture = ExtResource("8_kv7m3")
+
+[node name="TextureRect" parent="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton" index="0"]
+material = SubResource("ShaderMaterial_y4wjs")
+texture = ExtResource("8_kv7m3")
+expand_mode = 1
+
+[node name="SimpleButton2" parent="CharacterWindow/Control/TextureRect/CurAbilities" instance=ExtResource("7_ack5j")]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+expand_mode = 1
+texture = ExtResource("8_kv7m3")
+
+[node name="TextureRect" parent="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton2" index="0"]
+material = SubResource("ShaderMaterial_gw3om")
+texture = ExtResource("8_kv7m3")
+expand_mode = 1
+
+[node name="SimpleButton3" parent="CharacterWindow/Control/TextureRect/CurAbilities" instance=ExtResource("7_ack5j")]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+expand_mode = 1
+texture = ExtResource("8_kv7m3")
+
+[node name="TextureRect" parent="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton3" index="0"]
+material = SubResource("ShaderMaterial_cmbvv")
+texture = ExtResource("8_kv7m3")
+expand_mode = 1
+
+[node name="SimpleButton4" parent="CharacterWindow/Control/TextureRect/CurAbilities" instance=ExtResource("7_ack5j")]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+expand_mode = 1
+texture = ExtResource("8_kv7m3")
+
+[node name="TextureRect" parent="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton4" index="0"]
+material = SubResource("ShaderMaterial_fmsld")
+texture = ExtResource("8_kv7m3")
+expand_mode = 1
+
+[node name="SimpleButton5" parent="CharacterWindow/Control/TextureRect/CurAbilities" instance=ExtResource("7_ack5j")]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+expand_mode = 1
+texture = ExtResource("8_kv7m3")
+
+[node name="TextureRect" parent="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton5" index="0"]
+material = SubResource("ShaderMaterial_4gevh")
+texture = ExtResource("8_kv7m3")
+expand_mode = 1
+
+[node name="SimpleButton6" parent="CharacterWindow/Control/TextureRect/CurAbilities" instance=ExtResource("7_ack5j")]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+expand_mode = 1
+texture = ExtResource("8_kv7m3")
+
+[node name="TextureRect" parent="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton6" index="0"]
+material = SubResource("ShaderMaterial_duoyy")
+texture = ExtResource("8_kv7m3")
+expand_mode = 1
+
+[node name="SimpleButton7" parent="CharacterWindow/Control/TextureRect/CurAbilities" instance=ExtResource("7_ack5j")]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+expand_mode = 1
+texture = ExtResource("8_kv7m3")
+
+[node name="TextureRect" parent="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton7" index="0"]
+material = SubResource("ShaderMaterial_ie7yw")
+texture = ExtResource("8_kv7m3")
+expand_mode = 1
+
+[node name="SimpleButton8" parent="CharacterWindow/Control/TextureRect/CurAbilities" instance=ExtResource("7_ack5j")]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+expand_mode = 1
+texture = ExtResource("8_kv7m3")
+
+[node name="TextureRect" parent="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton8" index="0"]
+material = SubResource("ShaderMaterial_1j0pm")
+texture = ExtResource("8_kv7m3")
+expand_mode = 1
+
+[node name="SimpleButton9" parent="CharacterWindow/Control/TextureRect/CurAbilities" instance=ExtResource("7_ack5j")]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+expand_mode = 1
+texture = ExtResource("8_kv7m3")
+
+[node name="TextureRect" parent="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton9" index="0"]
+material = SubResource("ShaderMaterial_5xree")
+texture = ExtResource("8_kv7m3")
+expand_mode = 1
+
+[node name="SimpleButton10" parent="CharacterWindow/Control/TextureRect/CurAbilities" instance=ExtResource("7_ack5j")]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+expand_mode = 1
+texture = ExtResource("8_kv7m3")
+
+[node name="TextureRect" parent="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton10" index="0"]
+material = SubResource("ShaderMaterial_ammjq")
+texture = ExtResource("8_kv7m3")
+expand_mode = 1
+
+[node name="SimpleButton11" parent="CharacterWindow/Control/TextureRect/CurAbilities" instance=ExtResource("7_ack5j")]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+expand_mode = 1
+texture = ExtResource("8_kv7m3")
+
+[node name="TextureRect" parent="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton11" index="0"]
+material = SubResource("ShaderMaterial_qa6lg")
+texture = ExtResource("8_kv7m3")
+expand_mode = 1
+
+[node name="SimpleButton12" parent="CharacterWindow/Control/TextureRect/CurAbilities" instance=ExtResource("7_ack5j")]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+expand_mode = 1
+texture = ExtResource("8_kv7m3")
+
+[node name="TextureRect" parent="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton12" index="0"]
+material = SubResource("ShaderMaterial_stax1")
+texture = ExtResource("8_kv7m3")
+expand_mode = 1
+
+[node name="SimpleButton13" parent="CharacterWindow/Control/TextureRect/CurAbilities" instance=ExtResource("7_ack5j")]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+expand_mode = 1
+texture = ExtResource("8_kv7m3")
+
+[node name="TextureRect" parent="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton13" index="0"]
+material = SubResource("ShaderMaterial_7ace8")
+texture = ExtResource("8_kv7m3")
+expand_mode = 1
+
+[node name="SimpleButton14" parent="CharacterWindow/Control/TextureRect/CurAbilities" instance=ExtResource("7_ack5j")]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+expand_mode = 1
+texture = ExtResource("8_kv7m3")
+
+[node name="TextureRect" parent="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton14" index="0"]
+material = SubResource("ShaderMaterial_b6auk")
+texture = ExtResource("8_kv7m3")
+expand_mode = 1
+
+[node name="SimpleButton15" parent="CharacterWindow/Control/TextureRect/CurAbilities" instance=ExtResource("7_ack5j")]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+expand_mode = 1
+texture = ExtResource("8_kv7m3")
+
+[node name="TextureRect" parent="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton15" index="0"]
+material = SubResource("ShaderMaterial_ch4hd")
+texture = ExtResource("8_kv7m3")
+expand_mode = 1
+
+[node name="SimpleButton16" parent="CharacterWindow/Control/TextureRect/CurAbilities" instance=ExtResource("7_ack5j")]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+expand_mode = 1
+texture = ExtResource("8_kv7m3")
+
+[node name="TextureRect" parent="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton16" index="0"]
+material = SubResource("ShaderMaterial_ch4hd")
+texture = ExtResource("8_kv7m3")
+expand_mode = 1
+
+[node name="Panel2" type="Panel" parent="CharacterWindow/Control/TextureRect"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_1j0pm")
+
+[node name="Panel3" type="Panel" parent="CharacterWindow/Control/TextureRect"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/panel = SubResource("StyleBoxTexture_5xree")
+
+[connection signal="on_select" from="Abilities/AbilitySelect" to="." method="_ability_select_on_select"]
+[connection signal="on_select" from="Abilities/AbilitySelect2" to="." method="_ability_select_on_select"]
+[connection signal="on_select" from="Abilities/AbilitySelect3" to="." method="_ability_select_on_select"]
+
+[editable path="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton"]
+[editable path="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton2"]
+[editable path="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton3"]
+[editable path="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton4"]
+[editable path="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton5"]
+[editable path="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton6"]
+[editable path="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton7"]
+[editable path="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton8"]
+[editable path="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton9"]
+[editable path="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton10"]
+[editable path="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton11"]
+[editable path="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton12"]
+[editable path="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton13"]
+[editable path="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton14"]
+[editable path="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton15"]
+[editable path="CharacterWindow/Control/TextureRect/CurAbilities/SimpleButton16"]
