@@ -13,6 +13,7 @@ var status_bars: StatusBars
 var mouse_panel: Panel
 var _material: ShaderMaterial
 var targeting: EnemyTargeting
+var animation_player: AnimationPlayer
 
 var _enemy: EnemyBattle
 var _clickable: bool = false
@@ -55,6 +56,7 @@ func _ready():
 	_material = $EnemyPane/Panel/TextureRect.material
 	mouse_panel = $EnemyPane/Panel
 	targeting = $MarginContainer/Targeting
+	animation_player = $AnimationPlayer
 	
 	enemy_pane.flip = flip
 
@@ -65,6 +67,11 @@ func reset():
 	_clickable = false
 	_hover = false
 	_left_down = false
+	
+	enemy_pane.animation_player.play("RESET")
+	animation_player.play("RESET")
+	
+	$EnemyPane/Panel/TextureRect.material = _material
 
 func _on_mouse_entered():
 	_hover = true
@@ -120,12 +127,11 @@ func spawn_combat_text(text: String):
 
 func _on_death():
 	enemy_pane.animation_player.play("death")
-	$AnimationPlayer.play("death")
+	animation_player.play("death")
 	targeting.stop_casting()
 	on_death.emit(self)
 
 func _on_health_change(new_value: int):
-	print("_on_health_change(%s)" % new_value)
 	status_bars.cur_health = new_value
 
 func setup_for_battle():

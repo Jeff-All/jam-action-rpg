@@ -1,3 +1,84 @@
-[gd_scene format=3 uid="uid://f763heqnyy3n"]
+[gd_scene load_steps=10 format=3 uid="uid://f763heqnyy3n"]
 
-[node name="PostBattle" type="MarginContainer"]
+[ext_resource type="Texture2D" uid="uid://dxy6bty10o4xp" path="res://resources/art/textures/slate_brick.png" id="1_gni4r"]
+[ext_resource type="Script" uid="uid://batukowkw5lel" path="res://scripts/campaign/post_battle.gd" id="1_uaqsl"]
+[ext_resource type="PackedScene" uid="uid://dbsbujkxbkcnn" path="res://scenes/campaign/xp_gain.tscn" id="2_1t4uo"]
+
+[sub_resource type="Gradient" id="Gradient_mhpgr"]
+offsets = PackedFloat32Array(0.78504676, 1)
+colors = PackedColorArray(0, 0, 0, 0.19626169, 0, 0, 0, 0.6627451)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xa3m4"]
+gradient = SubResource("Gradient_mhpgr")
+fill = 1
+fill_from = Vector2(0.525641, 0.48290598)
+fill_to = Vector2(0.94871795, 0.094017096)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d0q2y"]
+texture = SubResource("GradientTexture2D_xa3m4")
+
+[sub_resource type="Gradient" id="Gradient_0x0xk"]
+offsets = PackedFloat32Array(0.5420561, 0.96728975, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.9098039, 0, 0, 0, 0.5294118)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2mpvy"]
+gradient = SubResource("Gradient_0x0xk")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1r87g"]
+texture = SubResource("GradientTexture2D_2mpvy")
+
+[node name="PostBattle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uaqsl")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_gni4r")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Background2" type="MarginContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="TextureRect/Background2"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_d0q2y")
+
+[node name="Panel2" type="PanelContainer" parent="TextureRect/Background2"]
+visible = false
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_1r87g")
+
+[node name="XPGain" parent="." instance=ExtResource("2_1t4uo")]
+layout_mode = 1
+
+[node name="Loot" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="on_continue" from="XPGain" to="." method="_xp_gain_on_continue"]

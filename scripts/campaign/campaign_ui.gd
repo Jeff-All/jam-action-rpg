@@ -8,7 +8,7 @@ var campaign: Campaign
 
 var battle_selector: BattleSelector
 var battle: BattleUI
-var post_battle
+var post_battle: PostBattle
 var party: Party
 
 func _ready():
@@ -23,7 +23,6 @@ func _ready():
 	party.visible = false
 
 func reset():
-	print("campaign_ui.reset()")
 	battle_selector.reset()
 	battle.reset()
 	#post_battle.reset()
@@ -48,7 +47,9 @@ func to_battle():
 	pass
 
 func to_post_battle():
-	pass
+	post_battle.start(campaign.party)
+	battle.visible = false
+	post_battle.visible = true
 
 func _battle_selector_on_party_pressed():
 	party.populate(campaign)
@@ -71,3 +72,13 @@ func _battle_selector_on_start_battle_pressed(battle_options: BattleOptions):
 
 func _battle_on_exit():
 	on_exit.emit()
+
+func _battle_on_continue():
+	battle.reset()
+	for cur in campaign.party:
+		cur.cur_xp += 5
+	to_post_battle()
+
+func _post_battle_on_end():
+	post_battle.visible = false
+	to_battle_selector()

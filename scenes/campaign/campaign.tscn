@@ -28,5 +28,7 @@ layout_mode = 2
 
 [connection signal="on_party_pressed" from="BattleSelector" to="." method="_battle_selector_on_party_pressed"]
 [connection signal="on_start_battle_pressed" from="BattleSelector" to="." method="_battle_selector_on_start_battle_pressed"]
+[connection signal="on_continue" from="Battle" to="." method="_battle_on_continue"]
 [connection signal="on_exit" from="Battle" to="." method="_battle_on_exit"]
+[connection signal="on_end" from="PostBattle" to="." method="_post_battle_on_end"]
 [connection signal="on_close_pressed" from="Party" to="." method="_party_on_close_pressed"]

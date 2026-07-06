@@ -8,10 +8,12 @@ var ticks
 var base_bar: Panel
 
 var _max_value: int = 1
-var bar_styles: Dictionary[String, StyleBox]
+@export var bar_styles: Dictionary[String, StyleBox]
 var bar_values: Dictionary[String, int]
 var bars: Dictionary[String, Panel]
 var _width: float
+
+@export var _background_stylebox: StyleBox
 
 var background_stylebox: StyleBox:
 	set(value):
@@ -32,6 +34,8 @@ func set_bar_value(id: String, value: int):
 	update_sizes()
 
 func _ready():
+	if _background_stylebox != null:
+		background_stylebox = _background_stylebox
 	bars_container = $Bars
 	ticks = $Ticks
 	base_bar = $Bars/BasePanel
@@ -55,7 +59,7 @@ func update_sizes():
 		var percentage = 0.0
 		if bar_values.has(cur):
 			percentage = min(1.0, bar_values[cur] as float / _max_value)
-		bars[cur].custom_minimum_size.x = percentage * _width
+		bars[cur].anchor_right = min(percentage, 1.0)
 	sort_bars()
 
 func sort_bars():

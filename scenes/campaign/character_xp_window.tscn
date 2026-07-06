@@ -1,0 +1,142 @@
+[gd_scene load_steps=16 format=3 uid="uid://bu1r41jvdgc68"]
+
+[ext_resource type="Texture2D" uid="uid://bpqhnjplafwfm" path="res://resources/art/icons/backgrounds/forest_landscape.png" id="1_8wl6c"]
+[ext_resource type="Script" uid="uid://btxf71icy4lk4" path="res://scripts/campaign/character_xp_window.gd" id="1_cv7a4"]
+[ext_resource type="PackedScene" uid="uid://bd3fgvk1uqbpx" path="res://scenes/character/character_portrait.tscn" id="2_cv7a4"]
+[ext_resource type="PackedScene" uid="uid://bpf4iur8muk4k" path="res://scenes/ui/frame.tscn" id="3_go25k"]
+[ext_resource type="Texture2D" uid="uid://bxp3dys3klj3r" path="res://resources/art/icons/gold_border.png" id="4_cel65"]
+[ext_resource type="PackedScene" uid="uid://bv5inapo0d0y4" path="res://scenes/campaign/status_bar.tscn" id="5_00ne1"]
+[ext_resource type="Texture2D" uid="uid://bvmkcampbctkn" path="res://resources/art/icons/level_up_blue.png" id="6_mc2qi"]
+[ext_resource type="Texture2D" uid="uid://b0wladl2x5rdp" path="res://resources/art/icons/level_up_gold_dark.png" id="7_10nw3"]
+[ext_resource type="Texture2D" uid="uid://480ewlbdj5o" path="res://resources/art/icons/level_up_gold.png" id="8_b0qdj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7gldj"]
+bg_color = Color(0, 0, 0, 0.64705884)
+expand_margin_left = 23.0
+expand_margin_bottom = 26.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gni4r"]
+bg_color = Color(0.9864717, 0.834669, 3.85046e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uaqsl"]
+bg_color = Color(0.18470907, 0.14906788, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1t4uo"]
+bg_color = Color(1, 0.84313726, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhpgr"]
+bg_color = Color(0.15523267, 0.1239742, 3.6098065e-08, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cv7a4"]
+bg_color = Color(0.1805206, 0.14550224, 4.813075e-08, 1)
+
+[node name="CharacterXPWindow" type="MarginContainer"]
+script = ExtResource("1_cv7a4")
+
+[node name="Shadow" type="Panel" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7gldj")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_8wl6c")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CharacterPortrait" parent="." instance=ExtResource("2_cv7a4")]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(150, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_gni4r")
+
+[node name="Panel" type="Panel" parent="Panel"]
+custom_minimum_size = Vector2(150, 20)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_gni4r")
+
+[node name="Control" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="Frame" parent="Control" instance=ExtResource("3_go25k")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.02
+anchor_bottom = 1.0375
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.054166667
+anchor_top = 0.8375
+anchor_right = 0.93333334
+anchor_bottom = 1.21875
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_cel65")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="XPBar" parent="Control/TextureRect" instance=ExtResource("5_00ne1")]
+show_behind_parent = true
+custom_minimum_size = Vector2(150, 15)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07109005
+anchor_top = 0.19672132
+anchor_right = 0.9241706
+anchor_bottom = 0.8032787
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_uaqsl")
+bar_styles = Dictionary[String, StyleBox]({
+"XP": SubResource("StyleBoxFlat_1t4uo")
+})
+_background_stylebox = SubResource("StyleBoxFlat_mhpgr")
+metadata/_edit_use_anchors_ = true
+
+[node name="BasePanel" parent="Control/TextureRect/XPBar/Bars" index="0"]
+visible = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_cv7a4")
+
+[node name="LevelUp" type="TextureButton" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0875
+anchor_top = 0.88125
+anchor_right = 0.9
+anchor_bottom = 1.2
+grow_horizontal = 2
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("6_mc2qi")
+texture_pressed = ExtResource("7_10nw3")
+texture_hover = ExtResource("8_b0qdj")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[editable path="Control/TextureRect/XPBar"]

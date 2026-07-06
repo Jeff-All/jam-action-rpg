@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=3 uid="uid://dbsbujkxbkcnn"]
+
+[ext_resource type="Script" uid="uid://dpvs2mmwj4jl2" path="res://scripts/campaign/xp_gain.gd" id="1_grml6"]
+[ext_resource type="PackedScene" uid="uid://bpf4iur8muk4k" path="res://scenes/ui/frame.tscn" id="2_l8k3a"]
+[ext_resource type="PackedScene" uid="uid://bu1r41jvdgc68" path="res://scenes/campaign/character_xp_window.tscn" id="3_7k232"]
+[ext_resource type="PackedScene" uid="uid://dt7xrxget1oi1" path="res://scenes/ui/simple_button.tscn" id="4_mhggy"]
+[ext_resource type="Shader" uid="uid://biuiik7j0v1yi" path="res://shaders/edge_glow.gdshader" id="5_d1kfq"]
+[ext_resource type="Texture2D" uid="uid://c5uc4nyg4gtlg" path="res://resources/art/icons/Continue.png" id="6_18spi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q88tc"]
+resource_local_to_scene = true
+shader = ExtResource("5_d1kfq")
+shader_parameter/index = 0
+shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 1, 0.84313726, 0, 1, 0.18889248, 0.15262929, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/glow_color = Color(1, 0.5, 0, 1)
+shader_parameter/glow_intensity = 5.0
+shader_parameter/glow_radius = 50.0
+
+[node name="XPGain" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_grml6")
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 154.0
+offset_top = 304.0
+offset_right = 1133.0
+offset_bottom = 528.0
+
+[node name="Frame" parent="Control" instance=ExtResource("2_l8k3a")]
+visible = false
+layout_mode = 1
+
+[node name="CharacterXPWindows" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="CharacterXPWindow" parent="CharacterXPWindows" instance=ExtResource("3_7k232")]
+layout_mode = 2
+
+[node name="CharacterXPWindow2" parent="CharacterXPWindows" instance=ExtResource("3_7k232")]
+layout_mode = 2
+
+[node name="CharacterXPWindow3" parent="CharacterXPWindows" instance=ExtResource("3_7k232")]
+layout_mode = 2
+
+[node name="CharacterXPWindow4" parent="CharacterXPWindows" instance=ExtResource("3_7k232")]
+layout_mode = 2
+
+[node name="SimpleButton" parent="." instance=ExtResource("4_mhggy")]
+layout_mode = 1
+offset_left = 478.0
+offset_top = 547.0
+offset_right = -491.0
+offset_bottom = -176.0
+texture = ExtResource("6_18spi")
+
+[node name="TextureRect" parent="SimpleButton" index="0"]
+material = SubResource("ShaderMaterial_q88tc")
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_18spi")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="on_pressed" from="SimpleButton" to="." method="_on_continue_pressed"]
+
+[editable path="SimpleButton"]

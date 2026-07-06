@@ -93,8 +93,11 @@ func reset():
 	_left_down = false
 	_selected = false
 	
-	_can_afford = true
+	can_afford = true
 	on_cooldown = false
+	
+	animation_player.play("RESET")
+	animation_player.advance(1)
 
 func process_animations(delta: float):
 	animation_player.advance(delta)

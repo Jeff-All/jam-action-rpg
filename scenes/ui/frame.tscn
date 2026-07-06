@@ -7,25 +7,21 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ymh7s"]
 resource_local_to_scene = true
 texture = ExtResource("1_0nom6")
-expand_margin_top = 30.0
 axis_stretch_horizontal = 1
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1wg1x"]
 resource_local_to_scene = true
 texture = ExtResource("1_0nom6")
-expand_margin_bottom = 30.0
 axis_stretch_horizontal = 1
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_87qr0"]
 resource_local_to_scene = true
 texture = ExtResource("2_v67gs")
-expand_margin_right = 30.0
 axis_stretch_vertical = 1
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yq7fk"]
 resource_local_to_scene = true
 texture = ExtResource("2_v67gs")
-expand_margin_left = 30.0
 axis_stretch_vertical = 1
 
 [node name="Frame" type="Control"]
@@ -38,118 +34,114 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="TopBorder" type="Panel" parent="."]
-custom_minimum_size = Vector2(0, 15)
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = -1
 anchor_right = 1.0
-offset_bottom = 15.0
 grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_ymh7s")
 
 [node name="BottomBorder" type="Panel" parent="."]
-custom_minimum_size = Vector2(0, 15)
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 1
-anchors_preset = 12
+anchors_preset = -1
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -15.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 size_flags_vertical = 8
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_1wg1x")
 
 [node name="RightBorder" type="Panel" parent="."]
-custom_minimum_size = Vector2(15, 0)
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 1
-anchors_preset = 11
+anchors_preset = -1
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -15.0
-grow_horizontal = 0
+grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 8
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_87qr0")
 
 [node name="LeftBorder" type="Panel" parent="."]
-custom_minimum_size = Vector2(15, 0)
+custom_minimum_size = Vector2(20, 0)
 layout_mode = 1
-anchors_preset = 9
+anchors_preset = -1
 anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_yq7fk")
+metadata/_edit_use_anchors_ = true
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
-anchor_left = -0.07
-anchor_top = -0.11
-anchor_right = 1.07
-anchor_bottom = 1.11
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
-custom_minimum_size = Vector2(120, 120)
+[node name="TopLeft" type="TextureRect" parent="Control"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.89400005
-anchor_top = 0.836
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 0
-grow_vertical = 0
-mouse_filter = 2
-texture = ExtResource("3_ds6np")
-expand_mode = 1
-
-[node name="TextureRect2" type="TextureRect" parent="Control"]
-custom_minimum_size = Vector2(120, 120)
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.836
-anchor_right = 0.106000006
-anchor_bottom = 1.0
-offset_top = -0.025604248
-offset_right = 0.39391327
-grow_vertical = 0
-mouse_filter = 2
-texture = ExtResource("3_ds6np")
-expand_mode = 1
-flip_h = true
-
-[node name="TextureRect3" type="TextureRect" parent="Control"]
-custom_minimum_size = Vector2(120, 120)
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.106000006
-anchor_bottom = 0.164
 offset_right = 0.39391327
 offset_bottom = 0.025604248
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("3_ds6np")
 expand_mode = 1
 flip_h = true
 flip_v = true
+metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect4" type="TextureRect" parent="Control"]
-custom_minimum_size = Vector2(120, 120)
+[node name="BottomRight" type="TextureRect" parent="Control"]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.89400005
+anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.164
-offset_left = -0.39398193
-offset_bottom = 0.025604248
-grow_horizontal = 0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_ds6np")
+expand_mode = 1
+
+[node name="BottomLeft" type="TextureRect" parent="Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_ds6np")
+expand_mode = 1
+flip_h = true
+
+[node name="TopRight" type="TextureRect" parent="Control"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("3_ds6np")
 expand_mode = 1

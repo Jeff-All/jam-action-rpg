@@ -52,7 +52,6 @@ var disabled: bool:
 			disabled_ui.visible = false
 
 func _on_mouse_entered():
-	print("on_mouse_entered() %s" % name)
 	if !_disabled:
 		_hover = true
 		if _left_down:

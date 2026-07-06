@@ -4,6 +4,10 @@ extends Resource
 
 var base: CharacterBase
 
+var level: int = 1
+var xp_needed: int = 10
+var cur_xp: int = 0
+
 var race: Race
 var _class: Class
 var speed: int
