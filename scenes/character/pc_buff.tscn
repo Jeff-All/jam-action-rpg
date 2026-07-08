@@ -1,0 +1,114 @@
+[gd_scene load_steps=10 format=3 uid="uid://egvjjklifoqy"]
+
+[ext_resource type="Shader" uid="uid://biuiik7j0v1yi" path="res://shaders/edge_glow.gdshader" id="1_ejvsa"]
+[ext_resource type="Script" uid="uid://ct8mue8441ff0" path="res://scripts/character/pc_buff.gd" id="1_ukugh"]
+[ext_resource type="Texture2D" uid="uid://bwxbbofoad70s" path="res://resources/art/icons/abilities/restore.png" id="2_ukugh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4nmhk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_phow2"]
+resource_local_to_scene = true
+shader = ExtResource("1_ejvsa")
+shader_parameter/index = 0
+shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 1, 0.84313726, 0, 1, 0.18889248, 0.15262929, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/glow_color = Color(1, 0.5, 0, 1)
+shader_parameter/glow_intensity = 1.4970000711075
+shader_parameter/glow_radius = 1.8030000856425
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_phow2"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_17jlh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/TextureRect/Panel:anchor_bottom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_n3q08"]
+resource_name = "Duration"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/TextureRect/Panel:anchor_bottom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_on_duration_end"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_43xm8"]
+_data = {
+&"Duration": SubResource("Animation_n3q08"),
+&"RESET": SubResource("Animation_17jlh")
+}
+
+[node name="PCBuff" type="PanelContainer"]
+custom_minimum_size = Vector2(30, 30)
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4nmhk")
+script = ExtResource("1_ukugh")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_phow2")
+custom_minimum_size = Vector2(41, 41)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(41, 41)
+render_target_update_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="SubViewportContainer/SubViewport"]
+clip_children = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ukugh")
+expand_mode = 1
+
+[node name="Panel" type="Panel" parent="SubViewportContainer/SubViewport/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_phow2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+callback_mode_process = 2
+libraries = {
+&"": SubResource("AnimationLibrary_43xm8")
+}

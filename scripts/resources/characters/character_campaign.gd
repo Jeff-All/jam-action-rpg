@@ -26,6 +26,7 @@ var resources: Dictionary[Resources, int] = {
 	Resources.STAMINA: 5,
 	Resources.MANA: 5,
 }
+var dodge: int
 
 var recovery: Dictionary[Resources, int] = {
 		Resources.HEALTH: 0,
@@ -39,12 +40,12 @@ var recovery: Dictionary[Resources, int] = {
 var attributes: Dictionary[Attributes, int] = {
 	Attributes.STRENGTH: 1,
 	Attributes.AGILITY: 1,
-	Attributes.MANA: 1,
+	Attributes.MAGIC: 1,
 }
 
 enum Resources{ HEALTH, ARMOR, DURABILITY, SHIELDING, STAMINA, MANA }
 
-enum Attributes { STRENGTH, AGILITY, MANA }
+enum Attributes { STRENGTH, AGILITY, MAGIC }
 
 func _init(_base: CharacterBase, attack: Ability):
 	base = _base
@@ -59,7 +60,7 @@ func _init(_base: CharacterBase, attack: Ability):
 	set_class(_base.class_)
 	
 	_class = _base.class_
-	armor = _base.armor
+	equip_armor(_base.armor)
 	weapon = _base.weapon
 	traits[0] = _base.trait_
 	available_traits.append(_base.trait_)
@@ -87,8 +88,14 @@ func equip_trait(index: int, _trait: Trait):
 func equip_ability(index: int, _ability: Ability):
 	pass
 
-func equip_armor(_armor: Armor) -> Armor:
-	return null
+func equip_armor(_armor: Armor):
+	armor = _armor
+	if armor != null:
+		armor.equip(self)
+
+func unequip_armor():
+	armor.unequip(self)
+	armor = null
 
 func equip_weapon(_weapon: Weapon) -> Weapon:
 	return null
@@ -113,7 +120,7 @@ func set_race(_race: Race):
 	
 	attributes[Attributes.STRENGTH] += race.strength
 	attributes[Attributes.AGILITY] += race.agility
-	attributes[Attributes.MANA] += race.mana
+	attributes[Attributes.MAGIC] += race.magic
 	
 	resources[Resources.HEALTH] += race.health
 	resources[Resources.ARMOR] += race.armor
@@ -124,13 +131,15 @@ func set_race(_race: Race):
 	recovery[Resources.HEALTH] += race.health_recovery
 	recovery[Resources.STAMINA] += race.stamina_recovery
 	recovery[Resources.MANA] += race.mana_recovery
+	
+	dodge += _race.dodge
 
 func set_class(class_: Class):
 	_class = class_
 	
 	attributes[Attributes.STRENGTH] += _class.strength
 	attributes[Attributes.AGILITY] += _class.agility
-	attributes[Attributes.MANA] += _class.mana
+	attributes[Attributes.MAGIC] += _class.magic
 	
 	resources[Resources.HEALTH] += _class.health
 	resources[Resources.ARMOR] += _class.armor
@@ -141,3 +150,5 @@ func set_class(class_: Class):
 	recovery[Resources.HEALTH] += _class.health_recovery
 	recovery[Resources.STAMINA] += _class.stamina_recovery
 	recovery[Resources.MANA] += _class.mana_recovery
+	
+	dodge += _class.dodge

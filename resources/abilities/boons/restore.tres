@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Boon" load_steps=5 format=3 uid="uid://bdjuot6dqgybf"]
+
+[ext_resource type="Script" uid="uid://bhtbduhv7oaal" path="res://scripts/resources/buffs/buffs_pc/buff_pc_restore.gd" id="1_cxe5m"]
+[ext_resource type="Script" uid="uid://s55yf4c5jaib" path="res://scripts/resources/abilities/boons/boon.gd" id="1_ejbh6"]
+[ext_resource type="Texture2D" uid="uid://bwxbbofoad70s" path="res://resources/art/icons/abilities/restore.png" id="2_wtmue"]
+
+[sub_resource type="Resource" id="Resource_wtmue"]
+script = ExtResource("1_cxe5m")
+healing_per_step = 1
+name = "Restore"
+texture = ExtResource("2_wtmue")
+duration = 1.0
+metadata/_custom_type_script = "uid://bhtbduhv7oaal"
+
+[resource]
+script = ExtResource("1_ejbh6")
+buff = SubResource("Resource_wtmue")
+name = "Restore"
+texture = ExtResource("2_wtmue")
+cost = Dictionary[int, int]({
+5: 5
+})
+instant = true
+cooldown = 10.0
+targeting = 2
+to_hit = 100
+metadata/_custom_type_script = "uid://s55yf4c5jaib"

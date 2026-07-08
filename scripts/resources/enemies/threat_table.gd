@@ -20,7 +20,6 @@ func find_target() -> PCUI:
 	return cur_target
 
 func add_threat(target: PCUI, value: int):
-	print("threat_table.add_threat() %s -> %s" % [target.name, value])
 	var cur_threat = 0
 	if table.has(target):
 		cur_threat = table[target]

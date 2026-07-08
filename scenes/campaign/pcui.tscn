@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://mwr6ui02sg5q"]
+[gd_scene load_steps=12 format=3 uid="uid://mwr6ui02sg5q"]
 
 [ext_resource type="PackedScene" uid="uid://bd3fgvk1uqbpx" path="res://scenes/character/character_portrait.tscn" id="1_id3o2"]
 [ext_resource type="Script" uid="uid://caffi0xmkrqil" path="res://scripts/campaign/pcui.gd" id="1_ynthc"]
 [ext_resource type="PackedScene" uid="uid://d4hf4002xav2t" path="res://scenes/campaign/status_bars.tscn" id="2_ynthc"]
+[ext_resource type="PackedScene" uid="uid://egvjjklifoqy" path="res://scenes/character/pc_buff.tscn" id="3_kf6cy"]
 [ext_resource type="PackedScene" uid="uid://dt7xrxget1oi1" path="res://scenes/ui/simple_button.tscn" id="3_l0bw5"]
 [ext_resource type="Texture2D" uid="uid://dtplaun3uefj5" path="res://resources/art/icons/scroll_wide.png" id="5_ah6eo"]
 [ext_resource type="PackedScene" uid="uid://jjowbaf4jl1i" path="res://scenes/campaign/ability_button.tscn" id="5_kf6cy"]
@@ -31,6 +32,27 @@ custom_minimum_size = Vector2(210, 140)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
+
+[node name="Buffs" type="HBoxContainer" parent="VBoxContainer/CharacterPortrait"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+alignment = 1
+
+[node name="PCBuff" parent="VBoxContainer/CharacterPortrait/Buffs" instance=ExtResource("3_kf6cy")]
+layout_mode = 2
+
+[node name="PCBuff2" parent="VBoxContainer/CharacterPortrait/Buffs" instance=ExtResource("3_kf6cy")]
+layout_mode = 2
+
+[node name="PCBuff3" parent="VBoxContainer/CharacterPortrait/Buffs" instance=ExtResource("3_kf6cy")]
+layout_mode = 2
+
+[node name="PCBuff4" parent="VBoxContainer/CharacterPortrait/Buffs" instance=ExtResource("3_kf6cy")]
+layout_mode = 2
+
+[node name="PCBuff5" parent="VBoxContainer/CharacterPortrait/Buffs" instance=ExtResource("3_kf6cy")]
+layout_mode = 2
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/CharacterPortrait"]
 layout_mode = 2
@@ -128,6 +150,8 @@ custom_minimum_size = Vector2(75, 75)
 layout_mode = 2
 size_flags_vertical = 4
 
+[connection signal="on_duration_end" from="VBoxContainer/CharacterPortrait/Buffs/PCBuff" to="." method="_pc_buff_on_duration_end"]
+[connection signal="gui_input" from="VBoxContainer/CharacterPortrait/MarginContainer2/Panel" to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="VBoxContainer/CharacterPortrait/MarginContainer2/Panel" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/CharacterPortrait/MarginContainer2/Panel" to="." method="_on_mouse_exited"]
 [connection signal="on_pressed" from="VBoxContainer/HBoxContainer/SimpleButton" to="." method="_on_simple_button_on_pressed"]

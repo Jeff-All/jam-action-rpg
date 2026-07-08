@@ -8,4 +8,9 @@ script = ExtResource("1_jkdg3")
 name = "Rusty Chain Mail"
 armor_class = 3
 texture = ExtResource("2_wdthu")
+resources = Dictionary[int, int]({
+1: 1,
+2: 3
+})
+dodge = 10
 metadata/_custom_type_script = "uid://c80yoskj347ho"

@@ -39,15 +39,15 @@ func _ready():
 	target_texture_rect = $Targeting/MarginContainer/HBoxContainer/Target
 
 func _on_cast_end():
-	is_casting = false
+	_is_casting = false
 	on_cast_end.emit(_ability, _target)
 
 func start_cast(to_cast: EnemyAbility, to_target, cast_time: float):
-	is_casting = true
+	_is_casting = true
 	ability = to_cast
 	target = to_target
 	animation_player.speed_scale = 1 / cast_time
 	animation_player.current_animation = "cast_animation"
 
 func stop_casting():
-	is_casting = false
+	_is_casting = false

@@ -11,6 +11,8 @@ var battle: BattleUI
 var post_battle: PostBattle
 var party: Party
 
+var cur_battle: BattleOptions
+
 func _ready():
 	battle_selector = $BattleSelector
 	battle = $Battle
@@ -39,7 +41,7 @@ func start(_campaign: Campaign):
 	to_battle_selector()
 
 func to_battle_selector():
-	battle_selector.fill(campaign.campaign_options.battles)
+	battle_selector.fill(campaign.available_battles.slice(0,3))
 	
 	battle_selector.visible = true
 
@@ -62,6 +64,8 @@ func _party_on_close_pressed():
 	battle_selector.visible = true
 
 func _battle_selector_on_start_battle_pressed(battle_options: BattleOptions):
+	cur_battle = battle_options
+	
 	var _battle = Battle.new()
 	_battle.build(campaign, battle_options)
 	
@@ -80,5 +84,7 @@ func _battle_on_continue():
 	to_post_battle()
 
 func _post_battle_on_end():
+	campaign.available_battles.remove_at(campaign.available_battles.find(cur_battle))
+	cur_battle = null
 	post_battle.visible = false
 	to_battle_selector()

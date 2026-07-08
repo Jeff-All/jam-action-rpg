@@ -9,7 +9,7 @@ extends Resource
 @export var threat: int
 
 @export var attack: int
-@export var defense: int
+@export var dodge: int
 
 @export var strength: int
 @export var agility: int

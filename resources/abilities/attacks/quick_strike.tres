@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="AbilityAttack" load_steps=3 format=3 uid="uid://pm7hyykpmdep"]
+
+[ext_resource type="Script" uid="uid://dsqu6cmwxle51" path="res://scripts/resources/abilities/attacks/ability_attack.gd" id="1_bhvry"]
+[ext_resource type="Texture2D" uid="uid://dqs21ewys0fax" path="res://resources/art/icons/abilities/quick_strike.png" id="2_74omx"]
+
+[resource]
+script = ExtResource("1_bhvry")
+on_attack_cooldown = false
+name = "Quick Strike"
+texture = ExtResource("2_74omx")
+cost = Dictionary[int, int]({
+4: 3
+})
+targeting = 3
+on_base_cooldown = false
+metadata/_custom_type_script = "uid://dsqu6cmwxle51"

@@ -102,7 +102,6 @@ func _chrono_controller_on_process(delta: float):
 	process_animations(delta)
 
 func setup_battle(_battle: Battle):
-	print("battle_ui.setup_battle")
 	battle = _battle
 	
 	setup_party()
@@ -231,8 +230,19 @@ func _enemy_ui_on_pressed(enemy_ui: EnemyUI, _row_index: int, _index: int):
 		State.ABILITY_SELECTED:
 			process_ability_use_on_enemy(enemy_ui)
 
+func _pcui_on_pressed(pc: PCUI):
+	print("_pcui_on_pressed")
+	match state:
+		State.ABILITY_SELECTED:
+			process_ability_use_on_pc(pc)
+
 func process_ability_use_on_enemy(_enemy_ui: EnemyUI):
 	selected_ability_button.ability.execute(selected_ability_button, selected_pc, _enemy_ui)
+	go_to_base_state()
+
+func process_ability_use_on_pc(pc: PCUI):
+	print("process_ability_use_on_pc")
+	selected_ability_button.ability.execute(selected_ability_button, selected_pc, pc)
 	go_to_base_state()
 
 func _on_play_button_pressed(simple_button: SimpleButton):

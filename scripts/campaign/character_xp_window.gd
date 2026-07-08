@@ -30,10 +30,8 @@ var xp: int:
 	set(value):
 		_xp = value
 		if _xp >= _max_xp:
-			print("level up")
 			levelup_button.visible = true
 		else:
-			print("show xp: %s / %s" % [_xp, _max_xp])
 			levelup_button.visible = false
 			xp_bar.set_bar_value("XP", _xp)
 

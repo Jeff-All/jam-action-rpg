@@ -23,6 +23,7 @@ attack = 3
 defense = 5
 strength = 1
 armor = 1
+durability = 3
 health = 5
 levels = Dictionary[int, ExtResource("1_fmb1j")]({
 1: SubResource("Resource_1x3km")

@@ -18,7 +18,7 @@ bg_color = Color(0, 0, 0, 0.6745098)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_acs8f"]
 bg_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bwp5x"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2vw8u"]
 shader = ExtResource("6_ht1om")
 shader_parameter/index = 0
 shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
@@ -34,7 +34,7 @@ shader_parameter/glow_color = Color(1, 0.5, 0, 1)
 shader_parameter/glow_intensity = 2.0
 shader_parameter/glow_radius = 1.0000000475
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2vw8u"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bwp5x"]
 shader = ExtResource("6_ht1om")
 shader_parameter/index = 0
 shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
@@ -457,6 +457,15 @@ theme_override_constants/margin_right = 20
 
 [node name="Targeting" parent="MarginContainer" instance=ExtResource("5_k0veb")]
 layout_mode = 2
+
+[node name="Ability" parent="MarginContainer/Targeting/Targeting/MarginContainer/HBoxContainer" index="0"]
+material = SubResource("ShaderMaterial_2vw8u")
+
+[node name="SubViewportContainer" parent="MarginContainer/Targeting/Targeting/MarginContainer/HBoxContainer/CastArrow" index="0"]
+material = SubResource("ShaderMaterial_oss8l")
+
+[node name="Target" parent="MarginContainer/Targeting/Targeting/MarginContainer/HBoxContainer" index="2"]
+material = SubResource("ShaderMaterial_bwp5x")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

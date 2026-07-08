@@ -40,3 +40,6 @@ extends Node
 
 @export var max_threat: int = 10
 @export var min_threat: int = 0
+
+func roll() -> int:
+	return randi_range(1,100)

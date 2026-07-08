@@ -2,12 +2,15 @@ class_name AbilityAttack
 
 extends Ability
 
+@export var on_attack_cooldown: bool = true
+
 func get_cooldown(ability_button: AbilityButton, source: PCUI, target) -> float:
 	return source.character.character_campaign.weapon.speed + cooldown
 
 func execute(ability_button: AbilityButton, source: PCUI, target):
 	super(ability_button, source, target)
-	source.trigger_attack_cooldown()
+	if on_attack_cooldown:
+		source.trigger_attack_cooldown()
 	
 	var roll = randi_range(1, 100)
 	if did_roll_hit(roll, ability_button, source, target):

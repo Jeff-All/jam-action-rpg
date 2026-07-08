@@ -20,12 +20,10 @@ func _ready():
 
 func _on_race_item_selected(index: int) -> void:
 	_race = races[index]
-	print("_on_race_item_selected(%s)" % _race.name)
 	_update_values()
 
 func _on_class_item_selected(index: int) -> void:
 	_class = classes[index]
-	print("_on_class_item_selected(%s)" % _class.name)
 	_update_values()
 
 func _update_values():

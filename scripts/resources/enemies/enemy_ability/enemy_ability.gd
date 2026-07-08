@@ -8,3 +8,5 @@ extends Resource
 @export var cast_variability: float
 @export var texture: Texture2D
 @export var floats: Dictionary[String, float]
+
+@export var buff: BuffPC

@@ -29,8 +29,7 @@ var max_value: int:
 		update_sizes()
 
 func set_bar_value(id: String, value: int):
-	print("set_bar_value() %s" % value)
-	bar_values[id] = value
+	bar_values[id] = max(value, 0)
 	
 	update_sizes()
 
@@ -58,12 +57,10 @@ func build_bar(id: String):
 	new_bar.visible = true
 
 func update_sizes():
-	print("update_sizes")
 	for cur in bars:
 		var percentage = 0.0
 		if bar_values.has(cur):
 			percentage = min(1.0, bar_values[cur] as float / _max_value)
-		print("update_sizes: %s" % percentage)
 		bars[cur].anchor_right = min(percentage, 1.0)
 	sort_bars()
 

@@ -30,8 +30,12 @@ func execute_ability(ability: EnemyAbility, target, _battle: BattleUI):
 			execute_attack(target)
 
 func execute_attack(target):
-	var roll = randi_range(0,100)
-	if roll < ability_attack.floats["Hit"]:
+	var roll = Global.roll()
+	if roll <= ability_attack.floats["Hit"]:
+		roll = Global.roll()
+		if roll <= target.dodge:
+			target.spawn_combat_text("DODGE")
+			return
 		var damage = randi_range(ability_attack.floats["MinDamage"], ability_attack.floats["MaxDamage"])
 		target.take_damage(damage)
 	else:

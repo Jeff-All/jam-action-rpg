@@ -20,6 +20,7 @@ extends Resource
 @export var stamina_recovery: int
 @export var mana_recovery: int
 
+@export var dodge: int
 
 @export var body_textures: Dictionary[Armor.ArmorClass,Texture2D]
 @export var head_textures: Dictionary[Class,Texture2D]

@@ -15,6 +15,7 @@ var status_bars: StatusBars
 var mouse_panel: Panel
 
 var abilities: Array[AbilityButton]
+var buffs: Array[PCBuff]
 
 var _clickable: bool = false
 var _hover: bool = false
@@ -58,6 +59,10 @@ var texture: Texture2D:
 	get:
 		return portrait.view_port.get_texture()
 
+var dodge: int:
+	get:
+		return _character.character_campaign.dodge
+
 func _ready():
 	_material = $VBoxContainer/CharacterPortrait.get_shader()
 	portrait = $VBoxContainer/CharacterPortrait
@@ -67,12 +72,16 @@ func _ready():
 	for cur in $VBoxContainer/PanelContainer/PanelContainer/MarginContainer/AbilityButtons.get_children():
 		abilities.append(cur)
 	
+	for cur in $VBoxContainer/CharacterPortrait/Buffs.get_children():
+		buffs.append(cur)
+	
 	portrait.flip(flip)
 	
 	await get_tree().process_frame
 
 func reset():
 	clear_abilities()
+	clear_buffs()
 	unbind_character()
 	portrait.character = null
 	character = null
@@ -81,22 +90,34 @@ func reset():
 	for cur in abilities:
 		cur.reset()
 	
+	for cur in buffs:
+		cur.reset()
+	
 	portrait.animation_player.play("RESET")
 
 func process_animations(delta: float):
 	for cur in abilities:
 		cur.process_animations(delta)
+	
+	for cur in buffs:
+		if cur._buff != null:
+			cur.process_animations(delta)
 
 func process_step():
 	process_recovery()
 	
 	for cur in abilities:
 		cur.process_step()
+	
+	for cur in buffs:
+		if cur._buff != null:
+			cur.process_step(self)
 
 func process_recovery():
 	if character != null:
 		for cur in character.character_campaign.recovery:
-			character.add_cur_resource(cur, (character.character_campaign.recovery[cur] * Global.step_size) / Global.tick_size)
+			if character.character_campaign.recovery[cur] > 0:
+				character.add_cur_resource(cur, (character.character_campaign.recovery[cur] * Global.step_size) / Global.tick_size)
 
 func _on_mouse_entered():
 	_hover = true
@@ -138,6 +159,11 @@ func clear_abilities():
 		cur.visible = false
 		cur.ability = null
 
+func clear_buffs():
+	for cur in buffs:
+		cur.visible = false
+		cur.buff = null
+
 func bind_status_bars():
 	status_bars.max_health = _character.character_campaign.resources[CharacterCampaign.Resources.HEALTH]
 	status_bars.cur_health = _character.character_campaign.resources[CharacterCampaign.Resources.HEALTH]
@@ -176,8 +202,8 @@ func take_damage(value: int):
 	var armor = character.cur_resources[CharacterCampaign.Resources.ARMOR]
 	var durability = character.cur_resources[CharacterCampaign.Resources.DURABILITY]
 	if armor > 0 && durability > 0:
+		durability -= ceil(min(value, armor) / 2)
 		if armor <= value:
-			durability -= 1
 			value = value - armor
 		else:
 			value = 0
@@ -199,12 +225,15 @@ func _ability_button_on_pressed(button: AbilityButton, _index: int):
 
 func trigger_base_cooldown():
 	for cur in abilities:
-		cur.start_cooldown(Global.base_cooldown)
+		if cur.ability != null:
+			if cur.ability.on_base_cooldown:
+				cur.start_cooldown(Global.base_cooldown)
 
 func trigger_attack_cooldown():
 	for cur in abilities:
 		if cur.ability is AbilityAttack:
-			cur.start_cooldown(character.character_campaign.weapon.speed)
+			if cur.ability.on_attack_cooldown:
+				cur.start_cooldown(character.character_campaign.weapon.speed)
 
 func spawn_combat_text(text: String):
 	var combat_text = Global.combat_text.instantiate() as CombatText
@@ -218,3 +247,22 @@ func _on_death(_char: CharacterBattle):
 	for cur in abilities:
 		cur.clickable = false
 	portrait.animation_player.play("Death")
+
+func apply_buff(buff: BuffPC):
+	buff.apply(self)
+	for cur in buffs:
+		if cur._buff == null:
+			cur.start_buff(self, buff)
+			return
+
+func _pc_buff_on_duration_end(buff: PCBuff):
+	buff._buff.remove(self)
+	buff.visible = false
+	buff.buff = null
+
+func has_buff(buff: PCBuff) -> bool:
+	for cur in buffs:
+		if cur.buff != null:
+			if cur.buff == buff:
+				return true
+	return false

@@ -25,6 +25,7 @@ agility = 2
 magic = 1
 stamina = 5
 stamina_recovery = 1
+dodge = 20
 body_textures = Dictionary[int, Texture2D]({
 0: ExtResource("2_mtqfc"),
 1: ExtResource("3_cuk2m"),

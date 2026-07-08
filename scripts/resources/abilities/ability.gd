@@ -11,6 +11,7 @@ extends Resource
 @export var targeting: Targeting = Targeting.SELF
 @export var to_hit: int
 @export var description: String
+@export var on_base_cooldown: bool = true
 
 enum Targeting { SELF, ALLIES, PARTY, MELEE, RANGED, ALL}
 
@@ -40,12 +41,16 @@ func get_cooldown_description() -> String:
 func execute(ability_button: AbilityButton, source: PCUI, target):
 	consume_resources(source)
 	ability_button.start_cooldown(get_cooldown(ability_button, source, target))
-	source.trigger_base_cooldown()
+	if on_base_cooldown:
+		source.trigger_base_cooldown()
 
 func consume_resources(source: PCUI):
 	for cur in cost:
 		pass
 		source._character.set_cur_resource(cur, source._character.cur_resources[cur] - cost[cur])
+
+func get_cost(_resource: CharacterCampaign.Resources) -> int:
+	return 0
 
 func get_cooldown(_ability_button: AbilityButton, _source: PCUI, _target) -> float:
 	return cooldown
