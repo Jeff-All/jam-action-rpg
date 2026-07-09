@@ -1,12 +1,15 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=6 format=3 uid="uid://c8xrt7dxn8dfu"]
+[gd_resource type="Resource" script_class="EnemySkeletalRaider" load_steps=10 format=3 uid="uid://c8xrt7dxn8dfu"]
 
 [ext_resource type="Script" uid="uid://6ggv8n4xqyob" path="res://scripts/resources/enemies/enemy_ability/enemy_ability.gd" id="1_dqy0e"]
-[ext_resource type="Script" uid="uid://ep73png3yh5x" path="res://scripts/resources/enemies/enemy.gd" id="1_lfrdi"]
 [ext_resource type="Texture2D" uid="uid://by3rk00mildoo" path="res://resources/art/enemies/skeletal_raider.png" id="2_gaqqc"]
 [ext_resource type="Texture2D" uid="uid://ddx5qdlv4e7gx" path="res://resources/art/icons/abilities/attack.png" id="2_w12fn"]
+[ext_resource type="Script" uid="uid://c2q4f5wct6j4v" path="res://scripts/resources/buffs/buffs_pc/buff_pc_cleave_armor.gd" id="3_detqw"]
+[ext_resource type="Texture2D" uid="uid://dxws5j6fbnjdo" path="res://resources/art/icons/abilities/cleave_armor.png" id="3_w12fn"]
+[ext_resource type="Script" uid="uid://c57pa553ypnmc" path="res://scripts/resources/enemies/skeletons/enemy_skeletal_raider.gd" id="4_detqw"]
 
 [sub_resource type="Resource" id="Resource_detqw"]
 script = ExtResource("1_dqy0e")
+name = "Chop"
 cast_time = 3.0
 texture = ExtResource("2_w12fn")
 floats = Dictionary[String, float]({
@@ -16,8 +19,25 @@ floats = Dictionary[String, float]({
 })
 metadata/_custom_type_script = "uid://6ggv8n4xqyob"
 
+[sub_resource type="Resource" id="Resource_l2kpp"]
+script = ExtResource("3_detqw")
+armor_reduction = 2
+name = "Cleave Armor"
+texture = ExtResource("3_w12fn")
+duration = 10.0
+metadata/_custom_type_script = "uid://c2q4f5wct6j4v"
+
+[sub_resource type="Resource" id="Resource_trw1o"]
+script = ExtResource("1_dqy0e")
+name = "Cleave Armor"
+cast_time = 1.5
+texture = ExtResource("3_w12fn")
+buff = SubResource("Resource_l2kpp")
+metadata/_custom_type_script = "uid://6ggv8n4xqyob"
+
 [resource]
-script = ExtResource("1_lfrdi")
+script = ExtResource("4_detqw")
+ability_cleave_armor = SubResource("Resource_trw1o")
 name = "Skeletal Raider"
 texture = ExtResource("2_gaqqc")
 health = 10
