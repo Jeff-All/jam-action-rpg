@@ -26,7 +26,6 @@ stamina_reduction = 3
 name = "Intimidating Howl"
 texture = ExtResource("4_ey6ka")
 duration = 10.0
-stackable = true
 metadata/_custom_type_script = "uid://d158w1cyalv7v"
 
 [sub_resource type="Resource" id="Resource_0imst"]

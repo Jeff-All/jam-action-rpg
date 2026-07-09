@@ -151,6 +151,10 @@ layout_mode = 2
 size_flags_vertical = 4
 
 [connection signal="on_duration_end" from="VBoxContainer/CharacterPortrait/Buffs/PCBuff" to="." method="_pc_buff_on_duration_end"]
+[connection signal="on_duration_end" from="VBoxContainer/CharacterPortrait/Buffs/PCBuff2" to="." method="_pc_buff_on_duration_end"]
+[connection signal="on_duration_end" from="VBoxContainer/CharacterPortrait/Buffs/PCBuff3" to="." method="_pc_buff_on_duration_end"]
+[connection signal="on_duration_end" from="VBoxContainer/CharacterPortrait/Buffs/PCBuff4" to="." method="_pc_buff_on_duration_end"]
+[connection signal="on_duration_end" from="VBoxContainer/CharacterPortrait/Buffs/PCBuff5" to="." method="_pc_buff_on_duration_end"]
 [connection signal="gui_input" from="VBoxContainer/CharacterPortrait/MarginContainer2/Panel" to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="VBoxContainer/CharacterPortrait/MarginContainer2/Panel" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/CharacterPortrait/MarginContainer2/Panel" to="." method="_on_mouse_exited"]

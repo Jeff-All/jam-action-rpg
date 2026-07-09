@@ -249,20 +249,31 @@ func _on_death(_char: CharacterBattle):
 	portrait.animation_player.play("Death")
 
 func apply_buff(buff: BuffPC):
+	if overwrite_buff(buff):
+		return
 	buff.apply(self)
 	for cur in buffs:
 		if cur._buff == null:
 			cur.start_buff(self, buff)
 			return
 
+func overwrite_buff(buff: BuffPC) -> bool:
+	for cur in buffs:
+		if cur.buff != null:
+			if cur.buff.name == buff.name:
+				cur.animation_player.stop(true)
+				cur.animation_player.play()
+				return true
+	return false
+
 func _pc_buff_on_duration_end(buff: PCBuff):
 	buff._buff.remove(self)
 	buff.visible = false
 	buff.buff = null
 
-func has_buff(buff: PCBuff) -> bool:
+func has_buff(buff: BuffPC) -> bool:
 	for cur in buffs:
 		if cur.buff != null:
-			if cur.buff == buff:
+			if cur.buff.name == buff.name:
 				return true
 	return false

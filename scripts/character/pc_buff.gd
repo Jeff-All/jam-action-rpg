@@ -14,6 +14,8 @@ var buff: BuffPC:
 		_buff = value
 		if _buff != null:
 			texture_rect.texture = _buff.texture
+	get:
+		return _buff
 
 func _ready():
 	texture_rect = $SubViewportContainer/SubViewport/TextureRect
@@ -33,5 +35,6 @@ func _on_duration_end():
 
 func start_buff(pc: PCUI, to_start: BuffPC):
 	buff = to_start.duplicate()
-	animation_player.play("Duration", -1, 1.0 / _buff.get_duration(pc))
+	animation_player.speed_scale = 1.0 / _buff.get_duration(pc)
+	animation_player.play("Duration")
 	visible = true
