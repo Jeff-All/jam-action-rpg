@@ -2,6 +2,7 @@ class_name CharacterBattle
 
 extends Resource
 
+signal on_resources_consumed(cost: Dictionary[CharacterCampaign.Resources, int])
 signal on_cur_resource_change(resource: CharacterCampaign.Resources, value: int)
 signal on_attribute_change(attribute: CharacterCampaign.Attributes, value: int)
 signal on_death(character: CharacterBattle)
@@ -58,3 +59,8 @@ func can_afford(ability: Ability) -> bool:
 		if ability.cost[cur] > resources[cur].cur:
 			return false
 	return true
+
+func consume_resources(cost: Dictionary[CharacterCampaign.Resources, int]):
+	for cur in cost:
+		resources[cur].cur -= cost[cur]
+	on_resources_consumed.emit(cost)

@@ -15,8 +15,6 @@ var cur: float:
 		return _cur
 	set(value):
 		if value != _cur:
-			if resource == CharacterCampaign.Resources.HEALTH:
-				print("set health to %s from %s capped at %s" %[value, _cur, _max.adjusted])
 			_cur = min(value, _max.adjusted)
 			on_cur_changed.emit(self)
 

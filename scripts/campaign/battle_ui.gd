@@ -139,6 +139,8 @@ func setup_party():
 		if index > pcs.size():
 			break
 		pcs[index].character = cur
+		if cur != null:
+			print("character: %s" % cur.resources[CharacterCampaign.Resources.STAMINA]._recovery)
 		pcs[index].visible = true
 		index += 1
 
@@ -231,7 +233,6 @@ func _enemy_ui_on_pressed(enemy_ui: EnemyUI, _row_index: int, _index: int):
 			process_ability_use_on_enemy(enemy_ui)
 
 func _pcui_on_pressed(pc: PCUI):
-	print("_pcui_on_pressed")
 	match state:
 		State.ABILITY_SELECTED:
 			process_ability_use_on_pc(pc)
@@ -241,7 +242,6 @@ func process_ability_use_on_enemy(_enemy_ui: EnemyUI):
 	go_to_base_state()
 
 func process_ability_use_on_pc(pc: PCUI):
-	print("process_ability_use_on_pc")
 	selected_ability_button.ability.execute(selected_ability_button, selected_pc, pc)
 	go_to_base_state()
 

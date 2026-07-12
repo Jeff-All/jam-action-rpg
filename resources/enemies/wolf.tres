@@ -22,7 +22,7 @@ metadata/_custom_type_script = "uid://6ggv8n4xqyob"
 
 [sub_resource type="Resource" id="Resource_ey6ka"]
 script = ExtResource("3_78dli")
-stamina_reduction = 3
+stamina_reduction = -3
 name = "Intimidating Howl"
 texture = ExtResource("4_ey6ka")
 duration = 10.0

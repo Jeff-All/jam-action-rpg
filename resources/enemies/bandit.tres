@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=6 format=3 uid="uid://dplvg5jwy0786"]
+[gd_resource type="Resource" script_class="EnemyBandit" load_steps=10 format=3 uid="uid://dplvg5jwy0786"]
 
-[ext_resource type="Script" uid="uid://ep73png3yh5x" path="res://scripts/resources/enemies/enemy.gd" id="1_4gmrp"]
 [ext_resource type="Script" uid="uid://6ggv8n4xqyob" path="res://scripts/resources/enemies/enemy_ability/enemy_ability.gd" id="1_mm4yq"]
 [ext_resource type="Texture2D" uid="uid://dpiku3uyt1av7" path="res://resources/art/enemies/bandit.png" id="2_j7s40"]
 [ext_resource type="Texture2D" uid="uid://ddx5qdlv4e7gx" path="res://resources/art/icons/abilities/attack.png" id="2_ofyox"]
+[ext_resource type="Script" uid="uid://dx0nvgsd50t7f" path="res://scripts/resources/buffs/buffs_pc/buff_pc_mageblood_poison.gd" id="3_8koor"]
+[ext_resource type="Script" uid="uid://cv1kqdi82st1p" path="res://scripts/resources/enemies/bandits/enemy_bandit.gd" id="3_mm4yq"]
+[ext_resource type="Texture2D" uid="uid://cha3nd3yvm6ap" path="res://resources/art/icons/abilities/mageblood_poison.png" id="4_2urji"]
 
 [sub_resource type="Resource" id="Resource_8koor"]
 script = ExtResource("1_mm4yq")
@@ -17,8 +19,26 @@ floats = Dictionary[String, float]({
 })
 metadata/_custom_type_script = "uid://6ggv8n4xqyob"
 
+[sub_resource type="Resource" id="Resource_o5ruv"]
+script = ExtResource("3_8koor")
+damage = 3
+name = "Mageblood Poison"
+texture = ExtResource("4_2urji")
+duration = 10.0
+metadata/_custom_type_script = "uid://dx0nvgsd50t7f"
+
+[sub_resource type="Resource" id="Resource_ofyox"]
+script = ExtResource("1_mm4yq")
+name = "Mageblood Poison"
+cooldown = 10.0
+cast_time = 1.5
+texture = ExtResource("4_2urji")
+buff = SubResource("Resource_o5ruv")
+metadata/_custom_type_script = "uid://6ggv8n4xqyob"
+
 [resource]
-script = ExtResource("1_4gmrp")
+script = ExtResource("3_mm4yq")
+ability_mageblood_poison = SubResource("Resource_ofyox")
 name = "Bandit"
 texture = ExtResource("2_j7s40")
 health = 10

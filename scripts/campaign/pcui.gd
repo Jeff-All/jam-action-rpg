@@ -5,6 +5,7 @@ extends Node
 signal on_pressed(PCUI)
 signal on_ability_pressed(PCUI, AbilityButton)
 signal on_death(pc: PCUI)
+signal on_resources_consumed(pc: PCUI, cost: Dictionary[CharacterCampaign.Resources, int])
 
 @export var flip: bool = false
 
@@ -178,20 +179,21 @@ func bind_status_bars():
 	status_bars.cur_armor = _character.character_campaign.attributes[CharacterCampaign.Attributes.ARMOR]
 
 func bind_character():
+	_character.on_resources_consumed.connect(_on_resources_consumed)
 	_character.on_cur_resource_change.connect(_on_cur_resource_change)
 	_character.on_attribute_change.connect(_on_attribute_change)
 	_character.on_death.connect(_on_death)
 
 func unbind_character():
 	if _character != null:
+		_character.on_resources_consumed.disconnect(_on_resources_consumed)
 		_character.on_cur_resource_change.disconnect(_on_cur_resource_change)
+		_character.on_attribute_change.disconnect(_on_attribute_change)
 		_character.on_death.disconnect(_on_death)
 
 func _on_attribute_change(attribute: CharacterCampaign.Attributes, value: int):
-	print("_on_attribute_change")
 	match attribute:
 		CharacterCampaign.Attributes.ARMOR:
-			print("_on_attribute_change.ARMOR")
 			status_bars.cur_armor = value
 
 func _on_cur_resource_change(resource: CharacterCampaign.Resources, value: int):
@@ -208,10 +210,10 @@ func _on_cur_resource_change(resource: CharacterCampaign.Resources, value: int):
 			status_bars.cur_mana = value
 	check_if_can_afford_abilities()
 
-func take_damage(value: int):
+func take_damage(value: int, ignore_armor: bool = false):
 	var armor = character.attributes[CharacterCampaign.Attributes.ARMOR].adjusted
 	var durability = character.resources[CharacterCampaign.Resources.DURABILITY].cur
-	if armor > 0 && durability > 0:
+	if armor > 0 && durability > 0 && !ignore_armor:
 		durability -= ceil(min(value, armor) / 2)
 		if armor <= value:
 			value = value - armor
@@ -223,7 +225,6 @@ func take_damage(value: int):
 	character.set_cur_resource(CharacterCampaign.Resources.DURABILITY, durability)
 	if durability <= 0:
 		character.attributes[CharacterCampaign.Attributes.ARMOR].override = 0
-		#character.set_cur_resource(CharacterCampaign.Resources.ARMOR, 0)
 
 func check_if_can_afford_abilities():
 	for cur in abilities:
@@ -288,3 +289,6 @@ func has_buff(buff: BuffPC) -> bool:
 			if cur.buff.name == buff.name:
 				return true
 	return false
+
+func _on_resources_consumed(cost: Dictionary[CharacterCampaign.Resources, int]):
+	on_resources_consumed.emit(self, cost)
