@@ -263,7 +263,6 @@ func _on_death(_char: CharacterBattle):
 func apply_buff(buff: BuffPC):
 	if overwrite_buff(buff):
 		return
-	buff.apply(self)
 	for cur in buffs:
 		if cur._buff == null:
 			cur.start_buff(self, buff)

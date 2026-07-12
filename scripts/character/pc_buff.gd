@@ -35,6 +35,7 @@ func _on_duration_end():
 
 func start_buff(pc: PCUI, to_start: BuffPC):
 	buff = to_start.duplicate()
+	buff.apply(pc)
 	animation_player.speed_scale = 1.0 / _buff.get_duration(pc)
 	animation_player.play("Duration")
 	visible = true
