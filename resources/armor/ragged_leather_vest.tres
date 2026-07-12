@@ -9,7 +9,7 @@ name = "Ragged Leather Vest"
 armor_class = 2
 texture = ExtResource("2_8qy0f")
 resources = Dictionary[int, int]({
-4: 5
+3: 5
 })
 dodge = 20
 metadata/_custom_type_script = "uid://c80yoskj347ho"

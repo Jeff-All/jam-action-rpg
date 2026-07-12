@@ -9,9 +9,9 @@ name = "Patched Robe"
 armor_class = 1
 texture = ExtResource("2_e3oc6")
 resources = Dictionary[int, int]({
-5: 5
+4: 5
 })
 recovery = Dictionary[int, int]({
-5: 1
+4: 1
 })
 metadata/_custom_type_script = "uid://c80yoskj347ho"

@@ -2,6 +2,8 @@ class_name BuffPC
 
 extends Buff
 
+var uname: String = get_script().get_global_name()
+
 func apply(pc: PCUI):
 	pass
 

@@ -41,11 +41,12 @@ var attributes: Dictionary[Attributes, int] = {
 	Attributes.STRENGTH: 1,
 	Attributes.AGILITY: 1,
 	Attributes.MAGIC: 1,
+	Attributes.ARMOR: 0,
 }
 
-enum Resources{ HEALTH, ARMOR, DURABILITY, SHIELDING, STAMINA, MANA }
+enum Resources{ HEALTH, DURABILITY, SHIELDING, STAMINA, MANA, ARMOR }
 
-enum Attributes { STRENGTH, AGILITY, MAGIC }
+enum Attributes { STRENGTH, AGILITY, MAGIC, ARMOR }
 
 func _init(_base: CharacterBase, attack: Ability):
 	base = _base
@@ -59,7 +60,6 @@ func _init(_base: CharacterBase, attack: Ability):
 	set_race(_base.race)
 	set_class(_base.class_)
 	
-	_class = _base.class_
 	equip_armor(_base.armor)
 	weapon = _base.weapon
 	traits[0] = _base.trait_
@@ -123,7 +123,6 @@ func set_race(_race: Race):
 	attributes[Attributes.MAGIC] += race.magic
 	
 	resources[Resources.HEALTH] += race.health
-	resources[Resources.ARMOR] += race.armor
 	resources[Resources.DURABILITY] += race.durability
 	resources[Resources.STAMINA] += race.stamina
 	resources[Resources.MANA] += race.mana
@@ -131,6 +130,8 @@ func set_race(_race: Race):
 	recovery[Resources.HEALTH] += race.health_recovery
 	recovery[Resources.STAMINA] += race.stamina_recovery
 	recovery[Resources.MANA] += race.mana_recovery
+	
+	attributes[Attributes.ARMOR] += race.armor
 	
 	dodge += _race.dodge
 
@@ -142,7 +143,6 @@ func set_class(class_: Class):
 	attributes[Attributes.MAGIC] += _class.magic
 	
 	resources[Resources.HEALTH] += _class.health
-	resources[Resources.ARMOR] += _class.armor
 	resources[Resources.DURABILITY] += _class.durability
 	resources[Resources.STAMINA] += _class.stamina
 	resources[Resources.MANA] += _class.mana
@@ -150,5 +150,7 @@ func set_class(class_: Class):
 	recovery[Resources.HEALTH] += _class.health_recovery
 	recovery[Resources.STAMINA] += _class.stamina_recovery
 	recovery[Resources.MANA] += _class.mana_recovery
+	
+	attributes[Attributes.ARMOR] += _class.armor
 	
 	dodge += _class.dodge

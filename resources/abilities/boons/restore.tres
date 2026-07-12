@@ -18,7 +18,7 @@ buff = SubResource("Resource_wtmue")
 name = "Restore"
 texture = ExtResource("2_wtmue")
 cost = Dictionary[int, int]({
-5: 5
+4: 5
 })
 instant = true
 cooldown = 10.0

@@ -117,7 +117,8 @@ func process_recovery():
 	if character != null:
 		for cur in character.character_campaign.recovery:
 			if character.character_campaign.recovery[cur] > 0:
-				character.add_cur_resource(cur, (character.character_campaign.recovery[cur] * Global.step_size) / Global.tick_size)
+				character.resources[cur].recover(Global.step_size / Global.tick_size)
+				#character.add_cur_resource(cur, (character.character_campaign.recovery[cur] * Global.step_size) / Global.tick_size)
 
 func _on_mouse_entered():
 	_hover = true
@@ -167,22 +168,31 @@ func clear_buffs():
 func bind_status_bars():
 	status_bars.max_health = _character.character_campaign.resources[CharacterCampaign.Resources.HEALTH]
 	status_bars.cur_health = _character.character_campaign.resources[CharacterCampaign.Resources.HEALTH]
-	status_bars.cur_armor = _character.character_campaign.resources[CharacterCampaign.Resources.ARMOR]
 	status_bars.max_durability = _character.character_campaign.resources[CharacterCampaign.Resources.DURABILITY]
 	status_bars.cur_durability = _character.character_campaign.resources[CharacterCampaign.Resources.DURABILITY]
 	status_bars.max_stamina= _character.character_campaign.resources[CharacterCampaign.Resources.STAMINA]
 	status_bars.cur_stamina = _character.character_campaign.resources[CharacterCampaign.Resources.STAMINA]
 	status_bars.max_mana = _character.character_campaign.resources[CharacterCampaign.Resources.MANA]
 	status_bars.cur_mana = _character.character_campaign.resources[CharacterCampaign.Resources.MANA]
+	
+	status_bars.cur_armor = _character.character_campaign.attributes[CharacterCampaign.Attributes.ARMOR]
 
 func bind_character():
 	_character.on_cur_resource_change.connect(_on_cur_resource_change)
+	_character.on_attribute_change.connect(_on_attribute_change)
 	_character.on_death.connect(_on_death)
 
 func unbind_character():
 	if _character != null:
 		_character.on_cur_resource_change.disconnect(_on_cur_resource_change)
 		_character.on_death.disconnect(_on_death)
+
+func _on_attribute_change(attribute: CharacterCampaign.Attributes, value: int):
+	print("_on_attribute_change")
+	match attribute:
+		CharacterCampaign.Attributes.ARMOR:
+			print("_on_attribute_change.ARMOR")
+			status_bars.cur_armor = value
 
 func _on_cur_resource_change(resource: CharacterCampaign.Resources, value: int):
 	match resource:
@@ -199,8 +209,8 @@ func _on_cur_resource_change(resource: CharacterCampaign.Resources, value: int):
 	check_if_can_afford_abilities()
 
 func take_damage(value: int):
-	var armor = character.cur_resources[CharacterCampaign.Resources.ARMOR]
-	var durability = character.cur_resources[CharacterCampaign.Resources.DURABILITY]
+	var armor = character.attributes[CharacterCampaign.Attributes.ARMOR].adjusted
+	var durability = character.resources[CharacterCampaign.Resources.DURABILITY].cur
 	if armor > 0 && durability > 0:
 		durability -= ceil(min(value, armor) / 2)
 		if armor <= value:
@@ -208,11 +218,12 @@ func take_damage(value: int):
 		else:
 			value = 0
 	spawn_combat_text("%s" % value)
-	var health = character.cur_resources[CharacterCampaign.Resources.HEALTH]
+	var health = character.resources[CharacterCampaign.Resources.HEALTH].cur
 	character.set_cur_resource(CharacterCampaign.Resources.HEALTH, health - value)
 	character.set_cur_resource(CharacterCampaign.Resources.DURABILITY, durability)
 	if durability <= 0:
-		character.set_cur_resource(CharacterCampaign.Resources.ARMOR, 0)
+		character.attributes[CharacterCampaign.Attributes.ARMOR].override = 0
+		#character.set_cur_resource(CharacterCampaign.Resources.ARMOR, 0)
 
 func check_if_can_afford_abilities():
 	for cur in abilities:

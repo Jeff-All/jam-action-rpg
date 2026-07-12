@@ -8,6 +8,7 @@ enum ArmorClass{ NONE, ROBE, LIGHT, MEDIUM, HEAVY }
 @export var armor_class: ArmorClass
 @export var texture: Texture2D
 
+@export var attributes: Dictionary[CharacterCampaign.Attributes, int]
 @export var resources: Dictionary[CharacterCampaign.Resources, int]
 @export var recovery: Dictionary[CharacterCampaign.Resources, int]
 
@@ -28,6 +29,9 @@ func get_icon() -> Texture2D:
 func equip(character: CharacterCampaign):
 	character.armor = self
 	
+	for cur in attributes:
+		character.attributes[cur] += attributes[cur]
+	
 	for cur in resources:
 		character.resources[cur] = character.resources[cur] + resources[cur]
 	
@@ -38,6 +42,9 @@ func equip(character: CharacterCampaign):
 
 func unequip(character: CharacterCampaign):
 	character.armor = null
+	
+	for cur in attributes:
+		character.attributes[cur] += attributes[cur]
 	
 	for cur in resources:
 		character.resources[cur] = character.resources[cur] - resources[cur]

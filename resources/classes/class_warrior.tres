@@ -20,7 +20,6 @@ name = "Warrior"
 texture = ExtResource("8_fmb1j")
 threat = 3
 attack = 3
-defense = 5
 strength = 1
 armor = 1
 durability = 3

@@ -10,7 +10,7 @@ max_damage = 3
 name = "Scorch"
 texture = ExtResource("2_pq0u2")
 cost = Dictionary[int, int]({
-5: 5
+4: 5
 })
 instant = true
 cooldown = 5.0
