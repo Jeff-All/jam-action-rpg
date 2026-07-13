@@ -3,7 +3,7 @@ class_name CharacterBattle
 extends Resource
 
 signal on_resources_consumed(cost: Dictionary[CharacterCampaign.Resources, int])
-signal on_cur_resource_change(resource: CharacterCampaign.Resources, value: int)
+signal on_cur_resource_change(resource: CharacterCampaign.Resources, value: int, change: float)
 signal on_attribute_change(attribute: CharacterCampaign.Attributes, value: int)
 signal on_death(character: CharacterBattle)
 
@@ -26,12 +26,14 @@ var resources: Dictionary[CharacterCampaign.Resources, AdjustableResource] = {
 	CharacterCampaign.Resources.MANA: AdjustableResource.new(CharacterCampaign.Resources.MANA, 5),
 }
 
-func _on_cur_resource_change(resource: AdjustableResource):
+var traits: Array[Trait]
+
+func _on_cur_resource_change(resource: AdjustableResource, _change: float):
 	match resource.resource:
 		CharacterCampaign.Resources.HEALTH:
 			if resource.cur <= 0:
 				on_death.emit(self)
-	on_cur_resource_change.emit(resource.resource, resource.cur_floor)
+	on_cur_resource_change.emit(resource.resource, resource.cur_floor, _change)
 
 func _on_attribute_change(attribute: AdjustableAttribute):
 	on_attribute_change.emit(attribute.attribute, attribute.adjusted)
@@ -54,6 +56,10 @@ func _init(_character_campaign: CharacterCampaign):
 		resources[cur].cur = character_campaign.resources[cur]
 		resources[cur]._recovery.base = character_campaign.recovery[cur]
 		resources[cur].on_cur_changed.connect(_on_cur_resource_change)
+	
+	for cur in character_campaign.traits:
+		if cur != null:
+			traits.append(cur.duplicate())
 
 func can_afford(ability: Ability) -> bool:
 	for cur in ability.cost:

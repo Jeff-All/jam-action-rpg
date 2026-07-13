@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://d6xgnmorxpc6" path="res://resources/abilities/attacks/precision_strike.tres" id="3_w5hpm"]
 [ext_resource type="Resource" uid="uid://c3kjh8y1s3hkk" path="res://resources/abilities/attacks/mighty_blow.tres" id="4_xb028"]
 [ext_resource type="Resource" uid="uid://bdjuot6dqgybf" path="res://resources/abilities/boons/restore.tres" id="5_fmb1j"]
-[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/trait.gd" id="6_l17ss"]
+[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/traits/trait.gd" id="6_l17ss"]
 [ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/classes/class.gd" id="7_lt7yf"]
 [ext_resource type="Texture2D" uid="uid://drcwqs8ghiwsa" path="res://resources/art/icons/classes/warrior.png" id="8_fmb1j"]
 

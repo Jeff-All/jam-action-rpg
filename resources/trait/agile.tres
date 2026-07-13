@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Trait" load_steps=3 format=3 uid="uid://dl3c2od1ni3sf"]
 
-[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/trait.gd" id="1_xl0tt"]
+[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/traits/trait.gd" id="1_xl0tt"]
 [ext_resource type="Texture2D" uid="uid://n0k0y52oinwp" path="res://resources/art/icons/traits/agile.png" id="2_irj62"]
 
 [resource]

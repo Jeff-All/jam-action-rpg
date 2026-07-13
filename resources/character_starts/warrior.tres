@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CharacterStartOptions" load_steps=19 format=3 uid="uid://c2mr26ifcts7r"]
+[gd_resource type="Resource" script_class="CharacterStartOptions" load_steps=20 format=3 uid="uid://c2mr26ifcts7r"]
 
 [ext_resource type="Script" uid="uid://bubl68t4u61vo" path="res://scripts/resources/abilities/ability.gd" id="1_gwyhy"]
 [ext_resource type="Resource" uid="uid://c3kjh8y1s3hkk" path="res://resources/abilities/attacks/mighty_blow.tres" id="2_lihex"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://bkijfvdnaky5k" path="res://scripts/resources/race.gd" id="4_cyrdd"]
 [ext_resource type="Resource" uid="uid://d6xgnmorxpc6" path="res://resources/abilities/attacks/precision_strike.tres" id="4_m4u7v"]
 [ext_resource type="Script" uid="uid://b0rrnk75kj3xv" path="res://scripts/resources/characters/character_start_options.gd" id="5_bv826"]
-[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/trait.gd" id="6_8v47o"]
 [ext_resource type="Resource" uid="uid://bg0illklpqehh" path="res://resources/armor/ragged_leather_vest.tres" id="6_py1kn"]
 [ext_resource type="Resource" uid="uid://nvmg1wj6p2a5" path="res://resources/armor/rusty_chain_mail.tres" id="7_5psve"]
 [ext_resource type="Script" uid="uid://8tck1kie4m0e" path="res://scripts/resources/weapon.gd" id="7_v3hqj"]
@@ -16,7 +15,9 @@
 [ext_resource type="Resource" uid="uid://dvlqijcfj3j2s" path="res://resources/races/race_elf.tres" id="11_xwfl6"]
 [ext_resource type="Resource" uid="uid://mdah4yhpnsiw" path="res://resources/races/race_dwarf.tres" id="12_6t500"]
 [ext_resource type="Resource" uid="uid://m4doyb4kcxlp" path="res://resources/races/race_pixie.tres" id="13_4phwm"]
+[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/traits/trait.gd" id="15_fglyy"]
 [ext_resource type="Resource" uid="uid://bn2qfh2prc5la" path="res://resources/trait/strong.tres" id="16_udsd8"]
+[ext_resource type="Resource" uid="uid://dvy4snhfgwmnt" path="res://resources/trait/rage.tres" id="17_m4u7v"]
 [ext_resource type="Resource" uid="uid://dx0bfyr7vfgtv" path="res://resources/weapons/weapon_rusty_longsword.tres" id="18_m4sou"]
 
 [resource]
@@ -24,7 +25,7 @@ script = ExtResource("5_bv826")
 races = Array[ExtResource("4_cyrdd")]([ExtResource("11_xwfl6"), ExtResource("12_6t500"), ExtResource("13_4phwm")])
 classes = Array[ExtResource("3_rp1mn")]([ExtResource("9_84a85")])
 abilities = Array[ExtResource("1_gwyhy")]([ExtResource("2_lihex"), ExtResource("3_fglyy"), ExtResource("4_m4u7v")])
-traits = Array[ExtResource("6_8v47o")]([ExtResource("16_udsd8")])
+traits = Array[ExtResource("15_fglyy")]([ExtResource("16_udsd8"), ExtResource("17_m4u7v")])
 weapons = Array[ExtResource("7_v3hqj")]([ExtResource("18_m4sou")])
 armor = Array[ExtResource("2_yjpjm")]([ExtResource("6_py1kn"), ExtResource("7_5psve")])
 character_count = 1

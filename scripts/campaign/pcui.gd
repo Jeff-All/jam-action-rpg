@@ -37,6 +37,7 @@ var character: CharacterBattle:
 			return
 		portrait.character = value.character_campaign
 		set_abilities()
+		apply_traits()
 		bind_status_bars()
 		bind_character()
 		
@@ -83,6 +84,7 @@ func _ready():
 func reset():
 	clear_abilities()
 	clear_buffs()
+	clear_traits()
 	unbind_character()
 	portrait.character = null
 	character = null
@@ -191,12 +193,21 @@ func unbind_character():
 		_character.on_attribute_change.disconnect(_on_attribute_change)
 		_character.on_death.disconnect(_on_death)
 
+func apply_traits():
+	for cur in _character.traits:
+		cur.apply(self)
+
+func clear_traits():
+	if _character != null:
+		for cur in _character.traits:
+			cur.remove(self)
+
 func _on_attribute_change(attribute: CharacterCampaign.Attributes, value: int):
 	match attribute:
 		CharacterCampaign.Attributes.ARMOR:
 			status_bars.cur_armor = value
 
-func _on_cur_resource_change(resource: CharacterCampaign.Resources, value: int):
+func _on_cur_resource_change(resource: CharacterCampaign.Resources, value: int, change: float):
 	match resource:
 		CharacterCampaign.Resources.HEALTH:
 			status_bars.cur_health = value
@@ -214,7 +225,7 @@ func take_damage(value: int, ignore_armor: bool = false):
 	var armor = character.attributes[CharacterCampaign.Attributes.ARMOR].adjusted
 	var durability = character.resources[CharacterCampaign.Resources.DURABILITY].cur
 	if armor > 0 && durability > 0 && !ignore_armor:
-		durability -= ceil(min(value, armor) / 2)
+		character.resources[CharacterCampaign.Resources.DURABILITY].cur -= ceil(minf(value, armor) / 2)
 		if armor <= value:
 			value = value - armor
 		else:
@@ -222,7 +233,6 @@ func take_damage(value: int, ignore_armor: bool = false):
 	spawn_combat_text("%s" % value)
 	var health = character.resources[CharacterCampaign.Resources.HEALTH].cur
 	character.set_cur_resource(CharacterCampaign.Resources.HEALTH, health - value)
-	character.set_cur_resource(CharacterCampaign.Resources.DURABILITY, durability)
 	if durability <= 0:
 		character.attributes[CharacterCampaign.Attributes.ARMOR].override = 0
 

@@ -7,16 +7,23 @@ signal on_change(AdjustableAttribute)
 var attribute: CharacterCampaign.Attributes
 var base: float
 var adjustments: Dictionary[Variant, float]
-var override: int = -1
+
+var override: int:
+	set(value):
+		if value != _override:
+			_override = value
+			on_change.emit(self)
+
+var _override: int = -1
 
 var adjusted: int:
 	get:
 		var value = base
 		for cur in adjustments:
 			value += adjustments[cur]
-		if override < 0:
+		if _override < 0:
 			return floor(value)
-		else: return override
+		else: return _override
 
 func _init(_attribute: CharacterCampaign.Attributes = CharacterCampaign.Attributes.STRENGTH):
 	attribute = _attribute

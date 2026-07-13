@@ -16,3 +16,9 @@ func _to_string() -> String:
 
 func get_icon() -> Texture2D:
 	return texture
+
+func apply(pcui: PCUI):
+	pass
+
+func remove(pcui: PCUI):
+	pass

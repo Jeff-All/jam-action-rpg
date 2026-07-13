@@ -9,7 +9,7 @@ script = ExtResource("1_cxe5m")
 healing_per_step = 1
 name = "Restore"
 texture = ExtResource("2_wtmue")
-duration = 1.0
+duration = 3.0
 metadata/_custom_type_script = "uid://bhtbduhv7oaal"
 
 [resource]

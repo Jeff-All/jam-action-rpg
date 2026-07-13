@@ -24,7 +24,7 @@
 [ext_resource type="Script" uid="uid://8tck1kie4m0e" path="res://scripts/resources/weapon.gd" id="20_65v2c"]
 [ext_resource type="Resource" uid="uid://dx0bfyr7vfgtv" path="res://resources/weapons/weapon_rusty_longsword.tres" id="21_72q3h"]
 [ext_resource type="Resource" uid="uid://1ww6pcrldjeq" path="res://resources/weapons/weapon_rusty_dagger.tres" id="22_h7ibo"]
-[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/trait.gd" id="24_ik3pe"]
+[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/traits/trait.gd" id="24_ik3pe"]
 [ext_resource type="Resource" uid="uid://dl3c2od1ni3sf" path="res://resources/trait/agile.tres" id="25_aebwi"]
 [ext_resource type="Resource" uid="uid://bn2qfh2prc5la" path="res://resources/trait/strong.tres" id="26_4k24a"]
 [ext_resource type="Resource" uid="uid://c0s2m7uqj1th8" path="res://resources/weapons/weapon_worn_staff.tres" id="27_mykvl"]
