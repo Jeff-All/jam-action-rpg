@@ -14,6 +14,7 @@ var attributes: Dictionary[CharacterCampaign.Attributes, AdjustableAttribute] = 
 	CharacterCampaign.Attributes.AGILITY: AdjustableAttribute.new(CharacterCampaign.Attributes.AGILITY),
 	CharacterCampaign.Attributes.MAGIC: AdjustableAttribute.new(CharacterCampaign.Attributes.MAGIC),
 	CharacterCampaign.Attributes.ARMOR: AdjustableAttribute.new(CharacterCampaign.Attributes.ARMOR),
+	CharacterCampaign.Attributes.SPELLHIT: AdjustableAttribute.new(CharacterCampaign.Attributes.SPELLHIT),
 }
 
 var resources: Dictionary[CharacterCampaign.Resources, AdjustableResource] = {

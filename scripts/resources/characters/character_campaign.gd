@@ -42,11 +42,16 @@ var attributes: Dictionary[Attributes, int] = {
 	Attributes.AGILITY: 1,
 	Attributes.MAGIC: 1,
 	Attributes.ARMOR: 0,
+	Attributes.SPELLHIT: 0,
 }
 
 enum Resources{ HEALTH, DURABILITY, SHIELDING, STAMINA, MANA, ARMOR }
 
-enum Attributes { STRENGTH, AGILITY, MAGIC, ARMOR }
+enum Attributes { 
+	STRENGTH, AGILITY, MAGIC, 
+	ARMOR,
+	SPELLHIT,
+}
 
 func _init(_base: CharacterBase, attack: Ability):
 	base = _base
@@ -61,7 +66,7 @@ func _init(_base: CharacterBase, attack: Ability):
 	set_class(_base.class_)
 	
 	equip_armor(_base.armor)
-	weapon = _base.weapon
+	equip_weapon(_base.weapon)
 	traits[0] = _base.trait_
 	available_traits.append(_base.trait_)
 	abilities[0] = attack
@@ -97,8 +102,14 @@ func unequip_armor():
 	armor.unequip(self)
 	armor = null
 
-func equip_weapon(_weapon: Weapon) -> Weapon:
-	return null
+func equip_weapon(_weapon: Weapon):
+	weapon = _weapon
+	if weapon != null:
+		weapon.equip(self)
+
+func unequip_weapon():
+	weapon.unequip(self)
+	weapon = null
 
 func add_ability(ability: Ability):
 	available_abilities.append(ability)

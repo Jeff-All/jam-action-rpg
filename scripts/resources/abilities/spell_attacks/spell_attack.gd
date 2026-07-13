@@ -18,7 +18,7 @@ func execute(ability_button: AbilityButton, source: PCUI, target):
 		target.spawn_combat_text("MISS")
 
 func did_roll_hit(roll: int, ability_button: AbilityButton, source: PCUI, target) -> bool:
-	return roll <= to_hit
+	return roll <= to_hit + source._character.attributes[CharacterCampaign.Attributes.SPELLHIT].adjusted
 
 func did_target_resist(roll: int, ability_button: AbilityButton, source: PCUI, target):
 	return false # place holder

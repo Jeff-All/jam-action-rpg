@@ -10,6 +10,10 @@ extends Resource
 @export var hit: int
 @export var speed: float
 
+@export var attributes: Dictionary[CharacterCampaign.Attributes, int]
+@export var resources: Dictionary[CharacterCampaign.Resources, int]
+@export var recovery: Dictionary[CharacterCampaign.Resources, int]
+
 func get_header() -> String:
 	return name
 
@@ -22,3 +26,27 @@ func _to_string() -> String:
 
 func get_icon() -> Texture2D:
 	return texture
+
+func equip(character: CharacterCampaign):
+	character.weapon = self
+	
+	for cur in attributes:
+		character.attributes[cur] += attributes[cur]
+	
+	for cur in resources:
+		character.resources[cur] = character.resources[cur] + resources[cur]
+	
+	for cur in recovery:
+		character.recovery[cur] = character.recovery[cur] + recovery[cur]
+
+func unequip(character: CharacterCampaign):
+	character.weapon = null
+	
+	for cur in attributes:
+		character.attributes[cur] += attributes[cur]
+	
+	for cur in resources:
+		character.resources[cur] = character.resources[cur] - resources[cur]
+	
+	for cur in recovery:
+		character.recovery[cur] = character.recovery[cur] - recovery[cur]

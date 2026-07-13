@@ -112,7 +112,8 @@ func _grid_selector_on_selected(value):
 func swap_armor(_armor: Armor):
 	var old_armor = cur_slot_button.value
 	cur_slot_button.fill(_armor)
-	_character.armor = _armor
+	_character.unequip_armor()
+	_character.equip_armor(_armor)
 	portrait._populate_textures()
 	campaign.inventory.remove_at(campaign.inventory.find(_armor))
 	campaign.inventory.append(old_armor)
@@ -120,7 +121,8 @@ func swap_armor(_armor: Armor):
 func swap_weapon(_weapon: Weapon):
 	var old_weapon = cur_slot_button.value
 	cur_slot_button.fill(_weapon)
-	_character.weapon = _weapon
+	_character.unequip_weapon()
+	_character.equip_weapon(_weapon)
 	portrait._populate_textures()
 	campaign.inventory.remove_at(campaign.inventory.find(_weapon))
 	campaign.inventory.append(old_weapon)
