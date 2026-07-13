@@ -18,7 +18,7 @@ var available_abilities: Array[Ability]
 var traits: Array[Trait]
 var available_traits: Array[Trait]
 var key_binds: Array[String]
-var resources: Dictionary[Resources, int] = {
+var resources: Dictionary[Resources, float] = {
 	Resources.HEALTH: 10,
 	Resources.ARMOR: 0,
 	Resources.DURABILITY: 0,
@@ -28,7 +28,7 @@ var resources: Dictionary[Resources, int] = {
 }
 var dodge: int
 
-var recovery: Dictionary[Resources, int] = {
+var recovery: Dictionary[Resources, float] = {
 		Resources.HEALTH: 0,
 		Resources.ARMOR: 0,
 		Resources.DURABILITY: 0,
@@ -37,12 +37,13 @@ var recovery: Dictionary[Resources, int] = {
 		Resources.MANA: 0,
 }
 
-var attributes: Dictionary[Attributes, int] = {
+var attributes: Dictionary[Attributes, float] = {
 	Attributes.STRENGTH: 1,
 	Attributes.AGILITY: 1,
 	Attributes.MAGIC: 1,
 	Attributes.ARMOR: 0,
 	Attributes.SPELLHIT: 0,
+	Attributes.DODGE: 0,
 }
 
 enum Resources{ HEALTH, DURABILITY, SHIELDING, STAMINA, MANA, ARMOR }
@@ -51,6 +52,7 @@ enum Attributes {
 	STRENGTH, AGILITY, MAGIC, 
 	ARMOR,
 	SPELLHIT,
+	DODGE,
 }
 
 func _init(_base: CharacterBase, attack: Ability):
@@ -143,8 +145,7 @@ func set_race(_race: Race):
 	recovery[Resources.MANA] += race.mana_recovery
 	
 	attributes[Attributes.ARMOR] += race.armor
-	
-	dodge += _race.dodge
+	attributes[Attributes.DODGE] += race.dodge
 
 func set_class(class_: Class):
 	_class = class_
@@ -163,5 +164,4 @@ func set_class(class_: Class):
 	recovery[Resources.MANA] += _class.mana_recovery
 	
 	attributes[Attributes.ARMOR] += _class.armor
-	
-	dodge += _class.dodge
+	attributes[Attributes.DODGE] += _class.dodge

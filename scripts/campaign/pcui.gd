@@ -225,7 +225,7 @@ func take_damage(value: int, ignore_armor: bool = false):
 	var armor = character.attributes[CharacterCampaign.Attributes.ARMOR].adjusted
 	var durability = character.resources[CharacterCampaign.Resources.DURABILITY].cur
 	if armor > 0 && durability > 0 && !ignore_armor:
-		character.resources[CharacterCampaign.Resources.DURABILITY].cur -= ceil(minf(value, armor) / 2)
+		durability -= ceil(minf(value, armor) / 2)
 		if armor <= value:
 			value = value - armor
 		else:
@@ -233,6 +233,7 @@ func take_damage(value: int, ignore_armor: bool = false):
 	spawn_combat_text("%s" % value)
 	var health = character.resources[CharacterCampaign.Resources.HEALTH].cur
 	character.set_cur_resource(CharacterCampaign.Resources.HEALTH, health - value)
+	character.resources[CharacterCampaign.Resources.DURABILITY].cur = durability
 	if durability <= 0:
 		character.attributes[CharacterCampaign.Attributes.ARMOR].override = 0
 

@@ -8,11 +8,9 @@ enum ArmorClass{ NONE, ROBE, LIGHT, MEDIUM, HEAVY }
 @export var armor_class: ArmorClass
 @export var texture: Texture2D
 
-@export var attributes: Dictionary[CharacterCampaign.Attributes, int]
-@export var resources: Dictionary[CharacterCampaign.Resources, int]
-@export var recovery: Dictionary[CharacterCampaign.Resources, int]
-
-@export var dodge: int
+@export var attributes: Dictionary[CharacterCampaign.Attributes, float]
+@export var resources: Dictionary[CharacterCampaign.Resources, float]
+@export var recovery: Dictionary[CharacterCampaign.Resources, float]
 
 func get_header() -> String:
 	return name
@@ -37,8 +35,6 @@ func equip(character: CharacterCampaign):
 	
 	for cur in recovery:
 		character.recovery[cur] = character.recovery[cur] + recovery[cur]
-	
-	character.dodge += dodge
 
 func unequip(character: CharacterCampaign):
 	character.armor = null
@@ -51,5 +47,3 @@ func unequip(character: CharacterCampaign):
 	
 	for cur in recovery:
 		character.recovery[cur] = character.recovery[cur] - recovery[cur]
-	
-	character.dodge -= dodge

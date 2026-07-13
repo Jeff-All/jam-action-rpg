@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Class" load_steps=10 format=3 uid="uid://cd52scvecilnt"]
+[gd_resource type="Resource" script_class="Class" load_steps=11 format=3 uid="uid://cd52scvecilnt"]
 
 [ext_resource type="Script" uid="uid://cr8mt1s82yoec" path="res://scripts/resources/classes/class_level.gd" id="1_fmb1j"]
 [ext_resource type="Script" uid="uid://bubl68t4u61vo" path="res://scripts/resources/abilities/ability.gd" id="1_y64t6"]
@@ -14,6 +14,11 @@ script = ExtResource("1_fmb1j")
 abilities = Array[ExtResource("1_y64t6")]([ExtResource("3_w5hpm"), ExtResource("4_xb028"), ExtResource("5_fmb1j")])
 metadata/_custom_type_script = "uid://cr8mt1s82yoec"
 
+[sub_resource type="Resource" id="Resource_fmb1j"]
+script = ExtResource("1_fmb1j")
+traits = Array[ExtResource("6_l17ss")]([null, null, null])
+metadata/_custom_type_script = "uid://cr8mt1s82yoec"
+
 [resource]
 script = ExtResource("7_lt7yf")
 name = "Warrior"
@@ -25,6 +30,7 @@ armor = 1
 durability = 3
 health = 5
 levels = Dictionary[int, ExtResource("1_fmb1j")]({
-1: SubResource("Resource_1x3km")
+1: SubResource("Resource_1x3km"),
+2: SubResource("Resource_fmb1j")
 })
 metadata/_custom_type_script = "uid://7im2jq7xrwm1"

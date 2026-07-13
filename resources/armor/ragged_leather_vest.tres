@@ -8,8 +8,13 @@ script = ExtResource("1_maky6")
 name = "Ragged Leather Vest"
 armor_class = 2
 texture = ExtResource("2_8qy0f")
+attributes = Dictionary[int, float]({
+5: 20.0
+})
 resources = Dictionary[int, int]({
 3: 5
 })
-dodge = 20
+recovery = Dictionary[int, float]({
+3: 1.0
+})
 metadata/_custom_type_script = "uid://c80yoskj347ho"

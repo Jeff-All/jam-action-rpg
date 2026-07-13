@@ -33,7 +33,7 @@ func execute_attack(target):
 	var roll = Global.roll()
 	if roll <= ability_attack.floats["Hit"]:
 		roll = Global.roll()
-		if roll <= target.dodge:
+		if roll <= target._character.attributes[CharacterCampaign.Attributes.DODGE].adjusted:
 			target.spawn_combat_text("DODGE")
 			return
 		var damage = randi_range(ability_attack.floats["MinDamage"], ability_attack.floats["MaxDamage"])
