@@ -15,12 +15,12 @@ func pick_ability(cur: EnemyUI, _battle: BattleUI) -> Array:
 		ability_cleave_armor_roll_adjustment += 1
 	return [ability_attack, find_target_attack(cur)]
 
-func execute_ability(ability: EnemyAbility, target, _battle: BattleUI):
+func execute_ability(ability: EnemyAbility, target, battle: BattleUI):
 	match ability:
 		ability_attack:
 			execute_attack(target)
 		ability_mageblood_poison:
-			execute_mageblood_poison(_battle)
+			execute_mageblood_poison(target, battle)
 
 func find_target_mageblood_poison(pcs: Array[PCUI]) -> PCUI:
 	var target: PCUI = null
@@ -32,8 +32,5 @@ func find_target_mageblood_poison(pcs: Array[PCUI]) -> PCUI:
 				target = cur
 	return target
 
-func execute_mageblood_poison(_battle: BattleUI):
-	for cur in _battle.pcs:
-		if cur.character != null:
-			if !cur.dead:
-				cur.apply_buff(ability_mageblood_poison.buff)
+func execute_mageblood_poison(target, battle: BattleUI):
+	target.apply_buff(ability_mageblood_poison.buff)

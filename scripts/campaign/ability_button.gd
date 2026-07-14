@@ -108,7 +108,7 @@ func reset():
 func process_animations(delta: float):
 	animation_player.advance(delta * speed_scale.adjusted)
 
-func process_step():
+func process_step():                                                                                                                                          
 	pass
 
 func _on_mouse_entered():

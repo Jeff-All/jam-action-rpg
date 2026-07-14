@@ -33,7 +33,7 @@ var cur_selected_campaign: CampaignOptions
 
 func _on_campaign_selector_on_continue_pressed(campaign: CampaignOptions):
 	cur_selected_campaign = campaign
-	party_builder.start(campaign.character_start_options)
+	party_builder.start(campaign)
 	campaign_selector.visible = false
 	party_builder.visible = true
 

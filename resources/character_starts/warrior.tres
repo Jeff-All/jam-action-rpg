@@ -29,5 +29,4 @@ abilities = Array[ExtResource("1_gwyhy")]([ExtResource("2_lihex"), ExtResource("
 traits = Array[ExtResource("15_fglyy")]([ExtResource("16_udsd8"), ExtResource("17_m4u7v"), ExtResource("18_m4u7v")])
 weapons = Array[ExtResource("7_v3hqj")]([ExtResource("18_m4sou")])
 armor = Array[ExtResource("2_yjpjm")]([ExtResource("6_py1kn"), ExtResource("7_5psve")])
-character_count = 1
 metadata/_custom_type_script = "uid://b0rrnk75kj3xv"

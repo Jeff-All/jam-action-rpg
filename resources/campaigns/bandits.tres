@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="CampaignOptions" load_steps=10 format=3 uid="uid://cvo0oioukctke"]
+[gd_resource type="Resource" script_class="CampaignOptions" load_steps=12 format=3 uid="uid://cvo0oioukctke"]
 
 [ext_resource type="Script" uid="uid://b2hvd7p2gcqwk" path="res://scripts/resources/battle_options.gd" id="1_68ltr"]
 [ext_resource type="Script" uid="uid://ep73png3yh5x" path="res://scripts/resources/enemies/enemy.gd" id="2_8k0lj"]
 [ext_resource type="Script" uid="uid://bviccvmikhjva" path="res://scripts/resources/campaign_options.gd" id="2_u5ehs"]
 [ext_resource type="Resource" uid="uid://dplvg5jwy0786" path="res://resources/enemies/bandit.tres" id="3_vqkm2"]
-[ext_resource type="Resource" uid="uid://c2mr26ifcts7r" path="res://resources/character_starts/warrior.tres" id="4_8k0lj"]
+[ext_resource type="Script" uid="uid://b0rrnk75kj3xv" path="res://scripts/resources/characters/character_start_options.gd" id="4_8k0lj"]
+[ext_resource type="Resource" uid="uid://c2mr26ifcts7r" path="res://resources/character_starts/warrior.tres" id="5_2o7c1"]
+[ext_resource type="Resource" uid="uid://cuqx071yncbta" path="res://resources/character_starts/monk.tres" id="6_88s3b"]
 
 [sub_resource type="Resource" id="Resource_88s3b"]
 script = ExtResource("1_68ltr")
@@ -29,7 +31,7 @@ metadata/_custom_type_script = "uid://b2hvd7p2gcqwk"
 [resource]
 script = ExtResource("2_u5ehs")
 name = "Bandits"
-character_start_options = ExtResource("4_8k0lj")
+character_start_options = Array[ExtResource("4_8k0lj")]([ExtResource("5_2o7c1"), ExtResource("6_88s3b")])
 starting_gold = 5
 max_inventory = 16
 battles = Array[ExtResource("1_68ltr")]([SubResource("Resource_88s3b"), SubResource("Resource_wuw66"), SubResource("Resource_bifjx"), SubResource("Resource_kp2d0")])

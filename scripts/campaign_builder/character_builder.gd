@@ -12,6 +12,8 @@ var _trait: SlotButton
 var weapon: SlotButton
 var armor: SlotButton
 
+var character_options: CharacterStartOptions
+
 func _on_slot_button_pressed(slot_button: SlotButton):
 	on_slot_button_pressed.emit(self, slot_button)
 
@@ -32,7 +34,19 @@ func _ready():
 			"Armor":
 				armor = cur
 
-func activate(show_delete: bool = false):
+func set_defaults():
+	pass
+
+func activate(_character_options: CharacterStartOptions):
+	character_options = _character_options
+	
+	race.fill(character_options.races[0])
+	_class.fill(character_options.classes[0])
+	ability.fill(character_options.abilities[0])
+	_trait.fill(character_options.traits[0])
+	weapon.fill(character_options.weapons[0])
+	armor.fill(character_options.armor[0])
+	
 	visible = true
 
 func deactivate():

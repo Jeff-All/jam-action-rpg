@@ -90,6 +90,9 @@ visible = false
 layout_mode = 1
 
 [connection signal="on_level_up" from="CharacterXPWindows/CharacterXPWindow" to="." method="_character_xp_window_on_level_up"]
+[connection signal="on_level_up" from="CharacterXPWindows/CharacterXPWindow2" to="." method="_character_xp_window_on_level_up"]
+[connection signal="on_level_up" from="CharacterXPWindows/CharacterXPWindow3" to="." method="_character_xp_window_on_level_up"]
+[connection signal="on_level_up" from="CharacterXPWindows/CharacterXPWindow4" to="." method="_character_xp_window_on_level_up"]
 [connection signal="on_pressed" from="SimpleButton" to="." method="_on_continue_pressed"]
 [connection signal="on_ability_select" from="LevelUp" to="." method="_level_up_on_ability_select"]
 

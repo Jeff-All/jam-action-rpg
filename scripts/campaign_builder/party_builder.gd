@@ -14,7 +14,7 @@ signal on_cancel()
 	"Armor" = Vector2.ZERO,
 }
 
-var character_start_options: CharacterStartOptions
+var campaign_options: CampaignOptions
 
 var builders: Array[CharacterBuilder]
 
@@ -38,21 +38,21 @@ func _ready():
 		builders.append(cur)
 		cur.visible = false
 
-func start(_character_start_options: CharacterStartOptions):
-	character_start_options = _character_start_options
+func start(_campaign_options: CampaignOptions):
+	campaign_options = _campaign_options
 	
-	show_builders(character_start_options.character_count)
+	show_builders(campaign_options.character_start_options)
 
 func hide_builders():
 	for cur in builders:
 		cur.visible = false
 
-func show_builders(count: int):
-	character_count = min(count, builders.size())
+func show_builders(character_options: Array[CharacterStartOptions]):
+	character_count = min(character_options.size(), builders.size())
 	hide_builders()
 	var index = 0
 	while index < character_count:
-		builders[index].activate()
+		builders[index].activate(character_options[index])
 		index += 1
 	continue_.disabled = !check_if_ready()
 
@@ -66,17 +66,17 @@ func _on_slot_button_pressed(character_builder: CharacterBuilder, slot_button: S
 	
 	match slot_button.category:
 		"Race":
-			grid_selector.fill(character_start_options.races, character_builder.race.value, true, shadow_offsets["Race"])
+			grid_selector.fill(character_builder.character_options.races, character_builder.race.value, true, shadow_offsets["Race"])
 		"Class":
-			grid_selector.fill(character_start_options.classes, character_builder._class.value, true, shadow_offsets["Class"])
+			grid_selector.fill(character_builder.character_options.classes, character_builder._class.value, true, shadow_offsets["Class"])
 		"Ability":
-			grid_selector.fill(character_start_options.abilities, character_builder.ability.value, true, shadow_offsets["Ability"])
+			grid_selector.fill(character_builder.character_options.abilities, character_builder.ability.value, true, shadow_offsets["Ability"])
 		"Trait":
-			grid_selector.fill(character_start_options.traits, character_builder._trait.value, true, shadow_offsets["Trait"])
+			grid_selector.fill(character_builder.character_options.traits, character_builder._trait.value, true, shadow_offsets["Trait"])
 		"Weapon":
-			grid_selector.fill(character_start_options.weapons, character_builder.weapon.value, true, shadow_offsets["Weapon"])
+			grid_selector.fill(character_builder.character_options.weapons, character_builder.weapon.value, true, shadow_offsets["Weapon"])
 		"Armor":
-			grid_selector.fill(character_start_options.armor, character_builder.armor.value, true, shadow_offsets["Armor"])
+			grid_selector.fill(character_builder.character_options.armor, character_builder.armor.value, true, shadow_offsets["Armor"])
 
 func _on_grid_selector_selected(value):
 	cur_slot_button.fill(value)
