@@ -28,6 +28,9 @@ var adjusted: int:
 func _init(_attribute: CharacterCampaign.Attributes = CharacterCampaign.Attributes.STRENGTH):
 	attribute = _attribute
 
+func reset():
+	adjustments.clear()
+
 func add_adjustment(key: Variant,value: float):
 	adjustments[key] = value
 	on_change.emit(self)

@@ -139,8 +139,6 @@ func setup_party():
 		if index > pcs.size():
 			break
 		pcs[index].character = cur
-		if cur != null:
-			print("character: %s" % cur.resources[CharacterCampaign.Resources.STAMINA]._recovery)
 		pcs[index].visible = true
 		index += 1
 

@@ -3,7 +3,7 @@ class_name CharacterBattle
 extends Resource
 
 signal on_resources_consumed(cost: Dictionary[CharacterCampaign.Resources, int])
-signal on_cur_resource_change(resource: CharacterCampaign.Resources, value: int, change: float)
+signal on_cur_resource_change(resource: AdjustableResource, change: float)
 signal on_attribute_change(attribute: CharacterCampaign.Attributes, value: int)
 signal on_death(character: CharacterBattle)
 
@@ -34,7 +34,7 @@ func _on_cur_resource_change(resource: AdjustableResource, _change: float):
 		CharacterCampaign.Resources.HEALTH:
 			if resource.cur <= 0:
 				on_death.emit(self)
-	on_cur_resource_change.emit(resource.resource, resource.cur_floor, _change)
+	on_cur_resource_change.emit(resource, _change)
 
 func _on_attribute_change(attribute: AdjustableAttribute):
 	on_attribute_change.emit(attribute.attribute, attribute.adjusted)

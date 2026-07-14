@@ -207,18 +207,18 @@ func _on_attribute_change(attribute: CharacterCampaign.Attributes, value: int):
 		CharacterCampaign.Attributes.ARMOR:
 			status_bars.cur_armor = value
 
-func _on_cur_resource_change(resource: CharacterCampaign.Resources, value: int, change: float):
-	match resource:
+func _on_cur_resource_change(resource: AdjustableResource, _change: float):
+	match resource.resource:
 		CharacterCampaign.Resources.HEALTH:
-			status_bars.cur_health = value
+			status_bars.cur_health = resource.cur_floor
 		CharacterCampaign.Resources.ARMOR:
-			status_bars.cur_armor = value
+			status_bars.cur_armor = resource.cur_floor
 		CharacterCampaign.Resources.DURABILITY:
-			status_bars.cur_durability = value
+			status_bars.cur_durability = resource.cur_floor
 		CharacterCampaign.Resources.STAMINA:
-			status_bars.cur_stamina = value
+			status_bars.cur_stamina = resource.cur_floor
 		CharacterCampaign.Resources.MANA:
-			status_bars.cur_mana = value
+			status_bars.cur_mana = resource.cur_floor
 	check_if_can_afford_abilities()
 
 func take_damage(value: int, ignore_armor: bool = false):

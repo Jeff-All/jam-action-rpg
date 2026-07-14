@@ -21,6 +21,8 @@ var _hover: bool = false
 var _left_down: bool = false
 var _selected: bool = false
 
+var speed_scale: AdjustableAttribute = AdjustableAttribute.new()
+
 var _ability: Ability
 
 var ability: Ability:
@@ -86,6 +88,8 @@ func _ready():
 	_material = $SubViewportContainer.material
 	
 	grayout.add_theme_stylebox_override("panel", grayout_theme)
+	
+	speed_scale.base = 1.0
 
 func reset():
 	clickable = true
@@ -96,11 +100,13 @@ func reset():
 	can_afford = true
 	on_cooldown = false
 	
+	speed_scale.reset()
+	
 	animation_player.play("RESET")
 	animation_player.advance(1)
 
 func process_animations(delta: float):
-	animation_player.advance(delta)
+	animation_player.advance(delta * speed_scale.adjusted)
 
 func process_step():
 	pass
