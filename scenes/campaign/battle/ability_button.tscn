@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://jjowbaf4jl1i"]
 
 [ext_resource type="Shader" uid="uid://biuiik7j0v1yi" path="res://shaders/edge_glow.gdshader" id="1_dxl7l"]
-[ext_resource type="Script" uid="uid://dgwin8whlkyog" path="res://scripts/campaign/ability_button.gd" id="1_qj6ay"]
+[ext_resource type="Script" uid="uid://dgwin8whlkyog" path="res://scripts/campaign/battle/ability_button.gd" id="1_qj6ay"]
 [ext_resource type="Texture2D" uid="uid://cqvxh87ah3iai" path="res://resources/art/icons/abilities/precision_strike.png" id="3_qj6ay"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ah6eo"]

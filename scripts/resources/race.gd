@@ -22,6 +22,8 @@ extends Resource
 
 @export var dodge: int
 
+@export var threat: int
+
 @export var body_textures: Dictionary[Armor.ArmorClass,Texture2D]
 @export var head_textures: Dictionary[Class,Texture2D]
 

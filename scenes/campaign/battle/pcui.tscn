@@ -1,12 +1,12 @@
 [gd_scene load_steps=12 format=3 uid="uid://mwr6ui02sg5q"]
 
 [ext_resource type="PackedScene" uid="uid://bd3fgvk1uqbpx" path="res://scenes/character/character_portrait.tscn" id="1_id3o2"]
-[ext_resource type="Script" uid="uid://caffi0xmkrqil" path="res://scripts/campaign/pcui.gd" id="1_ynthc"]
-[ext_resource type="PackedScene" uid="uid://d4hf4002xav2t" path="res://scenes/campaign/status_bars.tscn" id="2_ynthc"]
+[ext_resource type="Script" uid="uid://caffi0xmkrqil" path="res://scripts/campaign/battle/pcui.gd" id="1_ynthc"]
+[ext_resource type="PackedScene" uid="uid://d4hf4002xav2t" path="res://scenes/campaign/battle/status_bars.tscn" id="2_ynthc"]
 [ext_resource type="PackedScene" uid="uid://egvjjklifoqy" path="res://scenes/character/pc_buff.tscn" id="3_kf6cy"]
 [ext_resource type="PackedScene" uid="uid://dt7xrxget1oi1" path="res://scenes/ui/simple_button.tscn" id="3_l0bw5"]
 [ext_resource type="Texture2D" uid="uid://dtplaun3uefj5" path="res://resources/art/icons/scroll_wide.png" id="5_ah6eo"]
-[ext_resource type="PackedScene" uid="uid://jjowbaf4jl1i" path="res://scenes/campaign/ability_button.tscn" id="5_kf6cy"]
+[ext_resource type="PackedScene" uid="uid://jjowbaf4jl1i" path="res://scenes/campaign/battle/ability_button.tscn" id="5_kf6cy"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ynthc"]
 

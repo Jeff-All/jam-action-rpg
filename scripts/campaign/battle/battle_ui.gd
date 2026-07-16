@@ -126,10 +126,10 @@ func setup_enemy_row(row: Array[EnemyUI], _enemies: Array[EnemyBattle]):
 	for cur in _enemies: 
 		if index >= row.size():
 			break
+		cur.setup_base_threat(pcs)
 		row[index].enemy = cur
 		row[index].visible = true
 		enemies.append(row[index])
-		cur.setup_base_threat(pcs)
 		index += 1
 
 func setup_party():

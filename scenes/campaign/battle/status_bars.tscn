@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://d4hf4002xav2t"]
 
-[ext_resource type="Script" uid="uid://bb3iwfb3aupmv" path="res://scripts/campaign/status_bars.gd" id="1_ou0la"]
-[ext_resource type="PackedScene" uid="uid://bv5inapo0d0y4" path="res://scenes/campaign/status_bar.tscn" id="1_pvm7n"]
+[ext_resource type="Script" uid="uid://bb3iwfb3aupmv" path="res://scripts/campaign/battle/status_bars.gd" id="1_ou0la"]
+[ext_resource type="PackedScene" uid="uid://bv5inapo0d0y4" path="res://scenes/campaign/battle/status_bar.tscn" id="1_pvm7n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ou0la"]
 bg_color = Color(0.15912652, 6.768387e-08, 3.308989e-08, 1)

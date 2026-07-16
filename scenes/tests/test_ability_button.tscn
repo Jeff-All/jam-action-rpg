@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ctjjekj3dt0v3"]
 
 [ext_resource type="Script" uid="uid://dsnwoxe52jlqs" path="res://scripts/tests/test_ability_button.gd" id="1_0egbb"]
-[ext_resource type="PackedScene" uid="uid://jjowbaf4jl1i" path="res://scenes/campaign/ability_button.tscn" id="1_40i8u"]
+[ext_resource type="PackedScene" uid="uid://jjowbaf4jl1i" path="res://scenes/campaign/battle/ability_button.tscn" id="1_40i8u"]
 
 [node name="TestAbilityButton" type="MarginContainer"]
 anchors_preset = 15

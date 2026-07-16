@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhmqw0c1jrefv"]
+
+[ext_resource type="Script" uid="uid://d1kuu2f13am0g" path="res://scripts/campaign/battle/threat_ui.gd" id="1_87rqr"]
+[ext_resource type="PackedScene" uid="uid://lwy8ywyxdip8" path="res://scenes/campaign/battle/pc_display.tscn" id="2_o7kww"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_clr6l"]
+bg_color = Color(0, 0, 0, 1)
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="Gradient" id="Gradient_m04vb"]
+offsets = PackedFloat32Array(0, 0.50714284, 1)
+colors = PackedColorArray(5.1740557e-07, 0.31228614, 3.3691526e-07, 1, 1, 0.47843137, 0, 1, 0.7875421, 4.1633098e-06, 5.7756904e-07, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kuhup"]
+gradient = SubResource("Gradient_m04vb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_74mks"]
+texture = SubResource("GradientTexture1D_kuhup")
+
+[node name="ThreatUI" type="MarginContainer"]
+custom_minimum_size = Vector2(250, 30)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_87rqr")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.22800002
+anchor_top = 0.25
+anchor_right = 0.768
+anchor_bottom = 0.75000006
+offset_top = 5.0
+offset_bottom = -5.000002
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_clr6l")
+
+[node name="Panel" type="Panel" parent="Control/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_74mks")
+metadata/_edit_use_anchors_ = true
+
+[node name="PCDisplay1" parent="Control/Panel2/Panel" instance=ExtResource("2_o7kww")]
+layout_mode = 1
+anchor_top = 0.5
+anchor_bottom = 0.5
+
+[node name="PCDisplay3" parent="Control/Panel2/Panel" instance=ExtResource("2_o7kww")]
+layout_mode = 1
+anchor_top = 0.5
+anchor_bottom = 0.5
+
+[node name="PCDisplay2" parent="Control/Panel2/Panel" instance=ExtResource("2_o7kww")]
+layout_mode = 1
+anchor_top = 0.5
+anchor_bottom = 0.5
+
+[node name="PCDisplay4" parent="Control/Panel2/Panel" instance=ExtResource("2_o7kww")]
+layout_mode = 1
+anchor_top = 0.5
+anchor_bottom = 0.5

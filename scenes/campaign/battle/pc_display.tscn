@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://lwy8ywyxdip8"]
+
+[ext_resource type="Script" uid="uid://cmgnbf4fqfw7d" path="res://scripts/campaign/battle/pc_display.gd" id="1_ky6oq"]
+[ext_resource type="Material" uid="uid://c0ex04hphfkxm" path="res://resources/material/sprite_outlines.tres" id="1_ndnab"]
+[ext_resource type="Texture2D" uid="uid://dkw6ltf5t30b2" path="res://resources/art/icons/races/elf.png" id="2_ky6oq"]
+
+[node name="PCDisplay" type="Control"]
+layout_mode = 3
+anchor_top = 0.6
+anchor_bottom = 0.6
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ky6oq")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = ExtResource("1_ndnab")
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ky6oq")
+expand_mode = 4
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true

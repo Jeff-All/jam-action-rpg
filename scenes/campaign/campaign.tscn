@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dd0ujj4l31b1c" path="res://scripts/campaign/campaign_ui.gd" id="1_ppjge"]
 [ext_resource type="PackedScene" uid="uid://037e7762g8o5" path="res://scenes/campaign/battle_selector.tscn" id="2_giq8n"]
-[ext_resource type="PackedScene" uid="uid://blb7ngr3xoa6s" path="res://scenes/campaign/battle.tscn" id="3_8c0w4"]
+[ext_resource type="PackedScene" uid="uid://blb7ngr3xoa6s" path="res://scenes/campaign/battle/battle.tscn" id="3_8c0w4"]
 [ext_resource type="PackedScene" uid="uid://f763heqnyy3n" path="res://scenes/campaign/post_battle.tscn" id="4_shohx"]
 [ext_resource type="PackedScene" uid="uid://byu187nunkyt4" path="res://scenes/campaign/party.tscn" id="5_8c0w4"]
 

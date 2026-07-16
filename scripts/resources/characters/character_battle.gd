@@ -16,6 +16,7 @@ var attributes: Dictionary[CharacterCampaign.Attributes, AdjustableAttribute] = 
 	CharacterCampaign.Attributes.ARMOR: AdjustableAttribute.new(CharacterCampaign.Attributes.ARMOR),
 	CharacterCampaign.Attributes.SPELLHIT: AdjustableAttribute.new(CharacterCampaign.Attributes.SPELLHIT),
 	CharacterCampaign.Attributes.DODGE: AdjustableAttribute.new(CharacterCampaign.Attributes.DODGE),
+	CharacterCampaign.Attributes.THREAT: AdjustableAttribute.new(CharacterCampaign.Attributes.THREAT)
 }
 
 var resources: Dictionary[CharacterCampaign.Resources, AdjustableResource] = {
@@ -44,6 +45,14 @@ func add_cur_resource(resource: CharacterCampaign.Resources, value: float):
 
 func set_cur_resource(resource: CharacterCampaign.Resources, value: float):
 	resources[resource].cur = value
+
+var max_threat: float:
+	get:
+		return Global.max_threat + max(attributes[CharacterCampaign.Attributes.THREAT].adjusted, 0)
+
+var min_threat: float:
+	get:
+		return min(attributes[CharacterCampaign.Attributes.THREAT].adjusted, 0)
 
 func _init(_character_campaign: CharacterCampaign):
 	character_campaign = _character_campaign

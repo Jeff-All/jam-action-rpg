@@ -50,9 +50,7 @@ func _init(_base: Enemy):
 	cur_mana = _base.mana
 
 func setup_base_threat(pcs: Array[PCUI]):
-	for cur in pcs:
-		if cur.character != null:
-			add_threat(cur, 0)
+	threat_table.build_table(pcs)
 
 func add_threat(source: PCUI, value: int):
 	threat_table.add_threat(source, value)

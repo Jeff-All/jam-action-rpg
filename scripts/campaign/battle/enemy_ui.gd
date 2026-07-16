@@ -14,6 +14,7 @@ var mouse_panel: Panel
 var _material: ShaderMaterial
 var targeting: EnemyTargeting
 var animation_player: AnimationPlayer
+var threat_ui: ThreatUI
 
 var _enemy: EnemyBattle
 var _clickable: bool = false
@@ -28,6 +29,7 @@ var enemy: EnemyBattle:
 	set(value):
 		_enemy = value
 		enemy_pane.enemy = value.base
+		threat_ui.bind_table(value.threat_table)
 		bind_status_bars()
 		bind_enemy()
 	get:
@@ -57,6 +59,7 @@ func _ready():
 	mouse_panel = $EnemyPane/Panel
 	targeting = $MarginContainer/Targeting
 	animation_player = $AnimationPlayer
+	threat_ui = $ThreatUI
 	
 	enemy_pane.flip = flip
 
@@ -70,6 +73,8 @@ func reset():
 	
 	enemy_pane.animation_player.play("RESET")
 	animation_player.play("RESET")
+	
+	threat_ui.reset()
 	
 	$EnemyPane/Panel/TextureRect.material = _material
 
