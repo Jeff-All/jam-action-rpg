@@ -27,6 +27,9 @@ var percentage: float:
 	get:
 		return _cur / _max.adjusted as float
 
+var maxed: bool:
+	get: return _cur >= _max.adjusted
+
 func _init(_resource: CharacterCampaign.Resources, max_: float):
 	resource = _resource
 	_max.base = max_

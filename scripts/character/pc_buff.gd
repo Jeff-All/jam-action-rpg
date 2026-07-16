@@ -33,8 +33,9 @@ func process_step(pc: PCUI):
 func _on_duration_end():
 	on_duration_end.emit(self)
 
-func start_buff(pc: PCUI, to_start: BuffPC):
+func start_buff(pc: PCUI, to_start: BuffPC, caster):
 	buff = to_start.duplicate()
+	buff.caster = caster
 	buff.apply(pc)
 	animation_player.speed_scale = 1.0 / _buff.get_duration(pc)
 	animation_player.play("Duration")

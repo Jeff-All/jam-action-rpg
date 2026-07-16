@@ -280,3 +280,7 @@ func _pcui_on_death(_pc: PCUI):
 func defeat():
 	running = false
 	animation_player.play("Defeat")
+
+func _pcui_emit_global_threat(emitter: PCUI, value: float):
+	for cur in enemies:
+		cur._enemy.add_threat(emitter, value)

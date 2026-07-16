@@ -7,4 +7,4 @@ extends Ability
 func execute(ability_button: AbilityButton, source: PCUI, target):
 	super(ability_button, source, target)
 	
-	target.apply_buff(buff)
+	target.apply_buff(buff, source)

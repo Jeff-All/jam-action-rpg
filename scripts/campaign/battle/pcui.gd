@@ -6,6 +6,7 @@ signal on_pressed(PCUI)
 signal on_ability_pressed(PCUI, AbilityButton)
 signal on_death(pc: PCUI)
 signal on_resources_consumed(pc: PCUI, cost: Dictionary[CharacterCampaign.Resources, int])
+signal emit_global_threat(emitter: PCUI, value: float)
 
 @export var flip: bool = false
 
@@ -271,18 +272,19 @@ func _on_death(_char: CharacterBattle):
 		cur.clickable = false
 	portrait.animation_player.play("Death")
 
-func apply_buff(buff: BuffPC):
-	if overwrite_buff(buff):
+func apply_buff(buff: BuffPC, caster):
+	if overwrite_buff(buff, caster):
 		return
 	for cur in buffs:
 		if cur._buff == null:
-			cur.start_buff(self, buff)
+			cur.start_buff(self, buff, caster)
 			return
 
-func overwrite_buff(buff: BuffPC) -> bool:
+func overwrite_buff(buff: BuffPC, caster) -> bool:
 	for cur in buffs:
 		if cur.buff != null:
 			if cur.buff.name == buff.name:
+				cur.buff.caster = caster
 				cur.animation_player.stop(true)
 				cur.animation_player.play()
 				return true

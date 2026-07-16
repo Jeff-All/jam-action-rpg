@@ -81,3 +81,11 @@ func consume_resources(cost: Dictionary[CharacterCampaign.Resources, int]):
 	for cur in cost:
 		resources[cur].cur -= cost[cur]
 	on_resources_consumed.emit(cost)
+
+func heal(value: float) -> float:
+	var dif = resources[CharacterCampaign.Resources.HEALTH]._max.adjusted - resources[CharacterCampaign.Resources.HEALTH].cur
+	var to_heal = 0
+	if dif > 0:
+		to_heal = min(value, dif)
+		resources[CharacterCampaign.Resources.HEALTH].cur += to_heal
+	return to_heal

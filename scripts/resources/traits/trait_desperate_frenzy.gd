@@ -24,4 +24,4 @@ func _on_character_cur_resource_change(resource: AdjustableResource, _change: fl
 
 func apply_effect():
 	effect_applied = true
-	pcui.apply_buff(buff)
+	pcui.apply_buff(buff, null)

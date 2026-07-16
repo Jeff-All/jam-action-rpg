@@ -33,4 +33,4 @@ func find_target_mageblood_poison(pcs: Array[PCUI]) -> PCUI:
 	return target
 
 func execute_mageblood_poison(target, battle: BattleUI):
-	target.apply_buff(ability_mageblood_poison.buff)
+	target.apply_buff(ability_mageblood_poison.buff, self)

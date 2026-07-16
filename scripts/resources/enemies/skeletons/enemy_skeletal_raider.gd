@@ -28,4 +28,4 @@ func execute_cleave_armor(_battle: BattleUI):
 	for cur in _battle.pcs:
 		if cur.character != null:
 			if !cur.dead:
-				cur.apply_buff(ability_cleave_armor.buff)
+				cur.apply_buff(ability_cleave_armor.buff, self)

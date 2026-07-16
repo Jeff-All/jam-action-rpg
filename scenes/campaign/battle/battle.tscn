@@ -1065,6 +1065,7 @@ libraries = {
 [connection signal="on_cast_end" from="Foreground/VBoxContainer2/Enemies/FrontRow/EnemyUI4" to="." method="_enemy_ui_on_cast_end"]
 [connection signal="on_death" from="Foreground/VBoxContainer2/Enemies/FrontRow/EnemyUI4" to="." method="_enemy_ui_on_death"]
 [connection signal="on_pressed" from="Foreground/VBoxContainer2/Enemies/FrontRow/EnemyUI4" to="." method="_enemy_ui_on_pressed" binds= [0, 3]]
+[connection signal="emit_global_threat" from="Foreground/VBoxContainer2/PCs/PCUI" to="." method="_pcui_emit_global_threat"]
 [connection signal="on_ability_pressed" from="Foreground/VBoxContainer2/PCs/PCUI" to="." method="_pcui_on_ability_pressed"]
 [connection signal="on_death" from="Foreground/VBoxContainer2/PCs/PCUI" to="." method="_pcui_on_death"]
 [connection signal="on_pressed" from="Foreground/VBoxContainer2/PCs/PCUI" to="." method="_pcui_on_pressed"]

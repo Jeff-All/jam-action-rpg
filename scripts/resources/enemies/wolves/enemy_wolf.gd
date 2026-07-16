@@ -29,4 +29,4 @@ func execute_intimidating_howl(_battle: BattleUI):
 	for cur in _battle.pcs:
 		if cur.character != null:
 			if !cur.dead:
-				cur.apply_buff(ability_inimidating_howl.buff)
+				cur.apply_buff(ability_inimidating_howl.buff, self)
