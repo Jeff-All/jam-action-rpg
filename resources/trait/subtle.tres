@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Trait" load_steps=3 format=3 uid="uid://dgd3itgl2jlui"]
+
+[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/traits/trait.gd" id="1_njycr"]
+[ext_resource type="Texture2D" uid="uid://bv08d0fb4q25o" path="res://resources/art/icons/traits/subtle.png" id="2_nu8xr"]
+
+[resource]
+script = ExtResource("1_njycr")
+name = "Subtle"
+texture = ExtResource("2_nu8xr")
+metadata/_custom_type_script = "uid://b4kiwt5xn06c8"

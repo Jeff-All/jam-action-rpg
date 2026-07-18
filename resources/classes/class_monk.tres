@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Class" load_steps=3 format=3 uid="uid://cujlbu0bgcrx2"]
+[gd_resource type="Resource" script_class="Class" load_steps=4 format=3 uid="uid://cujlbu0bgcrx2"]
 
 [ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/classes/class.gd" id="1_sih4u"]
+[ext_resource type="Script" uid="uid://cr8mt1s82yoec" path="res://scripts/resources/classes/class_level.gd" id="1_w8qfh"]
 [ext_resource type="Texture2D" uid="uid://j5e4w0eirxqm" path="res://resources/art/icons/classes/monk.png" id="7_xyr0a"]
 
 [resource]
@@ -9,7 +10,6 @@ name = "Monk"
 texture = ExtResource("7_xyr0a")
 threat = 1
 attack = 3
-defense = 3
 armor = 1
 durability = 3
 health = 2

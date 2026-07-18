@@ -24,7 +24,7 @@ func did_target_resist(roll: int, ability_button: AbilityButton, source: PCUI, t
 	return false # place holder
 
 func inflict(ability_button: AbilityButton, source: PCUI, target):
-	var damage = randi_range(min_damage, max_damage) + source.character.character_campaign.attributes[CharacterCampaign.Attributes.MAGIC]
+	var damage = randi_range(min_damage, max_damage) + source._character.attributes[CharacterCampaign.Attributes.MAGIC].adjusted
 	target.enemy.take_damage(damage, true)
-	target.enemy.add_threat(source, damage)
-	target.spawn_combat_text("%s" % damage)
+	target.enemy.add_threat(source, damage - source._character.attributes[CharacterCampaign.Attributes.SUBTLETY].adjusted)
+	target.spawn_combat_text("%s" % (damage as int))

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CharacterStartOptions" load_steps=24 format=3 uid="uid://cuqx071yncbta"]
+[gd_resource type="Resource" script_class="CharacterStartOptions" load_steps=25 format=3 uid="uid://cuqx071yncbta"]
 
 [ext_resource type="Script" uid="uid://bubl68t4u61vo" path="res://scripts/resources/abilities/ability.gd" id="1_2udjf"]
 [ext_resource type="Resource" uid="uid://bdjuot6dqgybf" path="res://resources/abilities/boons/restore.tres" id="2_srmgl"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/traits/trait.gd" id="17_fpw2i"]
 [ext_resource type="Resource" uid="uid://drhmxylhgm8r" path="res://resources/trait/desperate_frenzy.tres" id="18_yay8f"]
 [ext_resource type="Resource" uid="uid://dvy4snhfgwmnt" path="res://resources/trait/rage.tres" id="19_csm5s"]
+[ext_resource type="Resource" uid="uid://dgd3itgl2jlui" path="res://resources/trait/subtle.tres" id="20_2udjf"]
 [ext_resource type="Resource" uid="uid://bn2qfh2prc5la" path="res://resources/trait/strong.tres" id="20_l5bes"]
 [ext_resource type="Script" uid="uid://8tck1kie4m0e" path="res://scripts/resources/weapon.gd" id="21_bsd5s"]
 [ext_resource type="Resource" uid="uid://c0s2m7uqj1th8" path="res://resources/weapons/weapon_worn_staff.tres" id="22_gwl4g"]
@@ -29,7 +30,7 @@ script = ExtResource("16_7jsan")
 races = Array[ExtResource("12_gbell")]([ExtResource("13_whvo0"), ExtResource("14_53jwt"), ExtResource("15_e6qja")])
 classes = Array[ExtResource("9_bb4iq")]([ExtResource("11_pv267")])
 abilities = Array[ExtResource("1_2udjf")]([ExtResource("2_srmgl"), ExtResource("3_1ymvw"), ExtResource("4_ws6di")])
-traits = Array[ExtResource("17_fpw2i")]([ExtResource("18_yay8f"), ExtResource("19_csm5s"), ExtResource("20_l5bes")])
+traits = Array[ExtResource("17_fpw2i")]([ExtResource("18_yay8f"), ExtResource("19_csm5s"), ExtResource("20_l5bes"), ExtResource("20_2udjf")])
 weapons = Array[ExtResource("21_bsd5s")]([ExtResource("22_gwl4g"), ExtResource("23_qxk0i"), ExtResource("24_2r7cg")])
 armor = Array[ExtResource("5_k0j7h")]([ExtResource("6_0kp08"), ExtResource("7_t1lkg"), ExtResource("8_t3mnu")])
 metadata/_custom_type_script = "uid://b0rrnk75kj3xv"

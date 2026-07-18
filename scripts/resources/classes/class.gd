@@ -7,6 +7,7 @@ extends Resource
 @export var texture: Texture2D
 
 @export var threat: int
+@export var subtlety: int
 
 @export var attack: int
 @export var dodge: int

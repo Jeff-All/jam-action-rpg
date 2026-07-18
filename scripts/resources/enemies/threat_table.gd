@@ -35,7 +35,7 @@ func build_table(pcs: Array[PCUI]):
 			if cur._character.max_threat > max_threat: max_threat = cur._character.max_threat
 			if cur._character.min_threat < min_threat: min_threat = cur._character.min_threat
 
-func add_threat(target: PCUI, value: int):
+func add_threat(target: PCUI, value: float):
 	var cur_threat = 0
 	if table.has(target):
 		cur_threat = table[target]

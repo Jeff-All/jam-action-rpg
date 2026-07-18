@@ -8,6 +8,8 @@
 script = ExtResource("1_10cqk")
 name = "Rogue"
 texture = ExtResource("6_7pcqf")
+threat = -1
+subtlety = 1
 attack = 4
 dodge = 20
 agility = 1

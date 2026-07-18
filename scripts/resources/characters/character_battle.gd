@@ -16,7 +16,8 @@ var attributes: Dictionary[CharacterCampaign.Attributes, AdjustableAttribute] = 
 	CharacterCampaign.Attributes.ARMOR: AdjustableAttribute.new(CharacterCampaign.Attributes.ARMOR),
 	CharacterCampaign.Attributes.SPELLHIT: AdjustableAttribute.new(CharacterCampaign.Attributes.SPELLHIT),
 	CharacterCampaign.Attributes.DODGE: AdjustableAttribute.new(CharacterCampaign.Attributes.DODGE),
-	CharacterCampaign.Attributes.THREAT: AdjustableAttribute.new(CharacterCampaign.Attributes.THREAT)
+	CharacterCampaign.Attributes.THREAT: AdjustableAttribute.new(CharacterCampaign.Attributes.THREAT),
+	CharacterCampaign.Attributes.SUBTLETY: AdjustableAttribute.new(CharacterCampaign.Attributes.SUBTLETY)
 }
 
 var resources: Dictionary[CharacterCampaign.Resources, AdjustableResource] = {

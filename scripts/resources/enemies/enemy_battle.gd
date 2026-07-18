@@ -52,7 +52,7 @@ func _init(_base: Enemy):
 func setup_base_threat(pcs: Array[PCUI]):
 	threat_table.build_table(pcs)
 
-func add_threat(source: PCUI, value: int):
+func add_threat(source: PCUI, value: float):
 	threat_table.add_threat(source, value)
 
 func take_damage(value: int, ignore_armor: bool = false):

@@ -45,6 +45,7 @@ var attributes: Dictionary[Attributes, float] = {
 	Attributes.SPELLHIT: 0,
 	Attributes.DODGE: 0,
 	Attributes.THREAT: 0,
+	Attributes.SUBTLETY: 0
 }
 
 enum Resources{ HEALTH, DURABILITY, SHIELDING, STAMINA, MANA, ARMOR }
@@ -55,6 +56,7 @@ enum Attributes {
 	SPELLHIT,
 	DODGE,
 	THREAT,
+	SUBTLETY,
 }
 
 func _init(_base: CharacterBase, attack: Ability):
@@ -171,3 +173,4 @@ func set_class(class_: Class):
 	attributes[Attributes.DODGE] += _class.dodge
 	
 	attributes[Attributes.THREAT] += _class.threat
+	attributes[Attributes.SUBTLETY] += _class.subtlety
