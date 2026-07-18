@@ -6,6 +6,13 @@ uniform vec4 glow_color : source_color = vec4(1.0, 0.5, 0.0, 1.0);
 uniform float glow_intensity : hint_range(0.0, 5.0) = 2.0;
 uniform float glow_radius : hint_range(0.0, 50.0) = 5.0;
 
+varying float modulate_alpha;
+
+void vertex() {
+    // In vertex(), COLOR contains the combined modulate and self_modulate data
+    modulate_alpha = COLOR.a;
+}
+
 void fragment() {
     vec4 current_color = texture(TEXTURE, UV);
     vec2 size = TEXTURE_PIXEL_SIZE * glow_radius;
@@ -22,5 +29,6 @@ void fragment() {
     // Smooth and blend the glow behind the original texture
     alpha = clamp(alpha / 9.0, 0.0, 1.0);
     vec4 final_glow = color_palette[index] * alpha * glow_intensity;
-    COLOR = mix(final_glow, current_color, current_color.a);
+	vec4 mx = mix(final_glow, current_color, current_color.a);
+    COLOR = mx * modulate_alpha;
 }

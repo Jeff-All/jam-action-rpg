@@ -1,11 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://jv3ix0yuq18c"]
+[gd_scene load_steps=14 format=3 uid="uid://jv3ix0yuq18c"]
 
 [ext_resource type="Script" uid="uid://b4u2y85ob56ti" path="res://scripts/campaign/battle/enemy_ui.gd" id="1_acs8f"]
 [ext_resource type="PackedScene" uid="uid://bjviwb7u8uvsd" path="res://scenes/campaign/enemy_pane.tscn" id="1_xorx4"]
 [ext_resource type="Texture2D" uid="uid://bwxbbofoad70s" path="res://resources/art/icons/abilities/restore.png" id="2_k0veb"]
 [ext_resource type="PackedScene" uid="uid://d4hf4002xav2t" path="res://scenes/campaign/battle/status_bars.tscn" id="2_kamf1"]
 [ext_resource type="PackedScene" uid="uid://c1hovltajgvap" path="res://scenes/enemies/enemy_targeting.tscn" id="5_k0veb"]
-[ext_resource type="Shader" uid="uid://biuiik7j0v1yi" path="res://shaders/edge_glow.gdshader" id="6_ht1om"]
 [ext_resource type="PackedScene" uid="uid://bhmqw0c1jrefv" path="res://scenes/campaign/battle/threat_ui.tscn" id="7_2ihp2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sctin"]
@@ -18,30 +17,6 @@ bg_color = Color(0, 0, 0, 0.6745098)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_acs8f"]
 bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2vw8u"]
-shader = ExtResource("6_ht1om")
-shader_parameter/index = 0
-shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
-shader_parameter/glow_color = Color(1, 0.5, 0, 1)
-shader_parameter/glow_intensity = 5.0
-shader_parameter/glow_radius = 20.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_oss8l"]
-shader = ExtResource("6_ht1om")
-shader_parameter/index = 0
-shader_parameter/color_palette = PackedColorArray(1, 0.84313726, 0, 1, 0, 0, 0, 0)
-shader_parameter/glow_color = Color(1, 0.5, 0, 1)
-shader_parameter/glow_intensity = 2.0
-shader_parameter/glow_radius = 1.0000000475
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bwp5x"]
-shader = ExtResource("6_ht1om")
-shader_parameter/index = 0
-shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
-shader_parameter/glow_color = Color(1, 0.5, 0, 1)
-shader_parameter/glow_intensity = 5.0
-shader_parameter/glow_radius = 20.0
 
 [sub_resource type="Animation" id="Animation_oss8l"]
 length = 0.001
@@ -72,38 +47,14 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("MarginContainer/Targeting/Targeting/MarginContainer/HBoxContainer/Target:material")
+tracks/2/path = NodePath("ThreatUI:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [SubResource("ShaderMaterial_bwp5x")]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MarginContainer/Targeting/Targeting/MarginContainer/HBoxContainer/CastArrow/SubViewportContainer:material")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [SubResource("ShaderMaterial_oss8l")]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MarginContainer/Targeting/Targeting/MarginContainer/HBoxContainer/Ability:material")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [SubResource("ShaderMaterial_2vw8u")]
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_ht1om"]
@@ -136,38 +87,14 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("MarginContainer/Targeting/Targeting/MarginContainer/HBoxContainer/Target:material")
+tracks/2/path = NodePath("ThreatUI:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [null, null]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MarginContainer/Targeting/Targeting/MarginContainer/HBoxContainer/CastArrow/SubViewportContainer:material")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [null, null]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("MarginContainer/Targeting/Targeting/MarginContainer/HBoxContainer/Ability:material")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [null, null]
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2vw8u"]
@@ -460,21 +387,18 @@ theme_override_constants/margin_right = 20
 layout_mode = 2
 
 [node name="Ability" parent="MarginContainer/Targeting/Targeting/MarginContainer/HBoxContainer" index="0"]
-material = SubResource("ShaderMaterial_2vw8u")
-
-[node name="SubViewportContainer" parent="MarginContainer/Targeting/Targeting/MarginContainer/HBoxContainer/CastArrow" index="0"]
-material = SubResource("ShaderMaterial_oss8l")
+material = null
 
 [node name="Target" parent="MarginContainer/Targeting/Targeting/MarginContainer/HBoxContainer" index="2"]
-material = SubResource("ShaderMaterial_bwp5x")
+material = null
+
+[node name="ThreatUI" parent="." instance=ExtResource("7_2ihp2")]
+layout_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_2vw8u")
 }
-
-[node name="ThreatUI" parent="." instance=ExtResource("7_2ihp2")]
-layout_mode = 2
 
 [connection signal="gui_input" from="EnemyPane/Panel2" to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="EnemyPane/Panel2" to="." method="_on_mouse_entered"]
