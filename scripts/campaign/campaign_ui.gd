@@ -37,7 +37,7 @@ func reset():
 func start(_campaign: Campaign):
 	reset()
 	campaign = _campaign
-	campaign.populate_tiers()
+	campaign.build()
 	
 	to_battle_selector()
 

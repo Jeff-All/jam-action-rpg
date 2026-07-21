@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="CampaignOptions" load_steps=29 format=3 uid="uid://cvo0oioukctke"]
+[gd_resource type="Resource" script_class="CampaignOptions" load_steps=32 format=3 uid="uid://cvo0oioukctke"]
 
 [ext_resource type="Script" uid="uid://b2hvd7p2gcqwk" path="res://scripts/resources/campaign/battle_options.gd" id="1_68ltr"]
+[ext_resource type="Script" uid="uid://dfwjbpuep6ttp" path="res://scripts/resources/campaign/battle_builders/battle_builder_static.gd" id="1_kp2d0"]
+[ext_resource type="Script" uid="uid://ddr8wtgfursy2" path="res://scripts/resources/campaign/battle_builders/battle_builder_static_tier.gd" id="2_0yhc4"]
 [ext_resource type="Script" uid="uid://ep73png3yh5x" path="res://scripts/resources/enemies/enemy.gd" id="2_8k0lj"]
 [ext_resource type="Script" uid="uid://bviccvmikhjva" path="res://scripts/resources/campaign/campaign_options.gd" id="2_u5ehs"]
 [ext_resource type="Resource" uid="uid://dplvg5jwy0786" path="res://resources/enemies/bandit.tres" id="3_vqkm2"]
@@ -14,72 +16,78 @@
 [ext_resource type="Resource" uid="uid://bu4gi5wf2ogn" path="res://resources/enemies/wolf.tres" id="11_ym34h"]
 [ext_resource type="Script" uid="uid://8tck1kie4m0e" path="res://scripts/resources/weapon.gd" id="12_0yw8a"]
 [ext_resource type="Resource" uid="uid://c8xrt7dxn8dfu" path="res://resources/enemies/skeletal_raider.tres" id="12_t6vlg"]
-[ext_resource type="Resource" uid="uid://dsxwgw2v4753f" path="res://resources/enemies/bandit_armored.tres" id="13_t6vlg"]
 
-[sub_resource type="Resource" id="Resource_88s3b"]
-script = ExtResource("1_68ltr")
-front_row = Array[ExtResource("2_8k0lj")]([ExtResource("3_vqkm2")])
-metadata/_custom_type_script = "uid://b2hvd7p2gcqwk"
-
-[sub_resource type="Resource" id="Resource_wuw66"]
-script = ExtResource("1_68ltr")
-front_row = Array[ExtResource("2_8k0lj")]([ExtResource("3_vqkm2"), ExtResource("3_vqkm2")])
-metadata/_custom_type_script = "uid://b2hvd7p2gcqwk"
-
-[sub_resource type="Resource" id="Resource_bifjx"]
-script = ExtResource("1_68ltr")
-front_row = Array[ExtResource("2_8k0lj")]([ExtResource("3_vqkm2"), ExtResource("3_vqkm2"), ExtResource("3_vqkm2")])
-metadata/_custom_type_script = "uid://b2hvd7p2gcqwk"
-
-[sub_resource type="Resource" id="Resource_kp2d0"]
-script = ExtResource("1_68ltr")
-front_row = Array[ExtResource("2_8k0lj")]([ExtResource("3_vqkm2"), ExtResource("3_vqkm2"), ExtResource("3_vqkm2"), ExtResource("3_vqkm2")])
-metadata/_custom_type_script = "uid://b2hvd7p2gcqwk"
-
-[sub_resource type="Resource" id="Resource_jfn4c"]
+[sub_resource type="Resource" id="Resource_0yw8a"]
 script = ExtResource("1_68ltr")
 front_row = Array[ExtResource("2_8k0lj")]([ExtResource("11_ym34h")])
 metadata/_custom_type_script = "uid://b2hvd7p2gcqwk"
 
-[sub_resource type="Resource" id="Resource_epn2k"]
+[sub_resource type="Resource" id="Resource_jfn4c"]
 script = ExtResource("1_68ltr")
 front_row = Array[ExtResource("2_8k0lj")]([ExtResource("3_vqkm2")])
 metadata/_custom_type_script = "uid://b2hvd7p2gcqwk"
 
-[sub_resource type="Resource" id="Resource_koiee"]
+[sub_resource type="Resource" id="Resource_epn2k"]
 script = ExtResource("1_68ltr")
 front_row = Array[ExtResource("2_8k0lj")]([ExtResource("12_t6vlg")])
 metadata/_custom_type_script = "uid://b2hvd7p2gcqwk"
 
-[sub_resource type="Resource" id="Resource_0yw8a"]
+[sub_resource type="Resource" id="Resource_koiee"]
 script = ExtResource("1_68ltr")
-front_row = Array[ExtResource("2_8k0lj")]([ExtResource("13_t6vlg")])
+front_row = Array[ExtResource("2_8k0lj")]([ExtResource("11_ym34h")])
 metadata/_custom_type_script = "uid://b2hvd7p2gcqwk"
 
-[sub_resource type="Resource" id="Resource_g2vq5"]
-script = ExtResource("8_0yhc4")
-battles = Array[ExtResource("1_68ltr")]([SubResource("Resource_jfn4c"), SubResource("Resource_epn2k"), SubResource("Resource_koiee"), SubResource("Resource_0yw8a")])
-battles_to_next = 2
-metadata/_custom_type_script = "uid://7p0hpuqum2t6"
+[sub_resource type="Resource" id="Resource_l2y4q"]
+script = ExtResource("2_0yhc4")
+battles = Array[ExtResource("1_68ltr")]([SubResource("Resource_0yw8a"), SubResource("Resource_jfn4c"), SubResource("Resource_epn2k"), SubResource("Resource_koiee")])
+metadata/_custom_type_script = "uid://ddr8wtgfursy2"
 
-[sub_resource type="Resource" id="Resource_ym34h"]
+[sub_resource type="Resource" id="Resource_t7voq"]
+script = ExtResource("1_68ltr")
+front_row = Array[ExtResource("2_8k0lj")]([ExtResource("11_ym34h"), ExtResource("11_ym34h")])
+metadata/_custom_type_script = "uid://b2hvd7p2gcqwk"
+
+[sub_resource type="Resource" id="Resource_f216d"]
 script = ExtResource("1_68ltr")
 front_row = Array[ExtResource("2_8k0lj")]([ExtResource("11_ym34h"), ExtResource("3_vqkm2")])
 metadata/_custom_type_script = "uid://b2hvd7p2gcqwk"
 
-[sub_resource type="Resource" id="Resource_t6vlg"]
+[sub_resource type="Resource" id="Resource_hublr"]
 script = ExtResource("1_68ltr")
 front_row = Array[ExtResource("2_8k0lj")]([ExtResource("11_ym34h"), ExtResource("12_t6vlg")])
 metadata/_custom_type_script = "uid://b2hvd7p2gcqwk"
 
-[sub_resource type="Resource" id="Resource_l2y4q"]
+[sub_resource type="Resource" id="Resource_1b3t4"]
+script = ExtResource("1_68ltr")
+front_row = Array[ExtResource("2_8k0lj")]([ExtResource("3_vqkm2"), ExtResource("3_vqkm2")])
+metadata/_custom_type_script = "uid://b2hvd7p2gcqwk"
+
+[sub_resource type="Resource" id="Resource_fwmo2"]
 script = ExtResource("1_68ltr")
 front_row = Array[ExtResource("2_8k0lj")]([ExtResource("3_vqkm2"), ExtResource("12_t6vlg")])
 metadata/_custom_type_script = "uid://b2hvd7p2gcqwk"
 
+[sub_resource type="Resource" id="Resource_vmkqy"]
+script = ExtResource("1_68ltr")
+front_row = Array[ExtResource("2_8k0lj")]([ExtResource("12_t6vlg"), ExtResource("12_t6vlg")])
+metadata/_custom_type_script = "uid://b2hvd7p2gcqwk"
+
+[sub_resource type="Resource" id="Resource_nhhj5"]
+script = ExtResource("2_0yhc4")
+battles = Array[ExtResource("1_68ltr")]([SubResource("Resource_t7voq"), SubResource("Resource_f216d"), SubResource("Resource_hublr"), SubResource("Resource_1b3t4"), SubResource("Resource_fwmo2"), SubResource("Resource_vmkqy")])
+metadata/_custom_type_script = "uid://ddr8wtgfursy2"
+
+[sub_resource type="Resource" id="Resource_no87l"]
+script = ExtResource("1_kp2d0")
+tiers = Array[ExtResource("2_0yhc4")]([SubResource("Resource_l2y4q"), SubResource("Resource_nhhj5")])
+metadata/_custom_type_script = "uid://dfwjbpuep6ttp"
+
+[sub_resource type="Resource" id="Resource_g2vq5"]
+script = ExtResource("8_0yhc4")
+metadata/_custom_type_script = "uid://7p0hpuqum2t6"
+
 [sub_resource type="Resource" id="Resource_aytrl"]
 script = ExtResource("8_0yhc4")
-battles = Array[ExtResource("1_68ltr")]([SubResource("Resource_ym34h"), SubResource("Resource_t6vlg"), SubResource("Resource_l2y4q")])
 metadata/_custom_type_script = "uid://7p0hpuqum2t6"
 
 [resource]
@@ -88,6 +96,6 @@ name = "Bandits"
 character_start_options = Array[ExtResource("4_8k0lj")]([ExtResource("5_2o7c1"), ExtResource("6_88s3b")])
 starting_gold = 5
 max_inventory = 16
-battles = Array[ExtResource("1_68ltr")]([SubResource("Resource_88s3b"), SubResource("Resource_wuw66"), SubResource("Resource_bifjx"), SubResource("Resource_kp2d0")])
+battle_builder = SubResource("Resource_no87l")
 tiers = Array[ExtResource("8_0yhc4")]([SubResource("Resource_g2vq5"), SubResource("Resource_aytrl")])
 metadata/_custom_type_script = "uid://bviccvmikhjva"

@@ -7,7 +7,7 @@ extends Resource
 @export var starting_gold: int
 @export var max_inventory: int
 @export var starting_inventory: Array[Resource]
-@export var battles: Array[BattleOptions]
+@export var battle_builder: BattleBuilder
 
 @export var tiers: Array[CampaignTier]
 
