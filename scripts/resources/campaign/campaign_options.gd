@@ -8,3 +8,13 @@ extends Resource
 @export var max_inventory: int
 @export var starting_inventory: Array[Resource]
 @export var battles: Array[BattleOptions]
+
+@export var tiers: Array[CampaignTier]
+
+func _duplicate(deep: bool = false) -> CampaignOptions:
+	var new_self = duplicate(deep)
+	var new_tiers: Array[CampaignTier] = []
+	for cur in tiers:
+		new_tiers.append(cur.duplicate())
+	new_self.tiers = new_tiers
+	return new_self

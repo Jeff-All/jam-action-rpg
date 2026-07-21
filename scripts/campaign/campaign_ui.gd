@@ -37,11 +37,12 @@ func reset():
 func start(_campaign: Campaign):
 	reset()
 	campaign = _campaign
+	campaign.populate_tiers()
 	
 	to_battle_selector()
 
 func to_battle_selector():
-	battle_selector.fill(campaign.available_battles.slice(0,3))
+	battle_selector.fill(campaign.get_cur_battles(3))
 	
 	battle_selector.visible = true
 
@@ -84,7 +85,7 @@ func _battle_on_continue():
 	to_post_battle()
 
 func _post_battle_on_end():
-	campaign.available_battles.remove_at(campaign.available_battles.find(cur_battle))
+	campaign.battle_complete(cur_battle)
 	cur_battle = null
 	post_battle.visible = false
 	to_battle_selector()

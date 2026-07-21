@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://t681q8dgkk31" path="res://scripts/tests/test_campaign_builder.gd" id="1_toicq"]
 [ext_resource type="PackedScene" uid="uid://bqcwysj7k47nt" path="res://scenes/campaign_builder/campaign_builder.tscn" id="2_83a4m"]
-[ext_resource type="Script" uid="uid://bviccvmikhjva" path="res://scripts/resources/campaign_options.gd" id="2_7810o"]
+[ext_resource type="Script" uid="uid://bviccvmikhjva" path="res://scripts/resources/campaign/campaign_options.gd" id="2_7810o"]
 [ext_resource type="Script" uid="uid://bubl68t4u61vo" path="res://scripts/resources/abilities/ability.gd" id="3_wuf75"]
 [ext_resource type="Resource" path="res://resources/abilities/test_ability.tres" id="4_hheme"]
 [ext_resource type="Script" uid="uid://c80yoskj347ho" path="res://scripts/resources/armor.gd" id="5_x5y6g"]
