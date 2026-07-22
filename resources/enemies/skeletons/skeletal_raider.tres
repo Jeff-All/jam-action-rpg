@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="EnemySkeletalRaider" load_steps=10 format=3 uid="uid://c8xrt7dxn8dfu"]
+
+[ext_resource type="Script" uid="uid://6ggv8n4xqyob" path="res://scripts/resources/enemies/enemy_ability/enemy_ability.gd" id="1_ocp3m"]
+[ext_resource type="Texture2D" uid="uid://ddx5qdlv4e7gx" path="res://resources/art/icons/abilities/attack.png" id="2_ce58q"]
+[ext_resource type="Script" uid="uid://c2q4f5wct6j4v" path="res://scripts/resources/buffs/buffs_pc/buff_pc_cleave_armor.gd" id="3_2klai"]
+[ext_resource type="Texture2D" uid="uid://dxws5j6fbnjdo" path="res://resources/art/icons/abilities/cleave_armor.png" id="4_ndeuo"]
+[ext_resource type="Script" uid="uid://c57pa553ypnmc" path="res://scripts/resources/enemies/skeletons/enemy_skeletal_raider.gd" id="5_1yfed"]
+[ext_resource type="Texture2D" uid="uid://by3rk00mildoo" path="res://resources/art/enemies/skeletal_raider.png" id="6_bfgtk"]
+
+[sub_resource type="Resource" id="Resource_detqw"]
+script = ExtResource("1_ocp3m")
+name = "Chop"
+cast_time = 3.0
+texture = ExtResource("2_ce58q")
+floats = Dictionary[String, float]({
+"Hit": 70.0,
+"MaxDamage": 3.0,
+"MinDamage": 1.0
+})
+metadata/_custom_type_script = "uid://6ggv8n4xqyob"
+
+[sub_resource type="Resource" id="Resource_l2kpp"]
+script = ExtResource("3_2klai")
+armor_reduction = -2
+name = "Cleave Armor"
+texture = ExtResource("4_ndeuo")
+duration = 10.0
+metadata/_custom_type_script = "uid://c2q4f5wct6j4v"
+
+[sub_resource type="Resource" id="Resource_trw1o"]
+script = ExtResource("1_ocp3m")
+name = "Cleave Armor"
+cast_time = 1.5
+texture = ExtResource("4_ndeuo")
+buff = SubResource("Resource_l2kpp")
+metadata/_custom_type_script = "uid://6ggv8n4xqyob"
+
+[resource]
+script = ExtResource("5_1yfed")
+ability_cleave_armor = SubResource("Resource_trw1o")
+name = "Skeletal Raider"
+texture = ExtResource("6_bfgtk")
+health = 10
+stamina = 5
+ability_attack = SubResource("Resource_detqw")
+metadata/_custom_type_script = "uid://ep73png3yh5x"

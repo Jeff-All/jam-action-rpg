@@ -14,6 +14,7 @@ func generate_crs() -> Array[int]:
 	return to_return
 
 func generate_battle_allocations(tier: int, pc_count: int, cr: int) -> Dictionary[int, int]:
+	print("generate_battle_allocations(tier=%s, pc_count=%s, cr=%s)" % [tier, pc_count, cr])
 	var actions: int = 0
 	var remaining: int = pc_count + cr
 	var slots = 7 - remaining
@@ -25,6 +26,7 @@ func generate_battle_allocations(tier: int, pc_count: int, cr: int) -> Dictionar
 			remaining -= (num * 4)
 			slots += (num * 3)
 			actions -= (num * 3)
+			print("+2: %s" % num)
 	if remaining >= 2 && tier < enemies.size() - 1:
 		if randi_range(0, 1) == 0:
 			var num = randi_range(1, floori(remaining / 2.0))
@@ -32,6 +34,7 @@ func generate_battle_allocations(tier: int, pc_count: int, cr: int) -> Dictionar
 			remaining -= (num * 2)
 			slots += num
 			actions -= num
+			print("+1: %s" % num)
 	if remaining >= 1 && slots > 1 && tier > 0:
 		if randi_range(0, 3) == 0:
 			var roll1 = randi_range(1, min(remaining, slots))
@@ -41,10 +44,13 @@ func generate_battle_allocations(tier: int, pc_count: int, cr: int) -> Dictionar
 				roll2 = randi_range(0, min(roll1, slots))
 				allocations[-2] = roll2 * 4
 				actions += (roll2 * 3)
+				print("-2: %s" % roll2)
 			actions += roll1 - roll2
 			allocations[-1] = (roll1 - roll2) * 2
+			print("-2: %s" % ((roll1 - roll2) * 2))
 			
 	if remaining >= 1:
+		actions += remaining
 		allocations[0] = remaining
 	
 	if actions > 0:
@@ -55,6 +61,7 @@ func generate_battle_allocations(tier: int, pc_count: int, cr: int) -> Dictionar
 	return allocations
 
 func downgrade_actions(tier: int, actions: int, allocations: Dictionary[int, int]) -> Dictionary[int, int]:
+	print("downgrade_actions: %s" % allocations)
 	var keys: Array[int] = allocations.keys()
 	keys.sort()
 	
@@ -70,20 +77,28 @@ func downgrade_actions(tier: int, actions: int, allocations: Dictionary[int, int
 	return allocations
 
 func upgrade_actions(tier: int, actions: int, allocations: Dictionary[int, int]):
+	print("upgrade_actions(%s): %s" % [actions, allocations])
 	var keys: Array[int] = allocations.keys()
 	keys.sort()
 	
-	var index = max(1, 3 - tier)
+	var index = max(1, 2 - tier)
 	
-	while actions < 0 && index < keys.size() - max(1, (tier + 1) - enemies.size()):
+	while actions < 0 && index < keys.size() - 1:
 		var upgraded = min(actions * -1, allocations[keys[index]])
+		print("upgraded[%s] %s" %[keys[index], upgraded])
 		actions += upgraded
 		allocations[keys[index]] -= upgraded
 		allocations[keys[index + 1]] += upgraded
 		index += 1
+	
+	if actions < 0:
+		print("add enemies: %s" % actions)
+		allocations[keys[max(0, 2 - tier)]] -= actions
+	
 	return allocations
 
 func generate_battle_profile(allocations: Dictionary[int, int]) -> Array:
+	print("generate_battle_profile(%s)" % allocations)
 	var sorted_allocations = allocations.keys()
 	sorted_allocations.sort()
 	sorted_allocations.reverse()
@@ -108,6 +123,7 @@ func generate_battle_profile(allocations: Dictionary[int, int]) -> Array:
 	return [front, back]
 
 func generate_battle_options(tier: int, profile: Array) -> BattleOptions:
+	print("generate_battle_options(%s)" % [profile])
 	var options: BattleOptions = BattleOptions.new()
 	
 	for cur in profile[0]:
@@ -118,12 +134,15 @@ func generate_battle_options(tier: int, profile: Array) -> BattleOptions:
 	return options
 
 func get_cur_battles(cur_tier: int, count: int, pc_count: int)-> Array[BattleOptions]:
+	print()
+	print("get_cur_battles: %s" % cur_tier)
 	var battles: Array[BattleOptions] = []
 	var crs = generate_crs()
 	for cur in crs:
 		var options = generate_battle_options(cur_tier, generate_battle_profile(generate_battle_allocations(cur_tier, pc_count, cur)))
 		options.difficulty = cur
 		battles.append(options)
+		print()
 	
 	return battles
 

@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=6 format=3 uid="uid://capg1llwrdhck"]
+
+[ext_resource type="Script" uid="uid://ep73png3yh5x" path="res://scripts/resources/enemies/enemy.gd" id="1_cyc7q"]
+[ext_resource type="Script" uid="uid://6ggv8n4xqyob" path="res://scripts/resources/enemies/enemy_ability/enemy_ability.gd" id="1_ulyi2"]
+[ext_resource type="Texture2D" uid="uid://ddx5qdlv4e7gx" path="res://resources/art/icons/abilities/attack.png" id="2_p25vu"]
+[ext_resource type="Texture2D" uid="uid://b7wg2ufx8eitb" path="res://resources/art/enemies/Skeleton.png" id="4_5t2f3"]
+
+[sub_resource type="Resource" id="Resource_28svt"]
+script = ExtResource("1_ulyi2")
+name = "Club"
+cast_time = 3.0
+texture = ExtResource("2_p25vu")
+floats = Dictionary[String, float]({
+"Hit": 70.0,
+"MaxDamage": 3.0,
+"MinDamage": 1.0
+})
+metadata/_custom_type_script = "uid://6ggv8n4xqyob"
+
+[resource]
+script = ExtResource("1_cyc7q")
+name = "Skeleton"
+texture = ExtResource("4_5t2f3")
+health = 10
+ability_attack = SubResource("Resource_28svt")
+metadata/_custom_type_script = "uid://ep73png3yh5x"
