@@ -9,6 +9,7 @@ signal on_start_battle_pressed(battle_options: BattleOptions)
 var battle_preview: BattlePreview
 var left: SimpleButton
 var right: SimpleButton
+var skulls: Array[TextureRect]
 
 var battles: Array[BattleOptions]
 
@@ -19,6 +20,9 @@ func _ready():
 	
 	left = $BorderButtons/Margin/Left/Left
 	right = $BorderButtons/Margin/Right/Right
+	
+	for cur in $Difficulty.get_children():
+		skulls.append(cur)
 
 func reset():
 	battles = []
@@ -34,6 +38,13 @@ func fill(_battles: Array[BattleOptions]):
 
 func show_cur_battle():
 	battle_preview.fill(battles[cur_index])
+	fill_difficulty(battles[cur_index].difficulty)
+
+func fill_difficulty(difficulty: int):
+	var index = 0
+	for cur in skulls:
+		cur.visible = index <= difficulty
+		index += 1
 
 func _on_party_pressed(_simple_button):
 	on_party_pressed.emit()

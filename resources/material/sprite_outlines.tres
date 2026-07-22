@@ -8,5 +8,5 @@ shader = ExtResource("1_hhl5p")
 shader_parameter/index = 0
 shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 0.84313726, 0, 1, 0.2014201, 0.16329429, 0, 1, 1, 0.5019608, 0, 1)
 shader_parameter/glow_color = Color(0, 0, 0, 1)
-shader_parameter/glow_intensity = 1.0000000475
+shader_parameter/glow_intensity = 3.6370001727575
 shader_parameter/glow_radius = 20.994000997215

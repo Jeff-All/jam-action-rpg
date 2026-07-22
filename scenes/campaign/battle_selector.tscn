@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://037e7762g8o5"]
+[gd_scene load_steps=24 format=3 uid="uid://037e7762g8o5"]
 
 [ext_resource type="Script" uid="uid://cm21w6e540lsb" path="res://scripts/campaign/battle_selector.gd" id="1_aiq3r"]
 [ext_resource type="PackedScene" uid="uid://dt7xrxget1oi1" path="res://scenes/ui/simple_button.tscn" id="1_risrf"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bpf4iur8muk4k" path="res://scenes/ui/frame.tscn" id="3_k43hd"]
 [ext_resource type="Texture2D" uid="uid://4npqraahuiy7" path="res://resources/art/icons/crossed_swords.png" id="3_mvwpo"]
 [ext_resource type="Texture2D" uid="uid://c2lquyfnc7a7i" path="res://resources/art/icons/party.png" id="4_mvwpo"]
+[ext_resource type="Texture2D" uid="uid://woeiamm4rlfr" path="res://resources/art/icons/skull_1024.png" id="7_niddd"]
 [ext_resource type="Texture2D" uid="uid://csukt2oof5ev2" path="res://resources/art/icons/menu_scroll.png" id="9_f27e7"]
 [ext_resource type="Texture2D" uid="uid://riisrric5105" path="res://resources/art/icons/arrow_right_b.png" id="9_k43hd"]
 [ext_resource type="PackedScene" uid="uid://c1pufg0fwx42a" path="res://scenes/ui/border_buttons.tscn" id="9_oduct"]
@@ -46,6 +47,53 @@ fill_to = Vector2(1, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xa3m4"]
 texture = SubResource("GradientTexture2D_2mpvy")
+
+[sub_resource type="Shader" id="Shader_2mpvy"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform int index = 0;
+uniform vec4 color_palette[5]: source_color;
+uniform vec4 glow_color : source_color = vec4(1.0, 0.5, 0.0, 1.0);
+uniform float glow_intensity : hint_range(0.0, 5.0) = 2.0;
+uniform float glow_radius : hint_range(0.0, 50.0) = 5.0;
+
+varying float modulate_alpha;
+
+void vertex() {
+    // In vertex(), COLOR contains the combined modulate and self_modulate data
+    modulate_alpha = COLOR.a;
+}
+
+void fragment() {
+    vec4 current_color = texture(TEXTURE, UV);
+    vec2 size = TEXTURE_PIXEL_SIZE * glow_radius;
+    float alpha = 0.0;
+
+    // Sample surrounding pixels to find transparency edge
+    for(float x = -1.0; x <= 1.0; x += 0.5) {
+        for(float y = -1.0; y <= 1.0; y += 0.5) {
+            vec2 offset = vec2(x, y) * size;
+            alpha += texture(TEXTURE, UV + offset).a;
+        }
+    }
+
+    // Smooth and blend the glow behind the original texture
+    alpha = clamp(alpha / 9.0, 0.0, 1.0);
+    vec4 final_glow = color_palette[index] * alpha * glow_intensity;
+	vec4 mx = mix(final_glow, current_color, current_color.a);
+    COLOR = mx * modulate_alpha;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q67dj"]
+resource_local_to_scene = true
+shader = SubResource("Shader_2mpvy")
+shader_parameter/index = 2
+shader_parameter/color_palette = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 0.84313726, 0, 1, 0.2014201, 0.16329429, 0, 1, 1, 0.5019608, 0, 1)
+shader_parameter/glow_color = Color(0, 0, 0, 1)
+shader_parameter/glow_intensity = 3.6370001727575
+shader_parameter/glow_radius = 20.994000997215
 
 [node name="BattleSelector" type="Control"]
 layout_mode = 3
@@ -132,6 +180,50 @@ anchor_left = 0.1
 anchor_top = 0.15
 anchor_right = 0.9
 anchor_bottom = 0.85
+
+[node name="Difficulty" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3390625
+anchor_top = 0.63625
+anchor_right = 0.6609375
+anchor_bottom = 0.76125
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Skull1" type="TextureRect" parent="Difficulty"]
+material = SubResource("ShaderMaterial_q67dj")
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("7_niddd")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Skull2" type="TextureRect" parent="Difficulty"]
+material = SubResource("ShaderMaterial_q67dj")
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("7_niddd")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Skull3" type="TextureRect" parent="Difficulty"]
+material = SubResource("ShaderMaterial_q67dj")
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("7_niddd")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Skull4" type="TextureRect" parent="Difficulty"]
+material = SubResource("ShaderMaterial_q67dj")
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("7_niddd")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="BorderButtons" parent="." instance=ExtResource("9_oduct")]
 layout_mode = 1

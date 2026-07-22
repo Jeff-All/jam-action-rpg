@@ -121,7 +121,9 @@ func get_cur_battles(cur_tier: int, count: int, pc_count: int)-> Array[BattleOpt
 	var battles: Array[BattleOptions] = []
 	var crs = generate_crs()
 	for cur in crs:
-		battles.append(generate_battle_options(cur_tier, generate_battle_profile(generate_battle_allocations(cur_tier, pc_count, cur))))
+		var options = generate_battle_options(cur_tier, generate_battle_profile(generate_battle_allocations(cur_tier, pc_count, cur)))
+		options.difficulty = cur
+		battles.append(options)
 	
 	return battles
 
