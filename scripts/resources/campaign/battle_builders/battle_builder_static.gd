@@ -31,7 +31,7 @@ func get_random_battle_from_tier_and_remove(tier: int) -> BattleOptions:
 	tiers[tier].battles.remove_at(random_int)
 	return battle
 
-func get_cur_battles(cur_tier: int, count: int)-> Array[BattleOptions]:
+func get_cur_battles(cur_tier: int, count: int, pc_count: int)-> Array[BattleOptions]:
 	var _available_battles: Array[BattleOptions] = []
 	
 	for cur in tiers[cur_tier]._battles:

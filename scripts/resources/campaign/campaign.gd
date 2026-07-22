@@ -23,7 +23,7 @@ func build():
 	campaign_options.battle_builder.build()
 
 func get_cur_battles(count: int)-> Array[BattleOptions]:
-	return campaign_options.battle_builder.get_cur_battles(cur_tier, count)
+	return campaign_options.battle_builder.get_cur_battles(cur_tier, count, party.size())
 
 func battle_complete(battle: BattleOptions):
 	battles_this_tier += 1

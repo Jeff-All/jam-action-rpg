@@ -7,7 +7,7 @@ extends Resource
 func build():
 	pass
 
-func get_cur_battles(cur_tier: int, count: int)-> Array[BattleOptions]:
+func get_cur_battles(cur_tier: int, count: int, pc_count: int)-> Array[BattleOptions]:
 	return []
 
 func battle_complete(cur_tier: int, battle: BattleOptions):
