@@ -6,12 +6,14 @@ extends Enemy
 var ability_cleave_armor_roll_adjustment: int = 0
 
 func pick_ability(cur: EnemyUI, _battle: BattleUI) -> Array:
-	if !find_target_cleave_armor(cur).has_buff(ability_cleave_armor.buff):
+	if !find_target_cleave_armor(_battle, cur).has_buff(ability_cleave_armor.buff):
 		var roll = randi_range(0,5)
 		if roll >= 5 - ability_cleave_armor_roll_adjustment:
 			ability_cleave_armor_roll_adjustment = -3
-			return [ability_cleave_armor, find_target_cleave_armor(cur)]
-		ability_cleave_armor_roll_adjustment += 1
+			var target = find_target_cleave_armor(_battle, cur)
+			if target != null:
+				return [ability_cleave_armor, target]
+		else: ability_cleave_armor_roll_adjustment += 1
 	return [ability_attack, find_target_attack(cur)]
 
 func execute_ability(ability: EnemyAbility, target, _battle: BattleUI):
@@ -19,13 +21,20 @@ func execute_ability(ability: EnemyAbility, target, _battle: BattleUI):
 		ability_attack:
 			execute_attack(target)
 		ability_cleave_armor:
-			execute_cleave_armor(_battle)
+			execute_cleave_armor(_battle, target)
 
-func find_target_cleave_armor(cur: EnemyUI) -> PCUI:
-	return cur.enemy.threat_table.find_target()
-
-func execute_cleave_armor(_battle: BattleUI):
+func find_target_cleave_armor(_battle: BattleUI, _enemy: EnemyUI) -> PCUI:
+	var cur_target = _enemy.enemy.threat_table.find_target()
+	var cur_armor = cur_target._character.attributes[CharacterCampaign.Attributes.ARMOR].adjusted
 	for cur in _battle.pcs:
 		if cur.character != null:
 			if !cur.dead:
-				cur.apply_buff(ability_cleave_armor.buff, self)
+				if cur_armor == 0 && cur._character.attributes[CharacterCampaign.Attributes.ARMOR].adjusted > 0:
+					cur_target = cur
+					cur_armor = cur._character.attributes[CharacterCampaign.Attributes.ARMOR].adjusted
+	if cur_armor == 0:
+		return null
+	return cur_target
+
+func execute_cleave_armor(_battle: BattleUI, target):
+	target.apply_buff(ability_cleave_armor.buff, self)
