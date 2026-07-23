@@ -7,9 +7,11 @@
 [sub_resource type="Resource" id="Resource_wtmue"]
 script = ExtResource("1_cxe5m")
 healing_per_step = 1
+threat_adjustment = null
 name = "Restore"
 texture = ExtResource("2_wtmue")
 duration = 3.0
+stackable = null
 metadata/_custom_type_script = "uid://bhtbduhv7oaal"
 
 [resource]

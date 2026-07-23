@@ -65,6 +65,9 @@ func _ready():
 
 func reset():
 	unbind_enemy()
+	
+	threat_ui.reset()
+	
 	_enemy = null
 	
 	_clickable = false
@@ -74,7 +77,7 @@ func reset():
 	enemy_pane.animation_player.play("RESET")
 	animation_player.play("RESET")
 	
-	threat_ui.reset()
+	
 	
 	$EnemyPane/Panel/TextureRect.material = _material
 

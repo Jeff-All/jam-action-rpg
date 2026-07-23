@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dn5ogvnuvqlq2" path="res://scenes/main_menu.tscn" id="2_h2qy3"]
 [ext_resource type="PackedScene" uid="uid://cm6wx0xtevjib" path="res://scenes/campaign/campaign.tscn" id="2_jooxx"]
 [ext_resource type="Resource" uid="uid://bl77cy7kxkkwo" path="res://resources/abilities/attacks/attack.tres" id="4_b571c"]
-[ext_resource type="Resource" uid="uid://cvo0oioukctke" path="res://resources/campaigns/bandits.tres" id="4_kjytq"]
+[ext_resource type="Resource" uid="uid://doksadachdkx6" path="res://resources/campaigns/generics.tres" id="4_kjytq"]
 
 [node name="Master" type="MarginContainer"]
 anchors_preset = 15

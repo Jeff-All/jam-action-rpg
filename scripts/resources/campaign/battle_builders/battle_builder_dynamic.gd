@@ -15,25 +15,25 @@ func generate_crs() -> Array[int]:
 
 func generate_battle_allocations(tier: int, pc_count: int, cr: int) -> Dictionary[int, int]:
 	print("generate_battle_allocations(tier=%s, pc_count=%s, cr=%s)" % [tier, pc_count, cr])
-	var actions: int = 0
+	var actions: int = pc_count * -1
 	var remaining: int = pc_count + cr
-	var slots = 7 - remaining
+	var slots = 7
 	var allocations: Dictionary[int, int] = { -2:0, -1:0, 0:0, 1:0, 2:0 }
 	if remaining >= 4 && tier < enemies.size() - 2:
 		if randi_range(0, 1) == 0: 
-			var num = randi_range(1, floori(remaining / 4.0))
+			var num = randi_range(1, min(slots, floori(remaining / 4.0)))
 			allocations[2] = num
 			remaining -= (num * 4)
-			slots += (num * 3)
-			actions -= (num * 3)
+			slots -= num
+			actions += num
 			print("+2: %s" % num)
 	if remaining >= 2 && tier < enemies.size() - 1:
 		if randi_range(0, 1) == 0:
-			var num = randi_range(1, floori(remaining / 2.0))
+			var num = randi_range(1, min(slots, floori(remaining / 2.0)))
 			allocations[1] = num
 			remaining -= (num * 2)
-			slots += num
-			actions -= num
+			slots -= num
+			actions += num
 			print("+1: %s" % num)
 	if remaining >= 1 && slots > 1 && tier > 0:
 		if randi_range(0, 3) == 0:
@@ -43,18 +43,28 @@ func generate_battle_allocations(tier: int, pc_count: int, cr: int) -> Dictionar
 			if tier > 1:
 				roll2 = randi_range(0, min(roll1, slots))
 				allocations[-2] = roll2 * 4
-				actions += (roll2 * 3)
+				actions += (roll2 * 4)
+				remaining -= roll2
 				print("-2: %s" % roll2)
-			actions += roll1 - roll2
+			actions += ((roll1 - roll2) * 2)
 			allocations[-1] = (roll1 - roll2) * 2
-			print("-2: %s" % ((roll1 - roll2) * 2))
+			remaining -= (roll1 - roll2)
+			print("-1: %s" % ((roll1 - roll2) * 2))
 			
 	if remaining >= 1:
-		actions += remaining
-		allocations[0] = remaining
+		var left = min(slots, remaining)
+		actions += left
+		allocations[0] = left
+		remaining -= left
+		print("0: %s" % left)
+	
+	print("remaining: %s" % remaining)
+	print("actions: %s" % actions)
+	
+	actions -= remaining
 	
 	if actions > 0:
-		downgrade_actions(tier, actions, allocations)
+		downgrade_actions(tier, actions, allocations)                                                                        
 	else: if actions < 0:
 		upgrade_actions(tier, actions, allocations)
 	

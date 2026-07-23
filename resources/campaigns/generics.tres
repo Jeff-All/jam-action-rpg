@@ -1,0 +1,54 @@
+[gd_resource type="Resource" script_class="CampaignOptions" load_steps=23 format=3 uid="uid://doksadachdkx6"]
+
+[ext_resource type="Script" uid="uid://ep73png3yh5x" path="res://scripts/resources/enemies/enemy.gd" id="1_6lquy"]
+[ext_resource type="Resource" uid="uid://ca7imjm18ik3m" path="res://resources/enemies/generics/generic_1.tres" id="2_ja02i"]
+[ext_resource type="Resource" uid="uid://dwaqjer8yhqnx" path="res://resources/enemies/generics/generic_2.tres" id="3_ny0dg"]
+[ext_resource type="Resource" uid="uid://ch4vb72b5ftgr" path="res://resources/enemies/generics/generic_3.tres" id="4_vmjrp"]
+[ext_resource type="Resource" uid="uid://4q6v338v3mi" path="res://resources/enemies/generics/generic_4.tres" id="5_0niwo"]
+[ext_resource type="Resource" uid="uid://b7ul8ikh7k4e0" path="res://resources/enemies/generics/generic_5.tres" id="6_10i1l"]
+[ext_resource type="Resource" uid="uid://j763g61dcjeg" path="res://resources/enemies/generics/generic_6.tres" id="7_htuvm"]
+[ext_resource type="Resource" uid="uid://bomqdwrhyi7yg" path="res://resources/enemies/generics/generic_7.tres" id="8_aclde"]
+[ext_resource type="Resource" uid="uid://dkepbdscejrxo" path="res://resources/enemies/generics/generic_8.tres" id="9_am8pr"]
+[ext_resource type="Script" uid="uid://ifelj4o7ncq2" path="res://scripts/resources/campaign/battle_builders/battle_builder_dynamic.gd" id="9_wgkqv"]
+[ext_resource type="Script" uid="uid://b0rrnk75kj3xv" path="res://scripts/resources/characters/character_start_options.gd" id="10_am8pr"]
+[ext_resource type="Resource" uid="uid://c2mr26ifcts7r" path="res://resources/character_starts/warrior.tres" id="11_ri050"]
+[ext_resource type="Resource" uid="uid://cuqx071yncbta" path="res://resources/character_starts/monk.tres" id="12_2qtix"]
+[ext_resource type="Script" uid="uid://bviccvmikhjva" path="res://scripts/resources/campaign/campaign_options.gd" id="13_33ymn"]
+[ext_resource type="Script" uid="uid://7p0hpuqum2t6" path="res://scripts/resources/campaign/campaign_tier.gd" id="14_fj01w"]
+[ext_resource type="Script" uid="uid://bubl68t4u61vo" path="res://scripts/resources/abilities/ability.gd" id="15_pjw0j"]
+[ext_resource type="Script" uid="uid://c80yoskj347ho" path="res://scripts/resources/armor.gd" id="16_31w6b"]
+[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/traits/trait.gd" id="17_u0i4h"]
+[ext_resource type="Script" uid="uid://8tck1kie4m0e" path="res://scripts/resources/weapon.gd" id="18_840l7"]
+
+[sub_resource type="Resource" id="Resource_0yhc4"]
+script = ExtResource("9_wgkqv")
+enemies = Dictionary[int, ExtResource("1_6lquy")]({
+0: ExtResource("2_ja02i"),
+1: ExtResource("3_ny0dg"),
+2: ExtResource("4_vmjrp"),
+3: ExtResource("5_0niwo"),
+4: ExtResource("6_10i1l"),
+5: ExtResource("7_htuvm"),
+6: ExtResource("8_aclde"),
+7: ExtResource("9_am8pr")
+})
+battles_per_tier = Array[int]([1, 1, 1, 1, 1, 1])
+metadata/_custom_type_script = "uid://ifelj4o7ncq2"
+
+[sub_resource type="Resource" id="Resource_g2vq5"]
+script = ExtResource("14_fj01w")
+metadata/_custom_type_script = "uid://7p0hpuqum2t6"
+
+[sub_resource type="Resource" id="Resource_aytrl"]
+script = ExtResource("14_fj01w")
+metadata/_custom_type_script = "uid://7p0hpuqum2t6"
+
+[resource]
+script = ExtResource("13_33ymn")
+name = "Bandits"
+character_start_options = Array[ExtResource("10_am8pr")]([ExtResource("11_ri050"), ExtResource("12_2qtix")])
+starting_gold = 5
+max_inventory = 16
+battle_builder = SubResource("Resource_0yhc4")
+tiers = Array[ExtResource("14_fj01w")]([SubResource("Resource_g2vq5"), SubResource("Resource_aytrl")])
+metadata/_custom_type_script = "uid://bviccvmikhjva"
