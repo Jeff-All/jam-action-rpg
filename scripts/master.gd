@@ -11,6 +11,7 @@ var campaign_builder: CampaignBuilder
 var campaign: CampaignUI
 
 func _ready():
+	randomize()
 	main_menu = $MainMenu
 	options = $Options
 	campaign_builder = $CampaignBuilder

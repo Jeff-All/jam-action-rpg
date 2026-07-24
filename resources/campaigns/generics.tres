@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CampaignOptions" load_steps=23 format=3 uid="uid://doksadachdkx6"]
+[gd_resource type="Resource" script_class="CampaignOptions" load_steps=37 format=3 uid="uid://doksadachdkx6"]
 
 [ext_resource type="Script" uid="uid://ep73png3yh5x" path="res://scripts/resources/enemies/enemy.gd" id="1_6lquy"]
 [ext_resource type="Resource" uid="uid://ca7imjm18ik3m" path="res://resources/enemies/generics/generic_1.tres" id="2_ja02i"]
@@ -15,10 +15,17 @@
 [ext_resource type="Resource" uid="uid://cuqx071yncbta" path="res://resources/character_starts/monk.tres" id="12_2qtix"]
 [ext_resource type="Script" uid="uid://bviccvmikhjva" path="res://scripts/resources/campaign/campaign_options.gd" id="13_33ymn"]
 [ext_resource type="Script" uid="uid://7p0hpuqum2t6" path="res://scripts/resources/campaign/campaign_tier.gd" id="14_fj01w"]
+[ext_resource type="Script" uid="uid://dsk8sqobmxkuv" path="res://scripts/resources/campaign/loot_builders/loot_builder_static.gd" id="14_vmjrp"]
+[ext_resource type="Script" uid="uid://d07n0ta4d26tv" path="res://scripts/resources/campaign/loot_builders/loot_builder_static_tier.gd" id="15_0niwo"]
 [ext_resource type="Script" uid="uid://bubl68t4u61vo" path="res://scripts/resources/abilities/ability.gd" id="15_pjw0j"]
 [ext_resource type="Script" uid="uid://c80yoskj347ho" path="res://scripts/resources/armor.gd" id="16_31w6b"]
+[ext_resource type="Resource" uid="uid://bjbp05uthfe07" path="res://resources/armor/patched_robe.tres" id="16_wgkqv"]
+[ext_resource type="Resource" uid="uid://nvmg1wj6p2a5" path="res://resources/armor/rusty_chain_mail.tres" id="17_am8pr"]
 [ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/traits/trait.gd" id="17_u0i4h"]
 [ext_resource type="Script" uid="uid://8tck1kie4m0e" path="res://scripts/resources/weapon.gd" id="18_840l7"]
+[ext_resource type="Resource" uid="uid://bg0illklpqehh" path="res://resources/armor/ragged_leather_vest.tres" id="18_ri050"]
+[ext_resource type="Resource" uid="uid://dx0bfyr7vfgtv" path="res://resources/weapons/weapon_rusty_longsword.tres" id="19_2qtix"]
+[ext_resource type="Resource" uid="uid://1ww6pcrldjeq" path="res://resources/weapons/weapon_rusty_dagger.tres" id="20_33ymn"]
 
 [sub_resource type="Resource" id="Resource_0yhc4"]
 script = ExtResource("9_wgkqv")
@@ -35,6 +42,41 @@ enemies = Dictionary[int, ExtResource("1_6lquy")]({
 battles_per_tier = Array[int]([1, 1, 1, 1, 1, 1])
 metadata/_custom_type_script = "uid://ifelj4o7ncq2"
 
+[sub_resource type="Resource" id="Resource_fj01w"]
+script = ExtResource("15_0niwo")
+items = Array[Resource]([ExtResource("16_wgkqv"), ExtResource("17_am8pr"), ExtResource("18_ri050"), ExtResource("19_2qtix"), ExtResource("20_33ymn")])
+metadata/_custom_type_script = "uid://d07n0ta4d26tv"
+
+[sub_resource type="Resource" id="Resource_pjw0j"]
+script = ExtResource("15_0niwo")
+items = Array[Resource]([ExtResource("16_wgkqv"), ExtResource("17_am8pr"), ExtResource("18_ri050"), ExtResource("19_2qtix"), ExtResource("20_33ymn")])
+metadata/_custom_type_script = "uid://d07n0ta4d26tv"
+
+[sub_resource type="Resource" id="Resource_31w6b"]
+script = ExtResource("15_0niwo")
+items = Array[Resource]([ExtResource("16_wgkqv"), ExtResource("17_am8pr"), ExtResource("18_ri050"), ExtResource("19_2qtix"), ExtResource("20_33ymn")])
+metadata/_custom_type_script = "uid://d07n0ta4d26tv"
+
+[sub_resource type="Resource" id="Resource_u0i4h"]
+script = ExtResource("15_0niwo")
+items = Array[Resource]([ExtResource("16_wgkqv"), ExtResource("17_am8pr"), ExtResource("18_ri050"), ExtResource("19_2qtix"), ExtResource("20_33ymn")])
+metadata/_custom_type_script = "uid://d07n0ta4d26tv"
+
+[sub_resource type="Resource" id="Resource_840l7"]
+script = ExtResource("15_0niwo")
+items = Array[Resource]([ExtResource("16_wgkqv"), ExtResource("17_am8pr"), ExtResource("18_ri050"), ExtResource("19_2qtix"), ExtResource("20_33ymn")])
+metadata/_custom_type_script = "uid://d07n0ta4d26tv"
+
+[sub_resource type="Resource" id="Resource_kxsmh"]
+script = ExtResource("15_0niwo")
+items = Array[Resource]([ExtResource("16_wgkqv"), ExtResource("17_am8pr"), ExtResource("18_ri050"), ExtResource("19_2qtix"), ExtResource("20_33ymn")])
+metadata/_custom_type_script = "uid://d07n0ta4d26tv"
+
+[sub_resource type="Resource" id="Resource_10i1l"]
+script = ExtResource("14_vmjrp")
+tiers = Array[ExtResource("15_0niwo")]([SubResource("Resource_fj01w"), SubResource("Resource_pjw0j"), SubResource("Resource_31w6b"), SubResource("Resource_u0i4h"), SubResource("Resource_840l7"), SubResource("Resource_kxsmh")])
+metadata/_custom_type_script = "uid://dsk8sqobmxkuv"
+
 [sub_resource type="Resource" id="Resource_g2vq5"]
 script = ExtResource("14_fj01w")
 metadata/_custom_type_script = "uid://7p0hpuqum2t6"
@@ -50,5 +92,6 @@ character_start_options = Array[ExtResource("10_am8pr")]([ExtResource("11_ri050"
 starting_gold = 5
 max_inventory = 16
 battle_builder = SubResource("Resource_0yhc4")
+loot_builder = SubResource("Resource_10i1l")
 tiers = Array[ExtResource("14_fj01w")]([SubResource("Resource_g2vq5"), SubResource("Resource_aytrl")])
 metadata/_custom_type_script = "uid://bviccvmikhjva"

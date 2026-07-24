@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://odrpsnm5tshc"]
+
+[ext_resource type="Script" uid="uid://bu882naqgsjf7" path="res://scripts/campaign/post_battle/loot_ui.gd" id="1_mekmu"]
+[ext_resource type="PackedScene" uid="uid://cx4365m8n8qay" path="res://scenes/campaign/post_battle/item_select.tscn" id="2_1wi4x"]
+
+[node name="Loot" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mekmu")
+
+[node name="Items" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.23
+anchor_right = 1.0
+anchor_bottom = 0.6675
+offset_top = -16.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 80
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ItemSelect" parent="Items" instance=ExtResource("2_1wi4x")]
+layout_mode = 2
+
+[node name="ItemSelect2" parent="Items" instance=ExtResource("2_1wi4x")]
+layout_mode = 2
+
+[node name="ItemSelect3" parent="Items" instance=ExtResource("2_1wi4x")]
+layout_mode = 2
+
+[connection signal="on_select" from="Items/ItemSelect" to="." method="_on_item_select"]
+[connection signal="on_select" from="Items/ItemSelect2" to="." method="_on_item_select"]
+[connection signal="on_select" from="Items/ItemSelect3" to="." method="_on_item_select"]

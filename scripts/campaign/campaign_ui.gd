@@ -50,7 +50,7 @@ func to_battle():
 	pass
 
 func to_post_battle():
-	post_battle.start(campaign.party)
+	post_battle.start(campaign.party, campaign.get_loot(cur_battle))
 	battle.visible = false
 	post_battle.visible = true
 
@@ -89,3 +89,6 @@ func _post_battle_on_end():
 	cur_battle = null
 	post_battle.visible = false
 	to_battle_selector()
+
+func _post_battle_on_add_item(item: Resource):
+	campaign.inventory.append(item)

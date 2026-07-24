@@ -34,3 +34,6 @@ func battle_complete(battle: BattleOptions):
 		return
 	
 	campaign_options.battle_builder.battle_complete(cur_tier, battle)
+
+func get_loot(battle_options: BattleOptions) -> Array[Resource]:
+	return campaign_options.loot_builder.get_loot(cur_tier, battle_options)

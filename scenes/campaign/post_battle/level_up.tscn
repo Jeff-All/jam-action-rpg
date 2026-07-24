@@ -174,6 +174,7 @@ grow_vertical = 2
 script = ExtResource("1_dbtow")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -242,6 +243,7 @@ anchor_bottom = 1.0375
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="MarginContainer" parent="CharacterWindow/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -1.6364999

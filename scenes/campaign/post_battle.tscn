@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://f763heqnyy3n"]
+[gd_scene load_steps=11 format=3 uid="uid://f763heqnyy3n"]
 
 [ext_resource type="Texture2D" uid="uid://dxy6bty10o4xp" path="res://resources/art/textures/slate_brick.png" id="1_gni4r"]
 [ext_resource type="Script" uid="uid://batukowkw5lel" path="res://scripts/campaign/post_battle.gd" id="1_uaqsl"]
 [ext_resource type="PackedScene" uid="uid://dbsbujkxbkcnn" path="res://scenes/campaign/xp_gain.tscn" id="2_1t4uo"]
+[ext_resource type="PackedScene" uid="uid://odrpsnm5tshc" path="res://scenes/campaign/post_battle/loot_ui.tscn" id="4_gni4r"]
 
 [sub_resource type="Gradient" id="Gradient_mhpgr"]
 offsets = PackedFloat32Array(0.78504676, 1)
@@ -64,21 +65,16 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_d0q2y")
 
 [node name="Panel2" type="PanelContainer" parent="TextureRect/Background2"]
-visible = false
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_1r87g")
 
 [node name="XPGain" parent="." instance=ExtResource("2_1t4uo")]
-layout_mode = 1
-
-[node name="Loot" type="Control" parent="."]
 visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+
+[node name="Loot" parent="." instance=ExtResource("4_gni4r")]
+layout_mode = 1
 
 [connection signal="on_continue" from="XPGain" to="." method="_xp_gain_on_continue"]
+[connection signal="on_item_selected" from="Loot" to="." method="_loot_on_item_selected"]
