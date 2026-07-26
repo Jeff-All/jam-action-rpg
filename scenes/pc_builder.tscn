@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://dr15c5nw00emu"]
 
 [ext_resource type="Script" uid="uid://birn4ssd4lqfy" path="res://scripts/pc_builder.gd" id="1_fle6o"]
-[ext_resource type="Script" uid="uid://bkijfvdnaky5k" path="res://scripts/resources/race.gd" id="2_8vuoh"]
+[ext_resource type="Script" uid="uid://bkijfvdnaky5k" path="res://scripts/resources/characters/race.gd" id="2_8vuoh"]
 [ext_resource type="Resource" uid="uid://cchko18dgvfq7" path="res://resources/races/race_human.tres" id="3_2v2iu"]
 [ext_resource type="Resource" uid="uid://dvlqijcfj3j2s" path="res://resources/races/race_elf.tres" id="4_s41ki"]
 [ext_resource type="Resource" uid="uid://dxt4dciegeqdg" path="res://resources/races/race_orc.tres" id="5_hejon"]

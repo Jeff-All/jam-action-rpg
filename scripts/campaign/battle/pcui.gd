@@ -222,16 +222,23 @@ func _on_cur_resource_change(resource: AdjustableResource, _change: float):
 			status_bars.cur_mana = resource.cur_floor
 	check_if_can_afford_abilities()
 
-func take_damage(value: int, ignore_armor: bool = false):
+func take_damage(value: float, ignore_armor: bool = false):
 	var armor = character.attributes[CharacterCampaign.Attributes.ARMOR].adjusted
 	var durability = character.resources[CharacterCampaign.Resources.DURABILITY].cur
+	var dur_damage = 0.0
+	var orig_value = value
 	if armor > 0 && durability > 0 && !ignore_armor:
-		durability -= ceil(minf(value, armor) / 2)
+		var _min = minf(value, armor)
+		dur_damage = snapped(_min * (_min / (armor * 2)), 0.1)
+		durability -= dur_damage
 		if armor <= value:
 			value = value - armor
 		else:
 			value = 0
-	spawn_combat_text("%s" % value)
+	print("take_damage(%s(%s)[%.1f])" % [value, orig_value, dur_damage])
+	if dur_damage == 0: spawn_combat_text("%s" % [value as int])
+	else: spawn_combat_text("%s[%.1f]" % [value as int, dur_damage as float])
+	
 	var health = character.resources[CharacterCampaign.Resources.HEALTH].cur
 	character.set_cur_resource(CharacterCampaign.Resources.HEALTH, health - value)
 	character.resources[CharacterCampaign.Resources.DURABILITY].cur = durability

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Armor" load_steps=3 format=3 uid="uid://bg0wrpgckve17"]
+
+[ext_resource type="Script" uid="uid://c80yoskj347ho" path="res://scripts/resources/items/armor.gd" id="1_f8eo0"]
+[ext_resource type="Texture2D" uid="uid://dk6swnix1fei7" path="res://resources/art/icons/armor/leather/leather_III.png" id="2_f8eo0"]
+
+[resource]
+script = ExtResource("1_f8eo0")
+name = "Ragged Leather Vest"
+armor_class = 2
+texture = ExtResource("2_f8eo0")
+attributes = Dictionary[int, float]({
+5: 20.0
+})
+resources = Dictionary[int, float]({
+3: 7.0
+})
+recovery = Dictionary[int, float]({
+3: 3.0
+})
+metadata/_custom_type_script = "uid://c80yoskj347ho"

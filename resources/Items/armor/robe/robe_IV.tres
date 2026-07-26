@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Armor" load_steps=3 format=3 uid="uid://gwxdguf6c17i"]
+
+[ext_resource type="Script" uid="uid://c80yoskj347ho" path="res://scripts/resources/items/armor.gd" id="1_8qabv"]
+[ext_resource type="Texture2D" uid="uid://cg2nwd6lmpthr" path="res://resources/art/icons/armor/robe/robe_IV.png" id="2_8qabv"]
+
+[resource]
+script = ExtResource("1_8qabv")
+name = "Patched Robe"
+armor_class = 1
+texture = ExtResource("2_8qabv")
+resources = Dictionary[int, float]({
+4: 8.0
+})
+recovery = Dictionary[int, float]({
+4: 4.0
+})
+metadata/_custom_type_script = "uid://c80yoskj347ho"

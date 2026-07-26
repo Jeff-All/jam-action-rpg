@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="MightyBlow" load_steps=3 format=3 uid="uid://c3kjh8y1s3hkk"]
 
-[ext_resource type="Script" uid="uid://bigbtdw6iedjn" path="res://scripts/resources/abilities/attacks/attack_mighty_blow.gd" id="1_pogff"]
+[ext_resource type="Script" uid="uid://bigbtdw6iedjn" path="res://scripts/resources/characters/abilities/attacks/attack_mighty_blow.gd" id="1_pogff"]
 [ext_resource type="Texture2D" uid="uid://y8rkrr685xg3" path="res://resources/art/icons/abilities/mighty_blow.png" id="2_7phhe"]
 
 [resource]

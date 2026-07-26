@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CampaignOptions" load_steps=37 format=3 uid="uid://doksadachdkx6"]
+[gd_resource type="Resource" script_class="CampaignOptions" load_steps=63 format=3 uid="uid://doksadachdkx6"]
 
 [ext_resource type="Script" uid="uid://ep73png3yh5x" path="res://scripts/resources/enemies/enemy.gd" id="1_6lquy"]
 [ext_resource type="Resource" uid="uid://ca7imjm18ik3m" path="res://resources/enemies/generics/generic_1.tres" id="2_ja02i"]
@@ -17,15 +17,41 @@
 [ext_resource type="Script" uid="uid://7p0hpuqum2t6" path="res://scripts/resources/campaign/campaign_tier.gd" id="14_fj01w"]
 [ext_resource type="Script" uid="uid://dsk8sqobmxkuv" path="res://scripts/resources/campaign/loot_builders/loot_builder_static.gd" id="14_vmjrp"]
 [ext_resource type="Script" uid="uid://d07n0ta4d26tv" path="res://scripts/resources/campaign/loot_builders/loot_builder_static_tier.gd" id="15_0niwo"]
-[ext_resource type="Script" uid="uid://bubl68t4u61vo" path="res://scripts/resources/abilities/ability.gd" id="15_pjw0j"]
-[ext_resource type="Script" uid="uid://c80yoskj347ho" path="res://scripts/resources/armor.gd" id="16_31w6b"]
-[ext_resource type="Resource" uid="uid://bjbp05uthfe07" path="res://resources/armor/patched_robe.tres" id="16_wgkqv"]
-[ext_resource type="Resource" uid="uid://nvmg1wj6p2a5" path="res://resources/armor/rusty_chain_mail.tres" id="17_am8pr"]
-[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/traits/trait.gd" id="17_u0i4h"]
-[ext_resource type="Script" uid="uid://8tck1kie4m0e" path="res://scripts/resources/weapon.gd" id="18_840l7"]
-[ext_resource type="Resource" uid="uid://bg0illklpqehh" path="res://resources/armor/ragged_leather_vest.tres" id="18_ri050"]
-[ext_resource type="Resource" uid="uid://dx0bfyr7vfgtv" path="res://resources/weapons/weapon_rusty_longsword.tres" id="19_2qtix"]
-[ext_resource type="Resource" uid="uid://1ww6pcrldjeq" path="res://resources/weapons/weapon_rusty_dagger.tres" id="20_33ymn"]
+[ext_resource type="Script" uid="uid://b5ias127ofd0a" path="res://scripts/resources/items/item.gd" id="16_pjw0j"]
+[ext_resource type="Resource" uid="uid://dkg1x5ikhce20" path="res://resources/Items/armor/mail/mail_I.tres" id="17_31w6b"]
+[ext_resource type="Resource" uid="uid://4avkklxgpxpv" path="res://resources/Items/armor/robe/robe_I.tres" id="18_u0i4h"]
+[ext_resource type="Script" uid="uid://bubl68t4u61vo" path="res://scripts/resources/characters/abilities/ability.gd" id="18_vmjrp"]
+[ext_resource type="Script" uid="uid://c80yoskj347ho" path="res://scripts/resources/items/armor.gd" id="19_0niwo"]
+[ext_resource type="Resource" uid="uid://byq13v3vsgkr5" path="res://resources/Items/armor/plate/plate_I.tres" id="19_840l7"]
+[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="20_10i1l"]
+[ext_resource type="Resource" uid="uid://g1p2620h0ou5" path="res://resources/Items/armor/leather/leather_I.tres" id="20_kxsmh"]
+[ext_resource type="Script" uid="uid://8tck1kie4m0e" path="res://scripts/resources/items/weapon.gd" id="21_htuvm"]
+[ext_resource type="Resource" uid="uid://t3k7vw4p3ae5" path="res://resources/Items/weapons/longsword/weapon_longsword_I.tres" id="21_q5c0h"]
+[ext_resource type="Resource" uid="uid://b7lfcjscb35f1" path="res://resources/Items/armor/mail/mail_II.tres" id="22_uo6ot"]
+[ext_resource type="Resource" uid="uid://bqww2gscn5u7u" path="res://resources/Items/armor/robe/robe_II.tres" id="23_u5v2v"]
+[ext_resource type="Resource" uid="uid://b7r8thxetjjv0" path="res://resources/Items/armor/plate/plate_II.tres" id="24_ofil3"]
+[ext_resource type="Resource" uid="uid://cetlpcs7w2cqb" path="res://resources/Items/armor/leather/leather_II.tres" id="25_h0kiv"]
+[ext_resource type="Resource" uid="uid://dgavgj1d3un6a" path="res://resources/Items/weapons/longsword/weapon_longsword_II.tres" id="26_gr50w"]
+[ext_resource type="Resource" uid="uid://bu5nscwrajhrd" path="res://resources/Items/armor/mail/mail_III.tres" id="27_g3jcs"]
+[ext_resource type="Resource" uid="uid://dhqeo0h6e1u6m" path="res://resources/Items/armor/robe/robe_III.tres" id="28_am461"]
+[ext_resource type="Resource" uid="uid://4dssylse30wl" path="res://resources/Items/armor/plate/plate_III.tres" id="29_gf31q"]
+[ext_resource type="Resource" uid="uid://bg0wrpgckve17" path="res://resources/Items/armor/leather/leather_III.tres" id="30_5ivcp"]
+[ext_resource type="Resource" uid="uid://g1tj2vchpu1h" path="res://resources/Items/weapons/longsword/weapon_longsword_III.tres" id="31_4mysh"]
+[ext_resource type="Resource" uid="uid://bnqc6blvu1h3x" path="res://resources/Items/armor/mail/mail_IV.tres" id="32_klquw"]
+[ext_resource type="Resource" uid="uid://gwxdguf6c17i" path="res://resources/Items/armor/robe/robe_IV.tres" id="33_jyvjk"]
+[ext_resource type="Resource" uid="uid://0lvlio16y825" path="res://resources/Items/armor/plate/plate_IV.tres" id="34_6ahp3"]
+[ext_resource type="Resource" uid="uid://cjx5gkc6y4t1q" path="res://resources/Items/armor/leather/leather_IV.tres" id="35_wdurc"]
+[ext_resource type="Resource" uid="uid://it7ash55meoo" path="res://resources/Items/weapons/longsword/weapon_longsword_IV.tres" id="36_ll15x"]
+[ext_resource type="Resource" uid="uid://b8rg2yaqbptom" path="res://resources/Items/armor/mail/mail_V.tres" id="37_xw8h3"]
+[ext_resource type="Resource" uid="uid://6ott20w76o2t" path="res://resources/Items/armor/robe/robe_V.tres" id="38_4ic6h"]
+[ext_resource type="Resource" uid="uid://ha8g5ywxy23h" path="res://resources/Items/armor/plate/plate_V.tres" id="39_gsn6b"]
+[ext_resource type="Resource" uid="uid://c8k2lxhtxg5uq" path="res://resources/Items/armor/leather/leather_V.tres" id="40_tni55"]
+[ext_resource type="Resource" uid="uid://bevlh6lrxsrpp" path="res://resources/Items/weapons/longsword/weapon_longsword_V.tres" id="41_pcviu"]
+[ext_resource type="Resource" uid="uid://dnf8ubia4y1n0" path="res://resources/Items/armor/mail/mail_VI.tres" id="42_n38p1"]
+[ext_resource type="Resource" uid="uid://c854io5v1mdbv" path="res://resources/Items/armor/robe/robe_VI.tres" id="43_lvgw4"]
+[ext_resource type="Resource" uid="uid://c6d37tl4aty68" path="res://resources/Items/armor/plate/plate_VI.tres" id="44_xntjg"]
+[ext_resource type="Resource" uid="uid://chadut71pv0gf" path="res://resources/Items/armor/leather/leather_VI.tres" id="45_xfm2r"]
+[ext_resource type="Resource" uid="uid://q8n7xa3f1kve" path="res://resources/Items/weapons/longsword/weapon_longsword_VI.tres" id="46_vtj2x"]
 
 [sub_resource type="Resource" id="Resource_0yhc4"]
 script = ExtResource("9_wgkqv")
@@ -39,42 +65,42 @@ enemies = Dictionary[int, ExtResource("1_6lquy")]({
 6: ExtResource("8_aclde"),
 7: ExtResource("9_am8pr")
 })
-battles_per_tier = Array[int]([1, 1, 1, 1, 1, 1])
+battles_per_tier = Array[int]([3, 3, 3, 3, 3, 3])
 metadata/_custom_type_script = "uid://ifelj4o7ncq2"
 
-[sub_resource type="Resource" id="Resource_fj01w"]
+[sub_resource type="Resource" id="Resource_jdlhi"]
 script = ExtResource("15_0niwo")
-items = Array[Resource]([ExtResource("16_wgkqv"), ExtResource("17_am8pr"), ExtResource("18_ri050"), ExtResource("19_2qtix"), ExtResource("20_33ymn")])
+items = Array[ExtResource("16_pjw0j")]([ExtResource("17_31w6b"), ExtResource("18_u0i4h"), ExtResource("19_840l7"), ExtResource("20_kxsmh"), ExtResource("21_q5c0h")])
 metadata/_custom_type_script = "uid://d07n0ta4d26tv"
 
-[sub_resource type="Resource" id="Resource_pjw0j"]
+[sub_resource type="Resource" id="Resource_gj7l2"]
 script = ExtResource("15_0niwo")
-items = Array[Resource]([ExtResource("16_wgkqv"), ExtResource("17_am8pr"), ExtResource("18_ri050"), ExtResource("19_2qtix"), ExtResource("20_33ymn")])
+items = Array[ExtResource("16_pjw0j")]([ExtResource("22_uo6ot"), ExtResource("23_u5v2v"), ExtResource("24_ofil3"), ExtResource("25_h0kiv"), ExtResource("26_gr50w")])
 metadata/_custom_type_script = "uid://d07n0ta4d26tv"
 
-[sub_resource type="Resource" id="Resource_31w6b"]
+[sub_resource type="Resource" id="Resource_3ikja"]
 script = ExtResource("15_0niwo")
-items = Array[Resource]([ExtResource("16_wgkqv"), ExtResource("17_am8pr"), ExtResource("18_ri050"), ExtResource("19_2qtix"), ExtResource("20_33ymn")])
+items = Array[ExtResource("16_pjw0j")]([ExtResource("27_g3jcs"), ExtResource("28_am461"), ExtResource("29_gf31q"), ExtResource("30_5ivcp"), ExtResource("31_4mysh")])
 metadata/_custom_type_script = "uid://d07n0ta4d26tv"
 
-[sub_resource type="Resource" id="Resource_u0i4h"]
+[sub_resource type="Resource" id="Resource_ce87x"]
 script = ExtResource("15_0niwo")
-items = Array[Resource]([ExtResource("16_wgkqv"), ExtResource("17_am8pr"), ExtResource("18_ri050"), ExtResource("19_2qtix"), ExtResource("20_33ymn")])
+items = Array[ExtResource("16_pjw0j")]([ExtResource("32_klquw"), ExtResource("33_jyvjk"), ExtResource("34_6ahp3"), ExtResource("35_wdurc"), ExtResource("36_ll15x")])
 metadata/_custom_type_script = "uid://d07n0ta4d26tv"
 
-[sub_resource type="Resource" id="Resource_840l7"]
+[sub_resource type="Resource" id="Resource_h8tn3"]
 script = ExtResource("15_0niwo")
-items = Array[Resource]([ExtResource("16_wgkqv"), ExtResource("17_am8pr"), ExtResource("18_ri050"), ExtResource("19_2qtix"), ExtResource("20_33ymn")])
+items = Array[ExtResource("16_pjw0j")]([ExtResource("37_xw8h3"), ExtResource("38_4ic6h"), ExtResource("39_gsn6b"), ExtResource("40_tni55"), ExtResource("41_pcviu")])
 metadata/_custom_type_script = "uid://d07n0ta4d26tv"
 
-[sub_resource type="Resource" id="Resource_kxsmh"]
+[sub_resource type="Resource" id="Resource_l77vt"]
 script = ExtResource("15_0niwo")
-items = Array[Resource]([ExtResource("16_wgkqv"), ExtResource("17_am8pr"), ExtResource("18_ri050"), ExtResource("19_2qtix"), ExtResource("20_33ymn")])
+items = Array[ExtResource("16_pjw0j")]([ExtResource("42_n38p1"), ExtResource("43_lvgw4"), ExtResource("44_xntjg"), ExtResource("45_xfm2r"), ExtResource("46_vtj2x")])
 metadata/_custom_type_script = "uid://d07n0ta4d26tv"
 
 [sub_resource type="Resource" id="Resource_10i1l"]
 script = ExtResource("14_vmjrp")
-tiers = Array[ExtResource("15_0niwo")]([SubResource("Resource_fj01w"), SubResource("Resource_pjw0j"), SubResource("Resource_31w6b"), SubResource("Resource_u0i4h"), SubResource("Resource_840l7"), SubResource("Resource_kxsmh")])
+tiers = Array[ExtResource("15_0niwo")]([SubResource("Resource_jdlhi"), SubResource("Resource_gj7l2"), SubResource("Resource_3ikja"), SubResource("Resource_ce87x"), SubResource("Resource_h8tn3"), SubResource("Resource_l77vt")])
 metadata/_custom_type_script = "uid://dsk8sqobmxkuv"
 
 [sub_resource type="Resource" id="Resource_g2vq5"]

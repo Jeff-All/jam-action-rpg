@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bhoacsi1rhf6s" path="res://scenes/campaign/post_battle/ability_select.tscn" id="1_gilsr"]
 [ext_resource type="Script" uid="uid://dthr8sue2xdn5" path="res://scripts/campaign/post_battle/item_select.gd" id="2_58721"]
-[ext_resource type="Texture2D" uid="uid://dc0jusjwycy61" path="res://resources/art/icons/armor/rusty_chain_mail.png" id="3_58721"]
+[ext_resource type="Texture2D" uid="uid://dgbvt2ogkxldv" path="res://resources/art/icons/armor/mail/rusty_chain_mail.png" id="3_58721"]
 
 [node name="ItemSelect" instance=ExtResource("1_gilsr")]
 script = ExtResource("2_58721")

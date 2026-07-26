@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Armor" load_steps=3 format=3 uid="uid://b7lfcjscb35f1"]
+
+[ext_resource type="Script" uid="uid://c80yoskj347ho" path="res://scripts/resources/items/armor.gd" id="1_yl0el"]
+[ext_resource type="Texture2D" uid="uid://2iseenswtlnv" path="res://resources/art/icons/armor/mail/mail_II.png" id="2_yl0el"]
+
+[resource]
+script = ExtResource("1_yl0el")
+name = "Rusty Chain Mail"
+armor_class = 3
+texture = ExtResource("2_yl0el")
+attributes = Dictionary[int, float]({
+3: 2.0,
+5: 10.0,
+6: 2.0
+})
+resources = Dictionary[int, float]({
+1: 6.0
+})
+metadata/_custom_type_script = "uid://c80yoskj347ho"

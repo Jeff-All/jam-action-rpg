@@ -10,7 +10,7 @@ func _ready():
 	for cur in $Items.get_children():
 		items.append(cur)
 
-func setup(_items: Array[Resource]):
+func setup(_items: Array[Item]):
 	for cur in items:
 		cur.visible = false
 	

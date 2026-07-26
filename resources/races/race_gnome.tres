@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Race" load_steps=4 format=3 uid="uid://gy5es324hwyb"]
 
-[ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/classes/class.gd" id="1_8k2ng"]
-[ext_resource type="Script" uid="uid://bkijfvdnaky5k" path="res://scripts/resources/race.gd" id="1_yfqbp"]
+[ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/characters/classes/class.gd" id="1_8k2ng"]
+[ext_resource type="Script" uid="uid://bkijfvdnaky5k" path="res://scripts/resources/characters/race.gd" id="1_yfqbp"]
 [ext_resource type="Texture2D" uid="uid://cg1wgvl2ptto8" path="res://resources/art/icons/races/gnome.png" id="3_8k2ng"]
 
 [resource]

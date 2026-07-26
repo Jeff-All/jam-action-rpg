@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://g1tj2vchpu1h"]
+
+[ext_resource type="Script" uid="uid://8tck1kie4m0e" path="res://scripts/resources/items/weapon.gd" id="1_hmxe0"]
+[ext_resource type="Texture2D" uid="uid://djy82xgdcyvma" path="res://resources/art/icons/weapons/longswords/rusty_longsword_III.png" id="2_hmxe0"]
+
+[resource]
+script = ExtResource("1_hmxe0")
+name = "Longsword"
+texture = ExtResource("2_hmxe0")
+min_damage = 3
+max_damage = 5
+damage_type = "Slashing"
+hit = 70
+speed = 3.0
+metadata/_custom_type_script = "uid://8tck1kie4m0e"

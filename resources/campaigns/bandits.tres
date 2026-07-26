@@ -12,12 +12,12 @@
 [ext_resource type="Resource" uid="uid://bvw6tm6ybvkbx" path="res://resources/enemies/wraith.tres" id="7_epn2k"]
 [ext_resource type="Resource" uid="uid://cqv4n51gwbi88" path="res://resources/enemies/skeletons/skeletal_knight.tres" id="7_koiee"]
 [ext_resource type="Script" uid="uid://7p0hpuqum2t6" path="res://scripts/resources/campaign/campaign_tier.gd" id="8_0yhc4"]
-[ext_resource type="Script" uid="uid://bubl68t4u61vo" path="res://scripts/resources/abilities/ability.gd" id="9_no87l"]
-[ext_resource type="Script" uid="uid://c80yoskj347ho" path="res://scripts/resources/armor.gd" id="10_ym34h"]
-[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/traits/trait.gd" id="11_t6vlg"]
 [ext_resource type="Resource" uid="uid://bu4gi5wf2ogn" path="res://resources/enemies/wolf.tres" id="11_ym34h"]
-[ext_resource type="Script" uid="uid://8tck1kie4m0e" path="res://scripts/resources/weapon.gd" id="12_0yw8a"]
 [ext_resource type="Resource" uid="uid://dsxwgw2v4753f" path="res://resources/enemies/bandit_armored.tres" id="13_t6vlg"]
+[ext_resource type="Script" uid="uid://bubl68t4u61vo" path="res://scripts/resources/characters/abilities/ability.gd" id="15_epn2k"]
+[ext_resource type="Script" uid="uid://c80yoskj347ho" path="res://scripts/resources/items/armor.gd" id="16_koiee"]
+[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="17_l2y4q"]
+[ext_resource type="Script" uid="uid://8tck1kie4m0e" path="res://scripts/resources/items/weapon.gd" id="18_g2vq5"]
 
 [sub_resource type="Resource" id="Resource_0yhc4"]
 script = ExtResource("2_kp2d0")

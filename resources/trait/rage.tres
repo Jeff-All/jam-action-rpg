@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="TraitRage" load_steps=3 format=3 uid="uid://dvy4snhfgwmnt"]
 
-[ext_resource type="Script" uid="uid://cxkbb2gltn44w" path="res://scripts/resources/traits/trait_rage.gd" id="1_3er6k"]
+[ext_resource type="Script" uid="uid://cxkbb2gltn44w" path="res://scripts/resources/characters/traits/trait_rage.gd" id="1_3er6k"]
 [ext_resource type="Texture2D" uid="uid://beu7jlv3g6oby" path="res://resources/art/icons/traits/rage.png" id="2_xdvm6"]
 
 [resource]

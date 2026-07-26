@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="SpellAttack" load_steps=3 format=3 uid="uid://b3c3hm82qu5ci"]
 
-[ext_resource type="Script" uid="uid://da70o1dclfi6h" path="res://scripts/resources/abilities/spell_attacks/spell_attack.gd" id="1_jo4wv"]
+[ext_resource type="Script" uid="uid://da70o1dclfi6h" path="res://scripts/resources/characters/abilities/spell_attacks/spell_attack.gd" id="1_jo4wv"]
 [ext_resource type="Texture2D" uid="uid://c4urfrx44hwsw" path="res://resources/art/icons/abilities/scorch.png" id="2_pq0u2"]
 
 [resource]

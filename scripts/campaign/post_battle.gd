@@ -12,7 +12,7 @@ func _ready():
 	xp_gain = $XPGain
 	loot = $Loot
 
-func start(party: Array[CharacterCampaign], _items: Array[Resource]):
+func start(party: Array[CharacterCampaign], _items: Array[Item]):
 	loot.visible = false
 	loot.setup(_items)
 	xp_gain.setup(party)

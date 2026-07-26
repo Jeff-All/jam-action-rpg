@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Armor" load_steps=3 format=3 uid="uid://b7r8thxetjjv0"]
+
+[ext_resource type="Script" uid="uid://c80yoskj347ho" path="res://scripts/resources/items/armor.gd" id="1_b81g7"]
+[ext_resource type="Texture2D" uid="uid://cbc2rhd6vsrqp" path="res://resources/art/icons/armor/plate/plate_II.png" id="2_17gfl"]
+
+[resource]
+script = ExtResource("1_b81g7")
+armor_class = 4
+attributes = Dictionary[int, float]({
+3: 4.0,
+6: 3.0
+})
+resources = Dictionary[int, float]({
+5: 8.0
+})
+name = "Plate Armor"
+texture = ExtResource("2_17gfl")
+metadata/_custom_type_script = "uid://c80yoskj347ho"
