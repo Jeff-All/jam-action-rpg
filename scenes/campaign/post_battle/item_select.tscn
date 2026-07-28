@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cx4365m8n8qay"]
 
-[ext_resource type="PackedScene" uid="uid://bhoacsi1rhf6s" path="res://scenes/campaign/post_battle/ability_select.tscn" id="1_gilsr"]
+[ext_resource type="PackedScene" uid="uid://bhoacsi1rhf6s" path="res://scenes/campaign/post_battle/selector_pane.tscn" id="1_gilsr"]
 [ext_resource type="Script" uid="uid://dthr8sue2xdn5" path="res://scripts/campaign/post_battle/item_select.gd" id="2_58721"]
 [ext_resource type="Texture2D" uid="uid://dgbvt2ogkxldv" path="res://resources/art/icons/armor/mail/rusty_chain_mail.png" id="3_58721"]
 

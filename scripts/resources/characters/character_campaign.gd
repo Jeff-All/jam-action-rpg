@@ -121,11 +121,19 @@ func add_ability(ability: Ability):
 	available_abilities.append(ability)
 	var index = 0
 	for cur in abilities:
-		if cur == null:
-			break
+		if cur == null: break
 		index += 1
 	if index < abilities.size():
 		abilities[index] = ability
+
+func add_trait(_trait: Trait):
+	available_traits.append(_trait)
+	var index = 0
+	for cur in traits:
+		if cur == null: break
+		index += 1
+	if index < traits.size():
+		traits[index] = _trait
 
 func level_up():
 	if cur_xp >= xp_needed:
