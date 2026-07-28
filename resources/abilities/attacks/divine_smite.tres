@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="DivineSmite" load_steps=3 format=3 uid="uid://dqniejeaqn52h"]
+
+[ext_resource type="Script" uid="uid://de8vqugfqoaci" path="res://scripts/resources/characters/abilities/attacks/divine_smite.gd" id="1_d2vga"]
+[ext_resource type="Texture2D" uid="uid://d0kngsnrp2u21" path="res://resources/art/icons/abilities/divine_smite.png" id="2_2p1ob"]
+
+[resource]
+script = ExtResource("1_d2vga")
+damage_to_shield = 0.5
+shield_to_damage = 0.5
+name = "Divine Smite"
+texture = ExtResource("2_2p1ob")
+cost = Dictionary[int, int]({
+4: 1
+})
+instant = true
+cooldown = 5.0
+targeting = 3
+to_hit = 100
+metadata/_custom_type_script = "uid://de8vqugfqoaci"

@@ -15,8 +15,11 @@ var cur: float:
 		return _cur
 	set(value):
 		if value != _cur:
-			var change = min(value, _max.adjusted) - _cur
-			_cur = min(value, _max.adjusted)
+			if resource == CharacterCampaign.Resources.SHIELDING: print("set_cur: shielding: %s" % [_max.base])
+			if _max.base >= 0:
+				value = min(value, _max.adjusted)
+			var change = value - _cur
+			_cur = value
 			on_cur_changed.emit(self, change)
 
 var cur_floor: int:
@@ -31,6 +34,7 @@ var maxed: bool:
 	get: return _cur >= _max.adjusted
 
 func _init(_resource: CharacterCampaign.Resources, max_: float):
+	if _resource == CharacterCampaign.Resources.SHIELDING: print("_init: shielding: %s" % [max_])
 	resource = _resource
 	_max.base = max_
 	cur = max_

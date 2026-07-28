@@ -24,7 +24,7 @@ var resources: Dictionary[CharacterCampaign.Resources, AdjustableResource] = {
 	CharacterCampaign.Resources.HEALTH: AdjustableResource.new(CharacterCampaign.Resources.HEALTH, 10.0),
 	CharacterCampaign.Resources.ARMOR: AdjustableResource.new(CharacterCampaign.Resources.ARMOR, 0),
 	CharacterCampaign.Resources.DURABILITY: AdjustableResource.new(CharacterCampaign.Resources.DURABILITY, 0),
-	CharacterCampaign.Resources.SHIELDING: AdjustableResource.new(CharacterCampaign.Resources.SHIELDING, 0),
+	CharacterCampaign.Resources.SHIELDING: AdjustableResource.new(CharacterCampaign.Resources.SHIELDING, -1),
 	CharacterCampaign.Resources.STAMINA: AdjustableResource.new(CharacterCampaign.Resources.STAMINA, 5),
 	CharacterCampaign.Resources.MANA: AdjustableResource.new(CharacterCampaign.Resources.MANA, 5),
 }
@@ -63,7 +63,8 @@ func _init(_character_campaign: CharacterCampaign):
 		attributes[cur].on_change.connect(_on_attribute_change)
 	
 	for cur in character_campaign.resources:
-		resources[cur]._max.base = character_campaign.resources[cur]
+		if cur != CharacterCampaign.Resources.SHIELDING:
+			resources[cur]._max.base = character_campaign.resources[cur]
 		resources[cur].cur = character_campaign.resources[cur]
 		resources[cur]._recovery.base = character_campaign.recovery[cur]
 		resources[cur].on_cur_changed.connect(_on_cur_resource_change)

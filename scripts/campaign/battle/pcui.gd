@@ -180,6 +180,7 @@ func bind_status_bars():
 	status_bars.cur_mana = _character.character_campaign.resources[CharacterCampaign.Resources.MANA]
 	
 	status_bars.cur_armor = _character.character_campaign.attributes[CharacterCampaign.Attributes.ARMOR]
+	status_bars.cur_shield = 0
 
 func bind_character():
 	_character.on_resources_consumed.connect(_on_resources_consumed)
@@ -220,13 +221,20 @@ func _on_cur_resource_change(resource: AdjustableResource, _change: float):
 			status_bars.cur_stamina = resource.cur_floor
 		CharacterCampaign.Resources.MANA:
 			status_bars.cur_mana = resource.cur_floor
+		CharacterCampaign.Resources.SHIELDING:
+			status_bars.cur_shield = resource.cur_floor
 	check_if_can_afford_abilities()
 
 func take_damage(value: float, ignore_armor: bool = false):
+	var shield = character.resources[CharacterCampaign.Resources.SHIELDING].cur
 	var armor = character.attributes[CharacterCampaign.Attributes.ARMOR].adjusted
 	var durability = character.resources[CharacterCampaign.Resources.DURABILITY].cur
 	var dur_damage = 0.0
+	var shield_damage = 0.0
 	var orig_value = value
+	if shield > 0:
+		shield_damage = min(value, shield)
+		value -= shield_damage
 	if armor > 0 && durability > 0 && !ignore_armor:
 		var _min = minf(value, armor)
 		dur_damage = snapped(_min * (_min / (armor * 2)), 0.1)
@@ -236,14 +244,23 @@ func take_damage(value: float, ignore_armor: bool = false):
 		else:
 			value = 0
 	print("take_damage(%s(%s)[%.1f])" % [value, orig_value, dur_damage])
-	if dur_damage == 0: spawn_combat_text("%s" % [value as int])
-	else: spawn_combat_text("%s[%.1f]" % [value as int, dur_damage as float])
+	var combat_text_string = "%s" % [value as int]
+	if dur_damage > 0: combat_text_string += "[%.1f]" % [dur_damage as float]
+	if shield_damage > 0: combat_text_string +="(%.1f)" % [shield_damage as float]
+	spawn_combat_text(combat_text_string)
 	
 	var health = character.resources[CharacterCampaign.Resources.HEALTH].cur
 	character.set_cur_resource(CharacterCampaign.Resources.HEALTH, health - value)
 	character.resources[CharacterCampaign.Resources.DURABILITY].cur = durability
+	character.resources[CharacterCampaign.Resources.SHIELDING].cur = shield - shield_damage
 	if durability <= 0:
 		character.attributes[CharacterCampaign.Attributes.ARMOR].override = 0
+
+func add_shield(value: int):
+	print("add_shield: %s" % value)
+	var cur = character.resources[CharacterCampaign.Resources.SHIELDING].cur
+	if cur < value:
+		character.set_cur_resource(CharacterCampaign.Resources.SHIELDING, value)
 
 func check_if_can_afford_abilities():
 	for cur in abilities:
