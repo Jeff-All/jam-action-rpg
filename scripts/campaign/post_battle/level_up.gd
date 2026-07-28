@@ -48,6 +48,7 @@ func set_up(_character: CharacterCampaign, _abilities: Array[Ability], _traits: 
 	for cur in _abilities:
 		if index >= abilities.size():
 			break
+		if _character.available_abilities.has(cur): continue
 		abilities[index].value = cur
 		abilities[index].visible = true
 		index += 1
@@ -55,6 +56,7 @@ func set_up(_character: CharacterCampaign, _abilities: Array[Ability], _traits: 
 	index = 0
 	for cur in _traits:
 		if index >= traits.size(): break
+		if _character.available_traits.has(cur): continue
 		traits[index].value = cur
 		traits[index].visible = true
 		index += 1

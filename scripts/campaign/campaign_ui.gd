@@ -79,9 +79,9 @@ func _battle_on_exit():
 	on_exit.emit()
 
 func _battle_on_continue():
-	battle.reset()
 	for cur in campaign.party:
-		cur.cur_xp += 5
+		cur.cur_xp += campaign.cur_tier + battle.battle.options.difficulty + 1
+	battle.reset()
 	to_post_battle()
 
 func _post_battle_on_end():

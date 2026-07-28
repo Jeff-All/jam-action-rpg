@@ -9,7 +9,7 @@
 [ext_resource type="Resource" uid="uid://4avkklxgpxpv" path="res://resources/Items/armor/robe/robe_I.tres" id="7_besu5"]
 [ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/characters/classes/class.gd" id="8_2udjf"]
 [ext_resource type="Script" uid="uid://bkijfvdnaky5k" path="res://scripts/resources/characters/race.gd" id="10_srmgl"]
-[ext_resource type="Resource" uid="uid://cujlbu0bgcrx2" path="res://resources/classes/class_monk.tres" id="11_pv267"]
+[ext_resource type="Resource" uid="uid://cujlbu0bgcrx2" path="res://resources/classes/monk/class_monk.tres" id="11_pv267"]
 [ext_resource type="Resource" uid="uid://dvlqijcfj3j2s" path="res://resources/races/race_elf.tres" id="13_whvo0"]
 [ext_resource type="Resource" uid="uid://mdah4yhpnsiw" path="res://resources/races/race_dwarf.tres" id="14_53jwt"]
 [ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="15_1ymvw"]

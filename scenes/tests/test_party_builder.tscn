@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/characters/classes/class.gd" id="6_7382a"]
 [ext_resource type="Script" uid="uid://c80yoskj347ho" path="res://scripts/resources/items/armor.gd" id="6_bc2w7"]
 [ext_resource type="Resource" uid="uid://nvmg1wj6p2a5" path="res://resources/Items/armor/rusty_chain_mail.tres" id="7_dt5kl"]
-[ext_resource type="Resource" uid="uid://cujlbu0bgcrx2" path="res://resources/classes/class_monk.tres" id="7_xtdk2"]
+[ext_resource type="Resource" uid="uid://cujlbu0bgcrx2" path="res://resources/classes/monk/class_monk.tres" id="7_xtdk2"]
 [ext_resource type="Resource" uid="uid://bg0illklpqehh" path="res://resources/Items/armor/ragged_leather_vest.tres" id="8_7382a"]
 [ext_resource type="Resource" uid="uid://cxppii7vomqji" path="res://resources/classes/class_rogue.tres" id="8_mykvl"]
 [ext_resource type="Resource" uid="uid://uie5ceorji42" path="res://resources/classes/class_wizard.tres" id="9_c7kvu"]

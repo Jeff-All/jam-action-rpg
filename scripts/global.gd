@@ -41,5 +41,7 @@ extends Node
 @export var max_threat: int = 5
 @export var min_threat: int = 0
 
+@export var xp_per_level: Array[int] = [2, 8, 18, 24, 30, 36]
+
 func roll() -> int:
 	return randi_range(1,100)

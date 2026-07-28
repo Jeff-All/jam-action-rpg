@@ -5,7 +5,7 @@ extends Resource
 var base: CharacterBase
 
 var level: int = 0
-var xp_needed: int = 10
+var xp_needed: int = Global.xp_per_level[0]
 var cur_xp: int = 0
 
 var race: Race
@@ -138,7 +138,8 @@ func add_trait(_trait: Trait):
 func level_up():
 	if cur_xp >= xp_needed:
 		cur_xp = cur_xp - xp_needed
-		xp_needed = xp_needed * 2
+		level += 1
+		xp_needed = Global.xp_per_level[level]
 
 func set_race(_race: Race):
 	race = _race

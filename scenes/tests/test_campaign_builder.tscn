@@ -17,7 +17,7 @@
 [ext_resource type="Script" uid="uid://8tck1kie4m0e" path="res://scripts/resources/items/weapon.gd" id="14_mnk2a"]
 [ext_resource type="Resource" uid="uid://1ww6pcrldjeq" path="res://resources/Items/weapons/weapon_rusty_dagger.tres" id="15_0ua8q"]
 [ext_resource type="Resource" uid="uid://nvmg1wj6p2a5" path="res://resources/Items/armor/rusty_chain_mail.tres" id="16_p3scs"]
-[ext_resource type="Resource" uid="uid://cujlbu0bgcrx2" path="res://resources/classes/class_monk.tres" id="17_uvhpq"]
+[ext_resource type="Resource" uid="uid://cujlbu0bgcrx2" path="res://resources/classes/monk/class_monk.tres" id="17_uvhpq"]
 [ext_resource type="Resource" uid="uid://mdah4yhpnsiw" path="res://resources/races/race_dwarf.tres" id="18_fpw76"]
 [ext_resource type="Resource" uid="uid://dty8f88lvkhfx" path="res://resources/trait/magical.tres" id="19_fwldu"]
 [ext_resource type="Resource" uid="uid://du3shcmfkaba2" path="res://resources/Items/weapons/weapon_worn_longsword_and_shield.tres" id="20_efefc"]
