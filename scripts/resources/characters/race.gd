@@ -27,6 +27,7 @@ extends Resource
 @export var body_textures: Dictionary[Armor.ArmorClass,Texture2D]
 @export var head_textures: Dictionary[Class,Texture2D]
 
+@export var levels: Dictionary[int, ClassLevel]
 
 func get_header() -> String:
 	return name

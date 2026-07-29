@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/characters/classes/class.gd" id="7_knr56"]
 [ext_resource type="Resource" uid="uid://uie5ceorji42" path="res://resources/classes/class_wizard.tres" id="8_4uift"]
 [ext_resource type="Texture2D" uid="uid://dysf4cwh6lonm" path="res://resources/art/pcs/elf/head/wizard.png" id="9_phxb7"]
-[ext_resource type="Resource" uid="uid://cd52scvecilnt" path="res://resources/classes/class_warrior.tres" id="10_56g2s"]
+[ext_resource type="Resource" uid="uid://cd52scvecilnt" path="res://resources/classes/warrior/class_warrior.tres" id="10_56g2s"]
 [ext_resource type="Texture2D" uid="uid://dr6jk1kc7x2u" path="res://resources/art/pcs/elf/head/warrior.png" id="11_3pt75"]
 [ext_resource type="Resource" uid="uid://cujlbu0bgcrx2" path="res://resources/classes/monk/class_monk.tres" id="12_qtrxa"]
 [ext_resource type="Texture2D" uid="uid://bwk06xe5tv71t" path="res://resources/art/pcs/elf/head/monk.png" id="13_knr56"]

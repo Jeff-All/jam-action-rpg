@@ -14,4 +14,8 @@
 script = ExtResource("2_73rhg")
 abilities = Array[ExtResource("1_jirwg")]([ExtResource("2_crokp"), ExtResource("4_nu6pr"), ExtResource("5_3b705")])
 traits = Array[ExtResource("3_tq7ox")]([ExtResource("8_0dk13"), ExtResource("9_8300u"), ExtResource("10_tgdwa")])
+resources = Dictionary[int, float]({
+0: 3.0,
+4: 1.0
+})
 metadata/_custom_type_script = "uid://cr8mt1s82yoec"

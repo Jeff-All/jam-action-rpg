@@ -46,12 +46,12 @@ func set_up(_character: CharacterCampaign, _abilities: Array[Ability], _traits: 
 	
 	var index = 0
 	for cur in _abilities:
-		if index >= abilities.size():
-			break
+		if index >= abilities.size(): break
 		if _character.available_abilities.has(cur): continue
 		abilities[index].value = cur
 		abilities[index].visible = true
 		index += 1
+		cur_ability_count += 1
 	
 	index = 0
 	for cur in _traits:
@@ -60,10 +60,8 @@ func set_up(_character: CharacterCampaign, _abilities: Array[Ability], _traits: 
 		traits[index].value = cur
 		traits[index].visible = true
 		index += 1
-	
-	cur_ability_count = _abilities.size()
-	cur_trait_count = _traits.size()
-	
+		cur_trait_count += 1
+
 	if cur_ability_count > 0:
 		ability_container.visible = true
 	else: if cur_ability_count > 0:

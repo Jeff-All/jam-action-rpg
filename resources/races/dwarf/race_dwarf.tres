@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="Race" load_steps=20 format=3 uid="uid://mdah4yhpnsiw"]
+
+[ext_resource type="Texture2D" uid="uid://b7hccfolnbu5b" path="res://resources/art/pcs/dwarf/body/none.png" id="1_q7sfv"]
+[ext_resource type="Texture2D" uid="uid://c3v5o2xf8hjwi" path="res://resources/art/pcs/dwarf/body/robe.png" id="2_ru2ay"]
+[ext_resource type="Texture2D" uid="uid://il067chpnhke" path="res://resources/art/pcs/dwarf/body/light.png" id="3_qldc8"]
+[ext_resource type="Texture2D" uid="uid://djq8jrovhvky4" path="res://resources/art/pcs/dwarf/body/medium.png" id="4_noktv"]
+[ext_resource type="Texture2D" uid="uid://bd7aid43g5gf0" path="res://resources/art/pcs/dwarf/body/heavy.png" id="5_ij1op"]
+[ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/characters/classes/class.gd" id="6_tnkvr"]
+[ext_resource type="Resource" uid="uid://cujlbu0bgcrx2" path="res://resources/classes/monk/class_monk.tres" id="7_orhsr"]
+[ext_resource type="Texture2D" uid="uid://h4s6jxl2l6h" path="res://resources/art/pcs/dwarf/head/monk.png" id="8_cfnvb"]
+[ext_resource type="Resource" uid="uid://cxppii7vomqji" path="res://resources/classes/class_rogue.tres" id="9_u0sqk"]
+[ext_resource type="Texture2D" uid="uid://0h3cvmsi6tnc" path="res://resources/art/pcs/dwarf/head/rogue.png" id="10_u0oru"]
+[ext_resource type="Resource" uid="uid://uie5ceorji42" path="res://resources/classes/class_wizard.tres" id="11_ll1ys"]
+[ext_resource type="Texture2D" uid="uid://dxh545nxhbl2o" path="res://resources/art/pcs/dwarf/head/wizard.png" id="12_0ncgk"]
+[ext_resource type="Resource" uid="uid://cd52scvecilnt" path="res://resources/classes/warrior/class_warrior.tres" id="13_4sj0e"]
+[ext_resource type="Texture2D" uid="uid://ccyqqq2srrd8q" path="res://resources/art/pcs/dwarf/head/warrior.png" id="14_k2psf"]
+[ext_resource type="Script" uid="uid://cr8mt1s82yoec" path="res://scripts/resources/characters/classes/class_level.gd" id="15_soe7j"]
+[ext_resource type="Resource" uid="uid://dmn701j7b6g72" path="res://resources/races/dwarf/dwarf_1.tres" id="16_picsw"]
+[ext_resource type="Resource" uid="uid://bwbfwj12433x5" path="res://resources/races/dwarf/dwarf_2.tres" id="17_hi1vu"]
+[ext_resource type="Script" uid="uid://bkijfvdnaky5k" path="res://scripts/resources/characters/race.gd" id="18_1qjbj"]
+[ext_resource type="Texture2D" uid="uid://boroq0lf8240i" path="res://resources/art/icons/races/dwarf.png" id="19_uk4ld"]
+
+[resource]
+script = ExtResource("18_1qjbj")
+name = "Dwarf"
+texture = ExtResource("19_uk4ld")
+strength = 2
+magic = 1
+armor = 1
+durability = 5
+body_textures = Dictionary[int, Texture2D]({
+0: ExtResource("1_q7sfv"),
+1: ExtResource("2_ru2ay"),
+2: ExtResource("3_qldc8"),
+3: ExtResource("4_noktv"),
+4: ExtResource("5_ij1op")
+})
+head_textures = Dictionary[ExtResource("6_tnkvr"), Texture2D]({
+ExtResource("7_orhsr"): ExtResource("8_cfnvb"),
+ExtResource("9_u0sqk"): ExtResource("10_u0oru"),
+ExtResource("11_ll1ys"): ExtResource("12_0ncgk"),
+ExtResource("13_4sj0e"): ExtResource("14_k2psf")
+})
+levels = Dictionary[int, ExtResource("15_soe7j")]({
+1: ExtResource("16_picsw"),
+2: ExtResource("17_hi1vu"),
+3: ExtResource("17_hi1vu"),
+4: ExtResource("17_hi1vu"),
+5: ExtResource("17_hi1vu"),
+6: ExtResource("17_hi1vu")
+})
+metadata/_custom_type_script = "uid://bkijfvdnaky5k"

@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Class" load_steps=6 format=3 uid="uid://cd52scvecilnt"]
+
+[ext_resource type="Script" uid="uid://cr8mt1s82yoec" path="res://scripts/resources/characters/classes/class_level.gd" id="1_vfv6k"]
+[ext_resource type="Resource" uid="uid://5elh4vjn5g5u" path="res://resources/classes/warrior/warrior_1.tres" id="2_e6ume"]
+[ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/characters/classes/class.gd" id="3_dgexg"]
+[ext_resource type="Resource" uid="uid://cwt7um1qeeoyt" path="res://resources/classes/warrior/warrior_2.tres" id="3_e6ume"]
+[ext_resource type="Texture2D" uid="uid://drcwqs8ghiwsa" path="res://resources/art/icons/classes/warrior.png" id="4_o7tf7"]
+
+[resource]
+script = ExtResource("3_dgexg")
+name = "Warrior"
+texture = ExtResource("4_o7tf7")
+threat = 3
+attack = 3
+strength = 1
+armor = 1
+durability = 3
+health = 5
+health_recovery = 1
+levels = Dictionary[int, ExtResource("1_vfv6k")]({
+1: ExtResource("2_e6ume"),
+2: ExtResource("3_e6ume"),
+3: ExtResource("3_e6ume"),
+4: ExtResource("3_e6ume"),
+5: ExtResource("3_e6ume"),
+6: ExtResource("3_e6ume")
+})
+metadata/_custom_type_script = "uid://7im2jq7xrwm1"

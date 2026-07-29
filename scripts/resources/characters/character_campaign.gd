@@ -140,6 +140,26 @@ func level_up():
 		cur_xp = cur_xp - xp_needed
 		level += 1
 		xp_needed = Global.xp_per_level[level]
+	
+	if _class.levels.has(level):
+		for cur in _class.levels[level].attributes:
+			attributes[cur] += _class.levels[level].attributes[cur]
+		
+		for cur in _class.levels[level].resources:
+			resources[cur] += _class.levels[level].resources[cur]
+		
+		for cur in _class.levels[level].recovery:
+			recovery[cur] += _class.levels[level].recovery[cur]
+	
+	if race.levels.has(level):
+		for cur in race.levels[level].attributes:
+			attributes[cur] += race.levels[level].attributes[cur]
+		
+		for cur in race.levels[level].resources:
+			resources[cur] += race.levels[level].resources[cur]
+		
+		for cur in race.levels[level].recovery:
+			recovery[cur] += race.levels[level].recovery[cur]
 
 func set_race(_race: Race):
 	race = _race

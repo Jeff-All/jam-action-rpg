@@ -1,22 +1,10 @@
-[gd_resource type="Resource" script_class="Class" load_steps=13 format=3 uid="uid://cujlbu0bgcrx2"]
+[gd_resource type="Resource" script_class="Class" load_steps=6 format=3 uid="uid://cujlbu0bgcrx2"]
 
 [ext_resource type="Script" uid="uid://cr8mt1s82yoec" path="res://scripts/resources/characters/classes/class_level.gd" id="1_wrp5h"]
-[ext_resource type="Script" uid="uid://bubl68t4u61vo" path="res://scripts/resources/characters/abilities/ability.gd" id="2_pjr25"]
-[ext_resource type="Resource" uid="uid://bdjuot6dqgybf" path="res://resources/abilities/boons/restore.tres" id="3_pm1ht"]
-[ext_resource type="Resource" uid="uid://c3kjh8y1s3hkk" path="res://resources/abilities/attacks/mighty_blow.tres" id="4_inm3r"]
-[ext_resource type="Resource" uid="uid://dqniejeaqn52h" path="res://resources/abilities/attacks/divine_smite.tres" id="5_l6gfm"]
-[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="6_5jldo"]
-[ext_resource type="Resource" uid="uid://dvy4snhfgwmnt" path="res://resources/trait/rage.tres" id="7_dqci1"]
-[ext_resource type="Resource" uid="uid://dgd3itgl2jlui" path="res://resources/trait/subtle.tres" id="8_qtdhy"]
-[ext_resource type="Resource" uid="uid://drhmxylhgm8r" path="res://resources/trait/desperate_frenzy.tres" id="9_wf5bq"]
+[ext_resource type="Resource" uid="uid://dlnbv4lwslu77" path="res://resources/classes/monk/monk_1.tres" id="2_6qk2a"]
+[ext_resource type="Resource" uid="uid://dfmetx350k4hr" path="res://resources/classes/monk/monk_2.tres" id="3_37k7d"]
 [ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/characters/classes/class.gd" id="10_erfh3"]
 [ext_resource type="Texture2D" uid="uid://j5e4w0eirxqm" path="res://resources/art/icons/classes/monk.png" id="11_ysbjh"]
-
-[sub_resource type="Resource" id="Resource_7wamc"]
-script = ExtResource("1_wrp5h")
-abilities = Array[ExtResource("2_pjr25")]([ExtResource("3_pm1ht"), ExtResource("4_inm3r"), ExtResource("5_l6gfm")])
-traits = Array[ExtResource("6_5jldo")]([ExtResource("7_dqci1"), ExtResource("8_qtdhy"), ExtResource("9_wf5bq")])
-metadata/_custom_type_script = "uid://cr8mt1s82yoec"
 
 [resource]
 script = ExtResource("10_erfh3")
@@ -29,6 +17,11 @@ durability = 3
 health = 2
 mana = 5
 levels = Dictionary[int, ExtResource("1_wrp5h")]({
-1: SubResource("Resource_7wamc")
+1: ExtResource("2_6qk2a"),
+2: ExtResource("3_37k7d"),
+3: ExtResource("3_37k7d"),
+4: ExtResource("3_37k7d"),
+5: ExtResource("3_37k7d"),
+6: ExtResource("3_37k7d")
 })
 metadata/_custom_type_script = "uid://7im2jq7xrwm1"

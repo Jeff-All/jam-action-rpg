@@ -59,13 +59,13 @@ func _init(_character_campaign: CharacterCampaign):
 	character_campaign = _character_campaign
 	
 	for cur in character_campaign.attributes:
-		attributes[cur].base =  character_campaign.attributes[cur]
+		attributes[cur].base =  floor(character_campaign.attributes[cur])
 		attributes[cur].on_change.connect(_on_attribute_change)
 	
 	for cur in character_campaign.resources:
 		if cur != CharacterCampaign.Resources.SHIELDING:
-			resources[cur]._max.base = character_campaign.resources[cur]
-		resources[cur].cur = character_campaign.resources[cur]
+			resources[cur]._max.base = floor(character_campaign.resources[cur])
+		resources[cur].cur = floor(character_campaign.resources[cur])
 		resources[cur]._recovery.base = character_campaign.recovery[cur]
 		resources[cur].on_cur_changed.connect(_on_cur_resource_change)
 	

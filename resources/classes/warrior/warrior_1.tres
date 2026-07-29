@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ClassLevel" load_steps=10 format=3 uid="uid://5elh4vjn5g5u"]
+
+[ext_resource type="Script" uid="uid://bubl68t4u61vo" path="res://scripts/resources/characters/abilities/ability.gd" id="1_5hh88"]
+[ext_resource type="Resource" uid="uid://bdjuot6dqgybf" path="res://resources/abilities/boons/restore.tres" id="2_bdby8"]
+[ext_resource type="Script" uid="uid://cr8mt1s82yoec" path="res://scripts/resources/characters/classes/class_level.gd" id="2_i775a"]
+[ext_resource type="Resource" uid="uid://c3kjh8y1s3hkk" path="res://resources/abilities/attacks/mighty_blow.tres" id="3_d556c"]
+[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="3_m5vu7"]
+[ext_resource type="Resource" uid="uid://pm7hyykpmdep" path="res://resources/abilities/attacks/quick_strike.tres" id="4_bdby8"]
+[ext_resource type="Resource" uid="uid://dvy4snhfgwmnt" path="res://resources/trait/rage.tres" id="7_gg1rl"]
+[ext_resource type="Resource" uid="uid://dgd3itgl2jlui" path="res://resources/trait/subtle.tres" id="8_co6uf"]
+[ext_resource type="Resource" uid="uid://drhmxylhgm8r" path="res://resources/trait/desperate_frenzy.tres" id="9_yy682"]
+
+[resource]
+script = ExtResource("2_i775a")
+abilities = Array[ExtResource("1_5hh88")]([ExtResource("2_bdby8"), ExtResource("3_d556c"), ExtResource("4_bdby8")])
+traits = Array[ExtResource("3_m5vu7")]([ExtResource("7_gg1rl"), ExtResource("8_co6uf"), ExtResource("9_yy682")])
+resources = Dictionary[int, float]({
+0: 3.0,
+1: 1.0,
+3: 1.0
+})
+metadata/_custom_type_script = "uid://cr8mt1s82yoec"

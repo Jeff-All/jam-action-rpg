@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://bkijfvdnaky5k" path="res://scripts/resources/characters/race.gd" id="10_srmgl"]
 [ext_resource type="Resource" uid="uid://cujlbu0bgcrx2" path="res://resources/classes/monk/class_monk.tres" id="11_pv267"]
 [ext_resource type="Resource" uid="uid://dvlqijcfj3j2s" path="res://resources/races/race_elf.tres" id="13_whvo0"]
-[ext_resource type="Resource" uid="uid://mdah4yhpnsiw" path="res://resources/races/race_dwarf.tres" id="14_53jwt"]
+[ext_resource type="Resource" uid="uid://mdah4yhpnsiw" path="res://resources/races/dwarf/race_dwarf.tres" id="14_53jwt"]
 [ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="15_1ymvw"]
 [ext_resource type="Resource" uid="uid://m4doyb4kcxlp" path="res://resources/races/race_pixie.tres" id="15_e6qja"]
 [ext_resource type="Script" uid="uid://b0rrnk75kj3xv" path="res://scripts/resources/characters/character_start_options.gd" id="16_7jsan"]

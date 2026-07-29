@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://esxotjdg6yoe" path="res://resources/art/pcs/pixie/head/rogue.png" id="10_cvdp2"]
 [ext_resource type="Resource" uid="uid://uie5ceorji42" path="res://resources/classes/class_wizard.tres" id="11_q4oan"]
 [ext_resource type="Texture2D" uid="uid://dp3uy4s47e0mx" path="res://resources/art/pcs/pixie/head/wizard.png" id="12_c2gr7"]
-[ext_resource type="Resource" uid="uid://cd52scvecilnt" path="res://resources/classes/class_warrior.tres" id="13_rtvga"]
+[ext_resource type="Resource" uid="uid://cd52scvecilnt" path="res://resources/classes/warrior/class_warrior.tres" id="13_rtvga"]
 [ext_resource type="Texture2D" uid="uid://dy03xms73hsu6" path="res://resources/art/pcs/pixie/head/warrior.png" id="14_pnx15"]
 
 [resource]
