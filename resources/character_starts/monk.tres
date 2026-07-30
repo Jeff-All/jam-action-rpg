@@ -1,17 +1,16 @@
-[gd_resource type="Resource" script_class="CharacterStartOptions" load_steps=21 format=3 uid="uid://cuqx071yncbta"]
+[gd_resource type="Resource" script_class="CharacterStartOptions" load_steps=20 format=3 uid="uid://cuqx071yncbta"]
 
 [ext_resource type="Script" uid="uid://bubl68t4u61vo" path="res://scripts/resources/characters/abilities/ability.gd" id="1_besu5"]
-[ext_resource type="Resource" uid="uid://bdjuot6dqgybf" path="res://resources/abilities/boons/restore.tres" id="2_srmgl"]
-[ext_resource type="Resource" uid="uid://c3kjh8y1s3hkk" path="res://resources/abilities/attacks/mighty_blow.tres" id="3_1ymvw"]
+[ext_resource type="Resource" uid="uid://bgy1piqbwk4va" path="res://resources/abilities/spells/divine_protection.tres" id="3_y6yhs"]
 [ext_resource type="Resource" uid="uid://dqniejeaqn52h" path="res://resources/abilities/attacks/divine_smite.tres" id="4_besu5"]
 [ext_resource type="Script" uid="uid://c80yoskj347ho" path="res://scripts/resources/items/armor.gd" id="5_dkkpj"]
 [ext_resource type="Resource" uid="uid://dkg1x5ikhce20" path="res://resources/Items/armor/mail/mail_I.tres" id="6_b0puu"]
 [ext_resource type="Resource" uid="uid://4avkklxgpxpv" path="res://resources/Items/armor/robe/robe_I.tres" id="7_besu5"]
 [ext_resource type="Script" uid="uid://7im2jq7xrwm1" path="res://scripts/resources/characters/classes/class.gd" id="8_2udjf"]
+[ext_resource type="Resource" uid="uid://cujlbu0bgcrx2" path="res://resources/classes/monk/class_monk.tres" id="8_besu5"]
 [ext_resource type="Script" uid="uid://bkijfvdnaky5k" path="res://scripts/resources/characters/race.gd" id="10_srmgl"]
-[ext_resource type="Resource" uid="uid://cujlbu0bgcrx2" path="res://resources/classes/monk/class_monk.tres" id="11_pv267"]
+[ext_resource type="Resource" uid="uid://mdah4yhpnsiw" path="res://resources/races/dwarf/race_dwarf.tres" id="11_dkkpj"]
 [ext_resource type="Resource" uid="uid://dvlqijcfj3j2s" path="res://resources/races/race_elf.tres" id="13_whvo0"]
-[ext_resource type="Resource" uid="uid://mdah4yhpnsiw" path="res://resources/races/dwarf/race_dwarf.tres" id="14_53jwt"]
 [ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="15_1ymvw"]
 [ext_resource type="Resource" uid="uid://m4doyb4kcxlp" path="res://resources/races/race_pixie.tres" id="15_e6qja"]
 [ext_resource type="Script" uid="uid://b0rrnk75kj3xv" path="res://scripts/resources/characters/character_start_options.gd" id="16_7jsan"]
@@ -23,9 +22,9 @@
 
 [resource]
 script = ExtResource("16_7jsan")
-races = Array[ExtResource("10_srmgl")]([ExtResource("13_whvo0"), ExtResource("14_53jwt"), ExtResource("15_e6qja")])
-classes = Array[ExtResource("8_2udjf")]([ExtResource("11_pv267")])
-abilities = Array[ExtResource("1_besu5")]([ExtResource("2_srmgl"), ExtResource("3_1ymvw"), ExtResource("4_besu5")])
+races = Array[ExtResource("10_srmgl")]([ExtResource("13_whvo0"), ExtResource("11_dkkpj"), ExtResource("15_e6qja")])
+classes = Array[ExtResource("8_2udjf")]([ExtResource("8_besu5")])
+abilities = Array[ExtResource("1_besu5")]([ExtResource("4_besu5"), ExtResource("3_y6yhs")])
 traits = Array[ExtResource("15_1ymvw")]([ExtResource("18_yay8f"), ExtResource("19_csm5s"), ExtResource("20_2udjf")])
 weapons = Array[ExtResource("19_ws6di")]([ExtResource("20_k0j7h")])
 armor = Array[ExtResource("5_dkkpj")]([ExtResource("6_b0puu"), ExtResource("7_besu5")])

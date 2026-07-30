@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DivineProtection" load_steps=3 format=3 uid="uid://bgy1piqbwk4va"]
+
+[ext_resource type="Script" uid="uid://bnibcoue7q8a6" path="res://scripts/resources/characters/abilities/spells/divine_protection.gd" id="1_n7kb6"]
+[ext_resource type="Texture2D" uid="uid://bw5rj563art7j" path="res://resources/art/icons/abilities/divine_protection.png" id="2_digny"]
+
+[resource]
+script = ExtResource("1_n7kb6")
+name = "Divine Protection"
+texture = ExtResource("2_digny")
+cost = Dictionary[int, int]({
+4: 5
+})
+instant = true
+cooldown = 10.0
+targeting = 2
+metadata/_custom_type_script = "uid://bnibcoue7q8a6"

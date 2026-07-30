@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="ClassLevel" load_steps=10 format=3 uid="uid://dlnbv4lwslu77"]
+[gd_resource type="Resource" script_class="ClassLevel" load_steps=11 format=3 uid="uid://dlnbv4lwslu77"]
 
 [ext_resource type="Script" uid="uid://bubl68t4u61vo" path="res://scripts/resources/characters/abilities/ability.gd" id="1_jirwg"]
 [ext_resource type="Script" uid="uid://cr8mt1s82yoec" path="res://scripts/resources/characters/classes/class_level.gd" id="2_73rhg"]
 [ext_resource type="Resource" uid="uid://bdjuot6dqgybf" path="res://resources/abilities/boons/restore.tres" id="2_crokp"]
 [ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="3_tq7ox"]
+[ext_resource type="Resource" uid="uid://bgy1piqbwk4va" path="res://resources/abilities/spells/divine_protection.tres" id="4_crokp"]
 [ext_resource type="Resource" uid="uid://dqniejeaqn52h" path="res://resources/abilities/attacks/divine_smite.tres" id="4_nu6pr"]
 [ext_resource type="Resource" uid="uid://c3kjh8y1s3hkk" path="res://resources/abilities/attacks/mighty_blow.tres" id="5_3b705"]
 [ext_resource type="Resource" uid="uid://dvy4snhfgwmnt" path="res://resources/trait/rage.tres" id="8_0dk13"]
@@ -12,7 +13,7 @@
 
 [resource]
 script = ExtResource("2_73rhg")
-abilities = Array[ExtResource("1_jirwg")]([ExtResource("2_crokp"), ExtResource("4_nu6pr"), ExtResource("5_3b705")])
+abilities = Array[ExtResource("1_jirwg")]([ExtResource("2_crokp"), ExtResource("4_nu6pr"), ExtResource("4_crokp"), ExtResource("5_3b705")])
 traits = Array[ExtResource("3_tq7ox")]([ExtResource("8_0dk13"), ExtResource("9_8300u"), ExtResource("10_tgdwa")])
 resources = Dictionary[int, float]({
 0: 3.0,
