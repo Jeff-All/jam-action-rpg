@@ -250,11 +250,11 @@ func take_damage(value: float, ignore_armor: bool = false):
 	spawn_combat_text(combat_text_string)
 	
 	var health = character.resources[CharacterCampaign.Resources.HEALTH].cur
-	character.set_cur_resource(CharacterCampaign.Resources.HEALTH, health - value)
 	character.resources[CharacterCampaign.Resources.DURABILITY].cur = durability
 	character.resources[CharacterCampaign.Resources.SHIELDING].cur = shield - shield_damage
 	if durability <= 0:
 		character.attributes[CharacterCampaign.Attributes.ARMOR].override = 0
+	character.set_cur_resource(CharacterCampaign.Resources.HEALTH, health - value)
 
 func add_shield(value: int):
 	print("add_shield: %s" % value)
@@ -291,6 +291,7 @@ func spawn_combat_text(text: String):
 
 func _on_death(_char: CharacterBattle):
 	dead = true
+	clear_buffs()
 	on_death.emit(self)
 	for cur in abilities:
 		cur.clickable = false

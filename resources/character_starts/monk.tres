@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="CharacterStartOptions" load_steps=20 format=3 uid="uid://cuqx071yncbta"]
+[gd_resource type="Resource" script_class="CharacterStartOptions" load_steps=21 format=3 uid="uid://cuqx071yncbta"]
 
 [ext_resource type="Script" uid="uid://bubl68t4u61vo" path="res://scripts/resources/characters/abilities/ability.gd" id="1_besu5"]
 [ext_resource type="Resource" uid="uid://bgy1piqbwk4va" path="res://resources/abilities/spells/divine_protection.tres" id="3_y6yhs"]
 [ext_resource type="Resource" uid="uid://dqniejeaqn52h" path="res://resources/abilities/attacks/divine_smite.tres" id="4_besu5"]
+[ext_resource type="Resource" uid="uid://dk76ljlhdrfkn" path="res://resources/abilities/boons/divine_blessing.tres" id="4_dkkpj"]
 [ext_resource type="Script" uid="uid://c80yoskj347ho" path="res://scripts/resources/items/armor.gd" id="5_dkkpj"]
 [ext_resource type="Resource" uid="uid://dkg1x5ikhce20" path="res://resources/Items/armor/mail/mail_I.tres" id="6_b0puu"]
 [ext_resource type="Resource" uid="uid://4avkklxgpxpv" path="res://resources/Items/armor/robe/robe_I.tres" id="7_besu5"]
@@ -24,7 +25,7 @@
 script = ExtResource("16_7jsan")
 races = Array[ExtResource("10_srmgl")]([ExtResource("13_whvo0"), ExtResource("11_dkkpj"), ExtResource("15_e6qja")])
 classes = Array[ExtResource("8_2udjf")]([ExtResource("8_besu5")])
-abilities = Array[ExtResource("1_besu5")]([ExtResource("4_besu5"), ExtResource("3_y6yhs")])
+abilities = Array[ExtResource("1_besu5")]([ExtResource("4_besu5"), ExtResource("3_y6yhs"), ExtResource("4_dkkpj")])
 traits = Array[ExtResource("15_1ymvw")]([ExtResource("18_yay8f"), ExtResource("19_csm5s"), ExtResource("20_2udjf")])
 weapons = Array[ExtResource("19_ws6di")]([ExtResource("20_k0j7h")])
 armor = Array[ExtResource("5_dkkpj")]([ExtResource("6_b0puu"), ExtResource("7_besu5")])

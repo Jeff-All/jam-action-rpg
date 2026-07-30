@@ -194,12 +194,13 @@ func target_self(_self: PCUI):
 
 func target_allies(_self: PCUI):
 	for cur in pcs:
-		if cur != _self:
+		if cur != _self && !cur._dead:
 			cur.clickable = true
 
 func target_party():
 	for cur in pcs:
-		cur.clickable = true
+		if !cur._dead:
+			cur.clickable = true
 
 func target_melee():
 	var front_has = false

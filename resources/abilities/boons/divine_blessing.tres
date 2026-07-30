@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Boon" load_steps=5 format=3 uid="uid://dk76ljlhdrfkn"]
+
+[ext_resource type="Script" uid="uid://d37u3pn8m2li2" path="res://scripts/resources/buffs/buffs_pc/buff_pc_divine_blessing.gd" id="1_2jkqb"]
+[ext_resource type="Script" uid="uid://s55yf4c5jaib" path="res://scripts/resources/characters/abilities/boons/boon.gd" id="1_51nn5"]
+[ext_resource type="Texture2D" uid="uid://ddv8a60tewh33" path="res://resources/art/icons/abilities/divine_blessing.png" id="3_jpx86"]
+
+[sub_resource type="Resource" id="Resource_efiw4"]
+script = ExtResource("1_2jkqb")
+shielding_per_step = 2
+base_applications = 20
+texture = ExtResource("3_jpx86")
+metadata/_custom_type_script = "uid://d37u3pn8m2li2"
+
+[resource]
+script = ExtResource("1_51nn5")
+buff = SubResource("Resource_efiw4")
+name = "Divine Blessing"
+texture = ExtResource("3_jpx86")
+cost = Dictionary[int, int]({
+4: 5
+})
+instant = true
+cooldown = 10.0
+targeting = 2
+metadata/_custom_type_script = "uid://s55yf4c5jaib"

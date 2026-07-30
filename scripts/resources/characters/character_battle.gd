@@ -8,6 +8,7 @@ signal on_attribute_change(attribute: CharacterCampaign.Attributes, value: int)
 signal on_death(character: CharacterBattle)
 
 var character_campaign: CharacterCampaign
+var dead: bool = false
 
 var attributes: Dictionary[CharacterCampaign.Attributes, AdjustableAttribute] = {
 	CharacterCampaign.Attributes.STRENGTH: AdjustableAttribute.new(CharacterCampaign.Attributes.STRENGTH),
@@ -32,9 +33,11 @@ var resources: Dictionary[CharacterCampaign.Resources, AdjustableResource] = {
 var traits: Array[Trait]
 
 func _on_cur_resource_change(resource: AdjustableResource, _change: float):
+	if dead: return
 	match resource.resource:
 		CharacterCampaign.Resources.HEALTH:
-			if resource.cur <= 0:
+			if resource.cur <= 0 && !dead:
+				dead = true
 				on_death.emit(self)
 	on_cur_resource_change.emit(resource, _change)
 
