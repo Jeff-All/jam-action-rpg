@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Shield" load_steps=3 format=3 uid="uid://ds0oies220imp"]
+
+[ext_resource type="Script" uid="uid://djqx6y1tpy1ds" path="res://scripts/resources/items/shield.gd" id="1_tojun"]
+[ext_resource type="Texture2D" uid="uid://dw3jqj41x5mo" path="res://resources/art/icons/weapons/round_shields/round_shield_and_longword_II.png" id="2_tojun"]
+
+[resource]
+script = ExtResource("1_tojun")
+base_chance_to_block = 50
+base_amount_to_block = 1
+_min_damage = 2
+_max_damage = 4
+_damage_type = "Slashing"
+_hit = 50
+_speed = 3.0
+attributes = Dictionary[int, float]({
+6: 2.0
+})
+name = "Round Shield and Longsword II"
+texture = ExtResource("2_tojun")
+metadata/_custom_type_script = "uid://djqx6y1tpy1ds"

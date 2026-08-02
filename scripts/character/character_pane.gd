@@ -121,7 +121,7 @@ func swap_armor(_armor: Armor):
 func swap_weapon(_weapon: Weapon):
 	var old_weapon = cur_slot_button.value
 	cur_slot_button.fill(_weapon)
-	_character.unequip_weapon()
+	_character.unequip_weapon() 
 	_character.equip_weapon(_weapon)
 	portrait._populate_textures()
 	campaign.inventory.remove_at(campaign.inventory.find(_weapon))

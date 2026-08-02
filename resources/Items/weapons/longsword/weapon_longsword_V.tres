@@ -5,11 +5,11 @@
 
 [resource]
 script = ExtResource("1_bl16p")
+_min_damage = 5
+_max_damage = 7
+_damage_type = "Slashing"
+_hit = 70
+_speed = 3.0
 name = "Longsword"
 texture = ExtResource("2_bl16p")
-min_damage = 5
-max_damage = 7
-damage_type = "Slashing"
-hit = 70
-speed = 3.0
 metadata/_custom_type_script = "uid://8tck1kie4m0e"

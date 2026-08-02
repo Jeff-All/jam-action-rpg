@@ -27,6 +27,6 @@ races = Array[ExtResource("10_srmgl")]([ExtResource("13_whvo0"), ExtResource("11
 classes = Array[ExtResource("8_2udjf")]([ExtResource("8_besu5")])
 abilities = Array[ExtResource("1_besu5")]([ExtResource("4_besu5"), ExtResource("3_y6yhs"), ExtResource("4_dkkpj")])
 traits = Array[ExtResource("15_1ymvw")]([ExtResource("18_yay8f"), ExtResource("19_csm5s"), ExtResource("20_2udjf")])
-weapons = Array[ExtResource("19_ws6di")]([ExtResource("20_k0j7h")])
+weapons = Array[ExtResource("19_ws6di")]([ExtResource("20_k0j7h"), null])
 armor = Array[ExtResource("5_dkkpj")]([ExtResource("6_b0puu"), ExtResource("7_besu5")])
 metadata/_custom_type_script = "uid://b0rrnk75kj3xv"

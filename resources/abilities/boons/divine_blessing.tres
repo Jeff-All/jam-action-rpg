@@ -7,7 +7,7 @@
 [sub_resource type="Resource" id="Resource_efiw4"]
 script = ExtResource("1_2jkqb")
 shielding_per_step = 2
-base_applications = 20
+base_applications = 1
 texture = ExtResource("3_jpx86")
 metadata/_custom_type_script = "uid://d37u3pn8m2li2"
 

@@ -232,21 +232,30 @@ func take_damage(value: float, ignore_armor: bool = false):
 	var dur_damage = 0.0
 	var shield_damage = 0.0
 	var orig_value = value
+	var dmg_blocked = 0.0
 	if shield > 0:
 		shield_damage = min(value, shield)
 		value -= shield_damage
-	if armor > 0 && durability > 0 && !ignore_armor:
-		var _min = minf(value, armor)
-		dur_damage = snapped(_min * (_min / (armor * 2)), 0.1)
-		durability -= dur_damage
-		if armor <= value:
-			value = value - armor
-		else:
-			value = 0
-	print("take_damage(%s(%s)[%.1f])" % [value, orig_value, dur_damage])
+	if value > 0:
+		if character.character_campaign.weapon is Shield:
+			var w_shield = character.character_campaign.weapon as Shield
+			var block_roll = Global.roll()
+			if block_roll < w_shield.base_chance_to_block:
+				dmg_blocked = min(w_shield.base_amount_to_block, value)
+				value -= dmg_blocked
+		if armor > 0 && durability > 0 && !ignore_armor:
+			var _min = minf(value, armor)
+			dur_damage = snapped(_min * (_min / (armor * 2)), 0.1)
+			durability -= dur_damage
+			if armor <= value:
+				value = value - armor
+			else:
+				value = 0
+	print("take_damage(%s(%s)[%.1f]{%.1f})" % [value, orig_value, dur_damage, dmg_blocked])
 	var combat_text_string = "%s" % [value as int]
 	if dur_damage > 0: combat_text_string += "[%.1f]" % [dur_damage as float]
 	if shield_damage > 0: combat_text_string +="(%.1f)" % [shield_damage as float]
+	if dmg_blocked > 0: combat_text_string +="{%.1f}" % [dmg_blocked as float]
 	spawn_combat_text(combat_text_string)
 	
 	var health = character.resources[CharacterCampaign.Resources.HEALTH].cur

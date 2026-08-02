@@ -2,11 +2,22 @@ class_name Weapon
 
 extends EquippableItem
 
-@export var min_damage: int
-@export var max_damage: int
-@export var damage_type: String
-@export var hit: int
-@export var speed: float
+@export var _min_damage: int
+@export var _max_damage: int
+@export var _damage_type: String
+@export var _hit: int
+@export var _speed: float
+
+var min_damage: int: 
+	get: return _min_damage
+var max_damage: int:
+	get: return _max_damage
+var damage_type: String:
+	get: return _damage_type
+var hit: int:
+	get: return _hit	
+var speed: float:
+	get: return _speed
 
 func get_header() -> String:
 	return name
