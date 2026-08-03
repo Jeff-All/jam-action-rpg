@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="TraitHoningStrikes" load_steps=5 format=3 uid="uid://dw6oil5uxtt4n"]
+
+[ext_resource type="Script" uid="uid://c2y468ay172a5" path="res://scripts/resources/characters/traits/trait_honing_strikes.gd" id="1_eef8o"]
+[ext_resource type="Script" uid="uid://b8aqhdfyg0yhb" path="res://scripts/resources/buffs/buffs_pc/buff_pc_honing_strikes.gd" id="1_xif53"]
+[ext_resource type="Texture2D" uid="uid://ctbg6l0kftbfc" path="res://resources/art/icons/traits/honing_strikes.png" id="2_5f8qc"]
+
+[sub_resource type="Resource" id="Resource_5bbn3"]
+script = ExtResource("1_xif53")
+base_hit_per_stack = 1
+hit_per_stack_per_agility = 1
+name = "Honing Strikes"
+texture = ExtResource("2_5f8qc")
+duration = -1.0
+stackable = true
+metadata/_custom_type_script = "uid://b8aqhdfyg0yhb"
+
+[resource]
+script = ExtResource("1_eef8o")
+buff = SubResource("Resource_5bbn3")
+name = "Honing Stikes"
+texture = ExtResource("2_5f8qc")
+metadata/_custom_type_script = "uid://c2y468ay172a5"

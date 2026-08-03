@@ -35,6 +35,10 @@ func add_adjustment(key: Variant,value: float):
 	adjustments[key] = value
 	on_change.emit(self)
 
+func add_to_adjustment(key: Variant, value: float):
+	adjustments[key] += value
+	on_change.emit(self)
+
 func remove_adjustment(key: Variant):
 	adjustments.erase(key)
 	on_change.emit(self)

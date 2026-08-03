@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_tojun")
 base_chance_to_block = 50
-base_amount_to_block = 1
+base_amount_to_block = 2
 _min_damage = 2
 _max_damage = 4
 _damage_type = "Slashing"

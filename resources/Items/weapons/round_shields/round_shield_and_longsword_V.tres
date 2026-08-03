@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_1ubig")
 base_chance_to_block = 50
-base_amount_to_block = 1
+base_amount_to_block = 5
 _min_damage = 6
 _max_damage = 8
 _damage_type = "Slashing"

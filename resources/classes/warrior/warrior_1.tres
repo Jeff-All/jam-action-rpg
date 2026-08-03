@@ -6,9 +6,9 @@
 [ext_resource type="Resource" uid="uid://c3kjh8y1s3hkk" path="res://resources/abilities/attacks/mighty_blow.tres" id="3_d556c"]
 [ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="3_m5vu7"]
 [ext_resource type="Resource" uid="uid://pm7hyykpmdep" path="res://resources/abilities/attacks/quick_strike.tres" id="4_bdby8"]
-[ext_resource type="Resource" uid="uid://dvy4snhfgwmnt" path="res://resources/trait/rage.tres" id="7_gg1rl"]
-[ext_resource type="Resource" uid="uid://dgd3itgl2jlui" path="res://resources/trait/subtle.tres" id="8_co6uf"]
-[ext_resource type="Resource" uid="uid://drhmxylhgm8r" path="res://resources/trait/desperate_frenzy.tres" id="9_yy682"]
+[ext_resource type="Resource" uid="uid://dvy4snhfgwmnt" path="res://resources/traits/rage.tres" id="7_gg1rl"]
+[ext_resource type="Resource" uid="uid://dgd3itgl2jlui" path="res://resources/traits/subtle.tres" id="8_co6uf"]
+[ext_resource type="Resource" uid="uid://drhmxylhgm8r" path="res://resources/traits/desperate_frenzy.tres" id="9_yy682"]
 
 [resource]
 script = ExtResource("2_i775a")

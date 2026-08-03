@@ -7,9 +7,9 @@
 [ext_resource type="Resource" uid="uid://bgy1piqbwk4va" path="res://resources/abilities/spells/divine_protection.tres" id="4_crokp"]
 [ext_resource type="Resource" uid="uid://dqniejeaqn52h" path="res://resources/abilities/attacks/divine_smite.tres" id="4_nu6pr"]
 [ext_resource type="Resource" uid="uid://c3kjh8y1s3hkk" path="res://resources/abilities/attacks/mighty_blow.tres" id="5_3b705"]
-[ext_resource type="Resource" uid="uid://dvy4snhfgwmnt" path="res://resources/trait/rage.tres" id="8_0dk13"]
-[ext_resource type="Resource" uid="uid://dgd3itgl2jlui" path="res://resources/trait/subtle.tres" id="9_8300u"]
-[ext_resource type="Resource" uid="uid://drhmxylhgm8r" path="res://resources/trait/desperate_frenzy.tres" id="10_tgdwa"]
+[ext_resource type="Resource" uid="uid://dvy4snhfgwmnt" path="res://resources/traits/rage.tres" id="8_0dk13"]
+[ext_resource type="Resource" uid="uid://dgd3itgl2jlui" path="res://resources/traits/subtle.tres" id="9_8300u"]
+[ext_resource type="Resource" uid="uid://drhmxylhgm8r" path="res://resources/traits/desperate_frenzy.tres" id="10_tgdwa"]
 
 [resource]
 script = ExtResource("2_73rhg")

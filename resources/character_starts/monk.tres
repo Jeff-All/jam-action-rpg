@@ -15,10 +15,10 @@
 [ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="15_1ymvw"]
 [ext_resource type="Resource" uid="uid://m4doyb4kcxlp" path="res://resources/races/race_pixie.tres" id="15_e6qja"]
 [ext_resource type="Script" uid="uid://b0rrnk75kj3xv" path="res://scripts/resources/characters/character_start_options.gd" id="16_7jsan"]
-[ext_resource type="Resource" uid="uid://drhmxylhgm8r" path="res://resources/trait/desperate_frenzy.tres" id="18_yay8f"]
-[ext_resource type="Resource" uid="uid://dvy4snhfgwmnt" path="res://resources/trait/rage.tres" id="19_csm5s"]
+[ext_resource type="Resource" uid="uid://drhmxylhgm8r" path="res://resources/traits/desperate_frenzy.tres" id="18_yay8f"]
+[ext_resource type="Resource" uid="uid://dvy4snhfgwmnt" path="res://resources/traits/rage.tres" id="19_csm5s"]
 [ext_resource type="Script" uid="uid://8tck1kie4m0e" path="res://scripts/resources/items/weapon.gd" id="19_ws6di"]
-[ext_resource type="Resource" uid="uid://dgd3itgl2jlui" path="res://resources/trait/subtle.tres" id="20_2udjf"]
+[ext_resource type="Resource" uid="uid://dgd3itgl2jlui" path="res://resources/traits/subtle.tres" id="20_2udjf"]
 [ext_resource type="Resource" uid="uid://t3k7vw4p3ae5" path="res://resources/Items/weapons/longsword/weapon_longsword_I.tres" id="20_k0j7h"]
 
 [resource]

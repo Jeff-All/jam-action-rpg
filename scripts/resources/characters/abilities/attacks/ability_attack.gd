@@ -18,11 +18,13 @@ func execute(ability_button: AbilityButton, source: PCUI, target):
 		if did_target_dodge(roll, ability_button, source, target):
 			target.spawn_combat_text("DODGE")
 		inflict(ability_button, source, target)
+		source.on_attack_hit.emit(source)
 	else:
 		target.spawn_combat_text("MISS")
+		source.on_attack_missed.emit(source)
 
 func did_roll_hit(roll: int, ability_button: AbilityButton, source: PCUI, target) -> bool:
-	return roll <= source.character.character_campaign.weapon.hit
+	return roll <= source.character.character_campaign.weapon.hit + source.character.attributes[CharacterCampaign.Attributes.ATTACKHIT].adjusted
 
 func did_target_dodge(roll: int, ability_button: AbilityButton, source: PCUI, target):
 	return false # place holder

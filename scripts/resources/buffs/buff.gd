@@ -7,5 +7,13 @@ extends Resource
 @export var duration: float
 @export var stackable: bool
 
+var stacks: int = 0
+
 func get_duration(caster) -> float:
 	return duration
+
+func add_stack():
+	pass
+
+func remove_stack():
+	pass
