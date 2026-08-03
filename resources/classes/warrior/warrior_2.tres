@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ClassLevel" load_steps=10 format=3 uid="uid://cwt7um1qeeoyt"]
+[gd_resource type="Resource" script_class="ClassLevel" load_steps=12 format=3 uid="uid://cwt7um1qeeoyt"]
 
 [ext_resource type="Script" uid="uid://bubl68t4u61vo" path="res://scripts/resources/characters/abilities/ability.gd" id="1_vu7yb"]
 [ext_resource type="Resource" uid="uid://bdjuot6dqgybf" path="res://resources/abilities/boons/restore.tres" id="2_jj43d"]
@@ -6,14 +6,16 @@
 [ext_resource type="Resource" uid="uid://pm7hyykpmdep" path="res://resources/abilities/attacks/quick_strike.tres" id="4_vu7yb"]
 [ext_resource type="Script" uid="uid://cr8mt1s82yoec" path="res://scripts/resources/characters/classes/class_level.gd" id="5_oreap"]
 [ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="6_bkhdy"]
-[ext_resource type="Resource" uid="uid://dvy4snhfgwmnt" path="res://resources/traits/rage.tres" id="7_5ajvq"]
-[ext_resource type="Resource" uid="uid://dgd3itgl2jlui" path="res://resources/traits/subtle.tres" id="8_tpcxm"]
-[ext_resource type="Resource" uid="uid://drhmxylhgm8r" path="res://resources/traits/desperate_frenzy.tres" id="9_punwl"]
+[ext_resource type="Resource" uid="uid://dvy4snhfgwmnt" path="res://resources/traits/rage.tres" id="7_jj43d"]
+[ext_resource type="Resource" uid="uid://dgd3itgl2jlui" path="res://resources/traits/subtle.tres" id="8_4dmux"]
+[ext_resource type="Resource" uid="uid://drhmxylhgm8r" path="res://resources/traits/desperate_frenzy.tres" id="9_cdykg"]
+[ext_resource type="Resource" uid="uid://dw6oil5uxtt4n" path="res://resources/traits/honing_strikes.tres" id="10_oreap"]
+[ext_resource type="Resource" uid="uid://c6oap7yc3e1wj" path="res://resources/traits/shield_master.tres" id="11_4dmux"]
 
 [resource]
 script = ExtResource("5_oreap")
 abilities = Array[ExtResource("1_vu7yb")]([ExtResource("2_jj43d"), ExtResource("3_4dmux"), ExtResource("4_vu7yb")])
-traits = Array[ExtResource("6_bkhdy")]([ExtResource("7_5ajvq"), ExtResource("8_tpcxm"), ExtResource("9_punwl")])
+traits = Array[ExtResource("6_bkhdy")]([ExtResource("7_jj43d"), ExtResource("8_4dmux"), ExtResource("9_cdykg"), ExtResource("10_oreap"), ExtResource("11_4dmux")])
 resources = Dictionary[int, float]({
 0: 3.0,
 1: 1.0,

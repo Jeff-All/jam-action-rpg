@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TraitShieldMaster" load_steps=3 format=3 uid="uid://c6oap7yc3e1wj"]
+
+[ext_resource type="Script" uid="uid://bi2pfons51fpn" path="res://scripts/resources/characters/traits/trait_shield_master.gd" id="1_i1ko6"]
+[ext_resource type="Texture2D" uid="uid://bts8ljw3ivrio" path="res://resources/art/icons/traits/shield_master.png" id="2_7p75a"]
+
+[resource]
+script = ExtResource("1_i1ko6")
+block_chance_per_agi = 3.0
+name = "Shield Master"
+texture = ExtResource("2_7p75a")
+metadata/_custom_type_script = "uid://bi2pfons51fpn"

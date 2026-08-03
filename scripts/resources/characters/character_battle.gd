@@ -20,6 +20,9 @@ var attributes: Dictionary[CharacterCampaign.Attributes, AdjustableAttribute] = 
 	CharacterCampaign.Attributes.THREAT: AdjustableAttribute.new(CharacterCampaign.Attributes.THREAT),
 	CharacterCampaign.Attributes.SUBTLETY: AdjustableAttribute.new(CharacterCampaign.Attributes.SUBTLETY),
 	CharacterCampaign.Attributes.ATTACKHIT: AdjustableAttribute.new(CharacterCampaign.Attributes.ATTACKHIT),
+	
+	CharacterCampaign.Attributes.BLOCK_CHANCE: AdjustableAttribute.new(CharacterCampaign.Attributes.BLOCK_CHANCE),
+	CharacterCampaign.Attributes.BLOCK_VALUE: AdjustableAttribute.new(CharacterCampaign.Attributes.BLOCK_VALUE),
 }
 
 var resources: Dictionary[CharacterCampaign.Resources, AdjustableResource] = {

@@ -6,7 +6,7 @@ signal on_change(AdjustableAttribute)
 
 var attribute: CharacterCampaign.Attributes
 var base: float
-var adjustments: Dictionary[Variant, float]
+var adjustments: Dictionary[Variant, Callable]
 
 var override: int:
 	set(value):
@@ -20,7 +20,7 @@ var adjusted: int:
 	get:
 		var value = base
 		for cur in adjustments:
-			value += adjustments[cur]
+			value += adjustments[cur].call()
 		if _override < 0:
 			return floor(value)
 		else: return _override
@@ -31,12 +31,11 @@ func _init(_attribute: CharacterCampaign.Attributes = CharacterCampaign.Attribut
 func reset():
 	adjustments.clear()
 
-func add_adjustment(key: Variant,value: float):
-	adjustments[key] = value
-	on_change.emit(self)
-
-func add_to_adjustment(key: Variant, value: float):
-	adjustments[key] += value
+func add_adjustment(key: Variant,value):
+	if value is Callable:
+		adjustments[key] = value
+	else: if value is float:
+		adjustments[key] = func(): return value
 	on_change.emit(self)
 
 func remove_adjustment(key: Variant):

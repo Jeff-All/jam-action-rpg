@@ -47,6 +47,8 @@ var attributes: Dictionary[Attributes, float] = {
 	Attributes.THREAT: 0,
 	Attributes.SUBTLETY: 0,
 	Attributes.ATTACKHIT: 0,
+	Attributes.BLOCK_CHANCE: 0,
+	Attributes.BLOCK_VALUE: 0,
 }
 
 enum Resources{ HEALTH, DURABILITY, SHIELDING, STAMINA, MANA, ARMOR }
@@ -59,6 +61,8 @@ enum Attributes {
 	THREAT,
 	SUBTLETY,
 	ATTACKHIT,
+	BLOCK_CHANCE,
+	BLOCK_VALUE,
 }
 
 func _init(_base: CharacterBase, attack: Ability):
@@ -81,7 +85,6 @@ func _init(_base: CharacterBase, attack: Ability):
 	available_abilities.append(attack)
 	abilities[1] = _base.ability
 	available_abilities.append(_base.ability)
-
 
 func get_character_battle() -> CharacterBattle:
 	return CharacterBattle.new(self)
