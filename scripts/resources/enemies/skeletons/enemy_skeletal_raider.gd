@@ -25,13 +25,13 @@ func execute_ability(ability: EnemyAbility, target, _battle: BattleUI):
 
 func find_target_cleave_armor(_battle: BattleUI, _enemy: EnemyUI) -> PCUI:
 	var cur_target = _enemy.enemy.threat_table.find_target()
-	var cur_armor = cur_target._character.attributes[CharacterCampaign.Attributes.ARMOR].adjusted
+	var cur_armor = cur_target.character.attributes[CharacterCampaign.Attributes.ARMOR].adjusted
 	for cur in _battle.pcs:
 		if cur.character != null:
 			if !cur.dead:
-				if cur_armor == 0 && cur._character.attributes[CharacterCampaign.Attributes.ARMOR].adjusted > 0:
+				if cur_armor == 0 && cur.character.attributes[CharacterCampaign.Attributes.ARMOR].adjusted > 0:
 					cur_target = cur
-					cur_armor = cur._character.attributes[CharacterCampaign.Attributes.ARMOR].adjusted
+					cur_armor = cur.character.attributes[CharacterCampaign.Attributes.ARMOR].adjusted
 	if cur_armor == 0:
 		return null
 	return cur_target

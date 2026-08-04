@@ -25,10 +25,10 @@ func execute_ability(ability: EnemyAbility, target, battle: BattleUI):
 func find_target_mageblood_poison(pcs: Array[PCUI]) -> PCUI:
 	var target: PCUI = null
 	for cur in pcs:
-		if cur._character != null && !cur._dead:
+		if cur.character != null && !cur._dead:
 			if target == null:
 				target = cur
-			else: if target._character.resources[CharacterCampaign.Resources.MANA]._recovery.adjusted < cur._character.resources[CharacterCampaign.Resources.MANA]._recovery.adjusted:
+			else: if target.character.resources[CharacterCampaign.Resources.MANA]._recovery.adjusted < cur.character.resources[CharacterCampaign.Resources.MANA]._recovery.adjusted:
 				target = cur
 	return target
 

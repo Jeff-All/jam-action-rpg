@@ -20,16 +20,16 @@ func _to_string() -> String:
 func get_icon() -> Texture2D:
 	return texture
 
-func apply(pcui: PCUI):
+func apply(pcui: PCUI, _battle: Battle):
 	for cur in attributes:
-		pcui._character.attributes[cur].add_adjustment(self, attributes[cur])
+		pcui.character.attributes[cur].add_adjustment(self, attributes[cur])
 	
 	for cur in resources:
-		pcui._character.resources[cur].add_adjustment(self, resources[cur])
+		pcui.character.resources[cur].add_adjustment(self, resources[cur])
 
 func remove(pcui: PCUI):
 	for cur in attributes:
-		pcui._character.attributes[cur].remove_adjustment(self)
+		pcui.character.attributes[cur].remove_adjustment(self)
 	
 	for cur in resources:
-		pcui._character.resources[cur].remove_adjustment(self)
+		pcui.character.resources[cur].remove_adjustment(self)

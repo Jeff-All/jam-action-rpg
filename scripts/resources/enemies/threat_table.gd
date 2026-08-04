@@ -29,26 +29,26 @@ func find_target() -> PCUI:
 
 func build_table(pcs: Array[PCUI]):
 	for cur in pcs:
-		if cur._character != null:
-			var cur_threat = cur._character.attributes[CharacterCampaign.Attributes.THREAT].adjusted
+		if cur.character != null:
+			var cur_threat = cur.character.attributes[CharacterCampaign.Attributes.THREAT].adjusted
 			add_threat(cur, cur_threat)
-			if cur._character.max_threat > max_threat: max_threat = cur._character.max_threat
-			if cur._character.min_threat < min_threat: min_threat = cur._character.min_threat
+			if cur.character.max_threat > max_threat: max_threat = cur.character.max_threat
+			if cur.character.min_threat < min_threat: min_threat = cur.character.min_threat
 
 func add_threat(target: PCUI, value: float):
 	var cur_threat = 0
 	if table.has(target):
 		cur_threat = table[target]
 	cur_threat += value
-	if cur_threat > target._character.max_threat:
+	if cur_threat > target.character.max_threat:
 		@warning_ignore("narrowing_conversion")
-		table[target] = target._character.max_threat
-		var excess_threat = cur_threat - target._character.max_threat
-		var _max_threat = target._character.max_threat
+		table[target] = target.character.max_threat
+		var excess_threat = cur_threat - target.character.max_threat
+		var _max_threat = target.character.max_threat
 		var max_threat_target = target
 		for cur in table:
 			if cur != target:
-				var other_threat = min(table[cur] , max(table[cur] - excess_threat, cur._character.min_threat))
+				var other_threat = min(table[cur] , max(table[cur] - excess_threat, cur.character.min_threat))
 				table[cur] = other_threat
 				if other_threat > _max_threat:
 					_max_threat = other_threat

@@ -6,7 +6,7 @@ extends Trait
 
 var pcui: PCUI
 
-func apply(_pcui: PCUI):
+func apply(_pcui: PCUI, _battle: Battle):
 	pcui = _pcui
 	pcui.on_attack_hit.connect(_on_character_attack_hit)
 	pcui.on_attack_missed.connect(_on_character_attack_miss)

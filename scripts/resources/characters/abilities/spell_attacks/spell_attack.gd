@@ -18,13 +18,13 @@ func execute(ability_button: AbilityButton, source: PCUI, target):
 		target.spawn_combat_text("MISS")
 
 func did_roll_hit(roll: int, ability_button: AbilityButton, source: PCUI, target) -> bool:
-	return roll <= to_hit + source._character.attributes[CharacterCampaign.Attributes.SPELLHIT].adjusted
+	return roll <= to_hit + source.character.attributes[CharacterCampaign.Attributes.SPELLHIT].adjusted
 
 func did_target_resist(roll: int, ability_button: AbilityButton, source: PCUI, target):
 	return false # place holder
 
 func inflict(ability_button: AbilityButton, source: PCUI, target):
-	var damage = randi_range(min_damage, max_damage) + source._character.attributes[CharacterCampaign.Attributes.MAGIC].adjusted
+	var damage = randi_range(min_damage, max_damage) + source.character.attributes[CharacterCampaign.Attributes.MAGIC].adjusted
 	target.enemy.take_damage(damage, true)
-	target.enemy.add_threat(source, damage - source._character.attributes[CharacterCampaign.Attributes.SUBTLETY].adjusted)
+	target.enemy.add_threat(source, damage - source.character.attributes[CharacterCampaign.Attributes.SUBTLETY].adjusted)
 	target.spawn_combat_text("%s" % (damage as int))

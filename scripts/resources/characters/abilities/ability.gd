@@ -45,7 +45,7 @@ func execute(ability_button: AbilityButton, source: PCUI, target):
 		source.trigger_base_cooldown()
 
 func consume_resources(source: PCUI):
-	source._character.consume_resources(cost)
+	source.character.consume_resources(cost)
 
 func get_cost(_resource: CharacterCampaign.Resources) -> int:
 	return 0

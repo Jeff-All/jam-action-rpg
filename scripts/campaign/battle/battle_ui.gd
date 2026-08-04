@@ -138,7 +138,7 @@ func setup_party():
 	for cur in battle.party:
 		if index > pcs.size():
 			break
-		pcs[index].character = cur
+		pcs[index].set_character(cur, battle)
 		pcs[index].visible = true
 		index += 1
 
@@ -273,7 +273,7 @@ func _exit_on_pressed(_simple_button: SimpleButton):
 
 func _pcui_on_death(_pc: PCUI):
 	for cur in pcs:
-		if cur._character != null:
+		if cur.character != null:
 			if !cur.dead:
 				return
 	defeat()

@@ -32,5 +32,5 @@ func did_target_dodge(roll: int, ability_button: AbilityButton, source: PCUI, ta
 func inflict(ability_button: AbilityButton, source: PCUI, target):
 	var damage = randi_range(source.character.character_campaign.weapon.min_damage, source.character.character_campaign.weapon.max_damage)
 	target.enemy.cur_health -= damage
-	target.enemy.add_threat(source, max(0, damage - source._character.attributes[CharacterCampaign.Attributes.SUBTLETY].adjusted))
+	target.enemy.add_threat(source, max(0, damage - source.character.attributes[CharacterCampaign.Attributes.SUBTLETY].adjusted))
 	target.spawn_combat_text("%s" % damage)

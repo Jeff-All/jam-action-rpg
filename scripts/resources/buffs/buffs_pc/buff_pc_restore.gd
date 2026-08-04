@@ -11,15 +11,15 @@ var magic_at_cast: float = 0
 
 func apply(pc: PCUI):
 	super(pc)
-	magic_at_cast = caster._character.attributes[CharacterCampaign.Attributes.MAGIC].adjusted
+	magic_at_cast = caster.character.attributes[CharacterCampaign.Attributes.MAGIC].adjusted
 	total_heal = get_duration(pc) * healing_per_step
 
 func get_duration(_caster) -> float:
-	return duration + caster._character.attributes[CharacterCampaign.Attributes.MAGIC].adjusted
+	return duration + caster.character.attributes[CharacterCampaign.Attributes.MAGIC].adjusted
 
 func process_step(pc: PCUI):
 	step_count += 1
 	if step_count % int(1 / Global.step_size) == 0:
-		var healed = pc._character.heal(healing_per_step)
-		pc.emit_global_threat.emit(caster, healed - ((caster._character.attributes[CharacterCampaign.Attributes.SUBTLETY].adjusted + magic_at_cast) * healing_per_step / total_heal))
+		var healed = pc.character.heal(healing_per_step)
+		pc.emit_global_threat.emit(caster, healed - ((caster.character.attributes[CharacterCampaign.Attributes.SUBTLETY].adjusted + magic_at_cast) * healing_per_step / total_heal))
 		pc.spawn_combat_text("+%s" % (healed as int))

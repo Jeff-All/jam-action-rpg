@@ -13,13 +13,13 @@ func apply(pc: PCUI):
 	super(pc)
 	
 	if pc != caster:
-		var cur_shield = caster._character.resources[CharacterCampaign.Resources.SHIELDING].cur
-		_shielding_per_step = shielding_per_step + (cur_shield / (caster._character.attributes[CharacterCampaign.Attributes.MAGIC].adjusted + base_applications))
-		caster._character.resources[CharacterCampaign.Resources.SHIELDING].cur = 0
+		var cur_shield = caster.character.resources[CharacterCampaign.Resources.SHIELDING].cur
+		_shielding_per_step = shielding_per_step + (cur_shield / (caster.character.attributes[CharacterCampaign.Attributes.MAGIC].adjusted + base_applications))
+		caster.character.resources[CharacterCampaign.Resources.SHIELDING].cur = 0
 	else: _shielding_per_step = shielding_per_step
 
 func get_duration(_caster) -> float:
-	return (caster._character.attributes[CharacterCampaign.Attributes.MAGIC].adjusted + base_applications) * seconds_per_application
+	return (caster.character.attributes[CharacterCampaign.Attributes.MAGIC].adjusted + base_applications) * seconds_per_application
 
 func process_step(pc: PCUI):
 	step_count += 1

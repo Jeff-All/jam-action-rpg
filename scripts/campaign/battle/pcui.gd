@@ -14,7 +14,7 @@ signal on_attack_missed(pc: PCUI)
 
 var _material: ShaderMaterial
 var portrait: CharacterPortrait
-var _character: CharacterBattle
+var character: CharacterBattle
 var status_bars: StatusBars
 var mouse_panel: Panel
 
@@ -32,20 +32,6 @@ var dead: bool:
 		_dead = value
 	get:
 		return _dead
-
-var character: CharacterBattle:
-	set(value):
-		_character = value
-		if _character == null:
-			return
-		portrait.character = value.character_campaign
-		set_abilities()
-		apply_traits()
-		bind_status_bars()
-		bind_character()
-		
-		_dead = false
-	get: return _character
 
 var clickable: bool:
 	set(value):
@@ -66,7 +52,7 @@ var texture: Texture2D:
 
 var dodge: int:
 	get:
-		return _character.character_campaign.dodge
+		return character.character_campaign.dodge
 
 func _ready():
 	_material = $VBoxContainer/CharacterPortrait.get_shader()
@@ -151,10 +137,21 @@ func _on_gui_input(event):
 						_material.set_shader_parameter("index", 2)
 						on_pressed.emit(self)
 
+func set_character(to_set: CharacterBattle, battle: Battle):
+	character = to_set
+	if character == null: return
+	portrait.character = character.character_campaign
+	set_abilities()
+	apply_traits(battle)
+	bind_status_bars()
+	bind_character()
+	
+	_dead = false
+
 func set_abilities():
 	clear_abilities()
 	var index = 0
-	for cur in _character.character_campaign.abilities:
+	for cur in character.character_campaign.abilities:
 		if index >= abilities.size():
 			break
 		abilities[index].ability = cur
@@ -172,38 +169,38 @@ func clear_buffs():
 		cur.buff = null
 
 func bind_status_bars():
-	status_bars.max_health = _character.character_campaign.resources[CharacterCampaign.Resources.HEALTH]
-	status_bars.cur_health = _character.character_campaign.resources[CharacterCampaign.Resources.HEALTH]
-	status_bars.max_durability = _character.character_campaign.resources[CharacterCampaign.Resources.DURABILITY]
-	status_bars.cur_durability = _character.character_campaign.resources[CharacterCampaign.Resources.DURABILITY]
-	status_bars.max_stamina= _character.character_campaign.resources[CharacterCampaign.Resources.STAMINA]
-	status_bars.cur_stamina = _character.character_campaign.resources[CharacterCampaign.Resources.STAMINA]
-	status_bars.max_mana = _character.character_campaign.resources[CharacterCampaign.Resources.MANA]
-	status_bars.cur_mana = _character.character_campaign.resources[CharacterCampaign.Resources.MANA]
+	status_bars.max_health = character.character_campaign.resources[CharacterCampaign.Resources.HEALTH]
+	status_bars.cur_health = character.character_campaign.resources[CharacterCampaign.Resources.HEALTH]
+	status_bars.max_durability = character.character_campaign.resources[CharacterCampaign.Resources.DURABILITY]
+	status_bars.cur_durability = character.character_campaign.resources[CharacterCampaign.Resources.DURABILITY]
+	status_bars.max_stamina= character.character_campaign.resources[CharacterCampaign.Resources.STAMINA]
+	status_bars.cur_stamina = character.character_campaign.resources[CharacterCampaign.Resources.STAMINA]
+	status_bars.max_mana = character.character_campaign.resources[CharacterCampaign.Resources.MANA]
+	status_bars.cur_mana = character.character_campaign.resources[CharacterCampaign.Resources.MANA]
 	
-	status_bars.cur_armor = _character.character_campaign.attributes[CharacterCampaign.Attributes.ARMOR]
+	status_bars.cur_armor = character.character_campaign.attributes[CharacterCampaign.Attributes.ARMOR]
 	status_bars.cur_shield = 0
 
 func bind_character():
-	_character.on_resources_consumed.connect(_on_resources_consumed)
-	_character.on_cur_resource_change.connect(_on_cur_resource_change)
-	_character.on_attribute_change.connect(_on_attribute_change)
-	_character.on_death.connect(_on_death)
+	character.on_resources_consumed.connect(_on_resources_consumed)
+	character.on_cur_resource_change.connect(_on_cur_resource_change)
+	character.on_attribute_change.connect(_on_attribute_change)
+	character.on_death.connect(_on_death)
 
 func unbind_character():
-	if _character != null:
-		_character.on_resources_consumed.disconnect(_on_resources_consumed)
-		_character.on_cur_resource_change.disconnect(_on_cur_resource_change)
-		_character.on_attribute_change.disconnect(_on_attribute_change)
-		_character.on_death.disconnect(_on_death)
+	if character != null:
+		character.on_resources_consumed.disconnect(_on_resources_consumed)
+		character.on_cur_resource_change.disconnect(_on_cur_resource_change)
+		character.on_attribute_change.disconnect(_on_attribute_change)
+		character.on_death.disconnect(_on_death)
 
-func apply_traits():
-	for cur in _character.traits:
-		cur.apply(self)
+func apply_traits(battle: Battle):
+	for cur in character.traits:
+		cur.apply(self, battle)
 
 func clear_traits():
-	if _character != null:
-		for cur in _character.traits:
+	if character != null:
+		for cur in character.traits:
 			cur.remove(self)
 
 func _on_attribute_change(attribute: CharacterCampaign.Attributes, value: int):
@@ -242,13 +239,13 @@ func take_damage(value: float, ignore_armor: bool = false):
 		if character.character_campaign.weapon is Shield:
 			var w_shield = character.character_campaign.weapon as Shield
 			var block_roll = Global.roll()
-			var block_chance = w_shield.base_chance_to_block + _character.attributes[CharacterCampaign.Attributes.BLOCK_CHANCE].adjusted
+			var block_chance = w_shield.base_chance_to_block + character.attributes[CharacterCampaign.Attributes.BLOCK_CHANCE].adjusted
 			if block_roll < block_chance:
-				dmg_blocked = min(w_shield.base_amount_to_block + _character.attributes[CharacterCampaign.Attributes.BLOCK_VALUE].adjusted, value)
+				dmg_blocked = min(w_shield.base_amount_to_block + character.attributes[CharacterCampaign.Attributes.BLOCK_VALUE].adjusted, value)
 				value -= dmg_blocked
 		if armor > 0 && durability > 0 && !ignore_armor:
 			var _min = minf(value, armor)
-			var durability_scale = _character.attributes[CharacterCampaign.Attributes.DURABILITY_SCALE].adjusted
+			var durability_scale = character.attributes[CharacterCampaign.Attributes.DURABILITY_SCALE].adjusted
 			var durability_scaling = max(Global.durability_damage_scale_minimum, durability_scale)
 			print("durability_scale: %s" % durability_scale)
 			dur_damage = snapped(_min * _min / armor * durability_scaling, 0.1)

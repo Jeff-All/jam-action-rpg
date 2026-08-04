@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="Trait" load_steps=3 format=3 uid="uid://k6t1lqceq070"]
+[gd_resource type="Resource" script_class="TraitDivineMartyr" load_steps=3 format=3 uid="uid://k6t1lqceq070"]
 
-[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="1_e6617"]
+[ext_resource type="Script" uid="uid://dwk77bov60xmf" path="res://scripts/resources/characters/traits/trait_divine_martyr.gd" id="1_l8qvm"]
 [ext_resource type="Texture2D" uid="uid://dmr61jf88rho0" path="res://resources/art/icons/traits/divine_martyr.png" id="2_l8qvm"]
 
 [resource]
-script = ExtResource("1_e6617")
+script = ExtResource("1_l8qvm")
 name = "Divine Martyr"
 texture = ExtResource("2_l8qvm")
 metadata/_custom_type_script = "uid://b4kiwt5xn06c8"
