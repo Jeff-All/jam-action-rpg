@@ -16,13 +16,13 @@ var override: int:
 
 var _override: int = -1
 
-var adjusted: int:
+var adjusted: float:
 	get:
 		var value = base
 		for cur in adjustments:
 			value += adjustments[cur].call()
 		if _override < 0:
-			return floor(value)
+			return value
 		else: return _override
 
 func _init(_attribute: CharacterCampaign.Attributes = CharacterCampaign.Attributes.STRENGTH):

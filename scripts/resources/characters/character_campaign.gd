@@ -49,6 +49,7 @@ var attributes: Dictionary[Attributes, float] = {
 	Attributes.ATTACKHIT: 0,
 	Attributes.BLOCK_CHANCE: 0,
 	Attributes.BLOCK_VALUE: 0,
+	Attributes.DURABILITY_SCALE: 0.5,
 }
 
 enum Resources{ HEALTH, DURABILITY, SHIELDING, STAMINA, MANA, ARMOR }
@@ -63,6 +64,7 @@ enum Attributes {
 	ATTACKHIT,
 	BLOCK_CHANCE,
 	BLOCK_VALUE,
+	DURABILITY_SCALE,
 }
 
 func _init(_base: CharacterBase, attack: Ability):

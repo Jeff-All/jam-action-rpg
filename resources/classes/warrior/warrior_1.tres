@@ -7,15 +7,15 @@
 [ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="3_m5vu7"]
 [ext_resource type="Resource" uid="uid://pm7hyykpmdep" path="res://resources/abilities/attacks/quick_strike.tres" id="4_bdby8"]
 [ext_resource type="Resource" uid="uid://dvy4snhfgwmnt" path="res://resources/traits/rage.tres" id="7_d556c"]
-[ext_resource type="Resource" uid="uid://dgd3itgl2jlui" path="res://resources/traits/subtle.tres" id="8_iw0tw"]
 [ext_resource type="Resource" uid="uid://drhmxylhgm8r" path="res://resources/traits/desperate_frenzy.tres" id="9_gg1rl"]
 [ext_resource type="Resource" uid="uid://dw6oil5uxtt4n" path="res://resources/traits/honing_strikes.tres" id="10_co6uf"]
 [ext_resource type="Resource" uid="uid://c6oap7yc3e1wj" path="res://resources/traits/shield_master.tres" id="11_iw0tw"]
+[ext_resource type="Resource" uid="uid://bq34uqyrg5kid" path="res://resources/traits/smithy.tres" id="12_gg1rl"]
 
 [resource]
 script = ExtResource("2_i775a")
 abilities = Array[ExtResource("1_5hh88")]([ExtResource("2_bdby8"), ExtResource("3_d556c"), ExtResource("4_bdby8")])
-traits = Array[ExtResource("3_m5vu7")]([ExtResource("7_d556c"), ExtResource("8_iw0tw"), ExtResource("9_gg1rl"), ExtResource("10_co6uf"), ExtResource("11_iw0tw")])
+traits = Array[ExtResource("3_m5vu7")]([ExtResource("7_d556c"), ExtResource("9_gg1rl"), ExtResource("10_co6uf"), ExtResource("11_iw0tw"), ExtResource("12_gg1rl")])
 resources = Dictionary[int, float]({
 0: 3.0,
 1: 1.0,

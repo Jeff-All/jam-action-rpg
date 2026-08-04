@@ -43,5 +43,7 @@ extends Node
 
 @export var xp_per_level: Array[int] = [2, 8, 18, 24, 30, 36]
 
+@export var durability_damage_scale_minimum: float = 0.1
+
 func roll() -> int:
 	return randi_range(1,100)

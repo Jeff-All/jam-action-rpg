@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Trait" load_steps=3 format=3 uid="uid://bq34uqyrg5kid"]
+
+[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="1_1rogn"]
+[ext_resource type="Texture2D" uid="uid://dd3se4rmqh3ml" path="res://resources/art/icons/traits/smithy.png" id="2_020ru"]
+
+[resource]
+script = ExtResource("1_1rogn")
+name = "Smithy"
+texture = ExtResource("2_020ru")
+attributes = Dictionary[int, float]({
+11: -0.19999999999708962
+})
+metadata/_custom_type_script = "uid://b4kiwt5xn06c8"

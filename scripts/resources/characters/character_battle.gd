@@ -20,9 +20,9 @@ var attributes: Dictionary[CharacterCampaign.Attributes, AdjustableAttribute] = 
 	CharacterCampaign.Attributes.THREAT: AdjustableAttribute.new(CharacterCampaign.Attributes.THREAT),
 	CharacterCampaign.Attributes.SUBTLETY: AdjustableAttribute.new(CharacterCampaign.Attributes.SUBTLETY),
 	CharacterCampaign.Attributes.ATTACKHIT: AdjustableAttribute.new(CharacterCampaign.Attributes.ATTACKHIT),
-	
 	CharacterCampaign.Attributes.BLOCK_CHANCE: AdjustableAttribute.new(CharacterCampaign.Attributes.BLOCK_CHANCE),
 	CharacterCampaign.Attributes.BLOCK_VALUE: AdjustableAttribute.new(CharacterCampaign.Attributes.BLOCK_VALUE),
+	CharacterCampaign.Attributes.DURABILITY_SCALE: AdjustableAttribute.new(CharacterCampaign.Attributes.DURABILITY_SCALE),
 }
 
 var resources: Dictionary[CharacterCampaign.Resources, AdjustableResource] = {
@@ -66,7 +66,11 @@ func _init(_character_campaign: CharacterCampaign):
 	character_campaign = _character_campaign
 	
 	for cur in character_campaign.attributes:
-		attributes[cur].base =  floor(character_campaign.attributes[cur])
+		if cur == CharacterCampaign.Attributes.DURABILITY_SCALE:
+			print("durability_scale: %s" % character_campaign.attributes[cur])
+			attributes[cur].base =  character_campaign.attributes[cur]
+		else:
+			attributes[cur].base =  floor(character_campaign.attributes[cur])
 		attributes[cur].on_change.connect(_on_attribute_change)
 	
 	for cur in character_campaign.resources:

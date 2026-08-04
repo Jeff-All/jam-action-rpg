@@ -243,13 +243,17 @@ func take_damage(value: float, ignore_armor: bool = false):
 			var w_shield = character.character_campaign.weapon as Shield
 			var block_roll = Global.roll()
 			var block_chance = w_shield.base_chance_to_block + _character.attributes[CharacterCampaign.Attributes.BLOCK_CHANCE].adjusted
-			print("block roll: %s < %s" % [block_roll, block_chance])
 			if block_roll < block_chance:
 				dmg_blocked = min(w_shield.base_amount_to_block + _character.attributes[CharacterCampaign.Attributes.BLOCK_VALUE].adjusted, value)
 				value -= dmg_blocked
 		if armor > 0 && durability > 0 && !ignore_armor:
 			var _min = minf(value, armor)
-			dur_damage = snapped(_min * (_min / (armor * 2)), 0.1)
+			var durability_scale = _character.attributes[CharacterCampaign.Attributes.DURABILITY_SCALE].adjusted
+			var durability_scaling = max(Global.durability_damage_scale_minimum, durability_scale)
+			print("durability_scale: %s" % durability_scale)
+			dur_damage = snapped(_min * _min / armor * durability_scaling, 0.1)
+			
+			print("dur_damage: %s = snap(%s * %s / %s * %s)" % [dur_damage, _min, _min, armor, durability_scaling])
 			durability -= dur_damage
 			if armor <= value:
 				value = value - armor
