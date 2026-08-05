@@ -24,12 +24,12 @@ func pick_ability(cur: EnemyUI, _battle: BattleUI) -> Array:
 func find_target_attack(cur: EnemyUI):
 	return cur.enemy.threat_table.find_target()
 
-func execute_ability(ability: EnemyAbility, target, _battle: BattleUI):
+func execute_ability(cur: EnemyUI, ability: EnemyAbility, target, _battle: BattleUI):
 	match ability:
 		ability_attack:
-			execute_attack(target)
+			execute_attack(cur, target)
 
-func execute_attack(target):
+func execute_attack(cur: EnemyUI, target):
 	var roll = Global.roll()
 	if roll <= ability_attack.floats["Hit"]:
 		roll = Global.roll()
@@ -37,6 +37,6 @@ func execute_attack(target):
 			target.spawn_combat_text("DODGE")
 			return
 		var damage = randi_range(ability_attack.floats["MinDamage"], ability_attack.floats["MaxDamage"])
-		target.take_damage(damage)
+		target.take_damage(cur, damage)
 	else:
 		target.spawn_combat_text("MISS")

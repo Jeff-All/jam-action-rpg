@@ -6,6 +6,7 @@ signal on_pressed(PCUI)
 signal on_ability_pressed(PCUI, AbilityButton)
 signal on_death(pc: PCUI)
 signal on_resources_consumed(pc: PCUI, cost: Dictionary[CharacterCampaign.Resources, int])
+signal on_shield_damaged(pc: PCUI, attacker, damage: float)
 signal emit_global_threat(emitter: PCUI, value: float)
 signal on_attack_hit(pc: PCUI)
 signal on_attack_missed(pc: PCUI)
@@ -224,7 +225,7 @@ func _on_cur_resource_change(resource: AdjustableResource, _change: float):
 			status_bars.cur_shield = resource.cur_floor
 	check_if_can_afford_abilities()
 
-func take_damage(value: float, ignore_armor: bool = false):
+func take_damage(attacker: EnemyUI, value: float, ignore_armor: bool = false):
 	var shield = character.resources[CharacterCampaign.Resources.SHIELDING].cur
 	var armor = character.attributes[CharacterCampaign.Attributes.ARMOR].adjusted
 	var durability = character.resources[CharacterCampaign.Resources.DURABILITY].cur
@@ -234,6 +235,7 @@ func take_damage(value: float, ignore_armor: bool = false):
 	var dmg_blocked = 0.0
 	if shield > 0:
 		shield_damage = min(value, shield)
+		on_shield_damaged.emit(self, attacker, shield_damage)
 		value -= shield_damage
 	if value > 0:
 		if character.character_campaign.weapon is Shield:

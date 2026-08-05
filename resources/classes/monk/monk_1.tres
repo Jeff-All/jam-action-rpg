@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ClassLevel" load_steps=11 format=3 uid="uid://dlnbv4lwslu77"]
+[gd_resource type="Resource" script_class="ClassLevel" load_steps=12 format=3 uid="uid://dlnbv4lwslu77"]
 
 [ext_resource type="Script" uid="uid://bubl68t4u61vo" path="res://scripts/resources/characters/abilities/ability.gd" id="1_jirwg"]
 [ext_resource type="Script" uid="uid://cr8mt1s82yoec" path="res://scripts/resources/characters/classes/class_level.gd" id="2_73rhg"]
@@ -10,11 +10,12 @@
 [ext_resource type="Resource" uid="uid://dvy4snhfgwmnt" path="res://resources/traits/rage.tres" id="8_0dk13"]
 [ext_resource type="Resource" uid="uid://dgd3itgl2jlui" path="res://resources/traits/subtle.tres" id="9_8300u"]
 [ext_resource type="Resource" uid="uid://drhmxylhgm8r" path="res://resources/traits/desperate_frenzy.tres" id="10_tgdwa"]
+[ext_resource type="Resource" uid="uid://jmlw108d5nor" path="res://resources/traits/retributive_divinity.tres" id="11_blxs1"]
 
 [resource]
 script = ExtResource("2_73rhg")
 abilities = Array[ExtResource("1_jirwg")]([ExtResource("2_crokp"), ExtResource("4_nu6pr"), ExtResource("4_crokp"), ExtResource("5_3b705")])
-traits = Array[ExtResource("3_tq7ox")]([ExtResource("8_0dk13"), ExtResource("9_8300u"), ExtResource("10_tgdwa")])
+traits = Array[ExtResource("3_tq7ox")]([ExtResource("8_0dk13"), ExtResource("9_8300u"), ExtResource("10_tgdwa"), ExtResource("11_blxs1")])
 resources = Dictionary[int, float]({
 0: 3.0,
 4: 1.0

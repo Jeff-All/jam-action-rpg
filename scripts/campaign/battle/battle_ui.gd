@@ -252,7 +252,7 @@ func _on_play_button_pressed(simple_button: SimpleButton):
 
 func _enemy_ui_on_cast_end(enemy: EnemyUI, ability: EnemyAbility, target):
 	if !target.dead && !enemy.dead:
-		enemy._enemy.base.execute_ability(ability, target, self)
+		enemy._enemy.base.execute_ability(enemy, ability, target, self)
 
 func _enemy_ui_on_death(_enemy: EnemyUI):
 	for cur in enemies:

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TraitRetributiveDivinity" load_steps=3 format=3 uid="uid://jmlw108d5nor"]
+
+[ext_resource type="Script" uid="uid://c2osh6wmdltjh" path="res://scripts/resources/characters/traits/trait_retributive_divinity.gd" id="1_6p61t"]
+[ext_resource type="Texture2D" uid="uid://caq033onhsg4n" path="res://resources/art/icons/traits/retributive_divinity.png" id="2_teugi"]
+
+[resource]
+script = ExtResource("1_6p61t")
+damage_per_magic = 0.5
+name = "Retributive Divinity"
+texture = ExtResource("2_teugi")
+metadata/_custom_type_script = "uid://c2osh6wmdltjh"

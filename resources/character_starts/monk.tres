@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CharacterStartOptions" load_steps=22 format=3 uid="uid://cuqx071yncbta"]
+[gd_resource type="Resource" script_class="CharacterStartOptions" load_steps=23 format=3 uid="uid://cuqx071yncbta"]
 
 [ext_resource type="Script" uid="uid://bubl68t4u61vo" path="res://scripts/resources/characters/abilities/ability.gd" id="1_besu5"]
 [ext_resource type="Resource" uid="uid://bgy1piqbwk4va" path="res://resources/abilities/spells/divine_protection.tres" id="3_y6yhs"]
@@ -20,6 +20,7 @@
 [ext_resource type="Resource" uid="uid://k6t1lqceq070" path="res://resources/traits/divine_martyr.tres" id="19_dkkpj"]
 [ext_resource type="Script" uid="uid://8tck1kie4m0e" path="res://scripts/resources/items/weapon.gd" id="19_ws6di"]
 [ext_resource type="Resource" uid="uid://dgd3itgl2jlui" path="res://resources/traits/subtle.tres" id="20_2udjf"]
+[ext_resource type="Resource" uid="uid://jmlw108d5nor" path="res://resources/traits/retributive_divinity.tres" id="20_b0puu"]
 [ext_resource type="Resource" uid="uid://t3k7vw4p3ae5" path="res://resources/Items/weapons/longsword/weapon_longsword_I.tres" id="20_k0j7h"]
 
 [resource]
@@ -27,7 +28,7 @@ script = ExtResource("16_7jsan")
 races = Array[ExtResource("10_srmgl")]([ExtResource("13_whvo0"), ExtResource("11_dkkpj"), ExtResource("15_e6qja")])
 classes = Array[ExtResource("8_2udjf")]([ExtResource("8_besu5")])
 abilities = Array[ExtResource("1_besu5")]([ExtResource("4_besu5"), ExtResource("3_y6yhs"), ExtResource("4_dkkpj")])
-traits = Array[ExtResource("15_1ymvw")]([ExtResource("18_yay8f"), ExtResource("19_csm5s"), ExtResource("20_2udjf"), ExtResource("19_dkkpj")])
+traits = Array[ExtResource("15_1ymvw")]([ExtResource("18_yay8f"), ExtResource("19_csm5s"), ExtResource("20_2udjf"), ExtResource("19_dkkpj"), ExtResource("20_b0puu")])
 weapons = Array[ExtResource("19_ws6di")]([ExtResource("20_k0j7h")])
 armor = Array[ExtResource("5_dkkpj")]([ExtResource("6_b0puu"), ExtResource("7_besu5")])
 metadata/_custom_type_script = "uid://b0rrnk75kj3xv"

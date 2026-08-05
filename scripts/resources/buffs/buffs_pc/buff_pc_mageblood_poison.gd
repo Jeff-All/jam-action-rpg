@@ -12,4 +12,4 @@ func remove(pc: PCUI):
 
 func _on_target_resources_consumed(pcui: PCUI, cost: Dictionary[CharacterCampaign.Resources, int]):
 	if cost.has(CharacterCampaign.Resources.MANA):
-		pcui.take_damage(damage, true)
+		pcui.take_damage(null, damage, true)
