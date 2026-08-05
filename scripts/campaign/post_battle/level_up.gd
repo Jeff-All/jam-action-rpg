@@ -64,7 +64,7 @@ func set_up(_character: CharacterCampaign, _abilities: Array[Ability], _traits: 
 
 	if cur_ability_count > 0:
 		ability_container.visible = true
-	else: if cur_ability_count > 0:
+	else: if cur_trait_count > 0:
 		trait_container.visible = true
 	else: return false
 	return true
