@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dbsbujkxbkcnn"]
 
-[ext_resource type="Script" uid="uid://dpvs2mmwj4jl2" path="res://scripts/campaign/xp_gain.gd" id="1_grml6"]
+[ext_resource type="Script" uid="uid://dpvs2mmwj4jl2" path="res://scripts/campaign/post_battle/xp_gain.gd" id="1_grml6"]
 [ext_resource type="PackedScene" uid="uid://bu1r41jvdgc68" path="res://scenes/campaign/character_xp_window.tscn" id="3_7k232"]
 [ext_resource type="PackedScene" uid="uid://dt7xrxget1oi1" path="res://scenes/ui/simple_button.tscn" id="4_mhggy"]
 [ext_resource type="Shader" uid="uid://biuiik7j0v1yi" path="res://shaders/edge_glow.gdshader" id="5_d1kfq"]

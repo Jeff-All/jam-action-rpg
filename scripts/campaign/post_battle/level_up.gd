@@ -45,7 +45,9 @@ func set_up(_character: CharacterCampaign, _abilities: Array[Ability], _traits: 
 	character.level_up()
 	
 	var index = 0
-	for cur in _abilities:
+	var rand_abilities = _abilities.duplicate()
+	rand_abilities.shuffle()
+	for cur in rand_abilities:
 		if index >= abilities.size(): break
 		if _character.available_abilities.has(cur): continue
 		abilities[index].value = cur
@@ -54,7 +56,9 @@ func set_up(_character: CharacterCampaign, _abilities: Array[Ability], _traits: 
 		cur_ability_count += 1
 	
 	index = 0
-	for cur in _traits:
+	var rand_traits = _traits.duplicate()
+	rand_traits.shuffle()
+	for cur in rand_traits:
 		if index >= traits.size(): break
 		if _character.available_traits.has(cur): continue
 		traits[index].value = cur

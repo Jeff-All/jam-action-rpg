@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://f763heqnyy3n"]
 
 [ext_resource type="Texture2D" uid="uid://dxy6bty10o4xp" path="res://resources/art/textures/slate_brick.png" id="1_gni4r"]
-[ext_resource type="Script" uid="uid://batukowkw5lel" path="res://scripts/campaign/post_battle.gd" id="1_uaqsl"]
+[ext_resource type="Script" uid="uid://batukowkw5lel" path="res://scripts/campaign/post_battle/post_battle.gd" id="1_uaqsl"]
 [ext_resource type="PackedScene" uid="uid://dbsbujkxbkcnn" path="res://scenes/campaign/xp_gain.tscn" id="2_1t4uo"]
 [ext_resource type="PackedScene" uid="uid://odrpsnm5tshc" path="res://scenes/campaign/post_battle/loot_ui.tscn" id="4_gni4r"]
 
