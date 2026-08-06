@@ -12,6 +12,7 @@ name = "Honing Strikes"
 texture = ExtResource("2_5f8qc")
 duration = -1.0
 stackable = true
+infinite = true
 metadata/_custom_type_script = "uid://b8aqhdfyg0yhb"
 
 [resource]

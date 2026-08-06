@@ -6,6 +6,7 @@ extends Resource
 @export var texture: Texture2D
 @export var duration: float
 @export var stackable: bool
+@export var infinite: bool = false
 
 var stacks: int = 0
 

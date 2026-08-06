@@ -48,7 +48,7 @@ func stack_buff(caster):
 func overwrite_buff(caster):
 	buff.caster = caster
 	animation_player.stop()
-	if _buff.duration > 0:
+	if !_buff.infinite:
 		animation_player.play("Duration")
 
 func start_buff(pc: PCUI, to_start: BuffPC, caster):
@@ -61,7 +61,7 @@ func start_buff(pc: PCUI, to_start: BuffPC, caster):
 		stacks.text = "%s" % buff.stacks
 		stacks.visible = true
 	else: stacks.visible = false
-	if _buff.duration > 0:
+	if !_buff.infinite:
 		animation_player.speed_scale = 1.0 / _buff.get_duration(pc)
 		animation_player.play("Duration")
 	else: animation_player.stop()
