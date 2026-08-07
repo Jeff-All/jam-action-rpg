@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ClassLevel" load_steps=13 format=3 uid="uid://dfmetx350k4hr"]
+[gd_resource type="Resource" script_class="ClassLevel" load_steps=14 format=3 uid="uid://dfmetx350k4hr"]
 
 [ext_resource type="Script" uid="uid://bubl68t4u61vo" path="res://scripts/resources/characters/abilities/ability.gd" id="1_28jhh"]
 [ext_resource type="Resource" uid="uid://bdjuot6dqgybf" path="res://resources/abilities/boons/restore.tres" id="2_r7osu"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://bgy1piqbwk4va" path="res://resources/abilities/spells/divine_protection.tres" id="4_r7osu"]
 [ext_resource type="Script" uid="uid://cr8mt1s82yoec" path="res://scripts/resources/characters/classes/class_level.gd" id="5_igehl"]
 [ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="6_dfd2d"]
+[ext_resource type="Resource" uid="uid://dk76ljlhdrfkn" path="res://resources/abilities/boons/divine_blessing.tres" id="6_igehl"]
 [ext_resource type="Resource" uid="uid://dvy4snhfgwmnt" path="res://resources/traits/rage.tres" id="8_3lpxk"]
 [ext_resource type="Resource" uid="uid://dgd3itgl2jlui" path="res://resources/traits/subtle.tres" id="9_nkhos"]
 [ext_resource type="Resource" uid="uid://drhmxylhgm8r" path="res://resources/traits/desperate_frenzy.tres" id="10_igehl"]
@@ -15,7 +16,7 @@
 
 [resource]
 script = ExtResource("5_igehl")
-abilities = Array[ExtResource("1_28jhh")]([ExtResource("2_r7osu"), ExtResource("3_3lpxk"), ExtResource("4_r7osu"), ExtResource("4_nkhos")])
+abilities = Array[ExtResource("1_28jhh")]([ExtResource("2_r7osu"), ExtResource("3_3lpxk"), ExtResource("4_r7osu"), ExtResource("4_nkhos"), ExtResource("6_igehl")])
 traits = Array[ExtResource("6_dfd2d")]([ExtResource("8_3lpxk"), ExtResource("9_nkhos"), ExtResource("10_igehl"), ExtResource("11_3lpxk"), ExtResource("12_nkhos")])
 resources = Dictionary[int, float]({
 0: 3.0,
