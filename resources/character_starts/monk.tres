@@ -31,7 +31,7 @@
 [ext_resource type="Resource" uid="uid://bsft2mx4nkfuo" path="res://resources/traits/placeholders/greatweapon_master.tres" id="27_0kp08"]
 [ext_resource type="Resource" uid="uid://dcvpgys27xw61" path="res://resources/traits/placeholders/onehanded_weapon_master.tres" id="28_t1lkg"]
 [ext_resource type="Resource" uid="uid://dajpjsmiq42lg" path="res://resources/traits/placeholders/master_of_hammers.tres" id="29_t3mnu"]
-[ext_resource type="Resource" uid="uid://d3e7x7np1q64a" path="res://resources/traits/placeholders/desperate_divinity.tres" id="30_bb4iq"]
+[ext_resource type="Resource" uid="uid://d3e7x7np1q64a" path="res://resources/traits/desperate_divinity.tres" id="30_bb4iq"]
 
 [resource]
 script = ExtResource("16_7jsan")

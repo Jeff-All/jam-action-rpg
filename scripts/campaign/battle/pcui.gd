@@ -7,6 +7,7 @@ signal on_ability_pressed(PCUI, AbilityButton)
 signal on_death(pc: PCUI)
 signal on_resources_consumed(pc: PCUI, cost: Dictionary[CharacterCampaign.Resources, int])
 signal on_shield_damaged(pc: PCUI, attacker, damage: float)
+signal on_health_damaged(pc: PCUI, attacker, damage: float)
 signal emit_global_threat(emitter: PCUI, value: float)
 signal on_attack_hit(pc: PCUI)
 signal on_attack_missed(pc: PCUI)
@@ -235,7 +236,6 @@ func take_damage(attacker: EnemyUI, value: float, ignore_armor: bool = false):
 	var dmg_blocked = 0.0
 	if shield > 0:
 		shield_damage = min(value, shield)
-		on_shield_damaged.emit(self, attacker, shield_damage)
 		value -= shield_damage
 	if value > 0:
 		if character.character_campaign.weapon is Shield:
@@ -259,18 +259,29 @@ func take_damage(attacker: EnemyUI, value: float, ignore_armor: bool = false):
 			else:
 				value = 0
 	print("take_damage(%s(%s)[%.1f]{%.1f})" % [value, orig_value, dur_damage, dmg_blocked])
-	var combat_text_string = "%s" % [value as int]
-	if dur_damage > 0: combat_text_string += "[%.1f]" % [dur_damage as float]
-	if shield_damage > 0: combat_text_string +="(%.1f)" % [shield_damage as float]
-	if dmg_blocked > 0: combat_text_string +="{%.1f}" % [dmg_blocked as float]
+	var combat_text_string = ""
+	if value > 0:
+		combat_text_string += "%.1f" % [value as float]
+	if dur_damage > 0: 
+		combat_text_string += "[%.1f]" % [dur_damage as float]
+	if shield_damage > 0:
+		combat_text_string +="(%.1f)" % [shield_damage as float]
+	if dmg_blocked > 0:
+		combat_text_string +="{%.1f}" % [dmg_blocked as float]
 	spawn_combat_text(combat_text_string)
 	
-	var health = character.resources[CharacterCampaign.Resources.HEALTH].cur
-	character.resources[CharacterCampaign.Resources.DURABILITY].cur = durability
-	character.resources[CharacterCampaign.Resources.SHIELDING].cur = shield - shield_damage
-	if durability <= 0:
-		character.attributes[CharacterCampaign.Attributes.ARMOR].override = 0
-	character.set_cur_resource(CharacterCampaign.Resources.HEALTH, health - value)
+	if shield_damage > 0:
+		character.resources[CharacterCampaign.Resources.SHIELDING].cur = shield - shield_damage
+		on_shield_damaged.emit(self, attacker, shield_damage)
+	if dmg_blocked >0:
+		pass
+	if dur_damage > 0:
+		character.resources[CharacterCampaign.Resources.DURABILITY].cur = durability
+		if durability <= 0:
+			character.attributes[CharacterCampaign.Attributes.ARMOR].override = 0
+	if value > 0:
+		character.resources[CharacterCampaign.Resources.HEALTH].cur -= value
+		on_health_damaged.emit(self, attacker, value)
 
 func add_shield(value: int):
 	print("add_shield: %s" % value)
