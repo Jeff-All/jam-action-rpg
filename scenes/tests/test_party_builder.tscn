@@ -25,10 +25,10 @@
 [ext_resource type="Resource" uid="uid://dx0bfyr7vfgtv" path="res://resources/Items/weapons/longsword/weapon_rusty_longsword.tres" id="21_72q3h"]
 [ext_resource type="Resource" uid="uid://1ww6pcrldjeq" path="res://resources/Items/weapons/weapon_rusty_dagger.tres" id="22_h7ibo"]
 [ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="24_ik3pe"]
-[ext_resource type="Resource" uid="uid://dl3c2od1ni3sf" path="res://resources/traits/agile.tres" id="25_aebwi"]
-[ext_resource type="Resource" uid="uid://bn2qfh2prc5la" path="res://resources/traits/strong.tres" id="26_4k24a"]
+[ext_resource type="Resource" uid="uid://dl3c2od1ni3sf" path="res://resources/traits/placeholders/agile.tres" id="25_aebwi"]
+[ext_resource type="Resource" uid="uid://bn2qfh2prc5la" path="res://resources/traits/placeholders/strong.tres" id="26_4k24a"]
 [ext_resource type="Resource" uid="uid://c0s2m7uqj1th8" path="res://resources/Items/weapons/weapon_worn_staff.tres" id="27_mykvl"]
-[ext_resource type="Resource" uid="uid://dty8f88lvkhfx" path="res://resources/traits/magical.tres" id="27_wamkq"]
+[ext_resource type="Resource" uid="uid://dty8f88lvkhfx" path="res://resources/traits/placeholders/magical.tres" id="27_wamkq"]
 [ext_resource type="Resource" uid="uid://du3shcmfkaba2" path="res://resources/Items/weapons/weapon_worn_longsword_and_shield.tres" id="28_c7kvu"]
 [ext_resource type="Resource" uid="uid://drsofqfp81wgn" path="res://resources/Items/weapons/weapon_gnarled_wand.tres" id="34_wamkq"]
 
