@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Trait" load_steps=3 format=3 uid="uid://ba6bmla3nus4x"]
+
+[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="1_klcbm"]
+[ext_resource type="Texture2D" uid="uid://c6vet34ouojmu" path="res://resources/art/icons/traits/wise_divinity.png" id="2_5ldk4"]
+
+[resource]
+script = ExtResource("1_klcbm")
+name = "Wise Divinity"
+texture = ExtResource("2_5ldk4")
+metadata/_custom_type_script = "uid://b4kiwt5xn06c8"

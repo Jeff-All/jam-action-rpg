@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CharacterStartOptions" load_steps=23 format=3 uid="uid://cuqx071yncbta"]
+[gd_resource type="Resource" script_class="CharacterStartOptions" load_steps=33 format=3 uid="uid://cuqx071yncbta"]
 
 [ext_resource type="Script" uid="uid://bubl68t4u61vo" path="res://scripts/resources/characters/abilities/ability.gd" id="1_besu5"]
 [ext_resource type="Resource" uid="uid://bgy1piqbwk4va" path="res://resources/abilities/spells/divine_protection.tres" id="3_y6yhs"]
@@ -15,20 +15,30 @@
 [ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="15_1ymvw"]
 [ext_resource type="Resource" uid="uid://m4doyb4kcxlp" path="res://resources/races/race_pixie.tres" id="15_e6qja"]
 [ext_resource type="Script" uid="uid://b0rrnk75kj3xv" path="res://scripts/resources/characters/character_start_options.gd" id="16_7jsan"]
+[ext_resource type="Resource" uid="uid://2461u4kkx2ry" path="res://resources/traits/desperate_wisdom.tres" id="16_t3mnu"]
 [ext_resource type="Resource" uid="uid://drhmxylhgm8r" path="res://resources/traits/desperate_frenzy.tres" id="18_yay8f"]
-[ext_resource type="Resource" uid="uid://dvy4snhfgwmnt" path="res://resources/traits/rage.tres" id="19_csm5s"]
 [ext_resource type="Resource" uid="uid://k6t1lqceq070" path="res://resources/traits/divine_martyr.tres" id="19_dkkpj"]
 [ext_resource type="Script" uid="uid://8tck1kie4m0e" path="res://scripts/resources/items/weapon.gd" id="19_ws6di"]
 [ext_resource type="Resource" uid="uid://dgd3itgl2jlui" path="res://resources/traits/subtle.tres" id="20_2udjf"]
 [ext_resource type="Resource" uid="uid://jmlw108d5nor" path="res://resources/traits/retributive_divinity.tres" id="20_b0puu"]
 [ext_resource type="Resource" uid="uid://t3k7vw4p3ae5" path="res://resources/Items/weapons/longsword/weapon_longsword_I.tres" id="20_k0j7h"]
+[ext_resource type="Resource" uid="uid://ba6bmla3nus4x" path="res://resources/traits/wise_divinity.tres" id="21_b18u5"]
+[ext_resource type="Resource" uid="uid://ccj3k5h1ad7f6" path="res://resources/traits/threatening_divinity.tres" id="22_2udjf"]
+[ext_resource type="Resource" uid="uid://4xoiyq6s5by7" path="res://resources/traits/resolute_divinity.tres" id="23_srmgl"]
+[ext_resource type="Resource" uid="uid://dmnsdok8h5itg" path="res://resources/traits/penitential_cleansing.tres" id="24_1ymvw"]
+[ext_resource type="Resource" uid="uid://dv4kpg5mdiuui" path="res://resources/traits/master_of_robes.tres" id="25_ws6di"]
+[ext_resource type="Resource" uid="uid://bugxg8xfp38y0" path="res://resources/traits/master_of_mail.tres" id="26_k0j7h"]
+[ext_resource type="Resource" uid="uid://bsft2mx4nkfuo" path="res://resources/traits/greatweapon_master.tres" id="27_0kp08"]
+[ext_resource type="Resource" uid="uid://dcvpgys27xw61" path="res://resources/traits/onehanded_weapon_master.tres" id="28_t1lkg"]
+[ext_resource type="Resource" uid="uid://dajpjsmiq42lg" path="res://resources/traits/master_of_hammers.tres" id="29_t3mnu"]
+[ext_resource type="Resource" uid="uid://d3e7x7np1q64a" path="res://resources/traits/desperate_divinity.tres" id="30_bb4iq"]
 
 [resource]
 script = ExtResource("16_7jsan")
 races = Array[ExtResource("10_srmgl")]([ExtResource("13_whvo0"), ExtResource("11_dkkpj"), ExtResource("15_e6qja")])
 classes = Array[ExtResource("8_2udjf")]([ExtResource("8_besu5")])
 abilities = Array[ExtResource("1_besu5")]([ExtResource("4_besu5"), ExtResource("3_y6yhs"), ExtResource("4_dkkpj")])
-traits = Array[ExtResource("15_1ymvw")]([ExtResource("18_yay8f"), ExtResource("19_csm5s"), ExtResource("20_2udjf"), ExtResource("19_dkkpj"), ExtResource("20_b0puu")])
+traits = Array[ExtResource("15_1ymvw")]([ExtResource("18_yay8f"), ExtResource("16_t3mnu"), ExtResource("30_bb4iq"), ExtResource("20_2udjf"), ExtResource("19_dkkpj"), ExtResource("20_b0puu"), ExtResource("21_b18u5"), ExtResource("22_2udjf"), ExtResource("23_srmgl"), ExtResource("24_1ymvw"), ExtResource("25_ws6di"), ExtResource("26_k0j7h"), ExtResource("27_0kp08"), ExtResource("28_t1lkg"), ExtResource("29_t3mnu")])
 weapons = Array[ExtResource("19_ws6di")]([ExtResource("20_k0j7h")])
 armor = Array[ExtResource("5_dkkpj")]([ExtResource("6_b0puu"), ExtResource("7_besu5")])
 metadata/_custom_type_script = "uid://b0rrnk75kj3xv"

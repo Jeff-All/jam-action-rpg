@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Trait" load_steps=3 format=3 uid="uid://crhrw2ofp8xqv"]
+
+[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="1_sjdq0"]
+[ext_resource type="Texture2D" uid="uid://bytlro4pnxkxp" path="res://resources/art/icons/traits/dueling_master.png" id="2_lucwg"]
+
+[resource]
+script = ExtResource("1_sjdq0")
+name = "Master of Duels"
+texture = ExtResource("2_lucwg")
+metadata/_custom_type_script = "uid://b4kiwt5xn06c8"

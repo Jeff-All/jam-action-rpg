@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Trait" load_steps=3 format=3 uid="uid://hpvel46siy3n"]
+
+[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="1_i2g6h"]
+[ext_resource type="Texture2D" uid="uid://b6abis15bxkxq" path="res://resources/art/icons/traits/master_of_plate.png" id="2_blpul"]
+
+[resource]
+script = ExtResource("1_i2g6h")
+name = "Master of Plate"
+texture = ExtResource("2_blpul")
+metadata/_custom_type_script = "uid://b4kiwt5xn06c8"

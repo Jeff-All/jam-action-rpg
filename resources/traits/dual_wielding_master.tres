@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Trait" load_steps=3 format=3 uid="uid://d12cm5aomb5q7"]
+
+[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="1_8h5oj"]
+[ext_resource type="Texture2D" uid="uid://jwu2ljghchs7" path="res://resources/art/icons/traits/dual_wielding_master.png" id="2_ndgal"]
+
+[resource]
+script = ExtResource("1_8h5oj")
+name = "Dual Wielding Master"
+texture = ExtResource("2_ndgal")
+metadata/_custom_type_script = "uid://b4kiwt5xn06c8"

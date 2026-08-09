@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Trait" load_steps=3 format=3 uid="uid://dcvpgys27xw61"]
+
+[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="1_db2iy"]
+[ext_resource type="Texture2D" uid="uid://bam1610cl46ht" path="res://resources/art/icons/traits/onehanded_weapon_master.png" id="2_wlupr"]
+
+[resource]
+script = ExtResource("1_db2iy")
+name = "Onehanded Weapon Master"
+texture = ExtResource("2_wlupr")
+metadata/_custom_type_script = "uid://b4kiwt5xn06c8"

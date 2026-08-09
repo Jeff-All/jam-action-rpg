@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Trait" load_steps=3 format=3 uid="uid://8relw1g4f526"]
+
+[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="1_5vjsu"]
+[ext_resource type="Texture2D" uid="uid://cpi6wvjlbhdij" path="res://resources/art/icons/traits/vengeful_martyr.png" id="2_paynb"]
+
+[resource]
+script = ExtResource("1_5vjsu")
+name = "Vengeful Martyr"
+texture = ExtResource("2_paynb")
+metadata/_custom_type_script = "uid://b4kiwt5xn06c8"

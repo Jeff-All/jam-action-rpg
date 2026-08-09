@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Trait" load_steps=3 format=3 uid="uid://dkimh8c5vevm1"]
+
+[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="1_07sfq"]
+[ext_resource type="Texture2D" uid="uid://05iulelasw5f" path="res://resources/art/icons/traits/master_of_swords.png" id="2_16ncp"]
+
+[resource]
+script = ExtResource("1_07sfq")
+name = "Master of Swords"
+texture = ExtResource("2_16ncp")
+metadata/_custom_type_script = "uid://b4kiwt5xn06c8"

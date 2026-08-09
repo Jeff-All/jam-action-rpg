@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Trait" load_steps=3 format=3 uid="uid://dmnsdok8h5itg"]
+
+[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="1_ttj0l"]
+[ext_resource type="Texture2D" uid="uid://bp4mnw4nll40t" path="res://resources/art/icons/traits/penitential_cleansing.png" id="2_781fr"]
+
+[resource]
+script = ExtResource("1_ttj0l")
+name = "Penitential Cleansing"
+texture = ExtResource("2_781fr")
+metadata/_custom_type_script = "uid://b4kiwt5xn06c8"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Trait" load_steps=3 format=3 uid="uid://4xoiyq6s5by7"]
+
+[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="1_8qtqt"]
+[ext_resource type="Texture2D" uid="uid://b15yqcss6dbrg" path="res://resources/art/icons/traits/resolute_divinity.png" id="2_87g06"]
+
+[resource]
+script = ExtResource("1_8qtqt")
+name = "Resolute Divinity"
+texture = ExtResource("2_87g06")
+metadata/_custom_type_script = "uid://b4kiwt5xn06c8"

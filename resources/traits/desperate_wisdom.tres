@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Trait" load_steps=3 format=3 uid="uid://2461u4kkx2ry"]
+
+[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="1_nctpr"]
+[ext_resource type="Texture2D" uid="uid://dqgnkdnebkfun" path="res://resources/art/icons/traits/desperate_wisdom.png" id="2_060bp"]
+
+[resource]
+script = ExtResource("1_nctpr")
+name = "Desperate Wisdom"
+texture = ExtResource("2_060bp")
+metadata/_custom_type_script = "uid://b4kiwt5xn06c8"

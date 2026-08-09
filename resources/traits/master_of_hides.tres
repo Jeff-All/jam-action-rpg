@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Trait" load_steps=3 format=3 uid="uid://bh2cq2s7peds4"]
+
+[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="1_022jb"]
+[ext_resource type="Texture2D" uid="uid://clf4vpka6fidl" path="res://resources/art/icons/traits/master_of_hides.png" id="2_ww1o8"]
+
+[resource]
+script = ExtResource("1_022jb")
+name = "Master  of Hides"
+texture = ExtResource("2_ww1o8")
+metadata/_custom_type_script = "uid://b4kiwt5xn06c8"

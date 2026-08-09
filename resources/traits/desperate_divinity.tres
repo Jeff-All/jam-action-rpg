@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Trait" load_steps=3 format=3 uid="uid://d3e7x7np1q64a"]
+
+[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="1_rm8v1"]
+[ext_resource type="Texture2D" uid="uid://j8q8fflje0gs" path="res://resources/art/icons/traits/desperate_divinity.png" id="2_6ksgf"]
+
+[resource]
+script = ExtResource("1_rm8v1")
+name = "Desperate Divinity"
+texture = ExtResource("2_6ksgf")
+metadata/_custom_type_script = "uid://b4kiwt5xn06c8"

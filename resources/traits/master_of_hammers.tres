@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Trait" load_steps=3 format=3 uid="uid://dajpjsmiq42lg"]
+
+[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="1_rcah7"]
+[ext_resource type="Texture2D" uid="uid://bnqfpnn4mhukp" path="res://resources/art/icons/traits/master_of_hammers.png" id="2_1x5me"]
+
+[resource]
+script = ExtResource("1_rcah7")
+name = "Master of Hammers"
+texture = ExtResource("2_1x5me")
+metadata/_custom_type_script = "uid://b4kiwt5xn06c8"

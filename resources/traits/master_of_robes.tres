@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Trait" load_steps=3 format=3 uid="uid://dv4kpg5mdiuui"]
+
+[ext_resource type="Script" uid="uid://b4kiwt5xn06c8" path="res://scripts/resources/characters/traits/trait.gd" id="1_771bi"]
+[ext_resource type="Texture2D" uid="uid://cjgxgk4hwjlr" path="res://resources/art/icons/traits/master_of_robes.png" id="2_drxbs"]
+
+[resource]
+script = ExtResource("1_771bi")
+name = "Master of Robes"
+texture = ExtResource("2_drxbs")
+metadata/_custom_type_script = "uid://b4kiwt5xn06c8"
