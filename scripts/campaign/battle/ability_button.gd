@@ -106,6 +106,7 @@ func reset():
 	animation_player.advance(1)
 
 func process_animations(delta: float):
+	print("process_animations: %s" % [speed_scale.adjusted])
 	animation_player.advance(delta * speed_scale.adjusted)
 
 func process_step():                                                                                                                                          
